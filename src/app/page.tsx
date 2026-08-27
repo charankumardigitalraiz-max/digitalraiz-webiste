@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import GrowthSection from "@/components/GrowthSection";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import SolutionsSection from "@/components/SolutionsSection";
-import Contact from "@/components/Contact";
+import Hero from "@/components/home/Hero";
+import Services from "@/components/home/Services";
+import GrowthSection from "@/components/home/GrowthSection";
+import CapabilitiesSection from "@/components/home/CapabilitiesSection";
+import SolutionsSection from "@/components/home/SolutionsSection";
+import Contact from "@/components/home/Contact";
 import Footer from "@/components/Footer";
 
 // SEO Metadata from Page 1 of the Content PDF
@@ -74,3 +74,4 @@ export default function Home() {
     </div>
   );
 }
+

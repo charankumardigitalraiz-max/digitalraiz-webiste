@@ -122,6 +122,24 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* Sliding Banner Divider (between Philosophy and Timeline) */}
+            {/* <div className="w-full relative overflow-hidden bg-gradient-to-r from-slate-50 via-pink-50/10 to-slate-50 py-4 border-y border-slate-100/60 my-4 select-none">
+              <div className="flex animate-scroll-horizontal whitespace-nowrap gap-12 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                {[1, 2, 3].map((i) => (
+                  <span key={i} className="flex items-center gap-12 shrink-0">
+                    <span>Customized Digital Marketing</span>
+                    <span className="text-pink-500 font-normal opacity-50">•</span>
+                    <span>SEO-Friendly Development</span>
+                    <span className="text-indigo-500 font-normal opacity-50">•</span>
+                    <span>Scalable Tech Solutions</span>
+                    <span className="text-pink-500 font-normal opacity-50">•</span>
+                    <span>Performance Campaign Optimization</span>
+                    <span className="text-indigo-500 font-normal opacity-50">•</span>
+                  </span>
+                ))}
+              </div>
+            </div> */}
+
             {/* 2. Narrative Timeline Journey Section */}
             <div className="relative pt-2 border-t border-slate-100/60 space-y-20">
 
