@@ -36,10 +36,10 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
-      
+
       <main className="flex-grow pt-[80px]">
         {/* Infinite Scrolling Content Bands Banner */}
-        <div 
+        <div
           className="relative pt-28 pb-14 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
           style={{
             backgroundImage: "url('/images/about_us_banner.png')"
@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
           <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-20">
+          <div className="max-w-6xl mx-auto px-6 w-full space-y-10">
 
             {/* 1. Brand Philosophy Editorial Split Row (No card outline) */}
             <div className="flex flex-col lg:flex-row gap-12 items-center pb-8">
@@ -123,8 +123,8 @@ export default function AboutPage() {
             </div>
 
             {/* 2. Narrative Timeline Journey Section */}
-            <div className="relative pt-12 border-t border-slate-100/60 space-y-20">
-              
+            <div className="relative pt-2 border-t border-slate-100/60 space-y-20">
+
               {/* Vertical timeline track */}
               <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 top-12 bottom-12 w-[2px] bg-gradient-to-b from-pink-500 via-indigo-500 to-emerald-500 opacity-20 z-0 hidden sm:block" />
 
@@ -135,7 +135,7 @@ export default function AboutPage() {
                   <span className="text-[10px] font-bold text-pink-600 tracking-widest uppercase">01 / Perspective</span>
                   <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Our Vision</h4>
                 </div>
-                
+
                 {/* Center dot */}
                 <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-pink-500 shadow-sm z-20 hidden md:block" />
 
@@ -195,22 +195,27 @@ export default function AboutPage() {
 
             </div>
 
-            {/* Bottom Row: FID / Stats Card Grid */}
-            <div className="pt-8 space-y-8">
+            {/* Bottom Row: Architectural Split Metrics Console (No cards) */}
+            <div className="pt-12 border-t border-slate-100/60 space-y-12">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Verified Progress</span>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-855">DigitalRaiz by the Numbers</h3>
+                <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Verified Progress</span>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-850">DigitalRaiz by the Numbers</h3>
               </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {stats.map((stat, i) => (
-                  <div key={i} className="bg-gradient-to-br from-white to-slate-50/40 border border-slate-100 rounded-3xl p-6 text-center shadow-md hover:scale-[1.02] hover:shadow-lg transition-all duration-300 group">
-                    <div className="w-10 h-10 mx-auto rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-sm mb-4 group-hover:scale-105 transition-transform duration-300">
-                      {stat.icon}
+                  <div key={i} className="flex gap-4 items-center group transition-transform duration-300 hover:scale-[1.01]">
+                    {/* Large Colored Number */}
+                    <div className="text-4xl sm:text-5xl font-black tracking-tight text-gradient-primary shrink-0 select-none">
+                      {stat.value}
                     </div>
-                    <div className="text-3xl sm:text-4xl font-black text-slate-800 mb-1">{stat.value}</div>
-                    <div className="text-xs font-bold text-slate-850 uppercase tracking-tight mt-1">{stat.label}</div>
-                    <p className="text-[10px] text-slate-500 mt-1 font-light leading-snug">{stat.desc}</p>
+                    {/* Vertical Divider */}
+                    <div className="w-[1.5px] h-10 bg-slate-200" />
+                    {/* Text Details Block */}
+                    <div className="space-y-0.5">
+                      <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wider block leading-tight">{stat.label}</span>
+                      <span className="text-[10px] text-slate-500 font-light leading-snug block">{stat.desc}</span>
+                    </div>
                   </div>
                 ))}
               </div>
