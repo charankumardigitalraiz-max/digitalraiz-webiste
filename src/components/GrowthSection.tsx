@@ -94,7 +94,7 @@ export default function GrowthSection() {
           </div>
 
           {/* Stepper Tabs - Embedded inside the card container */}
-          <div className="bg-slate-50/80 p-1.5 rounded-2xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-sm z-10">
+          <div className="bg-white p-1.5 rounded-2xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md z-10">
             {phases.map((p) => {
               const PIcon = p.icon;
               const isActive = p.id === activePhase;
