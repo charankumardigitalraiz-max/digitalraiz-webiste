@@ -40,10 +40,10 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
       
-      <main className="flex-grow pt-[80px]">
+      <main className="flex-grow">
         {/* Asymmetrical Premium Hero Banner with Custom Background Image */}
         <div 
-          className="relative pt-28 pb-20 text-slate-800 overflow-hidden text-center select-none bg-cover bg-center border-b border-slate-100"
+          className="relative pt-36 pb-20 text-slate-800 overflow-hidden text-center select-none bg-cover bg-center border-b border-slate-100"
           style={{
             backgroundImage: "url('/images/about_us_banner.png')"
           }}
