@@ -141,14 +141,7 @@ export default function GrowthSection() {
             <div className="lg:col-span-7 space-y-6 relative z-10">
 
               {/* Header with Icon Badge */}
-              {/* <div className="flex items-center gap-3">
-                <div className={`w-9 h-9 rounded-xl ${currentPhase.badge} flex items-center justify-center text-white shadow-sm`}>
-                  <CurrentIcon className="w-4.5 h-4.5" />
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] block" style={{ color: currentPhase.accent }}>
-                  Phase {currentPhase.id} Blueprint
-                </span>
-              </div> */}
+
 
               <div className="space-y-1.5">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{currentPhase.label}</p>
