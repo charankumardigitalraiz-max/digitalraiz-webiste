@@ -86,7 +86,7 @@ export default function GrowthSection() {
         </div>
 
         {/* Single Unified Interactive Process Card */}
-        <div className="bg-white border border-slate-100 rounded-xl p-6 sm:p-8 md:p-10 shadow-md relative overflow-hidden space-y-8">
+        <div className="bg-white border border-slate-100 rounded-xl pt-4 pb-6 px-6 sm:pt-5 sm:pb-8 sm:px-8 md:pt-6 md:pb-10 md:px-10 shadow-md relative overflow-hidden space-y-4">
 
           {/* Floating watermark badge representing active ID */}
           <div className="absolute right-4 bottom-4 text-[180px] font-black text-slate-200/70 select-none pointer-events-none font-mono leading-none -z-10">
