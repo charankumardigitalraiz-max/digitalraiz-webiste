@@ -65,8 +65,8 @@ export default function Footer() {
       <div className="absolute -top-40 right-1/4 w-[500px] h-[500px] rounded-full bg-pink-500/10 blur-[120px] pointer-events-none -z-10" />
 
       {/* Giant Watermark background text - behind the links */}
-      <div className="absolute top-[38%] left-0 right-0 text-[14vw] font-black text-white/[0.030] leading-none pointer-events-none select-none tracking-tighter lowercase z-0 text-center">
-        digitalraiz
+      <div className="absolute top-[38%] left-0 right-0 text-[14vw] font-black text-white/[0.030] leading-none pointer-events-none select-none tracking-tighter z-0 text-center">
+        DigitalRaiz
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
@@ -75,7 +75,7 @@ export default function Footer() {
         {/* Asymmetrical Layout Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-10">
 
-          {/* LEFT PANEL: Brand, Logo & Intro */}
+            {/* LEFT PANEL: Brand, Logo & Intro */}
           <div className="lg:col-span-5 space-y-1 lg:pr-8">
             <div className="space-y-2">
               <Image
@@ -85,7 +85,7 @@ export default function Footer() {
                 height={122}
                 className="w-full h-auto max-w-[180px] -my-8 hover:scale-[1.03] transition-transform duration-300 cursor-pointer"
               />
-              <p className="text-pink-100/70 text-sm sm:text-base font-light leading-relaxed max-w-sm">
+              <p className="text-pink-100/70 text-sm leading-relaxed max-w-sm font-normal">
                 A design-driven digital marketing and product development agency in Hyderabad, dedicated to building brands that stand out and scale.
               </p>
             </div>
@@ -94,15 +94,15 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 group">
                 <div className="w-5 h-5 flex items-center justify-center">
-                  <MapPin className="w-4 h-4 text-pink-300" />
+                  <MapPin className="w-4 h-4 text-pink-300/80" />
                 </div>
-                <span className="text-pink-100/80 text-sm font-light">Madhapur, Hyderabad, India</span>
+                <span className="text-pink-100/80 text-sm font-normal">Madhapur, Hyderabad, India</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="w-5 h-5 flex items-center justify-center">
-                  <Mail className="w-4 h-4 text-indigo-300" />
+                  <Mail className="w-4 h-4 text-indigo-300/80" />
                 </div>
-                <span className="text-pink-100/80 text-sm font-light">info@digitalraiz.com</span>
+                <span className="text-pink-100/80 text-sm font-normal">info@digitalraiz.com</span>
               </div>
             </div>
 
@@ -137,17 +137,17 @@ export default function Footer() {
 
             {/* Services Link List */}
             <div className="space-y-6">
-              <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-pink-300">Our Services</h4>
-              <ul className="space-y-3.5">
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-pink-300">Our Services</h4>
+              <ul className="space-y-3">
                 {services.map((svc) => {
                   const Icon = svc.icon;
                   return (
                     <li key={svc.label}>
                       <a
                         href="/services"
-                        className="group flex items-center gap-2 text-pink-100 hover:text-white transition-colors text-xs sm:text-sm font-medium"
+                        className="group flex items-center gap-2 text-pink-100/85 hover:text-white transition-colors text-sm font-normal"
                       >
-                        <Icon className="w-4 h-4 text-pink-300 group-hover:text-white transition-colors shrink-0" />
+                        <Icon className="w-4 h-4 text-pink-300/80 group-hover:text-white transition-colors shrink-0" />
                         <span>{svc.label}</span>
                       </a>
                     </li>
@@ -158,15 +158,15 @@ export default function Footer() {
 
             {/* Quick Links List */}
             <div className="space-y-6">
-              <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-pink-300">Quick Links</h4>
-              <ul className="space-y-3.5">
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-pink-300">Quick Links</h4>
+              <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group flex items-center gap-2.5 text-pink-100 hover:text-white transition-all duration-200 text-xs sm:text-sm font-medium"
+                      className="group flex items-center gap-2.5 text-pink-100/85 hover:text-white transition-all duration-200 text-sm font-normal"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-pink-400 group-hover:bg-white transition-colors shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-pink-400 group-hover:bg-white transition-colors shrink-0" />
                       <span>{link.label}</span>
                     </a>
                   </li>
@@ -176,15 +176,15 @@ export default function Footer() {
 
             {/* Contact Quick Details */}
             <div className="space-y-6">
-              <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-pink-300">Working Hours</h4>
-              <div className="space-y-3.5 text-xs sm:text-sm font-light text-pink-200">
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-pink-300">Working Hours</h4>
+              <div className="space-y-3 text-sm font-normal text-pink-200/85">
                 <div>
-                  <p className="font-semibold text-white">Mon - Fri</p>
-                  <p>9:00 AM - 6:00 PM</p>
+                  <p className="font-bold text-white">Mon - Fri</p>
+                  <p className="mt-0.5 text-pink-100/70">9:00 AM - 6:00 PM</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Saturday</p>
-                  <p>10:00 AM - 2:00 PM</p>
+                  <p className="font-bold text-white">Saturday</p>
+                  <p className="mt-0.5 text-pink-100/70">10:00 AM - 2:00 PM</p>
                 </div>
               </div>
             </div>
