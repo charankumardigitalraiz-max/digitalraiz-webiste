@@ -87,14 +87,14 @@ export default function GrowthSection() {
 
         {/* Single Unified Interactive Process Card */}
         <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 md:p-10 shadow-md relative overflow-hidden space-y-8">
-          
+
           {/* Floating watermark badge representing active ID */}
           <div className="absolute right-4 bottom-4 text-[180px] font-black text-slate-200/70 select-none pointer-events-none font-mono leading-none -z-10">
             {currentPhase.id}
           </div>
 
           {/* Stepper Tabs - Embedded inside the card container */}
-          <div className="bg-slate-50/80 p-1.5 rounded-2xl border border-slate-100/60 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-sm z-10">
+          <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-900 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md z-10">
             {phases.map((p) => {
               const PIcon = p.icon;
               const isActive = p.id === activePhase;
@@ -103,15 +103,15 @@ export default function GrowthSection() {
                   key={p.id}
                   onClick={() => setActivePhase(p.id)}
                   className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none border-b-2 group ${isActive
-                      ? "bg-white shadow-md text-slate-800 scale-[1.02] border-transparent"
-                      : "text-slate-500 hover:bg-white/50 border-transparent"
+                    ? "bg-white shadow-md text-slate-800 scale-[1.02] border-transparent"
+                    : "text-slate-400 hover:bg-white/5 border-transparent"
                     }`}
                   style={{
                     borderBottomColor: isActive ? p.accent : undefined
                   }}
                 >
                   {/* Node Icon Badge */}
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white border border-slate-100 text-slate-400" : "bg-transparent text-slate-400 group-hover:text-slate-650"
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white border border-slate-100 text-slate-400" : "bg-white/5 text-slate-400 group-hover:text-slate-300 group-hover:bg-white/10"
                     }`}
                     style={{
                       color: isActive ? p.accent : undefined,
@@ -121,14 +121,12 @@ export default function GrowthSection() {
                   </div>
 
                   <div className="text-left hidden sm:block">
-                    <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${
-                      isActive ? "text-slate-500" : "text-slate-400 group-hover:text-slate-500"
-                    }`}>
+                    <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${isActive ? "text-slate-500" : "text-slate-400 group-hover:text-slate-300"
+                      }`}>
                       Phase {p.id}
                     </span>
-                    <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${
-                      isActive ? "text-slate-800" : "text-slate-500 group-hover:text-slate-800"
-                    }`}>
+                    <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${isActive ? "text-slate-800" : "text-slate-400 group-hover:text-white"
+                      }`}>
                       {p.label}
                     </span>
                   </div>
@@ -144,14 +142,14 @@ export default function GrowthSection() {
             <div className="lg:col-span-7 space-y-6 relative z-10">
 
               {/* Header with Icon Badge */}
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <div className={`w-9 h-9 rounded-xl ${currentPhase.badge} flex items-center justify-center text-white shadow-sm`}>
                   <CurrentIcon className="w-4.5 h-4.5" />
                 </div>
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] block" style={{ color: currentPhase.accent }}>
                   Phase {currentPhase.id} Blueprint
                 </span>
-              </div>
+              </div> */}
 
               <div className="space-y-1.5">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{currentPhase.label}</p>
