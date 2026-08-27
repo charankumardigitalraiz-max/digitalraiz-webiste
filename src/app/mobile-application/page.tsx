@@ -1,16 +1,71 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, Smartphone, SmartphoneNfc, AppWindow, Cpu, ShieldCheck, Sparkles, Star, ExternalLink, Box, Grid, Award, CheckCircle2, Milestone } from "lucide-react";
+import { ArrowRight, Smartphone, SmartphoneNfc, AppWindow, Cpu, ShieldCheck, Sparkles, Star, ExternalLink, Box, Grid, Award, CheckCircle2, Milestone, ChevronLeft, ChevronRight } from "lucide-react";
 import PlatformExplorer from "@/components/PlatformExplorer";
 import ProcessConsole from "@/components/ProcessConsole";
 
-export const metadata = {
-  title: "Custom Mobile App Development Services in Hyderabad | DigitalRaiz",
-  description: "Hyderabad's leading mobile app development company. We build high-performance Android, iOS, Flutter, Native, and Hybrid mobile applications.",
-};
-
 export default function MobileApplicationPage() {
+  const [activeIndex, setActiveIndex] = useState(2);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const startAutoScroll = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsPaused(true);
+    const viewport = e.currentTarget.querySelector('.mockup-viewport') as HTMLDivElement;
+    if (!viewport) return;
+    
+    const animId = viewport.getAttribute('data-anim-id');
+    if (animId) cancelAnimationFrame(parseInt(animId));
+    
+    viewport.setAttribute('data-user-scrolled', 'false');
+    
+    const startTime = performance.now();
+    const startScroll = viewport.scrollTop;
+    const targetScroll = viewport.scrollHeight - viewport.clientHeight;
+    const duration = 12000; // Smooth slow scroll down
+
+    const scrollStep = (timestamp: number) => {
+      const isUserScrolled = viewport.getAttribute('data-user-scrolled') === 'true';
+      if (isUserScrolled) return;
+
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      
+      viewport.scrollTop = startScroll + (targetScroll - startScroll) * ease;
+
+      if (progress < 1) {
+        const nextId = requestAnimationFrame(scrollStep);
+        viewport.setAttribute('data-anim-id', nextId.toString());
+      }
+    };
+    
+    const firstId = requestAnimationFrame(scrollStep);
+    viewport.setAttribute('data-anim-id', firstId.toString());
+  };
+
+  const stopAutoScroll = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsPaused(false);
+    const viewport = e.currentTarget.querySelector('.mockup-viewport') as HTMLDivElement;
+    if (!viewport) return;
+    
+    const animId = viewport.getAttribute('data-anim-id');
+    if (animId) cancelAnimationFrame(parseInt(animId));
+    
+    viewport.setAttribute('data-user-scrolled', 'true');
+    viewport.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleUserScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    e.currentTarget.setAttribute('data-user-scrolled', 'true');
+  };
+
+
+
   const stats = [
     { value: "500K+", label: "App Downloads", desc: "Across iOS and Play Store", icon: <Award className="w-5 h-5 text-pink-500" /> },
     { value: "4.8★", label: "Average Rating", desc: "Highly rated by users", icon: <Star className="w-5 h-5 text-indigo-500" /> },
@@ -34,12 +89,28 @@ export default function MobileApplicationPage() {
 
   const portfolioApps = [
     {
+      name: "Solo Hearts",
+      tag: "Social Connection",
+      desc: "Premium dating and matchmaking application configured for location checks, instant chats, and profiles.",
+      features: ["Premium matching algorithm", "Location verified check-ins", "Secure chat modules"],
+      playStoreUrl: "#",
+      img: "/soloohearts.jpg"
+    },
+    {
+      name: "Medicompares",
+      tag: "Medical & Health",
+      desc: "Comprehensive medical services comparison platform designed to compare clinical tests, reports, and prices.",
+      features: ["Medical comparison engine", "Clinical report details", "Instant pricing updates"],
+      playStoreUrl: "#",
+      img: "/medicompares.jpg"
+    },
+    {
       name: "Shri Manik Prabhu Samsthan",
       tag: "Devotional & Community",
       desc: "Official mobile application for managing organization schedules, calendar updates, and daily resources.",
       features: ["Custom calendar systems", "Push alerts & notifications", "Offline asset loading"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.maniksamstahnapp&hl=en",
-      img: "/images/tall_mobile_app_ui.png"
+      img: "https://digitalraiz.com/uploads/portfolio/d72a821a275279ea42bc5c58af0f6cc3.png"
     },
     {
       name: "Waypartner",
@@ -47,7 +118,7 @@ export default function MobileApplicationPage() {
       desc: "High-performance logistics coordination app designed for driver tracking, dispatch logging, and route reports.",
       features: ["Real-time GPS tracking", "In-app routing & map updates", "Automated trip log files"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.waypartner.waypartner&hl=en",
-      img: "/images/android_app.png"
+      img: "https://digitalraiz.com/uploads/portfolio/3d5cfa303ab218435bcd47544379e4c8.png"
     },
     {
       name: "JBFMS India",
@@ -55,7 +126,7 @@ export default function MobileApplicationPage() {
       desc: "Corporate resource dashboard system configured for tracking field team tasks, attendance, and instant audits.",
       features: ["Field staff check-ins", "Offline report syncing", "Live dashboard syncs"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
-      img: "/images/ios_app.png"
+      img: "/jgfms.jpg"
     },
     {
       name: "Eaglemart",
@@ -63,7 +134,7 @@ export default function MobileApplicationPage() {
       desc: "Full-scale consumer shopping application featuring secure payment checkout gateways, catalogs, and tracking.",
       features: ["Instant secure checkout", "Multi-payment support", "Real-time order tracking"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.eaglemartuser&hl=en",
-      img: "/images/tall_mobile_app_ui.png"
+      img: "https://digitalraiz.com/uploads/portfolio/c93157eeeedb156a1ef3fd23227f742d.png"
     },
     {
       name: "Helomate",
@@ -71,15 +142,15 @@ export default function MobileApplicationPage() {
       desc: "Interactive social networking client enabling location matches, real-time chats, and media uploads.",
       features: ["Real-time socket chats", "Location matching engine", "Media sharing streams"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.helomate.meetpeoplevirtual&hl=en",
-      img: "/images/tall_mobile_app_ui.png"
+      img: "https://digitalraiz.com/uploads/portfolio/dd0bff5ed7e3698d06753f38a8c985c2.png"
     },
     {
-      name: "Gocut",
+      name: "Gocut Beauty App",
       tag: "On-Demand Services",
       desc: "Booking and service scheduling interface with integrated maps, local search filters, and chats.",
       features: ["Appointment scheduling", "Local provider searches", "In-app customer chats"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
-      img: "/images/android_app.png"
+      img: "/gocut-beauty.jpg"
     },
     {
       name: "Actin",
@@ -87,9 +158,17 @@ export default function MobileApplicationPage() {
       desc: "Fitness and workflow check-in client logging user progress, session counts, and targets dynamically.",
       features: ["User metrics tracking", "Goal setting widgets", "Detailed historical logs"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.actin.user&hl=en",
-      img: "/images/ios_app.png"
+      img: "https://digitalraiz.com/uploads/portfolio/2694ae7bddec4a4d521ea9e9870638db.png"
     }
   ];
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev === portfolioApps.length - 1 ? 0 : prev + 1));
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [portfolioApps.length, isPaused]);
 
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans select-none text-slate-800 lg:pr-[80px]">
@@ -166,59 +245,96 @@ export default function MobileApplicationPage() {
         </section>
 
         {/* Real-World Client App Portfolio Showcase */}
-        <section className="py-20 bg-white border-t border-slate-100">
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
+        <section className="py-20 bg-white border-t border-slate-100 relative overflow-hidden w-full">
+          <div className="w-full space-y-12">
+            <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
               <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">App Showcase</span>
               <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Mobile App Projects</h2>
               <p className="text-slate-400 text-xs font-light">Explore real-world applications engineered by DigitalRaiz currently active on the Google Play Store.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {portfolioApps.map((app, i) => (
-                <div
-                  key={i}
-                  className="group rounded-2xl border border-slate-100 p-5 flex gap-5 bg-white hover:border-pink-500/35 hover:shadow-md transition-all duration-300 items-start"
-                >
-                  {/* Smartphone scrolling mockup chassis */}
-                  <div className="w-[110px] h-[200px] rounded-[18px] border-[3px] border-slate-900 bg-slate-950 shadow-md overflow-hidden relative shrink-0">
-                    {/* Speaker notch */}
-                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-slate-900 rounded-full z-20 animate-pulse" />
-                    
-                    {/* Screen Image that scrolls vertically on card hover */}
-                    <div className="absolute inset-0 transition-transform duration-[3500ms] ease-in-out transform translate-y-0 group-hover:-translate-y-[calc(100%-194px)] z-10">
-                      <img
-                        src={app.img}
-                        alt={app.name}
-                        className="w-full h-auto object-cover object-top select-none pointer-events-none"
-                      />
-                    </div>
-                  </div>
+            {/* 3D Coverflow Perspective Container */}
+            <div className="relative w-full h-[540px] flex items-center justify-center [perspective:1200px] overflow-hidden select-none">
+              <div className="relative w-full h-[490px] flex items-center justify-center [transform-style:preserve-3d]">
+                {portfolioApps.map((app, idx) => {
+                  let offset = idx - activeIndex;
+                  const half = Math.floor(portfolioApps.length / 2);
+                  if (offset > half) offset -= portfolioApps.length;
+                  if (offset < -half) offset += portfolioApps.length;
 
-                  {/* App Text details */}
-                  <div className="flex-grow flex flex-col justify-between h-[200px]">
-                    <div className="space-y-2">
-                      <span className="text-[8px] font-bold text-indigo-650 uppercase tracking-widest bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 w-fit block leading-none">
-                        {app.tag}
-                      </span>
-                      <h4 className="text-xs font-black uppercase tracking-tight text-slate-800 leading-tight">{app.name}</h4>
-                      <p className="text-slate-500 text-[9.5px] leading-snug font-light text-justify">{app.desc}</p>
-                    </div>
+                  const absOffset = Math.abs(offset);
 
-                    <div className="pt-2 border-t border-slate-100 flex justify-end">
-                      <a
-                        href={app.playStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[8.5px] font-bold uppercase tracking-wider text-slate-655 hover:text-pink-600 transition-colors"
-                      >
-                        <span>Play Store</span>
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
+                  // Keep only adjacent items visible to prevent cluttering
+                  if (absOffset > 2) return null;
+
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => setActiveIndex(idx)}
+                      onMouseEnter={startAutoScroll}
+                      onMouseLeave={stopAutoScroll}
+                      className="absolute transition-all duration-500 ease-out cursor-pointer flex flex-col items-center gap-4 group"
+                      style={{
+                        transform: `translateX(${offset * 255}px) scale(${absOffset === 0 ? 1.08 : 0.92})`,
+                        zIndex: 100 - absOffset,
+                        opacity: 1,
+                      }}
+                    >
+                      {/* Smartphone scrolling mockup chassis */}
+                      <div className={`w-[230px] h-[460px] rounded-[26px] border-[4px] border-slate-900 bg-slate-950 shadow-2xl overflow-hidden relative transition-all duration-500 ${absOffset === 0 ? 'ring-4 ring-pink-500/20' : ''}`}>
+                        {/* Speaker notch */}
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-slate-900 rounded-full z-20" />
+
+                        {/* Screen Image viewport */}
+                        <div 
+                          className="absolute inset-0 overflow-y-auto no-scrollbar z-10 bg-slate-900 mockup-viewport"
+                          onWheel={handleUserScroll}
+                          onTouchMove={handleUserScroll}
+                        >
+                          <img
+                            src={app.img}
+                            alt={app.name}
+                            className="w-full h-auto object-cover object-top select-none pointer-events-none block"
+                          />
+                        </div>
+                      </div>
+
+                      {/* App Name Label */}
+                      <h4 className={`text-[11px] font-black uppercase tracking-wider text-center max-w-[190px] transition-all duration-500 ${absOffset === 0 ? 'text-pink-600 scale-105 opacity-100' : 'text-slate-500 opacity-60'}`}>
+                        {app.name}
+                      </h4>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Navigation buttons and Pagination Dots */}
+            <div className="flex justify-center items-center gap-6 pt-2">
+              <button
+                onClick={() => setActiveIndex((prev) => (prev === 0 ? portfolioApps.length - 1 : prev - 1))}
+                className="w-9 h-9 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200/60 flex items-center justify-center text-slate-700 transition-colors shadow-2xs"
+                aria-label="Previous Project"
+              >
+                <ChevronLeft className="w-4.5 h-4.5" />
+              </button>
+              <div className="flex gap-2">
+                {portfolioApps.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === activeIndex ? 'bg-pink-500 w-4' : 'bg-slate-200'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setActiveIndex((prev) => (prev === portfolioApps.length - 1 ? 0 : prev + 1))}
+                className="w-9 h-9 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200/60 flex items-center justify-center text-slate-700 transition-colors shadow-2xs"
+                aria-label="Next Project"
+              >
+                <ChevronRight className="w-4.5 h-4.5" />
+              </button>
             </div>
           </div>
         </section>
