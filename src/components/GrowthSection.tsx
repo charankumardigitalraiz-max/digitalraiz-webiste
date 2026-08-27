@@ -85,11 +85,16 @@ export default function GrowthSection() {
           </p>
         </div>
 
-        {/* Stepper and Content Area Group */}
-        <div className="space-y-6">
+        {/* Single Unified Interactive Process Card */}
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 md:p-10 shadow-md relative overflow-hidden space-y-8">
           
-          {/* Horizontal Pill Segment Tab Stepper */}
-          <div className="bg-white p-1.5 rounded-2xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md">
+          {/* Floating watermark badge representing active ID */}
+          <div className="absolute right-4 bottom-4 text-[180px] font-black text-slate-200/70 select-none pointer-events-none font-mono leading-none -z-10">
+            {currentPhase.id}
+          </div>
+
+          {/* Stepper Tabs - Embedded inside the card container */}
+          <div className="bg-slate-50/80 p-1.5 rounded-2xl border border-slate-100/60 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-sm z-10">
             {phases.map((p) => {
               const PIcon = p.icon;
               const isActive = p.id === activePhase;
@@ -98,158 +103,152 @@ export default function GrowthSection() {
                   key={p.id}
                   onClick={() => setActivePhase(p.id)}
                   className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none border-b-2 group ${isActive
-                      ? "shadow-md text-white scale-[1.02] border-transparent"
-                      : "text-slate-500 hover:bg-slate-50/70 border-transparent"
+                      ? "bg-white shadow-md text-slate-800 scale-[1.02] border-transparent"
+                      : "text-slate-500 hover:bg-white/50 border-transparent"
                     }`}
                   style={{
-                    backgroundColor: isActive ? p.accent : undefined
+                    borderBottomColor: isActive ? p.accent : undefined
                   }}
                 >
                   {/* Node Icon Badge */}
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white" : "bg-slate-50 border border-slate-100 text-slate-400 group-hover:text-slate-600 group-hover:border-slate-200"
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white border border-slate-100 text-slate-400" : "bg-transparent text-slate-400 group-hover:text-slate-650"
                     }`}
                     style={{
-                      color: isActive ? p.accent : undefined
+                      color: isActive ? p.accent : undefined,
+                      borderColor: isActive ? `${p.accent}30` : undefined
                     }}>
                     <PIcon className="w-4.5 h-4.5" />
                   </div>
 
                   <div className="text-left hidden sm:block">
-                  <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${
-                    isActive ? "text-white/80" : "text-slate-400 group-hover:text-slate-500"
-                  }`}>
-                    Phase {p.id}
-                  </span>
-                  <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${
-                    isActive ? "text-white" : "text-slate-500 group-hover:text-slate-800"
-                  }`}>
-                    {p.label}
-                  </span>
-                </div>
+                    <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${
+                      isActive ? "text-slate-500" : "text-slate-400 group-hover:text-slate-500"
+                    }`}>
+                      Phase {p.id}
+                    </span>
+                    <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${
+                      isActive ? "text-slate-800" : "text-slate-500 group-hover:text-slate-800"
+                    }`}>
+                      {p.label}
+                    </span>
+                  </div>
                 </button>
               );
             })}
           </div>
 
-          {/* Stepper Active Content Card (Full-Width Grid Below) */}
-          <div className="w-full transition-all duration-350 ease-in-out">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 md:p-10 shadow-md relative overflow-hidden">
+          {/* Stepper Active Content Grid (Full-Width Grid Below) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pt-2">
 
-              {/* Floating watermark badge representing active ID */}
-              <div className="absolute right-4 bottom-4 text-[180px] font-black text-slate-200/70 select-none pointer-events-none font-mono leading-none -z-10">
-                {currentPhase.id}
+            {/* Left Column: Description */}
+            <div className="lg:col-span-7 space-y-6 relative z-10">
+
+              {/* Header with Icon Badge */}
+              <div className="flex items-center gap-3">
+                <div className={`w-9 h-9 rounded-xl ${currentPhase.badge} flex items-center justify-center text-white shadow-sm`}>
+                  <CurrentIcon className="w-4.5 h-4.5" />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] block" style={{ color: currentPhase.accent }}>
+                  Phase {currentPhase.id} Blueprint
+                </span>
               </div>
 
-              {/* Left Column: Description */}
-              <div className="lg:col-span-7 space-y-6 relative z-10">
-
-                {/* Header with Icon Badge */}
-                <div className="flex items-center gap-3">
-                  <div className={`w-9 h-9 rounded-xl ${currentPhase.badge} flex items-center justify-center text-white shadow-sm`}>
-                    <CurrentIcon className="w-4.5 h-4.5" />
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] block" style={{ color: currentPhase.accent }}>
-                    Phase {currentPhase.id} Blueprint
-                  </span>
-                </div>
-
-                <div className="space-y-1.5">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{currentPhase.label}</p>
-                  <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-slate-700 leading-tight">
-                    {currentPhase.heading}
-                  </h3>
-                  <p className="text-xs sm:text-sm font-bold" style={{ color: currentPhase.accent }}>
-                    {currentPhase.subheading}
-                  </p>
-                </div>
-
-                <p className="text-slate-555 text-xs sm:text-sm font-light leading-relaxed max-w-xl">
-                  {currentPhase.description}
+              <div className="space-y-1.5">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{currentPhase.label}</p>
+                <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-slate-700 leading-tight">
+                  {currentPhase.heading}
+                </h3>
+                <p className="text-xs sm:text-sm font-bold" style={{ color: currentPhase.accent }}>
+                  {currentPhase.subheading}
                 </p>
-
-                {/* Bullet point badges */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {currentPhase.items.map((item, i) => (
-                    <span key={i} className={`px-2.5 py-1 rounded-full text-[9px] font-bold border ${currentPhase.tag}`}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
               </div>
 
-              {/* Right Column: Dynamic Performance Card */}
-              <div className="lg:col-span-5 w-full relative z-10">
-                <div
-                  className="relative rounded-2xl p-6 sm:p-8 text-white flex flex-col justify-between gap-6 overflow-hidden shadow-md border border-white/5 group hover:scale-[1.01] transition-all duration-300"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, ${currentPhase.accent}, ${currentPhase.accent}d0, #130a1c)`
-                  }}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+              <p className="text-slate-555 text-xs sm:text-sm font-light leading-relaxed max-w-xl">
+                {currentPhase.description}
+              </p>
 
-                  {/* Glowing Spotlight Blob */}
-                  <div className={`absolute -top-10 -right-10 w-36 h-36 rounded-full ${currentPhase.glow} blur-[50px] pointer-events-none`} />
-
-                  <div className="space-y-5 relative z-10">
-                    <span className="text-[9px] font-mono text-pink-300/80 font-bold uppercase tracking-[0.2em] block">Case Metric Highlights</span>
-
-                    {currentPhase.id === "01" && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Lead Gen &amp; Acquisition</h4>
-                        <div className="grid grid-cols-2 gap-3.5">
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-pink-300">+420%</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Conversion Uplift</p>
-                          </div>
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-white">5x</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Average Client ROI</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {currentPhase.id === "02" && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Search Engine Authority</h4>
-                        <div className="grid grid-cols-2 gap-3.5">
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-pink-300">98 / 100</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Technical SEO Score</p>
-                          </div>
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-white">1,500+</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Top-10 Keywords</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {currentPhase.id === "03" && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Audience Engagement</h4>
-                        <div className="grid grid-cols-2 gap-3.5">
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-pink-300">+250%</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Follower Growth</p>
-                          </div>
-                          <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
-                            <p className="text-2xl font-black text-white">1.2M+</p>
-                            <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Monthly Reach</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pt-4 border-t border-white/10 relative z-10 text-[8px] text-white/40 font-mono uppercase tracking-widest flex items-center justify-between">
-                    <span>Digital Raiz</span>
-                    <span>Verified Growth</span>
-                  </div>
-                </div>
+              {/* Bullet point badges */}
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {currentPhase.items.map((item, i) => (
+                  <span key={i} className={`px-2.5 py-1 rounded-full text-[9px] font-bold border ${currentPhase.tag}`}>
+                    {item}
+                  </span>
+                ))}
               </div>
-
             </div>
+
+            {/* Right Column: Dynamic Performance Card */}
+            <div className="lg:col-span-5 w-full relative z-10">
+              <div
+                className="relative rounded-2xl p-6 sm:p-8 text-white flex flex-col justify-between gap-6 overflow-hidden shadow-md border border-white/5 group hover:scale-[1.01] transition-all duration-300"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, ${currentPhase.accent}, ${currentPhase.accent}d0, #130a1c)`
+                }}
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+
+                {/* Glowing Spotlight Blob */}
+                <div className={`absolute -top-10 -right-10 w-36 h-36 rounded-full ${currentPhase.glow} blur-[50px] pointer-events-none`} />
+
+                <div className="space-y-5 relative z-10">
+                  <span className="text-[9px] font-mono text-pink-300/80 font-bold uppercase tracking-[0.2em] block">Case Metric Highlights</span>
+
+                  {currentPhase.id === "01" && (
+                    <div className="space-y-4">
+                      <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Lead Gen &amp; Acquisition</h4>
+                      <div className="grid grid-cols-2 gap-3.5">
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-pink-300">+420%</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Conversion Uplift</p>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-white">5x</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Average Client ROI</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {currentPhase.id === "02" && (
+                    <div className="space-y-4">
+                      <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Search Engine Authority</h4>
+                      <div className="grid grid-cols-2 gap-3.5">
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-pink-300">98 / 100</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Technical SEO Score</p>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-white">1,500+</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Top-10 Keywords</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {currentPhase.id === "03" && (
+                    <div className="space-y-4">
+                      <h4 className="text-lg font-black uppercase tracking-tight text-white/90">Audience Engagement</h4>
+                      <div className="grid grid-cols-2 gap-3.5">
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-pink-300">+250%</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Follower Growth</p>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 shadow-sm hover:shadow transition-shadow">
+                          <p className="text-2xl font-black text-white">1.2M+</p>
+                          <p className="text-[8px] font-mono text-white/55 uppercase tracking-wider mt-0.5">Monthly Reach</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-white/10 relative z-10 text-[8px] text-white/40 font-mono uppercase tracking-widest flex items-center justify-between">
+                  <span>Digital Raiz</span>
+                  <span>Verified Growth</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
