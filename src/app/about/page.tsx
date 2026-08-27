@@ -40,7 +40,7 @@ export default function AboutPage() {
       <main className="flex-grow">
         {/* Infinite Scrolling Content Bands Banner */}
         <div
-          className="relative pt-28 pb-14 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
+          className="relative pt-10 pb-10 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
           style={{
             backgroundImage: "url('/images/about_us_banner.png')"
           }}
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
 
         {/* Narrative Journey & Details Section */}
-        <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
+        <section className="py-10 sm:py-10 bg-white relative overflow-hidden">
           <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
           <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
