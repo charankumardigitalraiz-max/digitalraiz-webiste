@@ -97,16 +97,16 @@ export default function GrowthSection() {
                 <button
                   key={p.id}
                   onClick={() => setActivePhase(p.id)}
-                  className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none border-b-2 ${isActive
+                  className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none border-b-2 group ${isActive
                       ? "shadow-md text-white scale-[1.02] border-transparent"
-                      : "text-slate-550 hover:bg-slate-50/70 hover:text-slate-700 border-transparent"
+                      : "text-slate-500 hover:bg-slate-50/70 border-transparent"
                     }`}
                   style={{
                     backgroundColor: isActive ? p.accent : undefined
                   }}
                 >
                   {/* Node Icon Badge */}
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white" : "bg-slate-150 text-slate-400"
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white" : "bg-slate-50 border border-slate-100 text-slate-400 group-hover:text-slate-600 group-hover:border-slate-200"
                     }`}
                     style={{
                       color: isActive ? p.accent : undefined
@@ -116,12 +116,12 @@ export default function GrowthSection() {
 
                   <div className="text-left hidden sm:block">
                   <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${
-                    isActive ? "text-white/80" : "text-slate-400"
+                    isActive ? "text-white/80" : "text-slate-400 group-hover:text-slate-500"
                   }`}>
                     Phase {p.id}
                   </span>
                   <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${
-                    isActive ? "text-white" : "text-slate-700"
+                    isActive ? "text-white" : "text-slate-500 group-hover:text-slate-800"
                   }`}>
                     {p.label}
                   </span>
