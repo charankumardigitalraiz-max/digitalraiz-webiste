@@ -41,21 +41,54 @@ export default function AboutPage() {
       <Header />
       
       <main className="flex-grow">
-        {/* Asymmetrical Premium Hero Banner with Custom Background Image */}
+        {/* Infinite Scrolling Content Bands Banner */}
         <div 
-          className="relative pt-36 pb-20 text-slate-800 overflow-hidden text-center select-none bg-cover bg-center border-b border-slate-100"
+          className="relative pt-28 pb-14 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
           style={{
             backgroundImage: "url('/images/about_us_banner.png')"
           }}
         >
-          {/* Subtle light overlay blur */}
-          <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.01)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+          {/* Ambient overlays */}
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-[1.5px] pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white via-white/50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white via-white/50 to-transparent z-10 pointer-events-none" />
 
-          <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-3">
-            <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Our Story</span>
-            <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-slate-850">About Us</h1>
-            <p className="text-slate-650 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] mt-1">Your Trusted IT & Software Partner</p>
+          <div className="relative z-10 space-y-6">
+            {/* Scroll Band 1 (Left to Right) */}
+            <div className="w-full overflow-hidden whitespace-nowrap">
+              <div className="flex animate-scroll-horizontal whitespace-nowrap gap-12 text-[26px] sm:text-[34px] font-black uppercase tracking-wider text-slate-800/85">
+                {[1, 2, 3, 4].map((i) => (
+                  <span key={i} className="flex items-center gap-12 shrink-0">
+                    <span>DigitalRaiz Technologies</span>
+                    <span className="text-pink-600 font-normal opacity-50">•</span>
+                    <span>Software Engineering</span>
+                    <span className="text-indigo-600 font-normal opacity-50">•</span>
+                    <span>Digital Marketing</span>
+                    <span className="text-pink-600 font-normal opacity-50">•</span>
+                    <span>IT Consulting</span>
+                    <span className="text-indigo-600 font-normal opacity-50">•</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Scroll Band 2 (Right to Left) */}
+            <div className="w-full overflow-hidden whitespace-nowrap">
+              <div className="flex animate-scroll-horizontal-reverse whitespace-nowrap gap-12 text-[13px] sm:text-[16px] font-bold uppercase tracking-[0.2em] text-slate-500/80">
+                {[1, 2, 3, 4].map((i) => (
+                  <span key={i} className="flex items-center gap-12 shrink-0">
+                    <span>Precision Coding</span>
+                    <span className="text-pink-500/40">•</span>
+                    <span>Data-Driven ROI</span>
+                    <span className="text-indigo-500/40">•</span>
+                    <span>Enterprise Scale</span>
+                    <span className="text-pink-500/40">•</span>
+                    <span>Verified Growth</span>
+                    <span className="text-indigo-500/40">•</span>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

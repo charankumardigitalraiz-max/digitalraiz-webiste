@@ -392,12 +392,25 @@ body {
   }
 }
 
+@keyframes scroll-horizontal-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @utility animate-scroll-vertical {
   animation: scroll-vertical 20s linear infinite;
 }
 
 @utility animate-scroll-horizontal {
   animation: scroll-horizontal 25s linear infinite;
+}
+
+@utility animate-scroll-horizontal-reverse {
+  animation: scroll-horizontal-reverse 25s linear infinite;
 }
 
 
