@@ -170,7 +170,7 @@ export default function GrowthSection() {
             {/* Right Column: Dynamic Performance Card */}
             <div className="lg:col-span-5 w-full relative z-10">
               <div
-                className="relative rounded-2xl p-6 sm:p-8 text-white flex flex-col justify-between gap-6 overflow-hidden shadow-md border border-white/5 group hover:scale-[1.01] transition-all duration-300"
+                className="relative rounded-2xl p-6 sm:p-8 text-white flex flex-col justify-between gap-6 overflow-hidden shadow-md group hover:scale-[1.01] transition-all duration-300"
                 style={{
                   backgroundImage: `linear-gradient(135deg, ${currentPhase.accent}, ${currentPhase.accent}d0, #130a1c)`
                 }}
