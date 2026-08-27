@@ -94,7 +94,7 @@ export default function GrowthSection() {
           </div>
 
           {/* Stepper Tabs - Embedded inside the card container */}
-          <div className="bg-white p-1.5 rounded-2xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md z-10">
+          <div className="bg-white p-1.5 rounded-xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md z-10">
             {phases.map((p) => {
               const PIcon = p.icon;
               const isActive = p.id === activePhase;
@@ -102,9 +102,9 @@ export default function GrowthSection() {
                 <button
                   key={p.id}
                   onClick={() => setActivePhase(p.id)}
-                  className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none border-b-2 group ${isActive
-                    ? "shadow-md text-white scale-[1.02] border-transparent"
-                    : "text-slate-550 hover:bg-slate-100/50 border-transparent"
+                  className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none group ${isActive
+                    ? "shadow-md text-white scale-[1.02]"
+                    : "text-slate-550 hover:bg-slate-100/50"
                     }`}
                   style={{
                     backgroundColor: isActive ? p.accent : undefined
