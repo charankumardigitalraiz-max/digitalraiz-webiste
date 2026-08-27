@@ -113,9 +113,9 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group flex items-center gap-2.5 text-pink-100/85 hover:text-white transition-all duration-200 text-sm font-normal"
+                      className="group flex items-center gap-2 text-pink-100/85 hover:text-white transition-all duration-200 text-sm font-normal"
                     >
-                      <span className="w-1 h-1 rounded-full bg-pink-400 group-hover:bg-white transition-colors shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 text-pink-300/80 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
                       <span>{link.label}</span>
                     </a>
                   </li>
