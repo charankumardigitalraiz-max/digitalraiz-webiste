@@ -37,7 +37,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
 
-      <main className="flex-grow pt-[80px]">
+      <main className="flex-grow">
         {/* Infinite Scrolling Content Bands Banner */}
         <div
           className="relative pt-28 pb-14 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
