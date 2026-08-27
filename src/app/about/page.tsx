@@ -118,9 +118,9 @@ export default function AboutPage() {
               {/* Right image column */}
               <div className="w-full lg:w-[360px] shrink-0 flex items-center justify-center">
                 <img
-                  src="https://digitalraiz.com/assets/images/single-img-two.png"
+                  src="/images/about_us_branding.png"
                   alt="DigitalRaiz Brand Illustration"
-                  className="w-full max-w-[300px] h-auto object-contain hover:scale-105 transition-transform duration-500"
+                  className="w-full max-w-[320px] h-auto object-contain hover:scale-105 transition-transform duration-500 rounded-2xl shadow-sm"
                 />
               </div>
             </div>
