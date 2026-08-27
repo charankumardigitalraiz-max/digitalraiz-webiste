@@ -120,7 +120,7 @@ export default function AboutPage() {
                 <img
                   src="/images/about_us_branding.png"
                   alt="DigitalRaiz Brand Illustration"
-                  className="w-full max-w-[320px] h-auto object-contain hover:scale-105 transition-transform duration-500 rounded-2xl shadow-sm"
+                  className="w-full max-w-[320px] h-auto object-contain hover:scale-102 transition-transform duration-500"
                 />
               </div>
             </div>
