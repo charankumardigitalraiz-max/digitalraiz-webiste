@@ -18,32 +18,29 @@ export default function AboutPage() {
   const pillars = [
     {
       title: "Precision Coding",
-      desc: "Pixel-perfect visual experiences built on modern, clean web architectures.",
-      icon: <Zap className="w-5 h-5 text-pink-500" />,
-      color: "border-pink-100 bg-pink-50/10"
+      desc: "Pixel-perfect visual experiences built on modern architectures.",
+      icon: <Zap className="w-4 h-4 text-pink-500" />
     },
     {
       title: "Data-Driven ROI",
-      desc: "We align digital marketing and SEO directly to client growth targets.",
-      icon: <TrendingUp className="w-5 h-5 text-indigo-500" />,
-      color: "border-indigo-100 bg-indigo-50/10"
+      desc: "We align digital marketing and SEO to growth targets.",
+      icon: <TrendingUp className="w-4 h-4 text-indigo-500" />
     },
     {
       title: "Security & Scale",
-      desc: "Blazing fast cloud deployments keeping systems safe and responsive.",
-      icon: <Shield className="w-5 h-5 text-emerald-500" />,
-      color: "border-emerald-100 bg-emerald-50/10"
+      desc: "Blazing fast cloud deployments keeping systems safe.",
+      icon: <Shield className="w-4 h-4 text-emerald-500" />
     }
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
-
-      <main className="flex-grow">
+      
+      <main className="flex-grow pt-[80px]">
         {/* Infinite Scrolling Content Bands Banner */}
-        <div
-          className="relative pt-8 pb-6 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
+        <div 
+          className="relative pt-28 pb-14 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
           style={{
             backgroundImage: "url('/images/about_us_banner.png')"
           }}
@@ -93,11 +90,11 @@ export default function AboutPage() {
         </div>
 
         {/* Bento Grid Layout Section */}
-        <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
           <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
           <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
+          <div className="max-w-6xl mx-auto px-6 w-full space-y-20">
 
             {/* 1. Brand Philosophy Editorial Split Row (No card outline) */}
             <div className="flex flex-col lg:flex-row gap-12 items-center pb-8">
@@ -125,73 +122,90 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* 2. Bento Grid Container */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-              {/* Card 2: Interactive Vision Block (col-span-1) */}
-              <div className="bg-gradient-to-br from-pink-50/20 via-white to-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
-                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-pink-500/[0.04] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
+            {/* 2. Brand Pillars - Leaf-Shaped Floating-Icon Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 pt-12 border-t border-slate-100/60">
+              
+              {/* Card 1: Vision (Leaf Shape 1) */}
+              <div className="bg-gradient-to-br from-pink-500/[0.01] via-white to-white border border-slate-200/50 rounded-2xl rounded-tl-[48px] rounded-br-[48px] p-8 sm:p-10 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
+                <div className="absolute -bottom-6 -right-6 text-7xl font-black text-pink-500/[0.03] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
                   Vision
                 </div>
 
-                <div className="space-y-4 relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-500 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <Medal className="w-5.5 h-5.5" />
-                  </div>
+                {/* Floating Icon */}
+                <div className="absolute -top-5 left-8 w-11 h-11 bg-white border border-pink-100 rounded-xl shadow-md flex items-center justify-center text-pink-500 group-hover:scale-110 transition-transform duration-300 z-20">
+                  <Medal className="w-5.5 h-5.5" />
+                </div>
+                
+                <div className="space-y-4 relative z-10 pt-4">
                   <h4 className="text-lg font-black uppercase tracking-tight text-slate-800">Our Vision</h4>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal">
+                  <p className="text-slate-650 text-xs sm:text-sm leading-relaxed text-justify font-normal">
                     An individual character and arise as a respected programming arrangements supplier by building and keeping up durable relationships, conveying quality programming and by giving inventive business arrangements.
                   </p>
                 </div>
 
-                <span className="text-[9px] font-bold text-pink-600 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Future-Focused</span>
+                <span className="text-[9px] font-bold text-pink-600 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100/60 mt-6">Future-Focused</span>
+                
+                {/* Accent indicator at the bottom */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-pink-500 rounded-t-full group-hover:w-24 transition-all duration-300" />
               </div>
 
-              {/* Card 3: Interactive Mission Block (col-span-1) */}
-              <div className="bg-gradient-to-br from-indigo-50/20 via-white to-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
-                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-indigo-500/[0.04] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
+              {/* Card 2: Mission (Leaf Shape 2) */}
+              <div className="bg-gradient-to-br from-indigo-500/[0.01] via-white to-white border border-slate-200/50 rounded-2xl rounded-tr-[48px] rounded-bl-[48px] p-8 sm:p-10 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
+                <div className="absolute -bottom-6 -right-6 text-7xl font-black text-indigo-500/[0.03] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
                   Mission
                 </div>
 
-                <div className="space-y-4 relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <Bookmark className="w-5.5 h-5.5" />
-                  </div>
+                {/* Floating Icon */}
+                <div className="absolute -top-5 left-8 w-11 h-11 bg-white border border-indigo-100 rounded-xl shadow-md flex items-center justify-center text-indigo-500 group-hover:scale-110 transition-transform duration-300 z-20">
+                  <Bookmark className="w-5.5 h-5.5" />
+                </div>
+
+                <div className="space-y-4 relative z-10 pt-4">
                   <h4 className="text-lg font-black uppercase tracking-tight text-slate-800">Mission</h4>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal">
+                  <p className="text-slate-650 text-xs sm:text-sm leading-relaxed text-justify font-normal">
                     To give inventive, high calibre and top tier IT Consulting &amp; IT Solutions &amp; Services to our clients, empowering them to accomplish their business objectives. Partners and accomplices while co-operating. also, to keep up and grow our convention of &quot;Greatness through Quality&quot;.
                   </p>
                 </div>
 
-                <span className="text-[9px] font-bold text-indigo-600 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Quality-Driven</span>
+                <span className="text-[9px] font-bold text-indigo-650 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100/60 mt-6">Quality-Driven</span>
+                
+                {/* Accent indicator at the bottom */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-indigo-500 rounded-t-full group-hover:w-24 transition-all duration-300" />
               </div>
 
-              {/* Card 4: Detailed Operational DNA (col-span-1) */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden group hover:scale-[1.005] transition-all duration-300 min-h-[380px] flex flex-col justify-between">
-                <div className="space-y-6">
-                  <div className="space-y-1.5">
-                    <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Methodology</span>
-                    <h4 className="text-xl font-black uppercase tracking-tight text-slate-800">Our DNA</h4>
-                  </div>
+              {/* Card 3: Our DNA (Leaf Shape 3) */}
+              <div className="bg-gradient-to-br from-emerald-500/[0.01] via-white to-white border border-slate-200/50 rounded-2xl rounded-tl-[48px] rounded-br-[48px] p-8 sm:p-10 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.005] flex flex-col justify-between min-h-[380px]">
+                <div className="absolute -bottom-6 -right-6 text-7xl font-black text-emerald-500/[0.03] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
+                  DNA
+                </div>
 
-                  <div className="space-y-4">
+                {/* Floating Icon */}
+                <div className="absolute -top-5 left-8 w-11 h-11 bg-white border border-emerald-100 rounded-xl shadow-md flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform duration-300 z-20">
+                  <Sparkles className="w-5.5 h-5.5" />
+                </div>
+
+                <div className="space-y-4 relative z-10 pt-4">
+                  <h4 className="text-lg font-black uppercase tracking-tight text-slate-800">Our DNA</h4>
+                  
+                  <div className="space-y-3.5">
                     {pillars.map((pillar, idx) => (
-                      <div key={idx} className="flex gap-3.5 items-start">
-                        <div className={`w-8 h-8 rounded-lg border flex items-center justify-center ${pillar.color} shrink-0 mt-0.5`}>
+                      <div key={idx} className="flex gap-3 items-start">
+                        <div className="w-5 h-5 rounded-md flex items-center justify-center bg-slate-50 border border-slate-100 text-slate-700 shadow-xs shrink-0 mt-0.5">
                           {pillar.icon}
                         </div>
                         <div className="space-y-0.5">
-                          <h5 className="text-xs font-bold text-slate-850 uppercase tracking-tight">{pillar.title}</h5>
-                          <p className="text-slate-600 text-[10px] sm:text-xs leading-relaxed font-light">{pillar.desc}</p>
+                          <h5 className="text-[11px] font-bold text-slate-850 uppercase tracking-tight">{pillar.title}</h5>
+                          <p className="text-slate-500 text-[10px] leading-relaxed font-light">{pillar.desc}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-100 text-[9px] font-mono text-slate-400 uppercase tracking-widest">
-                  Integrated Execution Model
-                </div>
+                <span className="text-[9px] font-bold text-emerald-650 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100/60 mt-6">Core Competency</span>
+                
+                {/* Accent indicator at the bottom */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-emerald-500 rounded-t-full group-hover:w-24 transition-all duration-300" />
               </div>
 
             </div>
