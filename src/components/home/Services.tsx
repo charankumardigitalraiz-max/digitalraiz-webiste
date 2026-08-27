@@ -15,7 +15,7 @@ const services = [
     tag: "bg-pink-100/50 text-[#3b1244]",
     desc: "Unique corporate identities driven by AI insights and creative human vision. We build brands that communicate distinctly and are built to last.",
     items: ["Brand Strategy", "Identity Design", "Logo Design", "AI-Assisted Copywriting", "Brand Guidelines"],
-    img: "/services/digitalraiz_intelligent_creativity_branding (1).png",
+    img: "/services/intelligence.png",
     href: "/services#branding"
   },
   {
@@ -27,7 +27,7 @@ const services = [
     tag: "bg-indigo-100/50 text-[#4f46e5]",
     desc: "High-performance web applications and native mobile apps built to scale. Clean design, usability, search-friendly structure, and clean code.",
     items: ["Next.js & React Apps", "Mobile Apps (iOS/Android)", "UI/UX Prototyping", "E-commerce Platforms", "SAP Integration"],
-    img: "/services/mobile.png",
+    img: "/services/mobile-web.png",
     href: "/services#engineering"
   },
   {
@@ -39,7 +39,7 @@ const services = [
     tag: "bg-pink-100/50 text-[#3b1244]",
     desc: "Integrated campaigns designed to increase search engine visibility, brand engagement, and convert target traffic into real business results.",
     items: ["Advanced SEO", "Google Ads (PPC)", "Social Media Marketing", "Content Marketing", "Performance Campaigns"],
-    img: "/services/digitalraiz_digital_marketing_strategy_no_human.png",
+    img: "/services/digital-marketing.png",
     href: "/services#marketing"
   },
   {

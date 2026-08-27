@@ -10,35 +10,36 @@ export default function Header() {
   const [servicesExpanded, setServicesExpanded] = useState(false);
 
   const services = [
-    { name: "Web Development", href: "/services#web" },
-    { name: "Mobile App Development", href: "/services#mobile" },
-    { name: "Digital Marketing", href: "/services#marketing" },
-    { name: "SAP Cloud Services", href: "/services#sap" },
-    { name: "Artificial Intelligence", href: "/services#ai" },
-    { name: "Machine Learning", href: "/services#ml" }
+    { name: "Web Development", href: "/web-development" },
+    { name: "Mobile App Development", href: "/mobile-application" },
+    { name: "Influencer Marketing", href: "/influencer-marketing" },
+    { name: "SAP Cloud Services", href: "/sap-cloud-services" },
+    { name: "Artificial Intelligence", href: "/artificial-intelligence" },
+    { name: "Machine Learning", href: "/machine-learning" }
   ];
 
   return (
     <>
       {/* Backdrop overlay (Only active when menu is fully opened) */}
       <div
-        className={`fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-xs transition-opacity duration-500 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-xs transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setMenuOpen(false)}
       />
 
-      {/* Side Dock Menu Panel (Always visible on the right as a vertical strip) */}
+      {/* Side Dock Menu Panel (Thin sidebar strip on desktop, sliding menu drawer on mobile) */}
       <div
         className={`fixed top-0 right-0 bottom-0 z-40 bg-white border-l border-slate-200/60 shadow-2xl flex flex-col justify-between transition-all duration-500 ease-in-out ${
-          menuOpen ? "w-full sm:w-[320px]" : "w-[80px]"
+          menuOpen 
+            ? "w-full sm:w-[320px] translate-x-0" 
+            : "w-[80px] translate-x-full lg:translate-x-0"
         }`}
       >
-        
-        {/* === STATE 1: COLLAPSED (Thin vertical bar strip) === */}
+
+        {/* === STATE 1: COLLAPSED (Thin vertical bar strip - Desktop Only) === */}
         {!menuOpen && (
-          <div className="absolute inset-0 flex flex-col items-center justify-between py-10 z-10 pointer-events-auto">
-            
+          <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-between py-10 z-10 pointer-events-auto">
+
             {/* Brand Mark Icon at the top (scaled to fit sidebar width without squishing) */}
             <div className="w-14 flex items-center justify-center p-1 hover:scale-105 transition-transform duration-200">
               <Link href="/">
@@ -98,7 +99,7 @@ export default function Header() {
         {/* === STATE 2: EXPANDED (Full navigation details) === */}
         {menuOpen && (
           <div className="flex flex-col justify-between h-full p-8 sm:p-10 z-25 overflow-y-auto w-full no-scrollbar">
-            
+
             {/* Top Row: Full Horizontal Logo & Close Button */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <Link href="/" onClick={() => setMenuOpen(false)}>
@@ -147,9 +148,8 @@ export default function Header() {
                 </div>
 
                 <div
-                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
-                    servicesExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
-                  }`}
+                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${servicesExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
+                    }`}
                 >
                   <div className="overflow-hidden pl-5 space-y-1.5 border-l-2 border-slate-100 ml-6 my-1">
                     {services.map((svc, i) => (
@@ -225,6 +225,29 @@ export default function Header() {
         )}
 
       </div>
+
+      {/* Floating Logo/Menu Trigger for Mobile (Visible when menu is closed) */}
+      {!menuOpen && (
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="fixed top-4 right-4 z-50 lg:hidden w-14 h-14 rounded-full border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-lg flex items-center justify-center group overflow-hidden transition-all duration-300 cursor-pointer active:scale-95 outline-none"
+          aria-label="Open Navigation"
+        >
+          {/* Logo Mark (Fades out / shrinks on hover) */}
+          <div className="absolute inset-0 flex items-center justify-center p-1 transition-all duration-300 transform scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 pointer-events-none">
+            <img
+              src="/logo/Digital Raiz logo.png"
+              alt="Brand Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+          {/* Menu Icon (Rotates in / expands on hover) */}
+          <div className="absolute inset-0 flex items-center justify-center text-slate-800 transition-all duration-300 transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:rotate-180 pointer-events-none">
+            <Menu className="w-5 h-5" />
+          </div>
+        </button>
+      )}
     </>
   );
 }

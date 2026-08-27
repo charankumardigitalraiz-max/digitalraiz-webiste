@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Sparkles, Medal, Bookmark, Briefcase, Users, UserCheck, Box, Zap, Shield, TrendingUp } from "lucide-react";
+import BannerSlider from "@/components/BannerSlider";
+
 
 export const metadata = {
   title: "About DigitalRaiz – Your Trusted IT & Software Partner",
@@ -34,7 +36,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
+    <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800 lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow">
@@ -94,7 +96,7 @@ export default function AboutPage() {
           <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
           <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-10">
+          <div className="max-w-6xl mx-auto px-6 w-full">
 
             {/* 1. Brand Philosophy Editorial Split Row (No card outline) */}
             <div className="flex flex-col lg:flex-row gap-12 items-center pb-8">
@@ -122,25 +124,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Sliding Banner Divider (between Philosophy and Timeline) */}
-            {/* <div className="w-full relative overflow-hidden bg-gradient-to-r from-slate-50 via-pink-50/10 to-slate-50 py-4 border-y border-slate-100/60 my-4 select-none">
-              <div className="flex animate-scroll-horizontal whitespace-nowrap gap-12 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                {[1, 2, 3].map((i) => (
-                  <span key={i} className="flex items-center gap-12 shrink-0">
-                    <span>Customized Digital Marketing</span>
-                    <span className="text-pink-500 font-normal opacity-50">•</span>
-                    <span>SEO-Friendly Development</span>
-                    <span className="text-indigo-500 font-normal opacity-50">•</span>
-                    <span>Scalable Tech Solutions</span>
-                    <span className="text-pink-500 font-normal opacity-50">•</span>
-                    <span>Performance Campaign Optimization</span>
-                    <span className="text-indigo-500 font-normal opacity-50">•</span>
-                  </span>
-                ))}
-              </div>
-            </div> */}
+          </div>
 
-            {/* 2. Narrative Timeline Journey Section */}
+          {/* Premium Panoramic Banner Slider */}
+          <BannerSlider />
+
+          <div className="max-w-6xl mx-auto px-6 w-full space-y-10">
             <div className="relative pt-2 border-t border-slate-100/60 space-y-20">
 
               {/* Vertical timeline track */}
