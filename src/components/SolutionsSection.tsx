@@ -28,7 +28,7 @@ export default function SolutionsSection() {
   ];
 
   return (
-    <section className="py-5 relative bg-white text-slate-800 font-sans overflow-hidden  select-none">
+    <section className="py-5 pb-10 relative bg-white text-slate-800 font-sans overflow-hidden  select-none">
 
       {/* Faint background gradient mesh */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(79,70,229,0.03),transparent)] pointer-events-none" />
@@ -248,33 +248,6 @@ export default function SolutionsSection() {
           </div>
         </div> */}
 
-      </div>
-
-      {/* Full-width screen edge-to-edge marquee band */}
-      <div className="w-full relative overflow-hidden bg-gradient-to-r from-primary via-primary-hover to-primary py-5 mt-5 border-y border-slate-100">
-        {/* Fade overlays at screen edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white via-white/50 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white via-white/50 to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-scroll-horizontal hover:[animation-play-state:paused] whitespace-nowrap gap-16">
-          {[...partnerStrengths, ...partnerStrengths].map((strength, idx) => {
-            const originalIdx = idx % partnerStrengths.length;
-            return (
-              <div
-                key={idx}
-                className="flex items-center gap-3 shrink-0 cursor-default"
-              >
-                <span className="text-[10px] font-mono text-pink-300/80 tabular-nums">
-                  {String(originalIdx + 1).padStart(2, "0")}
-                </span>
-                <CheckCircle2 className="w-4 h-4 text-pink-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-bold text-white hover:text-pink-200 transition-colors">
-                  {strength}
-                </span>
-              </div>
-            );
-          })}
-        </div>
       </div>
 
     </section>
