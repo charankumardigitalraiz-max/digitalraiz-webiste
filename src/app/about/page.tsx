@@ -37,20 +37,25 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans select-none text-slate-800">
+    <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
       
       <main className="flex-grow pt-[80px]">
-        {/* Asymmetrical Premium Hero Banner */}
-        <div className="relative pt-24 pb-16 bg-gradient-to-r from-primary-mid via-primary to-primary-dark text-white overflow-hidden text-center select-none">
-          {/* Decorative background patterns */}
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-pink-500/10 blur-[130px] pointer-events-none -z-10" />
+        {/* Asymmetrical Premium Hero Banner with Custom Background Image */}
+        <div 
+          className="relative pt-28 pb-20 text-slate-800 overflow-hidden text-center select-none bg-cover bg-center border-b border-slate-100"
+          style={{
+            backgroundImage: "url('/images/about_us_banner.png')"
+          }}
+        >
+          {/* Subtle light overlay blur */}
+          <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.01)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
-          <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-4">
-            <span className="text-[9px] font-mono text-pink-300 font-bold uppercase tracking-[0.35em] block">Our Story</span>
-            <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none">About Us</h1>
-            <p className="text-pink-100/70 text-xs sm:text-sm font-medium uppercase tracking-[0.25em] mt-1">Your Trusted IT & Software Partner</p>
+          <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-3">
+            <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Our Story</span>
+            <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-slate-850">About Us</h1>
+            <p className="text-slate-650 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] mt-1">Your Trusted IT & Software Partner</p>
           </div>
         </div>
 
@@ -71,11 +76,11 @@ export default function AboutPage() {
                 
                 {/* Left text column */}
                 <div className="space-y-6 relative z-10 flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold uppercase tracking-wider text-pink-600">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-bold uppercase tracking-wider text-pink-600">
                     <Sparkles className="w-3.5 h-3.5" />
                     Welcome to DigitalRaiz
                   </div>
-                  <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight max-w-xl text-slate-800">
+                  <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight max-w-xl text-slate-805">
                     We build scale-ready digital platforms
                   </h3>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal max-w-2xl">
@@ -95,7 +100,7 @@ export default function AboutPage() {
 
               {/* Card 2: Interactive Vision Block (col-span-1) */}
               <div className="bg-gradient-to-br from-pink-50/20 via-white to-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
-                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-pink-500/[0.04] select-none pointer-events-none font-mono tracking-tighter uppercase z-0">
+                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-pink-500/[0.04] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
                   Vision
                 </div>
                 
@@ -104,17 +109,17 @@ export default function AboutPage() {
                     <Medal className="w-5.5 h-5.5" />
                   </div>
                   <h4 className="text-lg font-black uppercase tracking-tight text-slate-800">Our Vision</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed text-justify font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal">
                     An individual character and arise as a respected programming arrangements supplier by building and keeping up durable relationships, conveying quality programming and by giving inventive business arrangements.
                   </p>
                 </div>
                 
-                <span className="text-[9px] font-mono font-bold text-pink-500 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Future-Focused</span>
+                <span className="text-[9px] font-bold text-pink-600 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Future-Focused</span>
               </div>
 
               {/* Card 3: Interactive Mission Block (col-span-1) */}
               <div className="bg-gradient-to-br from-indigo-50/20 via-white to-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group hover:scale-[1.01] flex flex-col justify-between min-h-[380px]">
-                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-indigo-500/[0.04] select-none pointer-events-none font-mono tracking-tighter uppercase z-0">
+                <div className="absolute -bottom-6 -right-6 text-8xl font-black text-indigo-500/[0.04] select-none pointer-events-none font-sans tracking-tighter uppercase z-0">
                   Mission
                 </div>
 
@@ -123,19 +128,19 @@ export default function AboutPage() {
                     <Bookmark className="w-5.5 h-5.5" />
                   </div>
                   <h4 className="text-lg font-black uppercase tracking-tight text-slate-800">Mission</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed text-justify font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal">
                     To give inventive, high calibre and top tier IT Consulting &amp; IT Solutions &amp; Services to our clients, empowering them to accomplish their business objectives. Partners and accomplices while co-operating. also, to keep up and grow our convention of &quot;Greatness through Quality&quot;.
                   </p>
                 </div>
 
-                <span className="text-[9px] font-mono font-bold text-indigo-500 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Quality-Driven</span>
+                <span className="text-[9px] font-bold text-indigo-600 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Quality-Driven</span>
               </div>
 
               {/* Card 4: Detailed Operational DNA (col-span-1) */}
               <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden group hover:scale-[1.005] transition-all duration-300 min-h-[380px] flex flex-col justify-between">
                 <div className="space-y-6">
                   <div className="space-y-1.5">
-                    <span className="text-[9px] font-mono text-pink-500 font-bold uppercase tracking-[0.25em] block">Methodology</span>
+                    <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Methodology</span>
                     <h4 className="text-xl font-black uppercase tracking-tight text-slate-800">Our DNA</h4>
                   </div>
                   
@@ -146,8 +151,8 @@ export default function AboutPage() {
                           {pillar.icon}
                         </div>
                         <div className="space-y-0.5">
-                          <h5 className="text-xs font-bold text-slate-800 uppercase tracking-tight">{pillar.title}</h5>
-                          <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed font-light">{pillar.desc}</p>
+                          <h5 className="text-xs font-bold text-slate-850 uppercase tracking-tight">{pillar.title}</h5>
+                          <p className="text-slate-600 text-[10px] sm:text-xs leading-relaxed font-light">{pillar.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -164,8 +169,8 @@ export default function AboutPage() {
             {/* Bottom Row: FID / Stats Card Grid */}
             <div className="pt-8 space-y-8">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-[9px] font-mono text-pink-500 font-bold uppercase tracking-[0.25em] block">Verified Progress</span>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-800">DigitalRaiz by the Numbers</h3>
+                <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Verified Progress</span>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-850">DigitalRaiz by the Numbers</h3>
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -175,8 +180,8 @@ export default function AboutPage() {
                       {stat.icon}
                     </div>
                     <div className="text-3xl sm:text-4xl font-black text-slate-800 mb-1">{stat.value}</div>
-                    <div className="text-xs font-bold text-slate-800 uppercase tracking-tight mt-1">{stat.label}</div>
-                    <p className="text-[10px] text-slate-400 mt-1 font-light leading-snug">{stat.desc}</p>
+                    <div className="text-xs font-bold text-slate-850 uppercase tracking-tight mt-1">{stat.label}</div>
+                    <p className="text-[10px] text-slate-500 mt-1 font-light leading-snug">{stat.desc}</p>
                   </div>
                 ))}
               </div>
