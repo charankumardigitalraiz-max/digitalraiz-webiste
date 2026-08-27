@@ -114,15 +114,18 @@ export default function GrowthSection() {
                     <PIcon className="w-4.5 h-4.5" />
                   </div>
 
-                  <div className="text-left hidden sm:block leading-tight">
-                    <span className={`text-[8px] font-mono font-bold uppercase tracking-wider block`}
-                      style={{ color: isActive ? "rgba(255,255,255,0.85)" : undefined }}>
-                      Phase {p.id}
-                    </span>
-                    <span className="text-[10px] md:text-[11px] font-black tracking-tight block mt-0.5">
-                      {p.label}
-                    </span>
-                  </div>
+                  <div className="text-left hidden sm:block">
+                  <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${
+                    isActive ? "text-white/80" : "text-slate-400"
+                  }`}>
+                    Phase {p.id}
+                  </span>
+                  <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${
+                    isActive ? "text-white" : "text-slate-700"
+                  }`}>
+                    {p.label}
+                  </span>
+                </div>
                 </button>
               );
             })}
