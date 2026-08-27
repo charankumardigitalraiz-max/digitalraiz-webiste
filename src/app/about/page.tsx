@@ -15,6 +15,24 @@ export default function AboutPage() {
     { value: "16", label: "Our Products", desc: "Proprietary tools scaling business workflows", icon: <Box className="w-5 h-5 text-indigo-500" /> },
   ];
 
+  const pillars = [
+    {
+      title: "Precision Coding",
+      desc: "Pixel-perfect visual experiences built on modern architectures.",
+      icon: <Zap className="w-4 h-4 text-pink-500" />
+    },
+    {
+      title: "Data-Driven ROI",
+      desc: "We align digital marketing and SEO to growth targets.",
+      icon: <TrendingUp className="w-4 h-4 text-indigo-500" />
+    },
+    {
+      title: "Security & Scale",
+      desc: "Blazing fast cloud deployments keeping systems safe.",
+      icon: <Shield className="w-4 h-4 text-emerald-500" />
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-slate-50/10 font-sans select-none text-slate-800">
       <Header />
@@ -71,7 +89,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Bento Grid Layout Section */}
+        {/* Narrative Journey & Details Section */}
         <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
           <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
           <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
@@ -104,109 +122,74 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* 2. Unified Split-Studio Dashboard (Matches Capabilities/Home Page style) */}
-            <div className="flex flex-col lg:flex-row border border-slate-100 rounded-3xl overflow-hidden bg-white shadow-md relative z-10 min-h-[500px]">
+            {/* 2. Narrative Timeline Journey Section */}
+            <div className="relative pt-12 border-t border-slate-100/60 space-y-20">
               
-              {/* Left Column: Brand Perspective (Vision & Mission) */}
-              <div className="flex-1 relative p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-slate-100 bg-[#fdfcff] overflow-hidden flex flex-col justify-between">
-                {/* Ambient glow */}
-                <div className="absolute top-0 left-0 w-60 h-60 rounded-full bg-pink-50/50 blur-[80px] pointer-events-none" />
-                {/* Watermark number */}
-                <div className="absolute bottom-4 right-6 text-[120px] font-black text-slate-900/[0.02] leading-none pointer-events-none select-none tracking-tighter z-0">
-                  01
+              {/* Vertical timeline track */}
+              <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 top-12 bottom-12 w-[2px] bg-gradient-to-b from-pink-500 via-indigo-500 to-emerald-500 opacity-20 z-0 hidden sm:block" />
+
+              {/* Timeline Row 1: Vision */}
+              <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
+                {/* Left side title */}
+                <div className="md:col-span-5 md:text-right space-y-1.5 pr-0 md:pr-10">
+                  <span className="text-[10px] font-bold text-pink-600 tracking-widest uppercase">01 / Perspective</span>
+                  <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Our Vision</h4>
                 </div>
+                
+                {/* Center dot */}
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-pink-500 shadow-sm z-20 hidden md:block" />
 
-                <div className="space-y-8 relative z-10">
-                  {/* Top Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-50 border border-pink-150 text-[9px] font-bold text-pink-600 uppercase tracking-widest">
-                      <Medal className="w-3.5 h-3.5" />
-                      <span>Brand Perspective</span>
-                    </div>
-                    <span className="text-[9px] font-mono text-slate-350 uppercase tracking-widest">Vision &amp; Mission</span>
-                  </div>
-
-                  {/* Content Blocks */}
-                  <div className="space-y-8">
-                    {/* Vision */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono font-bold text-pink-500">01.</span>
-                        <h4 className="text-sm font-black uppercase tracking-tight text-slate-800">Our Vision</h4>
-                      </div>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal pl-6">
-                        An individual character and arise as a respected programming arrangements supplier by building and keeping up durable relationships, conveying quality programming and by giving inventive business arrangements.
-                      </p>
-                    </div>
-
-                    {/* Mission */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono font-bold text-indigo-500">02.</span>
-                        <h4 className="text-sm font-black uppercase tracking-tight text-slate-800">Our Mission</h4>
-                      </div>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal pl-6">
-                        To give inventive, high calibre and top tier IT Consulting &amp; IT Solutions &amp; Services to our clients, empowering them to accomplish their business objectives. Partners and accomplices while co-operating. also, to keep up and grow our convention of &quot;Greatness through Quality&quot;.
-                      </p>
-                    </div>
-                  </div>
+                {/* Right side content */}
+                <div className="md:col-span-7 pl-0 md:pl-10">
+                  <p className="text-slate-600 text-sm leading-relaxed text-justify font-normal">
+                    An individual character and arise as a respected programming arrangements supplier by building and keeping up durable relationships, conveying quality programming and by giving inventive business arrangements. We operate on long-term client milestones.
+                  </p>
                 </div>
               </div>
 
-              {/* Right Column: Execution DNA (Pillars) */}
-              <div className="flex-1 relative p-8 sm:p-12 bg-[#faf9ff] overflow-hidden flex flex-col justify-between">
-                {/* Ambient glow */}
-                <div className="absolute bottom-0 right-0 w-60 h-60 rounded-full bg-indigo-50/50 blur-[80px] pointer-events-none" />
-                {/* Watermark number */}
-                <div className="absolute bottom-4 right-6 text-[120px] font-black text-slate-900/[0.02] leading-none pointer-events-none select-none tracking-tighter z-0">
-                  02
+              {/* Timeline Row 2: Mission */}
+              <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
+                {/* Left side content */}
+                <div className="md:col-span-7 pr-0 md:pr-10 order-2 md:order-1">
+                  <p className="text-slate-600 text-sm leading-relaxed text-justify font-normal">
+                    To give inventive, high calibre and top tier IT Consulting &amp; IT Solutions &amp; Services to our clients, empowering them to accomplish their business objectives. Partners and accomplices while co-operating. also, to keep up and grow our convention of &quot;Greatness through Quality&quot;.
+                  </p>
                 </div>
 
-                <div className="space-y-8 relative z-10">
-                  {/* Top Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-150 text-[9px] font-bold text-indigo-600 uppercase tracking-widest">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Execution DNA</span>
-                    </div>
-                    <span className="text-[9px] font-mono text-slate-350 uppercase tracking-widest">Core Competency</span>
-                  </div>
+                {/* Center dot */}
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-indigo-500 shadow-sm z-20 hidden md:block" />
 
-                  {/* Pillars list styled as premium hover components */}
-                  <div className="space-y-4">
-                    {/* Pillar 1 */}
-                    <div className="bg-pink-50/30 hover:bg-pink-50/80 border border-pink-100/50 hover:border-pink-300 transition-all duration-300 rounded-2xl p-4 sm:p-5 flex gap-4 items-start group">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-pink-200 flex items-center justify-center text-pink-500 shrink-0 shadow-xs">
-                        <Zap className="w-4.5 h-4.5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h5 className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-tight">Precision Coding</h5>
-                        <p className="text-slate-550 text-[11px] sm:text-xs leading-relaxed font-light">Pixel-perfect visual experiences built on modern architectures.</p>
-                      </div>
-                    </div>
+                {/* Right side title */}
+                <div className="md:col-span-5 space-y-1.5 pl-0 md:pl-10 order-1 md:order-2">
+                  <span className="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">02 / Execution</span>
+                  <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Mission</h4>
+                </div>
+              </div>
 
-                    {/* Pillar 2 */}
-                    <div className="bg-indigo-50/30 hover:bg-indigo-50/80 border border-indigo-100/50 hover:border-indigo-300 transition-all duration-300 rounded-2xl p-4 sm:p-5 flex gap-4 items-start group">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-indigo-200 flex items-center justify-center text-indigo-500 shrink-0 shadow-xs">
-                        <TrendingUp className="w-4.5 h-4.5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h5 className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-tight">Data-Driven ROI</h5>
-                        <p className="text-slate-550 text-[11px] sm:text-xs leading-relaxed font-light">We align digital marketing and SEO directly to client growth targets.</p>
-                      </div>
-                    </div>
+              {/* Timeline Row 3: DNA */}
+              <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-start z-10">
+                {/* Left side title */}
+                <div className="md:col-span-5 md:text-right space-y-1.5 pr-0 md:pr-10">
+                  <span className="text-[10px] font-bold text-emerald-600 tracking-widest uppercase">03 / Core Competency</span>
+                  <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Our DNA</h4>
+                </div>
 
-                    {/* Pillar 3 */}
-                    <div className="bg-emerald-50/30 hover:bg-emerald-50/80 border border-emerald-100/50 hover:border-emerald-300 transition-all duration-300 rounded-2xl p-4 sm:p-5 flex gap-4 items-start group">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-emerald-200 flex items-center justify-center text-emerald-500 shrink-0 shadow-xs">
-                        <Shield className="w-4.5 h-4.5" />
+                {/* Center dot */}
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-emerald-500 shadow-sm z-20 hidden md:block" />
+
+                {/* Right side content: Pillars list */}
+                <div className="md:col-span-7 pl-0 md:pl-10 space-y-4">
+                  {pillars.map((pillar, idx) => (
+                    <div key={idx} className="flex gap-4 items-start bg-slate-50/50 hover:bg-slate-50 border border-slate-100 rounded-xl p-3.5 transition-all duration-300">
+                      <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 shrink-0 mt-0.5 shadow-2xs">
+                        {pillar.icon}
                       </div>
-                      <div className="space-y-1">
-                        <h5 className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-tight">Security &amp; Scale</h5>
-                        <p className="text-slate-550 text-[11px] sm:text-xs leading-relaxed font-light">Blazing fast cloud deployments keeping systems safe and responsive.</p>
+                      <div>
+                        <h5 className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-tight">{pillar.title}</h5>
+                        <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed font-light">{pillar.desc}</p>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -216,7 +199,7 @@ export default function AboutPage() {
             <div className="pt-8 space-y-8">
               <div className="text-center max-w-2xl mx-auto space-y-2">
                 <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Verified Progress</span>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-850">DigitalRaiz by the Numbers</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-855">DigitalRaiz by the Numbers</h3>
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
