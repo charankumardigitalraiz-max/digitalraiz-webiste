@@ -27,7 +27,7 @@ const services = [
     tag: "bg-indigo-100/50 text-[#4f46e5]",
     desc: "High-performance web applications and native mobile apps built to scale. Clean design, usability, search-friendly structure, and clean code.",
     items: ["Next.js & React Apps", "Mobile Apps (iOS/Android)", "UI/UX Prototyping", "E-commerce Platforms", "SAP Integration"],
-    img: "/services/digitalraiz_web_mobile_development_no_human.png",
+    img: "/services/mobile.png",
     href: "/services#engineering"
   },
   {
