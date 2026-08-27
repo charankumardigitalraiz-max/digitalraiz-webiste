@@ -131,7 +131,7 @@ export default function AboutPage() {
               {/* Timeline Row 1: Vision */}
               <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
                 {/* Left side title */}
-                <div className="md:col-span-5 md:text-right space-y-1.5 pr-0 md:pr-10">
+                <div className="md:col-span-6 md:text-right space-y-1.5 pr-0 md:pr-14">
                   <span className="text-[10px] font-bold text-pink-600 tracking-widest uppercase">01 / Perspective</span>
                   <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Our Vision</h4>
                 </div>
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-pink-500 shadow-sm z-20 hidden md:block" />
 
                 {/* Right side content */}
-                <div className="md:col-span-7 pl-0 md:pl-10">
+                <div className="md:col-span-6 pl-0 md:pl-14">
                   <p className="text-slate-600 text-sm leading-relaxed text-justify font-normal">
                     An individual character and arise as a respected programming arrangements supplier by building and keeping up durable relationships, conveying quality programming and by giving inventive business arrangements. We operate on long-term client milestones.
                   </p>
@@ -150,7 +150,7 @@ export default function AboutPage() {
               {/* Timeline Row 2: Mission */}
               <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
                 {/* Left side content */}
-                <div className="md:col-span-7 pr-0 md:pr-10 order-2 md:order-1">
+                <div className="md:col-span-6 pr-0 md:pr-14 order-2 md:order-1">
                   <p className="text-slate-600 text-sm leading-relaxed text-justify font-normal">
                     To give inventive, high calibre and top tier IT Consulting &amp; IT Solutions &amp; Services to our clients, empowering them to accomplish their business objectives. Partners and accomplices while co-operating. also, to keep up and grow our convention of &quot;Greatness through Quality&quot;.
                   </p>
@@ -160,16 +160,16 @@ export default function AboutPage() {
                 <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-indigo-500 shadow-sm z-20 hidden md:block" />
 
                 {/* Right side title */}
-                <div className="md:col-span-5 space-y-1.5 pl-0 md:pl-10 order-1 md:order-2">
+                <div className="md:col-span-6 space-y-1.5 pl-0 md:pl-14 order-1 md:order-2">
                   <span className="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">02 / Execution</span>
-                  <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Mission</h4>
+                  <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-855">Mission</h4>
                 </div>
               </div>
 
               {/* Timeline Row 3: DNA */}
               <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-start z-10">
                 {/* Left side title */}
-                <div className="md:col-span-5 md:text-right space-y-1.5 pr-0 md:pr-10">
+                <div className="md:col-span-6 md:text-right space-y-1.5 pr-0 md:pr-14">
                   <span className="text-[10px] font-bold text-emerald-600 tracking-widest uppercase">03 / Core Competency</span>
                   <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-805">Our DNA</h4>
                 </div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-emerald-500 shadow-sm z-20 hidden md:block" />
 
                 {/* Right side content: Pillars list */}
-                <div className="md:col-span-7 pl-0 md:pl-10 space-y-4">
+                <div className="md:col-span-6 pl-0 md:pl-14 space-y-4">
                   {pillars.map((pillar, idx) => (
                     <div key={idx} className="flex gap-4 items-start bg-slate-50/50 hover:bg-slate-50 border border-slate-100 rounded-xl p-3.5 transition-all duration-300">
                       <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 shrink-0 mt-0.5 shadow-2xs">
