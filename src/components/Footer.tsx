@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2 } from "lucide-react";
 
 export default function Footer() {
   const partnerStrengths = [
@@ -115,7 +115,7 @@ export default function Footer() {
                       href={link.href}
                       className="group flex items-center gap-2 text-pink-100/85 hover:text-white transition-all duration-200 text-sm font-normal"
                     >
-                      <ArrowRight className="w-3.5 h-3.5 text-pink-300/80 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-pink-300/80 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
                       <span>{link.label}</span>
                     </a>
                   </li>
