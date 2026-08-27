@@ -94,7 +94,7 @@ export default function GrowthSection() {
           </div>
 
           {/* Stepper Tabs - Embedded inside the card container */}
-          <div className="bg-white p-1.5 rounded-xl border border-slate-100 flex flex-row gap-2 max-w-2xl mx-auto relative shadow-md z-10">
+          <div className="bg-slate-50/60 p-1 rounded-xl border border-slate-100/60 flex flex-row gap-1.5 max-w-xl mx-auto relative shadow-sm z-10">
             {phases.map((p) => {
               const PIcon = p.icon;
               const isActive = p.id === activePhase;
@@ -102,29 +102,29 @@ export default function GrowthSection() {
                 <button
                   key={p.id}
                   onClick={() => setActivePhase(p.id)}
-                  className={`flex-1 flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl transition-all duration-300 outline-none cursor-pointer select-none group ${isActive
-                    ? "shadow-md text-white scale-[1.02]"
-                    : "text-slate-550 hover:bg-slate-100/50"
+                  className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-3 rounded-lg transition-all duration-300 outline-none cursor-pointer select-none group ${isActive
+                    ? "shadow-sm text-white scale-[1.01]"
+                    : "text-slate-550 hover:bg-white/60"
                     }`}
                   style={{
                     backgroundColor: isActive ? p.accent : undefined
                   }}
                 >
                   {/* Node Icon Badge */}
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white text-slate-800" : "bg-slate-100/80 text-slate-400 group-hover:text-slate-600"
+                  <div className={`w-6.5 h-6.5 rounded-md flex items-center justify-center transition-all duration-300 ${isActive ? "bg-white text-slate-800" : "bg-slate-100 text-slate-400 group-hover:text-slate-650"
                     }`}
                     style={{
                       color: isActive ? p.accent : undefined
                     }}>
-                    <PIcon className="w-4.5 h-4.5" />
+                    <PIcon className="w-3.5 h-3.5" />
                   </div>
 
                   <div className="text-left hidden sm:block">
-                    <span className={`text-[9px] font-mono font-medium uppercase tracking-[0.18em] block transition-colors duration-300 ${isActive ? "text-white/80" : "text-slate-400 group-hover:text-slate-500"
+                    <span className={`text-[8px] font-mono font-medium uppercase tracking-[0.16em] block transition-colors duration-300 ${isActive ? "text-white/80" : "text-slate-400 group-hover:text-slate-500"
                       }`}>
                       Phase {p.id}
                     </span>
-                    <span className={`text-xs md:text-[13px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${isActive ? "text-white" : "text-slate-700 group-hover:text-slate-900"
+                    <span className={`text-[11px] md:text-[12px] font-bold tracking-tight block mt-0.5 transition-colors duration-300 ${isActive ? "text-white" : "text-slate-700 group-hover:text-slate-900"
                       }`}>
                       {p.label}
                     </span>
