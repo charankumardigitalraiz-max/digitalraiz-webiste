@@ -37,7 +37,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/30 font-sans select-none">
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans select-none text-slate-800">
       <Header />
       
       <main className="flex-grow pt-[80px]">
@@ -64,27 +64,32 @@ export default function AboutPage() {
             {/* The Bento Grid Container */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               
-              {/* Card 1: Brand Philosophy & Story (col-span-2) - DARK FUTURISTIC CARD */}
-              <div className="lg:col-span-2 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-10 shadow-lg border border-slate-900 relative overflow-hidden flex flex-col justify-between min-h-[380px] group hover:scale-[1.005] transition-all duration-300">
-                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-pink-500/10 blur-[80px] pointer-events-none" />
-                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+              {/* Card 1: Brand Philosophy & Story (Full width 3 columns on large screens) - LIGHT MODE WITH BRAND ILLUSTRATION */}
+              <div className="lg:col-span-3 bg-gradient-to-br from-slate-50 via-white to-white border border-slate-100 rounded-3xl p-8 sm:p-10 shadow-md relative overflow-hidden flex flex-col lg:flex-row gap-8 items-center group hover:scale-[1.005] transition-all duration-300">
+                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-pink-500/5 blur-[80px] pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.008)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
                 
-                <div className="space-y-6 relative z-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] font-mono font-bold uppercase tracking-wider text-pink-300">
+                {/* Left text column */}
+                <div className="space-y-6 relative z-10 flex-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold uppercase tracking-wider text-pink-600">
                     <Sparkles className="w-3.5 h-3.5" />
                     Welcome to DigitalRaiz
                   </div>
-                  <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight max-w-xl">
+                  <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight max-w-xl text-slate-800">
                     We build scale-ready digital platforms
                   </h3>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed text-justify font-light max-w-2xl">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify font-normal max-w-2xl">
                     DigitalRaiz operates as a high-performance technology and marketing partner. We design responsive frameworks, build SEO-friendly web portals, and orchestrate campaign systems designed to scale businesses from local startups to large enterprises. We separate ourselves in our steady capacity to stay up with the changing requests of the business.
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-white/5 relative z-10 text-[9px] text-slate-400 font-mono uppercase tracking-widest flex items-center justify-between">
-                  <span>Digital Raiz DNA</span>
-                  <span>Est. Hyderabad</span>
+                {/* Right image column */}
+                <div className="relative z-10 w-full lg:w-[320px] shrink-0 flex items-center justify-center">
+                  <img 
+                    src="https://digitalraiz.com/assets/images/single-img-two.png" 
+                    alt="DigitalRaiz Brand Illustration" 
+                    className="w-full max-w-[280px] h-auto object-contain hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
 
@@ -126,23 +131,23 @@ export default function AboutPage() {
                 <span className="text-[9px] font-mono font-bold text-indigo-500 uppercase tracking-widest relative z-10 pt-4 block border-t border-slate-100">Quality-Driven</span>
               </div>
 
-              {/* Card 4: Detailed Operational DNA (col-span-2) */}
-              <div className="lg:col-span-2 bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden group hover:scale-[1.005] transition-all duration-300 min-h-[380px] flex flex-col justify-between">
+              {/* Card 4: Detailed Operational DNA (col-span-1) */}
+              <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden group hover:scale-[1.005] transition-all duration-300 min-h-[380px] flex flex-col justify-between">
                 <div className="space-y-6">
                   <div className="space-y-1.5">
                     <span className="text-[9px] font-mono text-pink-500 font-bold uppercase tracking-[0.25em] block">Methodology</span>
-                    <h4 className="text-xl font-black uppercase tracking-tight text-slate-800">Our Operational DNA</h4>
+                    <h4 className="text-xl font-black uppercase tracking-tight text-slate-800">Our DNA</h4>
                   </div>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="space-y-4">
                     {pillars.map((pillar, idx) => (
-                      <div key={idx} className="space-y-3">
-                        <div className={`w-9 h-9 rounded-lg border flex items-center justify-center ${pillar.color} shrink-0`}>
+                      <div key={idx} className="flex gap-3.5 items-start">
+                        <div className={`w-8 h-8 rounded-lg border flex items-center justify-center ${pillar.color} shrink-0 mt-0.5`}>
                           {pillar.icon}
                         </div>
-                        <div className="space-y-1">
-                          <h5 className="text-[13px] font-bold text-slate-800 uppercase tracking-tight">{pillar.title}</h5>
-                          <p className="text-slate-500 text-[11px] leading-relaxed font-light">{pillar.desc}</p>
+                        <div className="space-y-0.5">
+                          <h5 className="text-xs font-bold text-slate-800 uppercase tracking-tight">{pillar.title}</h5>
+                          <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed font-light">{pillar.desc}</p>
                         </div>
                       </div>
                     ))}
