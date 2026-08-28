@@ -85,7 +85,7 @@ export default function Footer() {
           {/* COLUMN 1: Brand Logo & Bio (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-5">
             <Image
-              src="/logo/Digital Raiz logo.png"
+              src="/logo/digital-raiz-logo.png"
               alt="Digital Raiz Logo"
               width={450}
               height={122}

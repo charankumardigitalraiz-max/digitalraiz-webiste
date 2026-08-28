@@ -20,6 +20,23 @@ export default function Header() {
 
   return (
     <>
+      {/* Fixed Top-Left Main Branding Header Logo Bar */}
+      <header className="fixed top-3 left-4 sm:top-5 sm:left-6 z-40 flex items-center pointer-events-auto">
+        <Link
+          href="/"
+          className="group flex items-center bg-white/90 backdrop-blur-md p-3 sm:px-2.5 sm:py-1 rounded-full border border-slate-200/80 shadow-lg hover:shadow-xl hover:border-pink-300/60 transition-all duration-300"
+        >
+          <Image
+            src="/logo/digital-raiz-logo.png"
+            alt="Digital Raiz Logo"
+            width={220}
+            height={60}
+            className="h-11 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
+        </Link>
+      </header>
+
       {/* Backdrop overlay (Only active when menu is fully opened) */}
       <div
         className={`fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-xs transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -29,11 +46,10 @@ export default function Header() {
 
       {/* Side Dock Menu Panel (Thin sidebar strip on desktop, sliding menu drawer on mobile) */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-40 bg-white border-l border-slate-200/60 shadow-2xl flex flex-col justify-between transition-all duration-500 ease-in-out ${
-          menuOpen 
-            ? "w-full sm:w-[320px] translate-x-0" 
-            : "w-[80px] translate-x-full lg:translate-x-0"
-        }`}
+        className={`fixed top-0 right-0 bottom-0 z-40 bg-white border-l border-slate-200/60 shadow-2xl flex flex-col justify-between transition-all duration-500 ease-in-out ${menuOpen
+          ? "w-full sm:w-[320px] translate-x-0"
+          : "w-[80px] translate-x-full lg:translate-x-0"
+          }`}
       >
 
         {/* === STATE 1: COLLAPSED (Thin vertical bar strip - Desktop Only) === */}
@@ -44,7 +60,7 @@ export default function Header() {
             <div className="w-14 flex items-center justify-center p-1 hover:scale-105 transition-transform duration-200">
               <Link href="/">
                 <Image
-                  src="/logo/Digital Raiz logo.png"
+                  src="/logo/digital-raiz-logo.png"
                   alt="Digital Raiz Logo"
                   width={150}
                   height={40}
@@ -110,7 +126,7 @@ export default function Header() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 <Image
-                  src="/logo/Digital Raiz logo.png"
+                  src="/logo/digital-raiz-logo.png"
                   alt="Digital Raiz Logo"
                   width={240}
                   height={65}
@@ -262,7 +278,7 @@ export default function Header() {
           {/* Logo Mark (Fades out / shrinks on hover) */}
           <div className="absolute inset-0 flex items-center justify-center p-1 transition-all duration-300 transform scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 pointer-events-none">
             <img
-              src="/logo/Digital Raiz logo.png"
+              src="/logo/digital-raiz-logo.png"
               alt="Brand Logo"
               className="w-full h-full object-contain"
             />

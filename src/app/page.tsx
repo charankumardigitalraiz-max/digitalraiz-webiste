@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Digital Raiz",
     images: [
       {
-        url: "/logo/Digital Raiz logo.png",
+        url: "/logo/digital-raiz-logo.png",
         width: 1200,
         height: 630,
         alt: "Digital Raiz Logo",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
     description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
-    images: ["/logo/Digital Raiz logo.png"],
+    images: ["/logo/digital-raiz-logo.png"],
   },
 };
 
