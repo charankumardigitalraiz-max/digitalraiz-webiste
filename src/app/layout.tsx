@@ -18,8 +18,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://digitalraiz.com"),
   title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
   description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+  icons: {
+    icon: "/logo/Digital Raiz logo.png",
+    shortcut: "/logo/Digital Raiz logo.png",
+    apple: "/logo/Digital Raiz logo.png",
+  },
+  openGraph: {
+    title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
+    description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+    url: "https://digitalraiz.com/",
+    siteName: "Digital Raiz",
+    images: [
+      {
+        url: "/logo/Digital Raiz logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Digital Raiz Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
+    description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+    images: ["/logo/Digital Raiz logo.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
