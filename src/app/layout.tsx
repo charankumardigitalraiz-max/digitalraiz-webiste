@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import FloatingSocials from "@/components/FloatingSocials";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -27,8 +28,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plusJakarta.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-white text-slate-800">
+      <body className="min-h-full flex flex-col font-sans bg-white text-slate-800 relative">
         {children}
+        <FloatingSocials />
       </body>
     </html>
   );

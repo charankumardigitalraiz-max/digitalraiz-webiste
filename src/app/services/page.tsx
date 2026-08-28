@@ -69,17 +69,17 @@ export default function ServicesPage() {
         <section className="relative py-20 overflow-hidden bg-white border-b border-slate-100">
           <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-pink-50/10 pointer-events-none" />
           <div className="absolute top-1/3 left-10 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-          
+
           <div className="max-w-6xl mx-auto px-6 w-full relative z-10 text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-bold uppercase tracking-wider text-pink-600">
               <Sparkles className="w-3.5 h-3.5" />
               What We Do Best
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-slate-900 leading-none">
               Services Built to Scale
             </h1>
-            
+
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
               DigitalRaiz delivers cutting-edge software engineering, custom mobile development, cloud infrastructures, and high-conversion digital marketing solutions that grow brand visibility and operations.
             </p>
@@ -91,8 +91,8 @@ export default function ServicesPage() {
           <div className="max-w-6xl mx-auto px-6 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {serviceCards.map((service, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className={`group rounded-2xl border p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 bg-white ${service.colorClass}`}
                 >
                   <div className="space-y-4">
@@ -119,8 +119,8 @@ export default function ServicesPage() {
 
                   {/* Footer Link */}
                   <div className="pt-6 border-t border-slate-50 mt-6 flex justify-end">
-                    <Link 
-                      href={service.href} 
+                    <Link
+                      href={service.href}
                       className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-800 hover:text-pink-600 transition-colors"
                     >
                       <span>Explore Service</span>
@@ -134,7 +134,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Dynamic Capability Statement Divider */}
-        <section className="py-12 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800">
+        {/* <section className="py-12 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800">
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 opacity-90 pointer-events-none" />
           <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col md:flex-row gap-8 justify-between items-center">
             <div className="space-y-2">
@@ -158,7 +158,7 @@ export default function ServicesPage() {
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <Footer />

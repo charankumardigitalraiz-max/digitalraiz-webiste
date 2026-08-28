@@ -55,7 +55,7 @@ export default function Header() {
             </div>
 
             {/* Rotated Navigation Links stacked vertically */}
-            <div className="flex flex-col items-center gap-16 my-auto">
+            <div className="flex flex-col items-center gap-12 my-auto">
               <Link
                 href="/"
                 className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
@@ -71,6 +71,12 @@ export default function Header() {
               >
                 Services
               </button>
+              <Link
+                href="/web-development#web-showcase"
+                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
+              >
+                Portfolio
+              </Link>
               <Link
                 href="/about"
                 className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
@@ -121,7 +127,7 @@ export default function Header() {
             </div>
 
             {/* Main Navigation links */}
-            <nav className="flex flex-col gap-6 py-8">
+            <nav className="flex flex-col gap-5 py-6">
               {/* 01. Home */}
               <div className="group flex items-start gap-4">
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">01</span>
@@ -163,13 +169,33 @@ export default function Header() {
                         <span>{svc.name}</span>
                       </Link>
                     ))}
+                    <Link
+                      href="/services"
+                      onClick={() => setMenuOpen(false)}
+                      className="group/item flex items-center gap-2 text-xs font-bold text-primary hover:text-primary-hover transition-all duration-300 py-1.5 pl-0 hover:pl-2 border-t border-slate-100 mt-1"
+                    >
+                      <ArrowRight className="w-3 h-3 text-pink-500" />
+                      <span>View All Services</span>
+                    </Link>
                   </div>
                 </div>
               </div>
 
-              {/* 03. About */}
+              {/* 03. Portfolio */}
               <div className="group flex items-start gap-4">
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">03</span>
+                <Link
+                  href="/web-development#web-showcase"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary group-hover:translate-x-1.5 transition-all duration-300"
+                >
+                  Portfolio
+                </Link>
+              </div>
+
+              {/* 04. About */}
+              <div className="group flex items-start gap-4">
+                <span className="text-xs font-mono font-bold text-slate-350 pt-1">04</span>
                 <Link
                   href="/about"
                   onClick={() => setMenuOpen(false)}
@@ -179,9 +205,9 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* 04. Contact */}
+              {/* 05. Contact */}
               <div className="group flex items-start gap-4">
-                <span className="text-xs font-mono font-bold text-slate-350 pt-1">04</span>
+                <span className="text-xs font-mono font-bold text-slate-350 pt-1">05</span>
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
