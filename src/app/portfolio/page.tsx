@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ThreeDShowcase from "@/components/ThreeDShowcase";
+import ProjectModal from "@/components/ProjectModal";
 import Link from "next/link";
 import { PORTFOLIO_PROJECTS, ProjectItem } from "@/data/portfolioData";
 import {
@@ -677,118 +678,10 @@ export default function PortfolioPage() {
         </section>
 
         {/* FULL PROJECT BLUEPRINT LIGHTBOX MODAL */}
-        {modalProject && (
-          <div className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-            <div className="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative text-slate-800">
-
-              {/* Close Button */}
-              <button
-                onClick={() => setModalProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 cursor-pointer transition-colors z-30"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Modal Header */}
-              <div className="space-y-2 border-b border-slate-100 pb-4 pr-12">
-                <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-200/60">
-                    {modalProject.category}
-                  </span>
-                  <span className={`text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${modalProject.type === "mobile" ? "bg-pink-50 text-pink-700 border-pink-200" : "bg-violet-50 text-violet-700 border-violet-200"}`}>
-                    {modalProject.type === "mobile" ? "Mobile Application" : "Web Platform"}
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  {modalProject.name}
-                </h2>
-              </div>
-
-              {/* Modal Screenshot Device Frame */}
-              {modalProject.type === "mobile" ? (
-                /* Mobile App Smartphone Preview */
-                <div className="relative w-[240px] sm:w-[260px] h-[450px] mx-auto rounded-[36px] border-[6px] border-slate-900 bg-slate-950 shadow-xl overflow-hidden">
-                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-full z-20" />
-                  <img
-                    src={modalProject.img}
-                    alt={modalProject.name}
-                    className="w-full h-auto object-cover object-top select-none pointer-events-none block"
-                    style={{
-                      imageRendering: '-webkit-optimize-contrast',
-                      WebkitBackfaceVisibility: 'hidden',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
-                  />
-                </div>
-              ) : (
-                /* Web App Desktop iMac Preview */
-                <div className="w-full">
-                  <ThreeDShowcase
-                    projects={[modalProject]}
-                    activeIndex={0}
-                  />
-                </div>
-              )}
-
-              {/* Description */}
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">Executive Summary</h4>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                  {modalProject.desc}
-                </p>
-              </div>
-
-              {/* Key Features */}
-              <div className="space-y-2 border-t border-slate-100 pt-4">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">Core Features</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
-                  {modalProject.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200/80">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="space-y-2 border-t border-slate-100 pt-4">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">Technology Architecture</h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {modalProject.tech.map((t, idx) => (
-                    <span key={idx} className="text-xs font-mono font-bold px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-pink-600">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button
-                  onClick={() => setModalProject(null)}
-                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider cursor-pointer transition-colors"
-                >
-                  Close Blueprint
-                </button>
-
-                {modalProject.url !== "#" && (
-                  <a
-                    href={modalProject.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:scale-105 cursor-pointer transition-all shadow-md"
-                  >
-                    <span>Launch Live Site / Store</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
-
-            </div>
-          </div>
-        )}
+        <ProjectModal
+          project={modalProject}
+          onClose={() => setModalProject(null)}
+        />
       </main>
 
       <Footer />

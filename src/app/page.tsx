@@ -5,6 +5,7 @@ import Services from "@/components/home/Services";
 import GrowthSection from "@/components/home/GrowthSection";
 import CapabilitiesSection from "@/components/home/CapabilitiesSection";
 import SolutionsSection from "@/components/home/SolutionsSection";
+import BlogSection from "@/components/home/BlogSection";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/Footer";
 
@@ -83,9 +84,11 @@ export default function Home() {
         {/* Growth Section (Contains H2, H3, H4 content) */}
         <GrowthSection />
 
-
         {/* Solutions Section (Contains H7, H8, H9 partner details) */}
         <SolutionsSection />
+
+        {/* Dynamic Studio Blog & Thought Leadership Section */}
+        <BlogSection />
 
         {/* Interactive Inquiry Form */}
         {/* <Contact /> */}

@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, Code, Smartphone, BarChart3, Cloud, Cpu, BrainCircuit, ShieldCheck, Sparkles, Award } from "lucide-react";
+import { ArrowRight, Code, Smartphone, BarChart3, Cloud, Cpu, BrainCircuit, ShieldCheck, Sparkles, Award, Megaphone } from "lucide-react";
 
 export const metadata = {
   title: "Our Digital & Technology Services | DigitalRaiz",
@@ -10,6 +10,14 @@ export const metadata = {
 
 export default function ServicesPage() {
   const serviceCards = [
+    {
+      title: "Digital Marketing",
+      desc: "Full-funnel digital marketing in Hyderabad. High-intent SEO, targeted Google Ads PPC, creative social media management, and qualified lead generation.",
+      href: "/digital-marketing-services-in-hyderabad",
+      icon: <Megaphone className="w-6 h-6 text-pink-500" />,
+      tag: "SEO & Growth",
+      colorClass: "border-pink-500/25 hover:border-pink-500 bg-pink-500/5"
+    },
     {
       title: "Web Development",
       desc: "Tailored front-end experiences, high-performance web applications, and headless CMS integrations built on Next.js, React, and robust cloud scaling.",

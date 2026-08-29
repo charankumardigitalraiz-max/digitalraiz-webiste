@@ -10,6 +10,7 @@ export default function Header() {
   const [servicesExpanded, setServicesExpanded] = useState(false);
 
   const services = [
+    { name: "Digital Marketing", href: "/digital-marketing-services-in-hyderabad" },
     { name: "Web Development", href: "/web-development" },
     { name: "Mobile App Development", href: "/mobile-application" },
     { name: "Influencer Marketing", href: "/influencer-marketing" },
@@ -92,6 +93,12 @@ export default function Header() {
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Portfolio
+              </Link>
+              <Link
+                href="/blogs"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
+              >
+                Blogs
               </Link>
               <Link
                 href="/about"
@@ -209,9 +216,21 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* 04. About */}
+              {/* 04. Blogs */}
               <div className="group flex items-start gap-4">
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">04</span>
+                <Link
+                  href="/blogs"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
+                >
+                  Blogs
+                </Link>
+              </div>
+
+              {/* 05. About */}
+              <div className="group flex items-start gap-4">
+                <span className="text-xs font-mono font-bold text-slate-350 pt-1">05</span>
                 <Link
                   href="/about"
                   onClick={() => setMenuOpen(false)}
@@ -221,9 +240,9 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* 05. Contact */}
+              {/* 06. Contact */}
               <div className="group flex items-start gap-4">
-                <span className="text-xs font-mono font-bold text-slate-350 pt-1">05</span>
+                <span className="text-xs font-mono font-bold text-slate-350 pt-1">06</span>
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}

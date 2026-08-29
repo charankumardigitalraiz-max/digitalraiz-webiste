@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles, Megaphone } from "lucide-react";
 
 export default function Footer() {
   const partnerStrengths = [
@@ -19,7 +19,7 @@ export default function Footer() {
     { label: "Home", href: "/", icon: Home },
     { label: "About Us", href: "/about", icon: Users },
     { label: "Portfolio", href: "/portfolio", icon: Laptop },
-    { label: "Career", href: "/contact", icon: TrendingUp },
+    { label: "Blogs", href: "/blogs", icon: TrendingUp },
     { label: "Contact", href: "/contact", icon: Headphones },
     { label: "Privacy Policy", href: "#", icon: CheckCircle2 },
     { label: "Terms & Conditions", href: "#", icon: CheckCircle2 },
@@ -27,6 +27,7 @@ export default function Footer() {
   ];
 
   const keySolutions = [
+    { label: "Digital Marketing", href: "/digital-marketing-services-in-hyderabad", icon: Megaphone },
     { label: "Mobile Application", href: "/mobile-application", icon: Smartphone },
     { label: "Web Development", href: "/web-development", icon: Laptop },
     { label: "Influencer Marketing", href: "/influencer-marketing", icon: Share2 },
