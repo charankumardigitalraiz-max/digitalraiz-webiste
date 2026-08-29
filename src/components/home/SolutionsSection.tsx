@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Lightbulb, Users, CheckCircle2, ArrowRight, Globe, Smartphone, TrendingUp, Search, Share2, Zap } from "lucide-react";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SolutionsSection() {
   const [hoveredStrength, setHoveredStrength] = useState<number | null>(null);
@@ -33,7 +34,7 @@ export default function SolutionsSection() {
       {/* Faint background gradient mesh */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(79,70,229,0.03),transparent)] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 space-y-10">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 relative z-10 space-y-10">
 
         {/* ── SECTION 1: Integrated Ecosystem ── */}
         {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -95,68 +96,149 @@ export default function SolutionsSection() {
         </div> */}
 
         {/* ── SECTION 2: Why Partner with Digital Raiz ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Left Column: Heading and intro */}
-          <div className="space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 flex items-center justify-center">
-              <Users className="w-5 h-5 text-primary-hover" />
-            </div>
+          {/* Left Column: Heading, intro & Trust Pillars Checklist */}
+          <ScrollReveal direction="left" className="lg:col-span-6 space-y-6">
+            <div className="space-y-3">
+              {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100">
+                <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
+                <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  Our Commitment // Executive Trust
+                </span>
+              </div> */}
 
-            <div className="space-y-1">
-              <p className="text-[10px] font-mono text-slate-400 uppercase tracking-[0.3em]">Our Commitment</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-[#1e1b4b] uppercase tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e1b4b] uppercase tracking-tight leading-[0.95]">
                 Why Partner<br />
-                <span className="text-primary-hover">With Us?</span>
+                <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">With Us?</span>
               </h2>
-            </div>
 
-            <div className="space-y-3 text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
-              <p>
-                Choosing a digital partner is about more than selecting an individual service. It is about working with a team that understands your business objectives and can turn those objectives into effective digital solutions.
+              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
+                Choosing a digital partner is about more than selecting an individual service. It is about working with a team that understands your business objectives and turns them into scalable, high-conversion digital solutions.
               </p>
             </div>
-          </div>
 
-          {/* Right Column: Visual Premium Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* 4 Trust Pillars Checklist Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="p-3.5 rounded-2xl border border-slate-100/90 space-y-1 group hover:border-pink-200 transition-colors">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-500 shrink-0" />
+                  <span className="text-xs font-black text-[#1e1b4b]">Full-Spectrum Strategy</span>
+                </div>
+                <p className="text-[10px] text-slate-500 font-normal leading-tight">Tailored marketing &amp; tech blueprint.</p>
+              </div>
 
-            {/* Stat Card 1: Happy Clients */}
-            <div className="group relative bg-gradient-to-br from-primary-dark via-primary-mid/95 to-slate-950 border border-pink-500/20 rounded-3xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/25 hover:-translate-y-1 overflow-hidden text-white">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl opacity-70 group-hover:bg-pink-500/20 transition-colors" />
-              <div className="relative z-10 space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-primary-dark/60 border border-pink-500/30 flex items-center justify-center shadow-inner text-pink-300">
-                  <Users className="w-5 h-5" />
+              <div className="p-3.5 rounded-2xl  border border-slate-100/90 space-y-1 group hover:border-indigo-200 transition-colors">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0" />
+                  <span className="text-xs font-black text-[#1e1b4b]">Guaranteed Quality SLA</span>
                 </div>
-                <div>
-                  <p className="text-3xl font-black bg-gradient-to-r from-pink-100 to-pink-300 bg-clip-text text-transparent tracking-tight">200+</p>
-                  <p className="text-[10px] font-mono text-pink-300/80 uppercase tracking-widest mt-1">Happy Clients</p>
+                <p className="text-[10px] text-slate-500 font-normal leading-tight">Sub-second latency &amp; 99.9% uptime.</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl  border border-slate-100/90 space-y-1 group hover:border-purple-200 transition-colors">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0" />
+                  <span className="text-xs font-black text-[#1e1b4b]">Dedicated Local Team</span>
                 </div>
-                <p className="text-[11px] text-pink-200/70 font-light leading-relaxed">
-                  Delivering proven marketing and engineering results for startups and enterprises.
-                </p>
+                <p className="text-[10px] text-slate-500 font-normal leading-tight">Direct sprint updates in Hyderabad.</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl border border-slate-100/90 space-y-1 group hover:border-pink-200 transition-colors">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-500 shrink-0" />
+                  <span className="text-xs font-black text-[#1e1b4b]">Data-Driven Scaling</span>
+                </div>
+                <p className="text-[10px] text-slate-500 font-normal leading-tight">Transparent monthly performance ROI.</p>
               </div>
             </div>
 
-            {/* Stat Card 2: Years Active — Secondary Indigo */}
-            <div className="group relative bg-gradient-to-br from-indigo-900 via-indigo-800/80 to-slate-900 border border-indigo-400/25 rounded-3xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-800/30 hover:-translate-y-1 overflow-hidden sm:mt-6 text-white">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-400/20 rounded-full blur-2xl opacity-80 group-hover:bg-indigo-400/30 transition-colors" />
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-indigo-600/10 rounded-full blur-xl pointer-events-none" />
-              <div className="relative z-10 space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-indigo-950/60 border border-indigo-400/30 flex items-center justify-center shadow-inner text-indigo-300">
-                  <TrendingUp className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-3xl font-black bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent tracking-tight">8+</p>
-                  <p className="text-[10px] font-mono text-indigo-300/80 uppercase tracking-widest mt-1">Years Active</p>
-                </div>
-                <p className="text-[11px] text-indigo-100/60 font-light leading-relaxed">
-                  Continuous technology innovation and digital marketing leadership.
-                </p>
-              </div>
+            {/* CTA Link */}
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] shadow-sm"
+              >
+                <span>Book Strategy Call</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
+          </ScrollReveal>
 
-          </div>
+          {/* Right Column: 2x2 Glowing Metric & Milestone Matrix */}
+          <ScrollReveal direction="right" delay={150} className="lg:col-span-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              {/* Stat Card 1: Happy Clients */}
+              <div className="group relative bg-gradient-to-br from-[#0f0c1b] via-[#17122e] to-[#0a0714] border border-pink-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/20 hover:-translate-y-1 overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-300">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent tracking-tight">200+</p>
+                    <p className="text-[9px] font-mono text-pink-300 uppercase tracking-widest mt-0.5">Happy Clients</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Delivering proven marketing and software results.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat Card 2: Years Active */}
+              <div className="group relative bg-gradient-to-br from-[#0a0f24] via-[#121b3d] to-[#070b1a] border border-indigo-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-1 overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-indigo-200 to-indigo-400 bg-clip-text text-transparent tracking-tight">8+</p>
+                    <p className="text-[9px] font-mono text-indigo-300 uppercase tracking-widest mt-0.5">Years Leadership</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Continuous technology innovation in Hyderabad.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat Card 3: SLA Uptime */}
+              <div className="group relative bg-gradient-to-br from-[#061814] via-[#0d2a23] to-[#04120e] border border-emerald-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-1 overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-emerald-200 to-emerald-400 bg-clip-text text-transparent tracking-tight">99.9%</p>
+                    <p className="text-[9px] font-mono text-emerald-300 uppercase tracking-widest mt-0.5">SLA Uptime</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Sub-second response times &amp; 24/7 server monitoring.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat Card 4: Projects Completed */}
+              <div className="group relative bg-gradient-to-br from-[#180924] via-[#28113b] to-[#12051c] border border-purple-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-300">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-purple-200 to-purple-400 bg-clip-text text-transparent tracking-tight">500+</p>
+                    <p className="text-[9px] font-mono text-purple-300 uppercase tracking-widest mt-0.5">Projects Delivered</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    High-conversion web apps &amp; mobile products.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </ScrollReveal>
 
         </div>
 

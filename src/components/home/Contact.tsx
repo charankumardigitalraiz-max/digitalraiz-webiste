@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle, Mail, Phone, MapPin } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -35,70 +36,75 @@ export default function Contact() {
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-pink-500/5 to-primary-hover/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-          
+
           {/* Info Side */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
-            <div className="space-y-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary block">
-                CONTACT US
-              </span>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#3b1244] uppercase tracking-tight leading-tight">
-                Let&apos;s Build Your Brand Together
-              </h2>
-              <p className="text-slate-600 text-xs sm:text-sm font-light leading-relaxed">
-                Ready to turn your requirements into practical digital solutions? Get in touch with our team of digital marketing and development experts in Hyderabad.
+          <ScrollReveal direction="left" className="lg:col-span-5 flex flex-col">
+            <div className="flex flex-col justify-between space-y-8 h-full">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
+                  <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                    Contact Us
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black text-[#1e1b4b] uppercase tracking-tight leading-[0.95]">
+                  Let&apos;s Build Your <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Brand Together</span>
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed pt-1">
+                  Ready to turn your requirements into practical digital solutions? Get in touch with our team of digital marketing and development experts in Hyderabad.
+                </p>
+              </div>
+
+              <div className="space-y-5 my-8">
+                {/* Email */}
+                <div className="flex items-center gap-4 group">
+                  <div className="w-11 h-11 rounded-xl bg-pink-50/50 border border-pink-100 flex items-center justify-center text-primary-hover shadow-xs transition-transform duration-300 group-hover:scale-105">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Email Us</h4>
+                    <p className="text-slate-800 font-bold text-xs sm:text-sm">info@digitalraiz.com</p>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-center gap-4 group">
+                  <div className="w-11 h-11 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-500 shadow-xs transition-transform duration-300 group-hover:scale-105">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Call Us</h4>
+                    <p className="text-slate-800 font-bold text-xs sm:text-sm">+91-9494613601</p>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-4 group">
+                  <div className="w-11 h-11 rounded-xl bg-pink-50/30 border border-pink-100/50 flex items-center justify-center text-primary shadow-xs transition-transform duration-300 group-hover:scale-105">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Office Location</h4>
+                    <p className="text-slate-800 font-bold text-xs sm:text-sm leading-tight">
+                      #616, Manjeera Majestic Commercial, <br />
+                      KPHB-JNTU Road, Hyderabad
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-[9px] text-slate-450 leading-relaxed font-light">
+                * By submitting this form you agree to receive follow-up emails and messages regarding your project requirement.
               </p>
             </div>
-
-            <div className="space-y-5 my-8">
-              {/* Email */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-xl bg-pink-50/50 border border-pink-100 flex items-center justify-center text-primary-hover shadow-xs transition-transform duration-300 group-hover:scale-105">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Email Us</h4>
-                  <p className="text-slate-800 font-bold text-xs sm:text-sm">info@digitalraiz.com</p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-500 shadow-xs transition-transform duration-300 group-hover:scale-105">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div>
-                  <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Call Us</h4>
-                  <p className="text-slate-800 font-bold text-xs sm:text-sm">+91-9494613601</p>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-xl bg-pink-50/30 border border-pink-100/50 flex items-center justify-center text-primary shadow-xs transition-transform duration-300 group-hover:scale-105">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <h4 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Office Location</h4>
-                  <p className="text-slate-800 font-bold text-xs sm:text-sm leading-tight">
-                    #616, Manjeera Majestic Commercial, <br />
-                    KPHB-JNTU Road, Hyderabad
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-[9px] text-slate-450 leading-relaxed font-light">
-              * By submitting this form you agree to receive follow-up emails and messages regarding your project requirement.
-            </p>
-          </div>
+          </ScrollReveal>
 
           {/* Form Side */}
-          <div className="lg:col-span-7">
+          <ScrollReveal direction="right" delay={150} className="lg:col-span-7">
             <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] hover:border-pink-300 transition-all duration-300 relative h-full">
-              
+
               {submitted ? (
                 <div className="flex flex-col items-center justify-center text-center h-full py-12">
                   <div className="w-14 h-14 bg-pink-50/50 rounded-full border border-pink-100 flex items-center justify-center mb-6">
@@ -209,7 +215,7 @@ export default function Contact() {
               )}
 
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

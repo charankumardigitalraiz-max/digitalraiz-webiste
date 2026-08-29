@@ -1,268 +1,338 @@
 "use client";
 
 import React, { useState } from "react";
-import { Laptop, Smartphone, ArrowRight, Star } from "lucide-react";
+import Link from "next/link";
+import {
+  Laptop,
+  Smartphone,
+  ArrowUpRight,
+  Star,
+  Sparkles,
+  Building2,
+  Briefcase,
+  Globe,
+  Code2,
+  ShoppingBag,
+  Layout,
+  Monitor,
+  Zap,
+  RefreshCw,
+  ShieldCheck,
+  Apple,
+  Layers,
+  Calendar,
+  Truck,
+  GraduationCap,
+  Users,
+  Store,
+  Flame
+} from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function CapabilitiesSection() {
-  const [hoveredWeb, setHoveredWeb] = useState<number | null>(null);
-  const [hoveredMob, setHoveredMob] = useState<number | null>(null);
+  const [activeStudio, setActiveStudio] = useState<"web" | "mobile">("web");
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  // Exact Original Web Services with custom contextual icons
   const webServices = [
-    "Corporate Website Development",
-    "Business Website Development",
-    "WordPress Development",
-    "Custom Website Development",
-    "E-commerce Website Development",
-    "Landing Page Development",
-    "Responsive Web Design",
-    "Custom Web Applications",
-    "Website Redesign",
-    "Website Maintenance & Support"
+    { name: "Corporate Website Development", icon: Building2 },
+    { name: "Business Website Development", icon: Briefcase },
+    { name: "WordPress Development", icon: Globe },
+    { name: "Custom Website Development", icon: Code2 },
+    { name: "E-commerce Website Development", icon: ShoppingBag },
+    { name: "Landing Page Development", icon: Layout },
+    { name: "Responsive Web Design", icon: Monitor },
+    { name: "Custom Web Applications", icon: Zap },
+    { name: "Website Redesign", icon: RefreshCw },
+    { name: "Website Maintenance & Support", icon: ShieldCheck }
   ];
 
+  // Exact Original Mobile Services with custom contextual icons
   const mobileServices = [
-    "Android App Development",
-    "iOS App Development",
-    "Cross-Platform App Development",
-    "E-commerce Mobile Apps",
-    "Booking & Appointment Apps",
-    "Delivery & Logistics Apps",
-    "Education & Learning Apps",
-    "Customer Applications",
-    "Business Applications",
-    "Marketplace Applications",
-    "On-Demand Applications",
-    "Custom Mobile Applications"
+    { name: "Android App Development", icon: Smartphone },
+    { name: "iOS App Development", icon: Apple },
+    { name: "Cross-Platform App Development", icon: Layers },
+    { name: "E-commerce Mobile Apps", icon: ShoppingBag },
+    { name: "Booking & Appointment Apps", icon: Calendar },
+    { name: "Delivery & Logistics Apps", icon: Truck },
+    { name: "Education & Learning Apps", icon: GraduationCap },
+    { name: "Customer Applications", icon: Users },
+    { name: "Business Applications", icon: Building2 },
+    { name: "Marketplace Applications", icon: Store },
+    { name: "On-Demand Applications", icon: Flame },
+    { name: "Custom Mobile Applications", icon: Sparkles }
   ];
 
-  // Colorful default states for Web Studio on light background (Left)
-  const getWebItemStyles = (idx: number, isHovered: boolean) => {
-    const themes = [
-      { bg: "bg-indigo-50 border-indigo-200 text-indigo-700", hover: "bg-indigo-100 border-indigo-400 text-indigo-850 shadow-sm", num: "text-indigo-500" },
-      { bg: "bg-violet-50 border-violet-200 text-violet-700", hover: "bg-violet-100 border-violet-400 text-violet-850 shadow-sm", num: "text-violet-500" },
-      { bg: "bg-purple-50 border-purple-200 text-purple-700", hover: "bg-purple-100 border-purple-400 text-purple-850 shadow-sm", num: "text-purple-500" },
-      { bg: "bg-blue-50 border-blue-200 text-blue-700", hover: "bg-blue-100 border-blue-400 text-blue-850 shadow-sm", num: "text-blue-500" },
-      { bg: "bg-emerald-50 border-emerald-200 text-emerald-700", hover: "bg-emerald-100 border-emerald-400 text-emerald-850 shadow-sm", num: "text-emerald-500" },
-      { bg: "bg-teal-50 border-teal-200 text-teal-700", hover: "bg-teal-100 border-teal-400 text-teal-850 shadow-sm", num: "text-teal-550" },
-      { bg: "bg-cyan-50 border-cyan-200 text-cyan-700", hover: "bg-cyan-100 border-cyan-400 text-cyan-850 shadow-sm", num: "text-cyan-500" },
-      { bg: "bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700", hover: "bg-fuchsia-100 border-fuchsia-400 text-fuchsia-850 shadow-sm", num: "text-fuchsia-500" },
-      { bg: "bg-rose-50 border-rose-200 text-rose-700", hover: "bg-rose-100 border-rose-400 text-rose-850 shadow-sm", num: "text-rose-500" },
-      { bg: "bg-amber-50 border-amber-200 text-amber-800", hover: "bg-amber-100 border-amber-450 text-amber-900 shadow-sm", num: "text-amber-600" }
-    ];
-    const theme = themes[idx % themes.length];
-    return {
-      card: isHovered ? theme.hover : `${theme.bg} border shadow-2xs`,
-      num: theme.num
-    };
-  };
-
-  // Colorful default states for Mobile Studio on off-white background (Right)
-  const getMobItemStyles = (idx: number, isHovered: boolean) => {
-    const themes = [
-      { bg: "bg-pink-50 border-pink-200 text-pink-700", hover: "bg-pink-100 border-pink-400 text-pink-850 shadow-sm", num: "text-pink-500" },
-      { bg: "bg-emerald-50 border-emerald-200 text-emerald-700", hover: "bg-emerald-100 border-emerald-400 text-emerald-850 shadow-sm", num: "text-emerald-500" },
-      { bg: "bg-indigo-50 border-indigo-200 text-indigo-700", hover: "bg-indigo-100 border-indigo-400 text-indigo-850 shadow-sm", num: "text-indigo-500" },
-      { bg: "bg-sky-50 border-sky-200 text-sky-700", hover: "bg-sky-100 border-sky-400 text-sky-850 shadow-sm", num: "text-sky-500" },
-      { bg: "bg-amber-50 border-amber-200 text-amber-800", hover: "bg-amber-100 border-amber-450 text-amber-900 shadow-sm", num: "text-amber-600" },
-      { bg: "bg-rose-50 border-rose-200 text-rose-700", hover: "bg-rose-100 border-rose-400 text-rose-850 shadow-sm", num: "text-rose-500" },
-      { bg: "bg-violet-50 border-violet-200 text-violet-700", hover: "bg-violet-100 border-violet-400 text-violet-850 shadow-sm", num: "text-violet-500" },
-      { bg: "bg-teal-50 border-teal-200 text-teal-700", hover: "bg-teal-100 border-teal-400 text-teal-850 shadow-sm", num: "text-teal-550" },
-      { bg: "bg-cyan-50 border-cyan-200 text-cyan-700", hover: "bg-cyan-100 border-cyan-400 text-cyan-850 shadow-sm", num: "text-cyan-500" },
-      { bg: "bg-orange-50 border-orange-200 text-orange-700", hover: "bg-orange-100 border-orange-400 text-orange-850 shadow-sm", num: "text-orange-600" },
-      { bg: "bg-purple-50 border-purple-200 text-purple-700", hover: "bg-purple-100 border-purple-400 text-purple-850 shadow-sm", num: "text-purple-500" },
-      { bg: "bg-lime-50 border-lime-200 text-lime-800", hover: "bg-lime-100 border-lime-400 text-lime-900 shadow-sm", num: "text-lime-650" }
-    ];
-    const theme = themes[idx % themes.length];
-    return {
-      card: isHovered ? theme.hover : `${theme.bg} border shadow-2xs`,
-      num: theme.num
-    };
-  };
+  const currentServices = activeStudio === "web" ? webServices : mobileServices;
 
   return (
-    <section className="relative font-sans overflow-hidden select-none border-t border-slate-100 bg-white">
+    <section className="relative font-sans overflow-hidden select-none border-t border-slate-100 bg-white py-16 sm:py-24">
+      {/* Background Radial Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[650px] h-[650px] rounded-full bg-pink-500/5 blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[650px] h-[650px] rounded-full bg-indigo-500/5 blur-[140px] pointer-events-none -z-10" />
 
-      <div className="flex flex-col lg:flex-row min-h-[780px]">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-12 relative z-10">
 
-        {/* ===== LEFT: Web Development ===== */}
-        <div className="flex-1 relative bg-[#faf9ff] text-slate-800 flex flex-col overflow-hidden">
+        {/* Section Header */}
+        <ScrollReveal direction="up">
+          <div className="space-y-3 max-w-2xl">
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100">
+              <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
+              <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                Engineering Capabilities // Interactive Console
+              </span>
+            </div> */}
 
-          {/* Ambient glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-indigo-100/70 blur-[90px] pointer-events-none" />
-          <div className="absolute bottom-0 left-10 w-60 h-60 rounded-full bg-purple-50/90 blur-[70px] pointer-events-none" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e1b4b] uppercase tracking-tight leading-[0.95]">
+              Core Engineering <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Studios</span>
+            </h2>
 
-          {/* Giant watermark number */}
-          <div className="absolute bottom-8 right-6 text-[180px] sm:text-[220px] font-black text-slate-900/[0.03] leading-none pointer-events-none select-none tracking-tighter">
-            01
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 px-10 sm:px-14 pt-16 pb-6 space-y-6">
-
-            {/* Top badge row */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-[9px] font-bold text-indigo-600 uppercase tracking-widest">
-                <Laptop className="w-3.5 h-3.5" />
-                <span>Web Engineering</span>
-              </div>
-              <span className="text-[9px] font-mono text-slate-300 uppercase tracking-widest">Studio // 01</span>
-            </div>
-
-            {/* Heading */}
-            <div>
-              <h2 className="text-3xl sm:text-[2.6rem] font-black uppercase tracking-tight leading-tight text-[#1e1b4b]">
-                Website<br />
-                <span className="text-indigo-600">Development</span>
-              </h2>
-              <p className="text-slate-400 text-sm font-medium mt-1">Company in Hyderabad</p>
-            </div>
-
-            {/* Stat strip */}
-            <div className="flex items-center gap-6 pt-1">
-              <div className="space-y-0.5">
-                <p className="text-2xl font-black text-[#1e1b4b]">{webServices.length}+</p>
-                <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Services</p>
-              </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div className="space-y-0.5">
-                <p className="text-2xl font-black text-indigo-600">100+</p>
-                <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Projects Done</p>
-              </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-slate-400 text-xs font-light leading-relaxed max-w-sm">
-              We create responsive, professional and SEO-friendly websites tailored to your business requirements — combining design, performance and search-friendly architecture.
+            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
+              Switch between our Web Engineering and Mobile App Studios to explore tailored development capabilities built for enterprise performance.
             </p>
           </div>
+        </ScrollReveal>
 
-          {/* Services grid */}
-          <div className="relative z-10 px-10 sm:px-14 pb-10 mt-2">
-            <div className="grid grid-cols-2 gap-2">
-              {webServices.map((svc, idx) => {
-                const styles = getWebItemStyles(idx, hoveredWeb === idx);
-                return (
-                  <div
-                    key={idx}
-                    onMouseEnter={() => setHoveredWeb(idx)}
-                    onMouseLeave={() => setHoveredWeb(null)}
-                    className={`relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 cursor-default overflow-hidden ${styles.card}`}
-                  >
-                    <span className={`text-[8px] font-mono shrink-0 ${styles.num}`}>
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[10px] font-semibold leading-tight">{svc}</span>
+        {/* ── INTERACTIVE CONSOLE CONTAINER ── */}
+        <div className="relative rounded-3xl bg-white p-6 sm:p-9 border border-slate-200/90 shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+
+          {/* Top Laser Accent Bar */}
+          <div className="h-1.5 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-3xl -mt-6 -mx-6 sm:-mt-9 sm:-mx-9 mb-8 transition-all duration-500" />
+
+          {/* Background Monogram Watermark */}
+          <span className="absolute top-8 right-10 text-8xl sm:text-9xl font-black text-slate-200/40 font-mono select-none pointer-events-none">
+            {activeStudio === "web" ? "WEB//01" : "MOB//02"}
+          </span>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10">
+
+            {/* LEFT COLUMN: Studio Selector & Live Spec Sheet (lg:col-span-5) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+
+              <div className="space-y-6">
+                {/* Studio Switcher Buttons */}
+                <div className="space-y-2.5">
+                  <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                    Select Studio Console:
+                  </span>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    {/* Web Studio Selector Card */}
+                    <div
+                      onClick={() => setActiveStudio("web")}
+                      className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative overflow-hidden ${activeStudio === "web"
+                        ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white border-transparent shadow-xl -translate-y-0.5"
+                        : "bg-white border-slate-200/80 text-slate-700 hover:bg-slate-50"
+                        }`}
+                    >
+                      <div className="flex items-center justify-between relative z-10">
+                        <div className="flex items-center gap-3">
+                          {/* <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-colors ${
+                            activeStudio === "web" ? "bg-white/20 border-white/30 text-white" : "bg-slate-100 border-slate-200 text-slate-500"
+                          }`}>
+                            <Laptop className="w-5 h-5" />
+                          </div> */}
+                          <div>
+                            <h3 className={`text-base font-black uppercase tracking-tight ${activeStudio === "web" ? "text-white" : "text-[#1e1b4b]"
+                              }`}>Website Development</h3>
+                            <p className={`text-[10px] font-mono font-bold ${activeStudio === "web" ? "text-pink-100" : "text-slate-500"
+                              }`}>10 Core Services • Studio 01</p>
+                          </div>
+                        </div>
+                        {/* <span className={`text-[9px] font-mono font-bold px-2.5 py-1 rounded-full border ${activeStudio === "web" ? "bg-white border-white text-[#1e1b4b] shadow-sm" : "bg-slate-100 border-slate-200 text-slate-400"
+                          }`}>
+                          ACTIVE
+                        </span> */}
+                      </div>
+                    </div>
+
+                    {/* Mobile Studio Selector Card */}
+                    <div
+                      onClick={() => setActiveStudio("mobile")}
+                      className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer relative overflow-hidden ${activeStudio === "mobile"
+                        ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white border-transparent shadow-xl -translate-y-0.5"
+                        : "bg-white border-slate-200/80 text-slate-700 hover:bg-slate-50"
+                        }`}
+                    >
+                      <div className="flex items-center justify-between relative z-10">
+                        <div className="flex items-center gap-3">
+                          {/* <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-colors ${
+                            activeStudio === "mobile" ? "bg-white/20 border-white/30 text-white" : "bg-slate-100 border-slate-200 text-slate-500"
+                          }`}>
+                            <Smartphone className="w-5 h-5" />
+                          </div> */}
+                          <div>
+                            <h3 className={`text-base font-black uppercase tracking-tight ${activeStudio === "mobile" ? "text-white" : "text-[#1e1b4b]"
+                              }`}>Mobile App Development</h3>
+                            <p className={`text-[10px] font-mono font-bold ${activeStudio === "mobile" ? "text-pink-100" : "text-slate-500"
+                              }`}>12 Core Services • Studio 02</p>
+                          </div>
+                        </div>
+                        {/* <span className={`text-[9px] font-mono font-bold px-2.5 py-1 rounded-full border ${activeStudio === "mobile" ? "bg-white border-white text-[#1e1b4b] shadow-sm" : "bg-slate-100 border-slate-200 text-slate-400"
+                          }`}>
+                          ACTIVE
+                        </span> */}
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
 
-            {/* CTA */}
-            <div className="mt-6">
-              <button className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-widest transition-colors duration-200 group cursor-pointer">
-                <span>Explore Web Studio</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Center divider */}
-        <div className="hidden lg:flex flex-col items-center justify-center w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent shrink-0" />
-
-        {/* ===== RIGHT: Mobile App ===== */}
-        <div className="flex-1 relative bg-[#fdfcff] text-slate-800 flex flex-col overflow-hidden">
-
-          {/* Ambient glow */}
-          <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-pink-100/70 blur-[90px] pointer-events-none" />
-          <div className="absolute bottom-0 right-10 w-60 h-60 rounded-full bg-rose-50/90 blur-[70px] pointer-events-none" />
-
-          {/* Giant watermark number */}
-          <div className="absolute bottom-8 left-6 text-[180px] sm:text-[220px] font-black text-slate-900/[0.03] leading-none pointer-events-none select-none tracking-tighter">
-            02
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 px-10 sm:px-14 pt-16 pb-6 space-y-6">
-
-            {/* Top badge row */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-[9px] font-bold text-pink-600 uppercase tracking-widest">
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Mobile Engineering</span>
-              </div>
-              <span className="text-[9px] font-mono text-slate-300 uppercase tracking-widest">Studio // 02</span>
-            </div>
-
-            {/* Heading */}
-            <div>
-              <h2 className="text-3xl sm:text-[2.6rem] font-black uppercase tracking-tight leading-tight text-[#1e1b4b]">
-                Mobile App<br />
-                <span className="text-pink-600">Development</span>
-              </h2>
-              <p className="text-slate-400 text-sm font-medium mt-1">Company in Hyderabad</p>
-            </div>
-
-            {/* Stat strip */}
-            <div className="flex items-center gap-6 pt-1">
-              <div className="space-y-0.5">
-                <p className="text-2xl font-black text-[#1e1b4b]">{mobileServices.length}+</p>
-                <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Services</p>
-              </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div className="space-y-0.5">
-                <p className="text-2xl font-black text-pink-600">50+</p>
-                <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Apps Launched</p>
-              </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-slate-400 text-xs font-light leading-relaxed max-w-sm">
-              Mobile applications create convenient digital experiences for customers, employees and partners. We develop apps around your product vision, business model, and user needs.
-            </p>
-          </div>
-
-          {/* Services grid */}
-          <div className="relative z-10 px-10 sm:px-14 pb-10 mt-2">
-            <div className="grid grid-cols-2 gap-2">
-              {mobileServices.map((svc, idx) => {
-                const styles = getMobItemStyles(idx, hoveredMob === idx);
-                return (
-                  <div
-                    key={idx}
-                    onMouseEnter={() => setHoveredMob(idx)}
-                    onMouseLeave={() => setHoveredMob(null)}
-                    className={`relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 cursor-default overflow-hidden ${styles.card}`}
-                  >
-                    <span className={`text-[8px] font-mono shrink-0 ${styles.num}`}>
-                      {String(idx + 1).padStart(2, "0")}
+                {/* Active Studio Specs Card */}
+                <div className="p-6 rounded-2xl bg-white border border-slate-200/90 space-y-4 shadow-2xs relative overflow-hidden">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full border border-pink-100">
+                      {activeStudio === "web" ? "Studio 01 // Web" : "Studio 02 // Mobile"}
                     </span>
-                    <span className="text-[10px] font-semibold leading-tight">{svc}</span>
+                    <div className="flex items-center gap-1">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
                   </div>
-                );
-              })}
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#1e1b4b] uppercase tracking-tight">
+                      {activeStudio === "web" ? "Website Development" : "Mobile App Development"}
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-0.5">
+                      Company in Hyderabad
+                    </p>
+                  </div>
+
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                    {activeStudio === "web"
+                      ? "We create responsive, professional and SEO-friendly websites tailored to your business requirements — combining design, performance and search-friendly architecture."
+                      : "Mobile applications create convenient digital experiences for customers, employees and partners. We develop apps around your product vision, business model, and user needs."}
+                  </p>
+
+                  {/* Key Spec Meters */}
+                  <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                      <p className="text-2xl font-black text-[#1e1b4b] leading-none">
+                        {activeStudio === "web" ? "100+" : "50+"}
+                      </p>
+                      <p className="text-xs font-semibold text-slate-500 mt-1">
+                        {activeStudio === "web" ? "Websites Built" : "Apps Launched"}
+                      </p>
+                    </div>
+
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                      <p className="text-2xl font-black text-pink-600 leading-none">
+                        {activeStudio === "web" ? "99.9%" : "4.9★"}
+                      </p>
+                      <p className="text-xs font-semibold text-slate-500 mt-1">
+                        {activeStudio === "web" ? "SLA Uptime" : "Store Rating"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Studio Link CTA */}
+              <Link
+                href={activeStudio === "web" ? "/web-development" : "/mobile-application"}
+                className="inline-flex items-center justify-between w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md group"
+              >
+                <span>Explore Full {activeStudio === "web" ? "Web Engineering Studio" : "Mobile App Studio"}</span>
+                <div className="w-7 h-7 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0">
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" />
+                </div>
+              </Link>
+
             </div>
 
-            {/* CTA */}
-            <div className="mt-6">
-              <button className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold uppercase tracking-widest transition-colors duration-200 group cursor-pointer">
-                <span>Explore Mobile Studio</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
+            {/* RIGHT COLUMN: Ultra-Beautiful Executive White Capability Grid (lg:col-span-7) */}
+            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 flex flex-col justify-between shadow-[0_10px_35px_rgba(0,0,0,0.03)] space-y-6 relative overflow-hidden">
+
+              <div className="space-y-5">
+                {/* Header Bar */}
+                <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
+                  <div className="flex items-center gap-2.5">
+                    <span className={`w-2.5 h-2.5 rounded-full animate-pulse ${activeStudio === "web" ? "bg-indigo-600" : "bg-pink-500"
+                      }`} />
+                    <h3 className="text-xs sm:text-sm font-black text-[#1e1b4b] uppercase tracking-wider">
+                      {activeStudio === "web" ? "Web Development Capabilities" : "Mobile App Capabilities"} ({currentServices.length})
+                    </h3>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-pink-600 bg-pink-50/80 px-3 py-1 rounded-full border border-pink-100/80 shadow-2xs">
+                    Hyderabad Studio
+                  </span>
+                </div>
+
+                {/* Service Capabilities Grid with Pristine White Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {currentServices.map((svc, idx) => {
+                    const Icon = svc.icon;
+                    const isHovered = hoveredIndex === idx;
+                    return (
+                      <div
+                        key={idx}
+                        onMouseEnter={() => setHoveredIndex(idx)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        className={`group/item flex items-center gap-3 p-3.5 rounded-2xl border bg-white transition-all duration-300 cursor-default relative overflow-hidden ${isHovered
+                          ? activeStudio === "web"
+                            ? "border-indigo-300 shadow-md -translate-y-0.5"
+                            : "border-pink-300 shadow-md -translate-y-0.5"
+                          : "border-slate-200/80 shadow-2xs hover:border-slate-300"
+                          }`}
+                      >
+                        {/* Hover Left Laser Accent */}
+                        <div className={`absolute left-0 top-0 bottom-0 w-1 transition-all duration-300 ${isHovered
+                          ? activeStudio === "web" ? "bg-indigo-600 opacity-100" : "bg-pink-500 opacity-100"
+                          : "bg-transparent opacity-0"
+                          }`} />
+
+                        {/* Icon Pill */}
+                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 ${isHovered
+                          ? activeStudio === "web"
+                            ? "bg-indigo-50 border-indigo-200 text-indigo-600 scale-105"
+                            : "bg-pink-50 border-pink-200 text-pink-600 scale-105"
+                          : "bg-slate-50 border-slate-200/70 text-slate-500"
+                          }`}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+
+                        {/* Service Name & Index Tag */}
+                        <div className="min-w-0 flex-1 space-y-0.5">
+                          <span className={`text-xs font-bold truncate leading-snug transition-colors block ${isHovered
+                            ? activeStudio === "web" ? "text-indigo-600" : "text-pink-600"
+                            : "text-slate-800"
+                            }`}>
+                            {svc.name}
+                          </span>
+                          <p className="text-[9px] font-mono font-semibold text-slate-400">
+                            #{String(idx + 1).padStart(2, "0")}
+                          </p>
+                        </div>
+
+                        {/* Arrow Hover Pill */}
+                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isHovered
+                          ? activeStudio === "web"
+                            ? "bg-indigo-600 text-white shadow-2xs translate-x-0 opacity-100"
+                            : "bg-pink-500 text-white shadow-2xs translate-x-0 opacity-100"
+                          : "bg-slate-100 text-slate-300 -translate-x-1 opacity-0"
+                          }`}>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Bottom Status Ticker */}
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                <span className="flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-pink-500" />
+                  <span>100% Code Ownership</span>
+                </span>
+                <span>⚡ Sub-second Latency</span>
+                <span>🛡️ Enterprise Security</span>
+              </div>
+
             </div>
+
           </div>
-
         </div>
 
       </div>

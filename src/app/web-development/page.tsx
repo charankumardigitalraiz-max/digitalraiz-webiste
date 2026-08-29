@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const ThreeDShowcase = dynamic(() => import("@/components/ThreeDShowcase"), {
   ssr: false,
@@ -329,19 +330,15 @@ export default function WebServicePage() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero — Light Split with Image */}
+        {/* HERO SECTION — Light Split Layout with Animated Entrance */}
         <section className="relative overflow-hidden bg-white border-b border-slate-100">
-
-
-          <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
             {/* Main content row */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 items-center py-10 lg:py-14">
 
               {/* LEFT — Typography + CTA */}
-              <div className="flex-grow space-y-8 text-center lg:text-left max-w-[540px]">
-
+              <ScrollReveal direction="left" className="flex-grow space-y-8 text-center lg:text-left max-w-[540px]">
                 <h1 className="space-y-1">
-                  {/* <span className="block text-[10px] font-semibold text-slate-400 tracking-[0.3em] uppercase">High-Performance Production</span> */}
                   <span className="block text-5xl sm:text-6xl lg:text-[3.8rem] font-black uppercase tracking-tight text-[#1e1b4b] leading-[0.95]">
                     Web
                   </span>
@@ -353,7 +350,7 @@ export default function WebServicePage() {
                   </span>
                 </h1>
 
-                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed font-light max-w-md mx-auto lg:mx-0 text-justify">
+                <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-md mx-auto lg:mx-0">
                   We engineer lightning-fast corporate portals, custom business applications, responsive corporate sites, and robust e-commerce solutions — built for speed, security, and enterprise scale.
                 </p>
 
@@ -365,7 +362,7 @@ export default function WebServicePage() {
                     { val: "100", label: "Lighthouse", bg: "bg-violet-50", border: "border-violet-200/60", text: "text-violet-700", dot: "bg-violet-500" },
                     { val: "A+", label: "SSL Grade", bg: "bg-indigo-50", border: "border-indigo-200/60", text: "text-indigo-700", dot: "bg-indigo-500" },
                   ].map((s) => (
-                    <div key={s.label} className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${s.bg} border ${s.border}`}>
+                    <div key={s.label} className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${s.bg} border ${s.border} transition-transform hover:scale-105`}>
                       <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
                       <span className={`text-[10px] font-black ${s.text}`}>{s.val}</span>
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">{s.label}</span>
@@ -377,7 +374,7 @@ export default function WebServicePage() {
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-gradient-to-r from-violet-600 to-pink-500 hover:from-violet-500 hover:to-pink-400 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group"
+                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-gradient-to-r from-violet-600 to-pink-500 hover:from-violet-500 hover:to-pink-400 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm"
                   >
                     <span>Start Web Project</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -387,23 +384,21 @@ export default function WebServicePage() {
                       const element = document.getElementById("web-showcase");
                       element?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-transparent hover:bg-slate-50 border border-slate-200 hover:border-violet-300 text-slate-600 hover:text-violet-600 text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group"
+                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-transparent hover:bg-slate-50 border border-slate-200 hover:border-violet-300 text-slate-600 hover:text-violet-600 text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group cursor-pointer"
                   >
                     <span>Explore Works</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
                   </button>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* RIGHT — Image with floating overlays */}
-              <div className="relative w-full lg:w-[500px] shrink-0 flex justify-center">
-
-                {/* Main image */}
+              <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center">
                 <div className="relative w-full max-w-[500px]">
                   <img
                     src="/DigitalRaiz_single_laptop_web_implementation.png"
                     alt="Web Development Showcase"
-                    className="w-full h-auto object-contain drop-shadow-[0_20px_48px_rgba(100,80,200,0.15)] select-none pointer-events-none"
+                    className="w-full h-auto object-contain drop-shadow-[0_20px_48px_rgba(100,80,200,0.15)] select-none pointer-events-none transition-transform duration-500 hover:scale-[1.02]"
                     style={{ imageRendering: '-webkit-optimize-contrast' }}
                   />
 
@@ -440,7 +435,7 @@ export default function WebServicePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>
@@ -496,8 +491,6 @@ export default function WebServicePage() {
             </div>
           </div>
 
-
-          {/* CSS keyframes for floating badges */}
           <style>{`
             @keyframes float {
               0%, 100% { transform: translateY(0px); }
@@ -506,285 +499,304 @@ export default function WebServicePage() {
           `}</style>
         </section>
 
-
-        {/* Detailed Copy & Capabilities Section */}
-        {/* Modernized Capabilities & Services Overview Section */}
-        <section className="py-10 bg-white relative overflow-hidden">
-          {/* Ambient Background Elements */}
+        {/* CAPABILITIES MATRIX SECTION */}
+        <section className="py-16 bg-white relative overflow-hidden">
           <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-gradient-to-br from-pink-500/5 to-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/5 to-pink-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-5 relative z-10">
-            {/* Centered Modern Tech Header */}
-            <div className="flex flex-col items-center text-center space-y-3 max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-150 shadow-3xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
-                <span className="text-[8.5px] font-mono font-black text-slate-700 uppercase tracking-widest">Capabilities Matrix</span>
-              </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                State-of-the-Art Web Architecture
-              </h2>
-              <p className="text-slate-500 text-xs font-light max-w-xl">
-                We engineer scalable, high-performance web systems using cutting-edge workflows and modern layout engines.
-              </p>
-            </div>
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-10 relative z-10">
 
-            {/* The Integrated Premium Dashboard Frame */}
-            <div className="relative w-full bg-gradient-to-br from-slate-50/70 to-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.02)] rounded-[32px] p-6 sm:p-10 overflow-hidden text-slate-800">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-                {/* Left Side: Large gold image showcase */}
-                <div className="lg:col-span-6 flex justify-center">
-                  <div className="relative w-full max-w-[460px]">
-                    <img
-                      src="/DigitalRaiz_single_laptop_web_implementation.png"
-                      alt="Gold Amber Web Dev Illustration"
-                      className="w-full h-auto object-cover rounded-2xl select-none pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] transition-transform duration-300"
-                      style={{ imageRendering: '-webkit-optimize-contrast' }}
-                    />
-                  </div>
+            <ScrollReveal direction="up">
+              <div className="flex flex-col items-center text-center space-y-3 max-w-3xl mx-auto">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-150 shadow-3xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
+                  <span className="text-[8.5px] font-mono font-black text-slate-700 uppercase tracking-widest">Capabilities Matrix</span>
                 </div>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                  State-of-the-Art Web Architecture
+                </h2>
+                <p className="text-slate-500 text-xs font-light max-w-xl">
+                  We engineer scalable, high-performance web systems using cutting-edge workflows and modern layout engines.
+                </p>
+              </div>
+            </ScrollReveal>
 
-                {/* Right Side: Process, values, and inline tag details */}
-                <div className="lg:col-span-6 space-y-6">
-                  <div className="space-y-2">
-                    <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.2em] block">Dynamic Platform Delivery</span>
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b] leading-tight">
-                      Full-Stack Engineering & Optimization
-                    </h3>
-                    <p className="text-slate-600 text-xs font-light text-justify leading-relaxed">
-                      We build conversion-optimized, responsive, and search-optimized frontends. By integrating static pre-rendering, modern layout engines, and secure server controllers, we make sure your web applications scale with your business traffic.
-                    </p>
+            {/* Dashboard Frame */}
+            <ScrollReveal direction="up" delay={100}>
+              <div className="relative w-full bg-gradient-to-br from-slate-50/70 to-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.02)] rounded-[32px] p-6 sm:p-10 overflow-hidden text-slate-800 border border-slate-200/80">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+
+                  <div className="lg:col-span-6 flex justify-center">
+                    <div className="relative w-full max-w-[460px]">
+                      <img
+                        src="/DigitalRaiz_single_laptop_web_implementation.png"
+                        alt="Web Dev Illustration"
+                        className="w-full h-auto object-cover rounded-2xl select-none pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] transition-transform duration-300"
+                        style={{ imageRendering: '-webkit-optimize-contrast' }}
+                      />
+                    </div>
                   </div>
 
-                  {/* Horizontal capabilities matrix */}
-                  <div className="pt-6 space-y-3">
-                    <span className="text-[8.5px] font-mono text-slate-400 uppercase tracking-widest block">Available Framework Verticals</span>
-                    <div
-                      ref={designScrollRef}
-                      onMouseEnter={() => setDesignPaused(true)}
-                      onMouseLeave={() => setDesignPaused(false)}
-                      className="w-full flex flex-row overflow-x-auto gap-2 pb-2 select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-nowrap justify-start"
-                    >
-                      {[...webDesigns, ...webDesigns].map((design, idx) => (
-                        <div
-                          key={idx}
-                          className="text-[9.5px] font-bold uppercase tracking-wider bg-white border border-slate-200/60 hover:border-primary/20 rounded-lg px-3 py-1.5 text-slate-600 hover:text-primary transition-all cursor-default shrink-0"
-                          title={design.desc}
-                        >
-                          {design.title}
-                        </div>
-                      ))}
+                  <div className="lg:col-span-6 space-y-6">
+                    <div className="space-y-2">
+                      <span className="text-[9px] font-bold text-pink-600 uppercase tracking-[0.2em] block">Dynamic Platform Delivery</span>
+                      <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b] leading-tight">
+                        Full-Stack Engineering & Optimization
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
+                        We build conversion-optimized, responsive, and search-optimized frontends. By integrating static pre-rendering, modern layout engines, and secure server controllers, we make sure your web applications scale with your business traffic.
+                      </p>
+                    </div>
+
+                    <div className="pt-6 space-y-3">
+                      <span className="text-[8.5px] font-mono text-slate-400 uppercase tracking-widest block">Available Framework Verticals</span>
+                      <div
+                        ref={designScrollRef}
+                        onMouseEnter={() => setDesignPaused(true)}
+                        onMouseLeave={() => setDesignPaused(false)}
+                        className="w-full flex flex-row overflow-x-auto gap-2 pb-2 select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-nowrap justify-start"
+                      >
+                        {[...webDesigns, ...webDesigns].map((design, idx) => (
+                          <div
+                            key={idx}
+                            className="text-[9.5px] font-bold uppercase tracking-wider bg-white border border-slate-200/60 hover:border-pink-300 rounded-lg px-3 py-1.5 text-slate-600 hover:text-pink-600 transition-all cursor-default shrink-0"
+                            title={design.desc}
+                          >
+                            {design.title}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Bottom Sub-section: SecOps & Maintenance Console (3-Column Layout) */}
-            <div className="pt-14 space-y-8">
-              <div className="flex flex-col items-center text-center space-y-2 max-w-xl mx-auto">
-                <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.2em] block">Defense & Optimization</span>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Continuous Platform Maintenance
-                </h3>
-                <p className="text-slate-500 text-xs font-light">
-                  A website is a living asset. We configure dynamic protection layers and periodic core upgrades so your platform runs safely.
-                </p>
-              </div>
+            {/* SecOps & Maintenance Console */}
+            <div className="pt-10 space-y-8">
+              <ScrollReveal direction="up">
+                <div className="flex flex-col items-center text-center space-y-2 max-w-xl mx-auto">
+                  <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.2em] block">Defense & Optimization</span>
+                  <h3 className="text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                    Continuous Platform Maintenance
+                  </h3>
+                  <p className="text-slate-500 text-xs font-light">
+                    A website is a living asset. We configure dynamic protection layers and periodic core upgrades so your platform runs safely.
+                  </p>
+                </div>
+              </ScrollReveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {optimizationCards.map((card, idx) => (
-                  <div
-                    key={idx}
-                    className={`group ${card.colorClass.split(' ')[0]} p-6 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.01)] space-y-4 hover:-translate-y-1 hover:shadow${card.colorClass.split(' hover:shadow')[1]} transition-all duration-300 flex flex-col justify-between`}
-                  >
-                    <div className="space-y-4">
-                      <div className={`w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm shrink-0 group-hover:scale-105 transition-all duration-300 ${card.colorClass.split(' ').pop()}`}>
-                        {card.icon}
+                  <ScrollReveal key={idx} delay={idx * 100} direction="up" className="h-full flex flex-col">
+                    <div
+                      className={`group ${card.colorClass.split(' ')[0]} p-6 rounded-3xl border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.01)] space-y-4 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full`}
+                    >
+                      <div className="space-y-4">
+                        <div className={`w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm shrink-0 group-hover:scale-105 transition-all duration-300 ${card.colorClass.split(' ').pop()}`}>
+                          {card.icon}
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">{card.title}</h4>
+                          <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
+                            {card.desc}
+                          </p>
+                        </div>
                       </div>
-                      <div className="space-y-1">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">{card.title}</h4>
-                        <p className="text-slate-500 text-[11px] leading-relaxed font-light text-justify">
-                          {card.desc}
-                        </p>
+                      <div className="pt-4 flex items-center gap-1.5">
+                        <span className={`w-2 h-2 rounded-full ${card.statusColor} ${idx === 0 ? 'animate-pulse' : ''}`} />
+                        <span className={`text-[9px] font-mono ${card.statusTextClass} uppercase tracking-wider font-bold`}>
+                          {card.status}
+                        </span>
                       </div>
                     </div>
-                    <div className="pt-4 flex items-center gap-1.5">
-                      <span className={`w-2 h-2 rounded-full ${card.statusColor} ${idx === 0 ? 'animate-pulse' : ''}`} />
-                      <span className={`text-[9px] font-mono ${card.statusTextClass} uppercase tracking-wider font-bold`}>
-                        {card.status}
-                      </span>
-                    </div>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Real-World Client Web Portfolio Showcase (Overhaul to match Mobile page standard) */}
-        <section id="web-showcase" className="py-10 bg-white relative overflow-hidden w-full">
-
+        {/* WEB PORTFOLIO SHOWCASE SECTION */}
+        <section id="web-showcase" className="py-16 bg-white relative overflow-hidden w-full border-t border-slate-100">
           <div className="w-full space-y-12 relative z-10">
-            <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
-              <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Web Showcase</span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Web Projects</h2>
-              <p className="text-slate-400 text-xs font-light">Explore real-world web implementations and corporate portals engineered by DigitalRaiz.</p>
-            </div>
 
-            {/* Project Navigator — Full-Width Info Bar + Number Grid */}
-            <div className="max-w-6xl mx-auto px-6 w-full">
-              <div className="overflow-hidden">
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
+                <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">Web Showcase</span>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Web Projects</h2>
+                <p className="text-slate-400 text-xs font-light">Explore real-world web implementations and corporate portals engineered by DigitalRaiz.</p>
+              </div>
+            </ScrollReveal>
 
-                {/* Top: Active project info bar */}
-                {/* <div className="flex items-center gap-4 px-5 py-4">
-           
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 overflow-hidden">
-                    {webPortfolio[activeIndex].logo ? (
-                      <img src={webPortfolio[activeIndex].logo} alt={webPortfolio[activeIndex].name} className="w-7 h-7 object-contain" />
-                    ) : (
-                      <Globe className="w-5 h-5 text-slate-400" />
-                    )}
-                  </div>
+            {/* Project Navigator */}
+            <ScrollReveal direction="up" delay={100}>
+              <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full">
+                <div className="bg-white/80 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] overflow-hidden p-2 sm:p-3 space-y-3">
 
-   
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[8.5px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">{webPortfolio[activeIndex].category}</div>
-                    <div className="text-base font-black text-[#1e1b4b] uppercase tracking-tight leading-none truncate">{webPortfolio[activeIndex].name}</div>
-                  </div>
-
-               
-                  <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[8px] font-bold text-emerald-600 uppercase tracking-wider">Live</span>
-                  </div>
-
-                  
-                  <div className="flex items-center gap-2 shrink-0">
-                    <button
-                      onClick={() => setActiveIndex((prev) => (prev === 0 ? webPortfolio.length - 1 : prev - 1))}
-                      className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/60 flex items-center justify-center text-slate-500 hover:text-primary transition-all active:scale-90"
-                      aria-label="Previous Project"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <span className="text-[11px] font-black text-slate-400 font-mono tabular-nums min-w-[36px] text-center">
-                      <span className="text-[#1e1b4b]">{String(activeIndex + 1).padStart(2, '0')}</span>/{String(webPortfolio.length).padStart(2, '0')}
-                    </span>
-                    <button
-                      onClick={() => setActiveIndex((prev) => (prev === webPortfolio.length - 1 ? 0 : prev + 1))}
-                      className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/60 flex items-center justify-center text-slate-500 hover:text-primary transition-all active:scale-90"
-                      aria-label="Next Project"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div> */}
-
-                {/* Bottom: Number + logo grid selector */}
-                <div className="flex flex-row overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-nowrap">
-                  {webPortfolio.map((app, idx) => (
-                    <button
-                      key={idx}
-                      id={`web-tab-${idx}`}
-                      onClick={() => setActiveIndex(idx)}
-                      title={app.name}
-                      className={`relative flex flex-col items-center gap-1.5 px-4 py-3 shrink-0 border-r border-slate-100 transition-all duration-200 group ${activeIndex === idx
-                        ? "bg-primary/5"
-                        : "bg-white hover:bg-slate-50"
-                        }`}
-                    >
-                      {/* Active underline */}
-                      {activeIndex === idx && (
-                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-violet-500" />
-                      )}
-
-                      {/* Logo circle */}
-                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200 ${activeIndex === idx
-                        ? "bg-primary/10 scale-105"
-                        : "bg-slate-50 group-hover:bg-slate-100"
-                        }`}>
-                        {app.logo ? (
-                          <img src={app.logo} alt={app.name} className="w-5 h-5 object-contain" />
+                  {/* Header Bar */}
+                  <div className="flex items-center justify-between gap-4 px-3 py-2 border-b border-slate-100">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1.5">
+                        {webPortfolio[activeIndex].logo ? (
+                          <img src={webPortfolio[activeIndex].logo} alt={webPortfolio[activeIndex].name} className="w-full h-full object-contain filter brightness-200" />
                         ) : (
-                          <Globe className={`w-4 h-4 ${activeIndex === idx ? "text-primary" : "text-slate-400"}`} />
+                          <Globe className="w-4 h-4 text-pink-400" />
                         )}
                       </div>
-
-                      {/* Number index */}
-                      <span className={`text-[8px] font-black font-mono leading-none ${activeIndex === idx ? "text-primary" : "text-slate-400"
-                        }`}>
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-
-
-            {/* 3D Desktop Case Study Showcase (Borderless Grid) */}
-            <div className="max-w-6xl mx-auto px-6 w-full pb-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                {/* Left Column: Interactive 3D Laptop Model (lg:col-span-6) */}
-                <div className="lg:col-span-6 w-full h-[400px] md:h-[450px]">
-                  <ThreeDShowcase
-                    projects={webPortfolio}
-                    activeIndex={activeIndex}
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                  />
-                </div>
-
-                {/* Right Column: Case Study Details & Navigation (lg:col-span-6) */}
-                <div className="lg:col-span-6 space-y-6 flex flex-col justify-between h-full py-4">
-                  <div className="space-y-4">
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/5 px-2.5 py-1 rounded border border-primary/10 w-max block animate-fade-in">
-                      {webPortfolio[activeIndex].category}
-                    </span>
-                    <h3 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                      {webPortfolio[activeIndex].name}
-                    </h3>
-                    <p className="text-slate-500 text-xs font-light leading-relaxed text-justify">
-                      {webPortfolio[activeIndex].desc}
-                    </p>
-
-                    {/* Dynamic project-specific technology stack matrix */}
-                    <div className="space-y-2 pt-3">
-                      <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest block">Project Tech Stack</span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {webPortfolio[activeIndex].tech?.map((technology, idx) => (
-                          <span
-                            key={idx}
-                            className="text-[9px] font-bold uppercase tracking-wider bg-white border border-slate-200/60 rounded-lg px-2.5 py-1 text-slate-600 hover:text-primary transition-colors cursor-default"
-                          >
-                            {technology}
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest leading-none">
+                            {webPortfolio[activeIndex].category}
                           </span>
-                        ))}
+                          <span className="w-1 h-1 rounded-full bg-slate-300 hidden sm:inline-block" />
+                          <span className="hidden sm:inline-flex items-center gap-1 text-[8px] font-mono font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live Website
+                          </span>
+                        </div>
+                        <div className="text-sm sm:text-base font-black text-[#1e1b4b] uppercase tracking-tight truncate mt-0.5">
+                          {webPortfolio[activeIndex].name}
+                        </div>
                       </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={() => setActiveIndex((prev) => (prev === 0 ? webPortfolio.length - 1 : prev - 1))}
+                        className="w-8 h-8 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 flex items-center justify-center text-slate-600 hover:text-pink-600 transition-all active:scale-90 shadow-2xs cursor-pointer"
+                        aria-label="Previous Project"
+                        title="Previous Project"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+
+                      <div className="text-[11px] font-mono font-black text-slate-400 tabular-nums px-1.5 min-w-[42px] text-center">
+                        <span className="text-pink-600">{String(activeIndex + 1).padStart(2, '0')}</span>
+                        <span className="text-slate-300">/</span>
+                        <span>{String(webPortfolio.length).padStart(2, '0')}</span>
+                      </div>
+
+                      <button
+                        onClick={() => setActiveIndex((prev) => (prev === webPortfolio.length - 1 ? 0 : prev + 1))}
+                        className="w-8 h-8 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 flex items-center justify-center text-slate-600 hover:text-pink-600 transition-all active:scale-90 shadow-2xs cursor-pointer"
+                        aria-label="Next Project"
+                        title="Next Project"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
 
-                  <div className="space-y-6 pt-4 border-t border-slate-100">
-                    {/* Action buttons & direct links */}
-                    {webPortfolio[activeIndex].url !== "#" && (
-                      <a
-                        href={webPortfolio[activeIndex].url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-primary hover:bg-primary-hover text-white text-[10px] font-black uppercase tracking-wider shadow-sm hover:scale-[1.02] active:scale-95 transition-all duration-300"
-                      >
-                        <span>Explore Project Live</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
+                  {/* Tab Strip */}
+                  <div className="relative group">
+                    <div className="flex flex-row overflow-x-auto gap-2 p-1 no-scrollbar flex-nowrap scroll-smooth">
+                      {webPortfolio.map((app, idx) => {
+                        const isActive = activeIndex === idx;
+                        return (
+                          <button
+                            key={idx}
+                            id={`web-tab-${idx}`}
+                            onClick={() => setActiveIndex(idx)}
+                            title={app.name}
+                            className={`relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-md shrink-0 transition-all duration-300 select-none group/tab cursor-pointer ${isActive
+                              ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-md shadow-pink-500/20 border-transparent scale-[1.02]"
+                              : "bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200/90 shadow-2xs hover:shadow-xs"
+                              }`}
+                          >
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 ${isActive
+                              ? "bg-white/20 border-white/30 text-white"
+                              : "bg-slate-50 text-slate-500 group-hover/tab:text-pink-600 border border-slate-200/70"
+                              }`}>
+                              {app.logo ? (
+                                <img src={app.logo} alt={app.name} className="w-4 h-4 object-contain" />
+                              ) : (
+                                <Globe className="w-3.5 h-3.5" />
+                              )}
+                            </div>
 
+                            <div className="flex flex-col text-left">
+                              <div className="flex items-center gap-1.5">
+                                {/* <span className={`text-[9px] font-mono font-black leading-none ${isActive ? "text-pink-100" : "text-slate-400"
+                                  }`}>
+                                  {String(idx + 1).padStart(2, '0')}
+                                </span> */}
+                                <span className="text-xs font-bold tracking-tight whitespace-nowrap">
+                                  {app.name}
+                                </span>
+                              </div>
+                            </div>
 
+                            {isActive && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse ml-0.5 shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* 3D Desktop Showcase */}
+            <ScrollReveal direction="up" delay={150}>
+              <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full pb-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                  <div className="lg:col-span-6 w-full h-[400px] md:h-[450px]">
+                    <ThreeDShowcase
+                      projects={webPortfolio}
+                      activeIndex={activeIndex}
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                    />
+                  </div>
+
+                  <div className="lg:col-span-6 space-y-6 flex flex-col justify-between h-full py-4">
+                    <div className="space-y-4">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-pink-600 bg-pink-50 px-2.5 py-1 rounded border border-pink-100 w-max block">
+                        {webPortfolio[activeIndex].category}
+                      </span>
+                      <h3 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                        {webPortfolio[activeIndex].name}
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed font-sans">
+                        {webPortfolio[activeIndex].desc}
+                      </p>
+
+                      <div className="space-y-2 pt-3">
+                        <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest block">Project Tech Stack</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {webPortfolio[activeIndex].tech?.map((technology, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[9px] font-bold uppercase tracking-wider bg-white border border-slate-200/60 rounded-lg px-2.5 py-1 text-slate-600 hover:text-pink-600 transition-colors cursor-default"
+                            >
+                              {technology}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-6 pt-4 border-t border-slate-100">
+                      {webPortfolio[activeIndex].url !== "#" && (
+                        <a
+                          href={webPortfolio[activeIndex].url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-r from-violet-600 to-pink-500 text-white text-[10px] font-black uppercase tracking-wider shadow-sm hover:scale-[1.02] active:scale-95 transition-all duration-300"
+                        >
+                          <span>Explore Project Live</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 

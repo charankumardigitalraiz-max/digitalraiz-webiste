@@ -71,10 +71,10 @@ export default function Header() {
             </div>
 
             {/* Rotated Navigation Links stacked vertically */}
-            <div className="flex flex-col items-center gap-12 my-auto">
+            <div className="flex flex-col items-center gap-8 my-auto py-4">
               <Link
                 href="/"
-                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Home
               </Link>
@@ -83,25 +83,25 @@ export default function Header() {
                   setMenuOpen(true);
                   setServicesExpanded(true);
                 }}
-                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1 cursor-pointer focus:outline-none"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1 cursor-pointer focus:outline-none"
               >
                 Services
               </button>
               <Link
-                href="/web-development#web-showcase"
-                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
+                href="/portfolio"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Portfolio
               </Link>
               <Link
                 href="/about"
-                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="inline-block -rotate-90 origin-center text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-800 hover:text-primary-hover transition-all duration-200 hover:scale-105 py-2 px-1"
+                className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Contact
               </Link>
@@ -110,7 +110,7 @@ export default function Header() {
             {/* Hamburger Button at the bottom */}
             <button
               onClick={() => setMenuOpen(true)}
-              className="w-12 h-12 rounded-full bg-primary border border-white/10 flex items-center justify-center text-white cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-200 focus:outline-none"
+              className="w-12 h-12 rounded-full bg-primary border border-white/10 flex items-center justify-center text-white cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-200 focus:outline-none shadow-md"
               aria-label="Open Menu"
             >
               <Menu className="w-5 h-5" />
@@ -143,26 +143,26 @@ export default function Header() {
             </div>
 
             {/* Main Navigation links */}
-            <nav className="flex flex-col gap-5 py-6">
+            <nav className="flex flex-col gap-4 py-4">
               {/* 01. Home */}
               <div className="group flex items-start gap-4">
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">01</span>
                 <Link
                   href="/"
                   onClick={() => setMenuOpen(false)}
-                  className="text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary group-hover:translate-x-1.5 transition-all duration-300"
+                  className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   Home
                 </Link>
               </div>
 
               {/* 02. Services (Accordion Expandable) */}
-              <div className="group flex flex-col gap-2">
+              <div className="group flex flex-col">
                 <div className="flex items-start gap-4">
                   <span className="text-xs font-mono font-bold text-slate-350 pt-1">02</span>
                   <button
                     onClick={() => setServicesExpanded(!servicesExpanded)}
-                    className="flex items-center gap-1.5 text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary focus:outline-none text-left cursor-pointer"
+                    className="flex items-center gap-1.5 text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 focus:outline-none text-left cursor-pointer"
                   >
                     <span>Services</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesExpanded ? "rotate-180" : ""}`} />
@@ -170,25 +170,25 @@ export default function Header() {
                 </div>
 
                 <div
-                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${servicesExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
+                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${servicesExpanded ? "grid-rows-[1fr] opacity-100 mt-1.5" : "grid-rows-[0fr] opacity-0"
                     }`}
                 >
-                  <div className="overflow-hidden pl-5 space-y-1.5 border-l-2 border-slate-100 ml-6 my-1">
+                  <div className="overflow-hidden pl-4 space-y-1 border-l-2 border-pink-400/40 ml-6 my-1">
                     {services.map((svc, i) => (
                       <Link
                         key={i}
                         href={svc.href}
                         onClick={() => setMenuOpen(false)}
-                        className="group/item flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-primary-hover transition-all duration-300 py-1 pl-0 hover:pl-2"
+                        className="group/item flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-pink-600 transition-all duration-200 py-1 pl-0 hover:pl-1.5"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-pink-400 scale-0 group-hover/item:scale-100 transition-transform duration-300 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-pink-500 scale-0 group-hover/item:scale-100 transition-transform duration-200 shrink-0" />
                         <span>{svc.name}</span>
                       </Link>
                     ))}
                     <Link
                       href="/services"
                       onClick={() => setMenuOpen(false)}
-                      className="group/item flex items-center gap-2 text-xs font-bold text-primary hover:text-primary-hover transition-all duration-300 py-1.5 pl-0 hover:pl-2 border-t border-slate-100 mt-1"
+                      className="group/item flex items-center gap-1.5 text-[11px] font-bold text-pink-600 hover:text-pink-700 transition-all duration-200 pt-1.5 pb-0.5 border-t border-slate-100 mt-1"
                     >
                       <ArrowRight className="w-3 h-3 text-pink-500" />
                       <span>View All Services</span>
@@ -201,9 +201,9 @@ export default function Header() {
               <div className="group flex items-start gap-4">
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">03</span>
                 <Link
-                  href="/web-development#web-showcase"
+                  href="/portfolio"
                   onClick={() => setMenuOpen(false)}
-                  className="text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary group-hover:translate-x-1.5 transition-all duration-300"
+                  className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   Portfolio
                 </Link>
@@ -215,7 +215,7 @@ export default function Header() {
                 <Link
                   href="/about"
                   onClick={() => setMenuOpen(false)}
-                  className="text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary group-hover:translate-x-1.5 transition-all duration-300"
+                  className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   About
                 </Link>
@@ -227,7 +227,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="text-xl font-bold uppercase tracking-tight text-primary-hover hover:text-primary group-hover:translate-x-1.5 transition-all duration-300"
+                  className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   Contact
                 </Link>

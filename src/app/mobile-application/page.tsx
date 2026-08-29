@@ -26,6 +26,7 @@ import {
   Wrench
 } from "lucide-react";
 import PlatformExplorer from "@/components/PlatformExplorer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function MobileApplicationPage() {
   const [activeIndex, setActiveIndex] = useState(2);
@@ -351,28 +352,15 @@ export default function MobileApplicationPage() {
       <Header />
       <main className="flex-grow">
 
-        {/* HERO SECTION — PDF Aligned Content & Clean Light Layout */}
+        {/* HERO SECTION — PDF Aligned Content & Animated Light Layout */}
         <section className="relative overflow-hidden bg-white border-b border-slate-100">
-          <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
-
-            {/* Eyebrow / Breadcrumb */}
-            {/* <div className="flex items-center justify-between pt-10 pb-6 border-b border-slate-100/80">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-50 border border-pink-200/60 text-[9px] font-bold uppercase tracking-[0.2em] text-pink-600">
-                <Sparkles className="w-3 h-3" />
-                Mobile App Development Company in Hyderabad
-              </div>
-              <div className="hidden sm:flex items-center gap-1.5 text-[9px] text-slate-400 font-mono uppercase tracking-widest">
-                <span>DigitalRaiz</span>
-                <span>/</span>
-                <span className="text-pink-500 font-bold">Mobile Application</span>
-              </div>
-            </div> */}
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
 
             {/* Hero Main Grid */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 items-center py-10 lg:py-14">
 
               {/* LEFT — H1 & Intro Copy from PDF */}
-              <div className="flex-grow space-y-7 text-center lg:text-left max-w-[560px]">
+              <ScrollReveal direction="left" className="flex-grow space-y-7 text-center lg:text-left max-w-[560px]">
                 <h1 className="space-y-1">
                   <span className="block text-[10px] font-semibold text-slate-400 tracking-[0.3em] uppercase">Engineering Scalable Mobile Products</span>
                   <span className="block text-4xl sm:text-5xl lg:text-[3.4rem] font-black uppercase tracking-tight text-[#1e1b4b] leading-[0.95]">
@@ -386,14 +374,14 @@ export default function MobileApplicationPage() {
                   </span>
                 </h1>
 
-                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed font-light max-w-md mx-auto lg:mx-0 text-justify">
+                <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-md mx-auto lg:mx-0">
                   At Digital Raiz, we build mobile applications that combine thoughtful design, reliable technology, and real business purpose. As a leading mobile app development company in Hyderabad, we work with startups, growing businesses, and established organizations to turn ideas into intuitive, scalable, and engaging mobile experiences.
                 </p>
 
                 {/* Inline Stats */}
                 <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
                   {stats.map((s) => (
-                    <div key={s.label} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/60">
+                    <div key={s.label} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 transition-transform hover:scale-105">
                       {s.icon}
                       <span className="text-[10px] font-black text-[#1e1b4b]">{s.value}</span>
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">{s.label}</span>
@@ -405,7 +393,7 @@ export default function MobileApplicationPage() {
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm"
+                    className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm"
                   >
                     <span>Hire Mobile App Developers</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -415,19 +403,19 @@ export default function MobileApplicationPage() {
                       const element = document.getElementById("mobile-services");
                       element?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-transparent hover:bg-slate-50 border border-slate-200 hover:border-pink-300 text-slate-600 hover:text-pink-600 text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group"
+                    className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-transparent hover:bg-slate-50 border border-slate-200 hover:border-pink-300 text-slate-600 hover:text-pink-600 text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group cursor-pointer"
                   >
                     <span>Explore Services</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
                   </button>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* RIGHT — Clean Realistic Smartphone Showcase */}
-              <div className="relative w-full lg:w-[480px] shrink-0 flex justify-center items-center py-6">
+              <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[480px] shrink-0 flex justify-center items-center py-6">
 
                 {/* Smartphone Device Frame */}
-                <div className="relative w-[250px] sm:w-[270px] h-[500px] sm:h-[530px] rounded-[38px] border-[6px] border-slate-900 bg-slate-950 overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.02] group">
+                <div className="relative w-[250px] sm:w-[270px] h-[500px] sm:h-[530px] rounded-[38px] border-[6px] border-slate-900 bg-slate-950 overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-pink-500/10 group">
 
                   {/* Dynamic Island / Notch */}
                   <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full z-30 flex items-center justify-end px-1.5">
@@ -480,7 +468,7 @@ export default function MobileApplicationPage() {
                   </div>
                 </div>
 
-              </div>
+              </ScrollReveal>
 
             </div>
 
@@ -489,56 +477,63 @@ export default function MobileApplicationPage() {
 
         {/* SERVICES SECTION — PDF Aligned Service Matrix */}
         <section id="mobile-services" className="py-16 bg-white relative overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-12">
 
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                <Sparkles className="w-3 h-3" />
-                Tailored Solutions
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3" />
+                  Tailored Solutions
+                </div>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                  Mobile App Development Services in Hyderabad
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
+                  Our mobile app development services are designed around the specific needs of each business — from initial concept to deployment and maintenance.
+                </p>
               </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                Mobile App Development Services in Hyderabad
-              </h2>
-              <p className="text-slate-500 text-xs font-light max-w-xl mx-auto">
-                Our mobile app development services are designed around the specific needs of each business — from initial concept to deployment and maintenance.
-              </p>
-            </div>
+            </ScrollReveal>
 
             {/* Industry Use Case Cards — Upgraded Design */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {industryUseCases.map((uc, idx) => (
-                <div
-                  key={idx}
-                  className={`p-6 rounded-2xl bg-gradient-to-br ${uc.color} border border-slate-200/70 hover:border-pink-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between space-y-5 group`}
-                >
-                  <div className="space-y-4">
-                    {/* Top Row: Icon & Tag */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-white shadow-xs border border-slate-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        {uc.icon}
+                <ScrollReveal key={idx} delay={idx * 100} direction="up" className="h-full flex flex-col">
+                  <div
+                    className={`p-6 rounded-2xl bg-gradient-to-br ${uc.color} border border-slate-200/70 hover:border-pink-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between space-y-5 group h-full`}
+                  >
+                    <div className="space-y-4">
+                      {/* Top Row: Icon & Tag */}
+                      <div className="flex items-center justify-between">
+                        <div className="w-10 h-10 rounded-xl bg-white shadow-xs border border-slate-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          {uc.icon}
+                        </div>
+                        <span className={`text-[8px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white border ${uc.border}`}>
+                          {uc.tag}
+                        </span>
                       </div>
-                      <span className={`text-[8px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white border ${uc.border}`}>
-                        {uc.tag}
+
+                      {/* Content */}
+                      <div className="space-y-2">
+                        <h3 className="text-sm font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors">
+                          {uc.title}
+                        </h3>
+                        <p className="text-slate-700 font-medium text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-900 transition-colors">
+                          {uc.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card Bottom Link */}
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 group-hover:text-violet-600 transition-colors">
+                        Explore Capability
                       </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="space-y-2">
-                      <h3 className="text-sm font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors">
-                        {uc.title}
-                      </h3>
-                      <p className="text-slate-500 text-xs leading-relaxed font-light text-justify">
-                        {uc.desc}
-                      </p>
+                      <div className="w-7 h-7 rounded-xl bg-pink-50 text-pink-600 group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-violet-600 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-2xs group-hover:shadow-xs group-hover:translate-x-0.5">
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </div>
                     </div>
                   </div>
-
-                  {/* Card Bottom Link */}
-                  <div className="pt-2 border-t border-slate-200/50 flex items-center gap-1.5 text-[9px] font-bold text-pink-600 uppercase tracking-wider">
-                    <span>Explore Capability</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 
@@ -547,272 +542,284 @@ export default function MobileApplicationPage() {
 
         {/* PLATFORM EXPLORER (Android, iOS & Cross-Platform) */}
         <section className="py-16 bg-slate-50/60 border-y border-slate-100">
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-violet-600 block">Platform Coverage</span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                Android & iOS App Development for Modern Businesses
-              </h2>
-              <p className="text-slate-500 text-xs font-light max-w-xl mx-auto">
-                Different platforms require different considerations. We deliver consistent, high-performance mobile experiences across Android, iOS, and cross-platform Flutter/React Native environments.
-              </p>
-            </div>
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-12">
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-violet-600 block">Platform Coverage</span>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                  Android & iOS App Development for Modern Businesses
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
+                  Different platforms require different considerations. We deliver consistent, high-performance mobile experiences across Android, iOS, and cross-platform Flutter/React Native environments.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <PlatformExplorer />
+            <ScrollReveal direction="up" delay={150}>
+              <PlatformExplorer />
+            </ScrollReveal>
           </div>
         </section>
 
         {/* 7-STEP DEVELOPMENT PROCESS (Direct from PDF) — Stepper Ribbon + Dual-Card Inspector */}
         <section className="py-16 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/50 border-y border-slate-100 relative overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-10">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-10">
 
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                <Workflow className="w-3 h-3" />
-                Engineering Pipeline
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
+                  <Workflow className="w-3 h-3" />
+                  Engineering Pipeline
+                </div>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                  Our 7-Step Mobile Engineering Process
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
+                  From technical consultation to post-launch SLA support — click any phase to inspect phase deliverables and toolchains.
+                </p>
               </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                Our 7-Step Mobile Engineering Process
-              </h2>
-              <p className="text-slate-500 text-xs font-light max-w-xl mx-auto">
-                From technical consultation to post-launch SLA support — click any phase to inspect phase deliverables and toolchains.
-              </p>
-            </div>
+            </ScrollReveal>
 
             {/* TOP: Horizontal Connected Stepper Ribbon Track */}
-            <div className="relative w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
-              <div className="flex items-center justify-between min-w-[700px] relative px-4">
+            <ScrollReveal direction="up" delay={100}>
+              <div className="relative w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
+                <div className="flex items-center justify-between min-w-[700px] relative px-4">
 
-                {/* Connecting Line Track */}
-                <div className="absolute top-6 left-10 right-10 h-0.5 bg-slate-200 -z-0" />
-                <div
-                  className="absolute top-6 left-10 h-0.5 bg-gradient-to-r from-pink-500 via-violet-500 to-indigo-600 transition-all duration-500 -z-0"
-                  style={{ width: `${(activeStep / 6) * 90}%` }}
-                />
+                  {/* Connecting Line Track */}
+                  <div className="absolute top-6 left-10 right-10 h-0.5 bg-slate-200 -z-0" />
+                  <div
+                    className="absolute top-6 left-10 h-0.5 bg-gradient-to-r from-pink-500 via-violet-500 to-indigo-600 transition-all duration-500 -z-0"
+                    style={{ width: `${(activeStep / 6) * 90}%` }}
+                  />
 
-                {pdfProcessSteps.map((step, idx) => {
-                  const isActive = activeStep === idx;
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveStep(idx)}
-                      onMouseEnter={() => setActiveStep(idx)}
-                      className="flex flex-col items-center gap-2.5 relative z-10 group cursor-pointer"
-                    >
-                      <div className={`w-12 h-12 rounded-2xl font-mono font-black text-xs flex items-center justify-center transition-all duration-300 shadow-xs ${isActive
-                        ? "bg-gradient-to-br from-pink-500 to-violet-600 text-white scale-110 shadow-pink-500/20 shadow-md ring-4 ring-pink-500/10"
-                        : "bg-white text-slate-500 border border-slate-200 group-hover:border-pink-300 group-hover:scale-105"
-                        }`}>
-                        {step.step}
-                      </div>
+                  {pdfProcessSteps.map((step, idx) => {
+                    const isActive = activeStep === idx;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveStep(idx)}
+                        onMouseEnter={() => setActiveStep(idx)}
+                        className="flex flex-col items-center gap-2.5 relative z-10 group cursor-pointer"
+                      >
+                        <div className={`w-12 h-12 rounded-2xl font-mono font-black text-xs flex items-center justify-center transition-all duration-300 shadow-xs ${isActive
+                          ? "bg-gradient-to-br from-pink-500 to-violet-600 text-white scale-110 shadow-pink-500/20 shadow-md ring-4 ring-pink-500/10"
+                          : "bg-white text-slate-500 border border-slate-200 group-hover:border-pink-300 group-hover:scale-105"
+                          }`}>
+                          {step.step}
+                        </div>
 
-                      <span className={`text-[9.5px] font-mono font-bold uppercase tracking-wider max-w-[90px] text-center truncate transition-colors ${isActive ? "text-pink-600 font-extrabold" : "text-slate-400 group-hover:text-slate-600"
-                        }`}>
-                        {step.name.split(" ")[0]}
-                      </span>
-                    </button>
-                  );
-                })}
+                        <span className={`text-[9.5px] font-mono font-bold uppercase tracking-wider max-w-[90px] text-center truncate transition-colors ${isActive ? "text-pink-600 font-extrabold" : "text-slate-400 group-hover:text-slate-600"
+                          }`}>
+                          {step.name.split(" ")[0]}
+                        </span>
+                      </button>
+                    );
+                  })}
 
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* BOTTOM: Dual-Card Stage Inspector Display */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 items-stretch">
+            <ScrollReveal direction="up" delay={200}>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
 
-              {/* LEFT CARD (7 cols): Phase Title, Summary & Quality Gate */}
-              <div className="lg:col-span-7 bg-white rounded-xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6 relative overflow-hidden">
-                <div className="space-y-4">
+                {/* LEFT CARD (7 cols): Phase Title, Summary & Quality Gate */}
+                <div className="lg:col-span-7 bg-white rounded-3xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6 relative overflow-hidden">
+                  <div className="space-y-4">
 
-                  {/* Phase Badge & Header */}
-                  <div className="flex items-center gap-4 border-b border-slate-100 pb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 text-pink-600 flex items-center justify-center shrink-0 shadow-xs">
-                      {pdfProcessSteps[activeStep].icon}
-                    </div>
-                    <div className="space-y-0.5">
-                      <div className="inline-flex items-center gap-2 text-[9px] font-mono font-bold uppercase tracking-widest text-pink-600">
-                        <span>Phase {pdfProcessSteps[activeStep].step} of 07</span>
-                        <span className="w-1 h-1 rounded-full bg-slate-300" />
-                        <span className="text-slate-400">Roadmap Phase</span>
+                    {/* Phase Badge & Header */}
+                    <div className="flex items-center gap-4 border-b border-slate-100 pb-4">
+                      <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 text-pink-600 flex items-center justify-center shrink-0 shadow-xs">
+                        {pdfProcessSteps[activeStep].icon}
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                        {pdfProcessSteps[activeStep].name}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Executive Summary */}
-                  <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-light text-justify">
-                    {pdfProcessSteps[activeStep].desc}
-                  </p>
-
-                </div>
-
-                {/* Timeframe & Quality Gate Pills */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-slate-100">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-0.5">
-                    <span className="text-[9px] font-mono text-slate-400 uppercase font-bold">Estimated Duration</span>
-                    <div className="text-xs font-black text-[#1e1b4b]">⏱ {pdfProcessSteps[activeStep].duration}</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-0.5">
-                    <span className="text-[9px] font-mono text-emerald-600 uppercase font-bold">Quality SLA Gate</span>
-                    <div className="text-xs font-black text-emerald-700 truncate">{pdfProcessSteps[activeStep].qualityGate}</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* RIGHT CARD (5 cols): Key Deliverables Checklist & Tools */}
-              <div className="lg:col-span-5 bg-white rounded-xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6">
-
-                <div className="space-y-4">
-                  {/* Header Row */}
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="text-[9.5px] font-mono font-bold uppercase tracking-widest text-pink-600">Key Phase Deliverables</span>
-                    <span className="text-[8px] font-mono text-emerald-600 font-bold bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full uppercase">Verified</span>
-                  </div>
-
-                  {/* Bullet Checklist */}
-                  <div className="space-y-2.5 text-xs font-semibold text-slate-700">
-                    {pdfProcessSteps[activeStep].deliverables.map((item, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-                          <CheckCircle2 className="w-3 h-3" />
+                      <div className="space-y-0.5">
+                        <div className="inline-flex items-center gap-2 text-[9px] font-mono font-bold uppercase tracking-widest text-pink-600">
+                          <span>Phase {pdfProcessSteps[activeStep].step} of 07</span>
+                          <span className="w-1 h-1 rounded-full bg-slate-300" />
+                          <span className="text-slate-400">Roadmap Phase</span>
                         </div>
-                        <span className="leading-snug">{item}</span>
+                        <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                          {pdfProcessSteps[activeStep].name}
+                        </h3>
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Executive Summary */}
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                      {pdfProcessSteps[activeStep].desc}
+                    </p>
+
                   </div>
 
-                  {/* Toolchain Badges */}
-                  <div className="pt-2 space-y-1.5">
-                    <span className="text-[8.5px] font-mono font-bold uppercase tracking-widest text-slate-400 block">Phase Tools</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {pdfProcessSteps[activeStep].tools.map((tool, tIdx) => (
-                        <span key={tIdx} className="text-[9.5px] font-mono font-bold px-2 py-0.5 rounded-md bg-white text-slate-700 border border-slate-200/70 shadow-2xs">
-                          {tool}
-                        </span>
+                  {/* Timeframe & Quality Gate Pills */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-slate-100">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-0.5">
+                      <span className="text-[9px] font-mono text-slate-400 uppercase font-bold">Estimated Duration</span>
+                      <div className="text-xs font-black text-[#1e1b4b]">⏱ {pdfProcessSteps[activeStep].duration}</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-0.5">
+                      <span className="text-[9px] font-mono text-emerald-600 uppercase font-bold">Quality SLA Gate</span>
+                      <div className="text-xs font-black text-emerald-700 truncate">{pdfProcessSteps[activeStep].qualityGate}</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT CARD (5 cols): Key Deliverables Checklist & Tools */}
+                <div className="lg:col-span-5 bg-white rounded-3xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6">
+
+                  <div className="space-y-4">
+                    {/* Header Row */}
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <span className="text-[9.5px] font-mono font-bold uppercase tracking-widest text-pink-600">Key Phase Deliverables</span>
+                      <span className="text-[8px] font-mono text-emerald-600 font-bold bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full uppercase">Verified</span>
+                    </div>
+
+                    {/* Bullet Checklist */}
+                    <div className="space-y-2.5 text-xs font-semibold text-slate-700">
+                      {pdfProcessSteps[activeStep].deliverables.map((item, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-2.5">
+                          <div className="w-4 h-4 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                            <CheckCircle2 className="w-3 h-3" />
+                          </div>
+                          <span className="leading-snug">{item}</span>
+                        </div>
                       ))}
                     </div>
+
+                    {/* Toolchain Badges */}
+                    <div className="pt-2 space-y-1.5">
+                      <span className="text-[8.5px] font-mono font-bold uppercase tracking-widest text-slate-400 block">Phase Tools</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {pdfProcessSteps[activeStep].tools.map((tool, tIdx) => (
+                          <span key={tIdx} className="text-[9.5px] font-mono font-bold px-2 py-0.5 rounded-md bg-white text-slate-700 border border-slate-200/70 shadow-2xs">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Step Controls Footer */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => setActiveStep((prev) => (prev === 0 ? 6 : prev - 1))}
-                    className="inline-flex items-center gap-1.5 text-[9.5px] font-mono font-bold text-slate-500 hover:text-pink-600 cursor-pointer transition-colors"
-                  >
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                    <span>Prev Phase</span>
-                  </button>
+                  {/* Step Controls Footer */}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <button
+                      onClick={() => setActiveStep((prev) => (prev === 0 ? 6 : prev - 1))}
+                      className="inline-flex items-center gap-1.5 text-[9.5px] font-mono font-bold text-slate-500 hover:text-pink-600 cursor-pointer transition-colors"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      <span>Prev Phase</span>
+                    </button>
 
-                  <span className="text-[10px] font-mono font-black text-slate-400">
-                    0{activeStep + 1} / 07
-                  </span>
+                    <span className="text-[10px] font-mono font-black text-slate-400">
+                      0{activeStep + 1} / 07
+                    </span>
 
-                  <button
-                    onClick={() => setActiveStep((prev) => (prev === 6 ? 0 : prev + 1))}
-                    className="inline-flex items-center gap-1.5 text-[9.5px] font-mono font-bold text-pink-600 hover:text-pink-700 cursor-pointer transition-colors"
-                  >
-                    <span>Next Phase</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                    <button
+                      onClick={() => setActiveStep((prev) => (prev === 6 ? 0 : prev + 1))}
+                      className="inline-flex items-center gap-1.5 text-[9.5px] font-mono font-bold text-pink-600 hover:text-pink-700 cursor-pointer transition-colors"
+                    >
+                      <span>Next Phase</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
                 </div>
 
               </div>
-
-            </div>
+            </ScrollReveal>
 
           </div>
         </section>
 
-        {/* HIRE DEVELOPERS & WHY CHOOSE US — Obsidian Executive Talent Banner (Wider Max-Width Layout) */}
-        <section className="py-5 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10">
+        {/* HIRE DEVELOPERS & WHY CHOOSE US — Obsidian Executive Talent Banner */}
+        <section className="py-8 bg-white relative overflow-hidden">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10">
 
-            <div className="bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#090d16] rounded-xl border border-violet-500/20 shadow-2xl p-8 sm:p-12 lg:p-14 relative overflow-hidden text-white space-y-10">
+            <ScrollReveal direction="up">
+              <div className="bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#090d16] rounded-3xl border border-violet-500/20 shadow-2xl p-8 sm:p-12 lg:p-14 relative overflow-hidden text-white space-y-10">
 
-              {/* Background Glow Accents */}
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+                {/* Background Glow Accents */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
 
-                {/* Left Column (5 cols) — Copy & Onboarding Badges */}
-                <div className="lg:col-span-5 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-[9px] font-mono font-bold uppercase tracking-widest text-pink-400">
-                    <Users className="w-3.5 h-3.5" />
-                    Dedicated Engineering Talent
-                  </div>
-
-                  <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
-                    Hire Mobile App Developers <span className="bg-gradient-to-r from-pink-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">from Hyderabad</span>
-                  </h2>
-
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light text-justify">
-                    Finding the right development team can make a significant difference to the success of a mobile application. When you hire mobile app developers from Hyderabad through Digital Raiz, you get access to professionals who focus on both technical requirements and the business purpose behind your application.
-                  </p>
-
-                  <p className="text-slate-400 text-xs leading-relaxed font-light text-justify">
-                    Our developers work closely with clients to understand workflows, user requirements, and future expansion plans before development begins — reducing unnecessary complexity and ensuring long-term scalability.
-                  </p>
-
-                  {/* Trust Highlights */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-2 text-[10px] font-mono text-slate-300">
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
-                      <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>48-Hr Developer Match</span>
+                  {/* Left Column (5 cols) — Copy & Onboarding Badges */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-[9px] font-mono font-bold uppercase tracking-widest text-pink-400">
+                      <Users className="w-3.5 h-3.5" />
+                      Dedicated Engineering Talent
                     </div>
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
-                      <div className="w-2 h-2 rounded-full bg-pink-400" />
-                      <span>100% IP Protection</span>
-                    </div>
-                  </div>
 
-                  <div className="pt-2">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2.5 py-4 px-8 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 text-white text-[10px] font-black uppercase tracking-wider shadow-[0_10px_25px_rgba(236,72,153,0.3)] hover:scale-105 active:scale-95 transition-all"
-                    >
-                      <span>Hire Dedicated App Developers</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
+                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                      Hire Mobile App Developers <span className="bg-gradient-to-r from-pink-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">from Hyderabad</span>
+                    </h2>
 
-                {/* Right Column (7 cols) — Why Choose Digital Raiz 8 Glass Cards */}
-                <div className="lg:col-span-7 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <h3 className="text-lg font-black uppercase tracking-tight text-white flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                      Why Choose Digital Raiz?
-                    </h3>
-                    <span className="text-[9px] font-mono font-bold uppercase text-pink-400 bg-pink-500/10 border border-pink-500/20 px-2.5 py-1 rounded-full">
-                      8 Core Pillars
-                    </span>
-                  </div>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
+                      Finding the right development team can make a significant difference to the success of a mobile application. When you hire mobile app developers from Hyderabad through Digital Raiz, you get access to professionals who focus on both technical requirements and the business purpose behind your application.
+                    </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    {whyChoosePoints.map((point, i) => (
-                      <div
-                        key={i}
-                        className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-pink-500/40 transition-all duration-300 flex items-start gap-3.5 group"
-                      >
-                        <div className="w-6 h-6 rounded-xl bg-gradient-to-br from-pink-500 to-violet-600 text-white font-mono font-black text-[10px] flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform mt-0.5">
-                          0{i + 1}
-                        </div>
-                        <span className="text-[11.5px] font-light text-slate-200 leading-snug">
-                          {point}
-                        </span>
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                      Our developers work closely with clients to understand workflows, user requirements, and future expansion plans before development begins — reducing unnecessary complexity and ensuring long-term scalability.
+                    </p>
+
+                    {/* Trust Highlights */}
+                    <div className="grid grid-cols-2 gap-2.5 pt-2 text-[10px] font-mono text-slate-300">
+                      <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>48-Hr Developer Match</span>
                       </div>
-                    ))}
+                      <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+                        <div className="w-2 h-2 rounded-full bg-pink-400" />
+                        <span>100% IP Protection</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-2">
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2.5 py-4 px-8 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 text-white text-[10px] font-black uppercase tracking-wider shadow-[0_10px_25px_rgba(236,72,153,0.3)] hover:scale-105 active:scale-95 transition-all"
+                      >
+                        <span>Hire Dedicated App Developers</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
                   </div>
+
+                  {/* Right Column (7 cols) — Why Choose Digital Raiz 8 Glass Cards */}
+                  <div className="lg:col-span-7 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                      <h3 className="text-lg font-black uppercase tracking-tight text-white flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                        Why Choose Digital Raiz?
+                      </h3>
+                      <span className="text-[9px] font-mono font-bold uppercase text-pink-400 bg-pink-500/10 border border-pink-500/20 px-2.5 py-1 rounded-full">
+                        8 Core Pillars
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      {whyChoosePoints.map((point, i) => (
+                        <div
+                          key={i}
+                          className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-pink-500/40 transition-all duration-300 flex items-start gap-3.5 group"
+                        >
+                          <div className="w-6 h-6 rounded-xl bg-gradient-to-br from-pink-500 to-violet-600 text-white font-mono font-black text-[10px] flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform mt-0.5">
+                            0{i + 1}
+                          </div>
+                          <span className="text-xs font-normal text-slate-200 leading-snug">
+                            {point}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
 
               </div>
-
-            </div>
+            </ScrollReveal>
 
           </div>
         </section>
@@ -820,121 +827,127 @@ export default function MobileApplicationPage() {
         {/* REAL-WORLD CLIENT APP PORTFOLIO SHOWCASE */}
         <section className="py-20 bg-white border-t border-slate-100 relative overflow-hidden w-full">
           <div className="w-full space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
-              <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">App Showcase</span>
-              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Mobile App Projects</h2>
-              <p className="text-slate-400 text-xs font-light">Explore real-world applications engineered by DigitalRaiz currently active on the Google Play Store.</p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
+                <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">App Showcase</span>
+                <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Mobile App Projects</h2>
+                <p className="text-slate-500 text-xs sm:text-sm font-normal">Explore real-world applications engineered by DigitalRaiz currently active on the Google Play Store.</p>
+              </div>
+            </ScrollReveal>
 
             {/* 3D Coverflow Perspective Container */}
-            <div className="relative w-full h-[540px] flex items-center justify-center [perspective:1200px] overflow-hidden select-none px-4 sm:px-12">
-              <button
-                onClick={() => setActiveIndex((prev) => (prev === 0 ? portfolioApps.length - 1 : prev - 1))}
-                className="absolute left-4 sm:left-8 md:left-12 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-pink-600 transition-all duration-300 shadow-md hover:scale-105 active:scale-95"
-                aria-label="Previous Project"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+            <ScrollReveal direction="up" delay={150}>
+              <div className="relative w-full h-[540px] flex items-center justify-center [perspective:1200px] overflow-hidden select-none px-4 sm:px-12">
+                <button
+                  onClick={() => setActiveIndex((prev) => (prev === 0 ? portfolioApps.length - 1 : prev - 1))}
+                  className="absolute left-4 sm:left-8 md:left-12 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-pink-600 transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+                  aria-label="Previous Project"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
 
-              <div className="relative w-full h-[490px] flex items-center justify-center [transform-style:preserve-3d]">
-                {portfolioApps.map((app, idx) => {
-                  let offset = idx - activeIndex;
-                  const half = Math.floor(portfolioApps.length / 2);
-                  if (offset > half) offset -= portfolioApps.length;
-                  if (offset < -half) offset += portfolioApps.length;
+                <div className="relative w-full h-[490px] flex items-center justify-center [transform-style:preserve-3d]">
+                  {portfolioApps.map((app, idx) => {
+                    let offset = idx - activeIndex;
+                    const half = Math.floor(portfolioApps.length / 2);
+                    if (offset > half) offset -= portfolioApps.length;
+                    if (offset < -half) offset += portfolioApps.length;
 
-                  const absOffset = Math.abs(offset);
+                    const absOffset = Math.abs(offset);
 
-                  if (absOffset > 2) return null;
+                    if (absOffset > 2) return null;
 
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveIndex(idx)}
-                      onMouseEnter={startAutoScroll}
-                      onMouseLeave={stopAutoScroll}
-                      className="absolute transition-all duration-500 ease-out cursor-pointer flex flex-col items-center gap-4 group"
-                      style={{
-                        transform: `translateX(${offset * 255}px) scale(${absOffset === 0 ? 1.08 : 0.92})`,
-                        zIndex: 100 - absOffset,
-                        opacity: 1,
-                      }}
-                    >
-                      <h4 className={`text-[11px] font-black uppercase tracking-wider text-center max-w-[190px] transition-all duration-500 ${absOffset === 0 ? 'text-pink-600 scale-105 opacity-100' : 'text-slate-500 opacity-60'}`}>
-                        {app.name}
-                      </h4>
+                    return (
+                      <div
+                        key={idx}
+                        onClick={() => setActiveIndex(idx)}
+                        onMouseEnter={startAutoScroll}
+                        onMouseLeave={stopAutoScroll}
+                        className="absolute transition-all duration-500 ease-out cursor-pointer flex flex-col items-center gap-4 group"
+                        style={{
+                          transform: `translateX(${offset * 255}px) scale(${absOffset === 0 ? 1.08 : 0.92})`,
+                          zIndex: 100 - absOffset,
+                          opacity: 1,
+                        }}
+                      >
+                        <h4 className={`text-[11px] font-black uppercase tracking-wider text-center max-w-[190px] transition-all duration-500 ${absOffset === 0 ? 'text-pink-600 scale-105 opacity-100' : 'text-slate-500 opacity-60'}`}>
+                          {app.name}
+                        </h4>
 
-                      <div className={`w-[230px] h-[460px] rounded-[26px] border-[4px] border-slate-900 bg-slate-950 shadow-2xl overflow-hidden relative transition-all duration-500 ${absOffset === 0 ? 'ring-4 ring-pink-500/20' : ''}`}>
-                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-slate-900 rounded-full z-20" />
+                        <div className={`w-[230px] h-[460px] rounded-[26px] border-[4px] border-slate-900 bg-slate-950 shadow-2xl overflow-hidden relative transition-all duration-500 ${absOffset === 0 ? 'ring-4 ring-pink-500/20' : ''}`}>
+                          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-slate-900 rounded-full z-20" />
 
-                        <div
-                          className="absolute inset-0 overflow-y-auto no-scrollbar z-10 bg-slate-900 mockup-viewport"
-                          onWheel={handleUserScroll}
-                          onTouchMove={handleUserScroll}
-                        >
-                          <img
-                            src={app.img}
-                            alt={app.name}
-                            className="w-full h-auto object-cover object-top select-none pointer-events-none block"
-                            style={{
-                              imageRendering: '-webkit-optimize-contrast',
-                              WebkitBackfaceVisibility: 'hidden',
-                              backfaceVisibility: 'hidden',
-                              transform: 'translateZ(0)'
-                            }}
-                          />
+                          <div
+                            className="absolute inset-0 overflow-y-auto no-scrollbar z-10 bg-slate-900 mockup-viewport"
+                            onWheel={handleUserScroll}
+                            onTouchMove={handleUserScroll}
+                          >
+                            <img
+                              src={app.img}
+                              alt={app.name}
+                              className="w-full h-auto object-cover object-top select-none pointer-events-none block"
+                              style={{
+                                imageRendering: '-webkit-optimize-contrast',
+                                WebkitBackfaceVisibility: 'hidden',
+                                backfaceVisibility: 'hidden',
+                                transform: 'translateZ(0)'
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
 
-              <button
-                onClick={() => setActiveIndex((prev) => (prev === portfolioApps.length - 1 ? 0 : prev + 1))}
-                className="absolute right-4 sm:right-8 md:right-12 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-pink-600 transition-all duration-300 shadow-md hover:scale-105 active:scale-95"
-                aria-label="Next Project"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+                <button
+                  onClick={() => setActiveIndex((prev) => (prev === portfolioApps.length - 1 ? 0 : prev + 1))}
+                  className="absolute right-4 sm:right-8 md:right-12 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-pink-600 transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+                  aria-label="Next Project"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* CALL TO ACTION BANNER — Sleek Full-Width Light Banner Strip */}
         <section className="w-full bg-gradient-to-r from-pink-50 via-purple-50/70 to-indigo-50 border-t border-b border-slate-200/80 py-8 sm:py-10 px-6 sm:px-12 relative overflow-hidden">
-          
+
           {/* Subtle Ambient Pattern Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(rgba(100,80,200,0.06)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-            
-            {/* Left Content */}
-            <div className="space-y-1 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-pink-200/60 shadow-2xs text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                <Sparkles className="w-3 h-3 text-pink-500" />
-                Mobile App Engineering
+          <ScrollReveal direction="up">
+            <div className="max-w-6xl 2xl:max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+
+              {/* Left Content */}
+              <div className="space-y-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-pink-200/60 shadow-2xs text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3 text-pink-500" />
+                  Mobile App Engineering
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                  Ready to Build Your Mobile Application with Digital Raiz?
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-sm font-normal">
+                  Android • iOS • Cross-Platform Flutter & React Native Solutions in Hyderabad
+                </p>
               </div>
-              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                Ready to Build Your Mobile Application with Digital Raiz?
-              </h3>
-              <p className="text-slate-500 text-xs font-light">
-                Android • iOS • Cross-Platform Flutter & React Native Solutions in Hyderabad
-              </p>
-            </div>
 
-            {/* Right Action Button */}
-            <div className="shrink-0">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-2xl bg-[#1e1b4b] hover:bg-[#2d2a6e] text-white text-[10px] font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all"
-              >
-                <span>Get In Touch With Us</span>
-                <ArrowRight className="w-3.5 h-3.5 text-pink-400" />
-              </Link>
-            </div>
+              {/* Right Action Button */}
+              <div className="shrink-0">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-2xl bg-[#1e1b4b] hover:bg-[#2d2a6e] text-white text-[10px] font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all"
+                >
+                  <span>Get In Touch With Us</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-pink-400" />
+                </Link>
+              </div>
 
-          </div>
+            </div>
+          </ScrollReveal>
         </section>
 
       </main>

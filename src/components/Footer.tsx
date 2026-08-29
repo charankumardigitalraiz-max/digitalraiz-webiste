@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles } from "lucide-react";
 
 export default function Footer() {
   const partnerStrengths = [
@@ -16,23 +16,23 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Portfolio", href: "#" },
-    { label: "Career", href: "#" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
-    { label: "SiteMap", href: "#" }
+    { label: "Home", href: "/", icon: Home },
+    { label: "About Us", href: "/about", icon: Users },
+    { label: "Portfolio", href: "/portfolio", icon: Laptop },
+    { label: "Career", href: "/contact", icon: TrendingUp },
+    { label: "Contact", href: "/contact", icon: Headphones },
+    { label: "Privacy Policy", href: "#", icon: CheckCircle2 },
+    { label: "Terms & Conditions", href: "#", icon: CheckCircle2 },
+    { label: "SiteMap", href: "#", icon: ExternalLink }
   ];
 
   const keySolutions = [
-    { label: "Mobile Application", href: "/mobile-application" },
-    { label: "Web Development", href: "/web-development" },
-    { label: "Influencer Marketing", href: "/influencer-marketing" },
-    { label: "SAP Cloud Services", href: "/sap-cloud-services" },
-    { label: "Machine Learning", href: "/machine-learning" },
-    { label: "AI Solutions", href: "/artificial-intelligence" }
+    { label: "Mobile Application", href: "/mobile-application", icon: Smartphone },
+    { label: "Web Development", href: "/web-development", icon: Laptop },
+    { label: "Influencer Marketing", href: "/influencer-marketing", icon: Share2 },
+    { label: "SAP Cloud Services", href: "/sap-cloud-services", icon: TrendingUp },
+    { label: "Machine Learning", href: "/machine-learning", icon: Search },
+    { label: "AI Solutions", href: "/artificial-intelligence", icon: Sparkles }
   ];
 
   return (
@@ -94,18 +94,6 @@ export default function Footer() {
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-light text-justify max-w-sm">
               <strong className="text-[#1e1b4b] font-bold">DigitalRaiz</strong> is a premier software development, mobile application engineering, and digital marketing company in Hyderabad, India.
             </p>
-
-            {/* <div className="pt-2">
-              <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-3xs max-w-xs group">
-                <div className="w-9 h-9 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0 border border-pink-100">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[9px] font-mono text-pink-600 uppercase tracking-wider block font-bold">Talk To Our Support</span>
-                  <a href="tel:+919494613601" className="text-xs font-black text-[#1e1b4b] hover:text-pink-600 transition-colors block mt-0.5">+91-9494613601</a>
-                </div>
-              </div>
-            </div> */}
           </div>
 
           {/* COLUMN 2: Quick Links (lg:col-span-2) */}
@@ -114,17 +102,20 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
-              {quickLinks.slice(0, 5).map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="group flex items-center gap-2 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs sm:text-sm font-medium"
-                  >
-                    <ChevronRight className="w-3.5 h-3.5 text-pink-500 group-hover:translate-x-1 transition-all duration-200 shrink-0" />
-                    <span>{link.label}</span>
-                  </a>
-                </li>
-              ))}
+              {quickLinks.slice(0, 5).map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="group flex items-center gap-2.5 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs sm:text-sm font-medium"
+                    >
+                      <IconComponent className="w-3.5 h-3.5 text-pink-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-200 shrink-0" />
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -134,17 +125,20 @@ export default function Footer() {
               Key Solutions
             </h4>
             <ul className="space-y-2.5">
-              {keySolutions.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="group flex items-center gap-2 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs sm:text-sm font-medium"
-                  >
-                    <ChevronRight className="w-3.5 h-3.5 text-pink-500 group-hover:translate-x-1 transition-all duration-200 shrink-0" />
-                    <span>{item.label}</span>
-                  </a>
-                </li>
-              ))}
+              {keySolutions.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="group flex items-center gap-2.5 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs sm:text-sm font-medium"
+                    >
+                      <IconComponent className="w-3.5 h-3.5 text-pink-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-200 shrink-0" />
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
