@@ -67,14 +67,12 @@ export default function GrowthSection() {
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="space-y-3 max-w-2xl">
-            {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
-              <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-                Growth Framework
-              </span>
-            </div> */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+              <Sparkles className="w-3 h-3 text-pink-500" />
+              Growth Framework
+            </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e1b4b] uppercase tracking-tight leading-[0.95]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Our Success <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Strategy</span>
             </h2>
 

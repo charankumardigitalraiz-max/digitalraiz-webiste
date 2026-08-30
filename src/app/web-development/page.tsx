@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { openContactModal } from "@/components/ContactModal";
 import dynamic from "next/dynamic";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -797,6 +798,33 @@ export default function WebServicePage() {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+
+        {/* CALL TO ACTION BANNER */}
+        <section className="w-full bg-gradient-to-r from-pink-50 via-purple-50/70 to-indigo-50 border-t border-b border-slate-200/80 py-8 sm:py-10 px-6 sm:px-12 relative overflow-hidden">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div className="space-y-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-pink-200/60 shadow-2xs text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
+                <Sparkles className="w-3 h-3 text-pink-500" />
+                Web Architecture &amp; Engineering
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                Ready to Build Your Web Application with Digital Raiz?
+              </h3>
+              <p className="text-slate-500 text-xs sm:text-sm font-normal">
+                Next.js • React • TypeScript • Full-Stack Web Development Solutions in Hyderabad
+              </p>
+            </div>
+            <div className="shrink-0">
+              <button
+                onClick={() => openContactModal("Web Development")}
+                className="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-2xl bg-[#1e1b4b] hover:bg-[#2d2a6e] text-white text-[10px] font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
+              >
+                <span>Get Started Today</span>
+                <ArrowRight className="w-3.5 h-3.5 text-pink-400" />
+              </button>
+            </div>
           </div>
         </section>
 

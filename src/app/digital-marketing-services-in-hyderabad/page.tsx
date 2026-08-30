@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import Contact from "@/components/home/Contact";
+import { openContactModal } from "@/components/ContactModal";
 import {
   TrendingUp,
   Target,
@@ -245,7 +246,7 @@ export default function DigitalMarketingPage() {
 
       <main className="flex-grow">
         {/* HERO SECTION — Clean Light Studio Layout */}
-        <section className="relative overflow-hidden bg-white border-b border-slate-100">
+        <section className="relative overflow-hidden bg-white">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
 
             {/* Top Eyebrow Ribbon */}
@@ -268,17 +269,20 @@ export default function DigitalMarketingPage() {
               <ScrollReveal direction="left" className="flex-grow space-y-7 text-center lg:text-left max-w-[560px]">
 
                 {/* Headline */}
-                <div className="space-y-1">
-                  <span className="block text-[10px] font-semibold text-slate-400 tracking-[0.3em] uppercase">Scale Your Visibility & Revenue</span>
-                  <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black uppercase tracking-tight text-[#1e1b4b] leading-[0.95]">
-                    Digital Marketing
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                    <Sparkles className="w-3 h-3 text-pink-500" />
+                    Scale Your Visibility &amp; Revenue
+                  </div>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    Digital Marketing{" "}
+                    <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                      Services in Hyderabad
+                    </span>
                   </h1>
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.5rem] font-black uppercase tracking-tight leading-[0.95] bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                    Services in Hyderabad
-                  </span>
-                  <span className="block text-3xl sm:text-4xl lg:text-[2.2rem] font-black uppercase tracking-tight text-slate-300 leading-[0.95] pt-1">
+                  <p className="text-lg sm:text-xl font-bold text-slate-400 tracking-tight">
                     For Brands Ready to Grow
-                  </span>
+                  </p>
                 </div>
 
                 {/* Subtitle Copy */}
@@ -379,17 +383,20 @@ export default function DigitalMarketingPage() {
         </section>
 
         {/* CORE CAPABILITIES SECTION — Studio Grid Layout */}
-        <section id="marketing-services" className="py-16 sm:py-20 bg-white relative">
+        <section id="marketing-services" className="py-10 sm:py-10 bg-white relative">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-12">
 
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3" />
-                  Capabilities & Solutions
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3 text-pink-500" />
+                  Capabilities &amp; Solutions
                 </div>
-                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Digital Marketing Company in Hyderabad Focused on Business Results
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  Digital Marketing Company in Hyderabad{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Focused on Business Results
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
                   We combine different marketing channels based on what your business actually needs. Some businesses require stronger SEO visibility, while others benefit from social media campaigns, Google Ads, content marketing, or lead generation.
@@ -412,11 +419,11 @@ export default function DigitalMarketingPage() {
                       </div>
 
                       {/* MIDDLE: Content */}
-                      <div className="space-y-1.5 pt-0.5">
-                        <h3 className="text-xs sm:text-sm font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors leading-snug">
+                      <div className="space-y-1 pt-0.5">
+                        <h3 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-pink-600 transition-colors leading-snug tracking-tight">
                           {cap.title}
                         </h3>
-                        <p className="text-slate-600 text-xs sm:text-[13px] font-medium leading-relaxed group-hover:text-slate-800 transition-colors">
+                        <p className="text-slate-600 text-xs sm:text-[13px] font-normal leading-relaxed group-hover:text-slate-800 transition-colors">
                           {cap.desc}
                         </p>
                       </div>
@@ -435,12 +442,15 @@ export default function DigitalMarketingPage() {
 
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3" />
-                  In-Depth Service Execution
-                </div> */}
-                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Specialized Digital Marketing Verticals
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3 text-pink-500" />
+                  Specialized Disciplines
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  Specialized Digital Marketing{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Verticals
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
                   Explore how our specialized marketing disciplines deliver measurable growth across organic search, social channels, paid acquisition, and lead funnels.
@@ -513,19 +523,22 @@ export default function DigitalMarketingPage() {
         </section>
 
         {/* INTEGRATED STRATEGY SECTION — 2-Column Split Blueprint */}
-        <section className="py-16 sm:py-24 bg-white relative border-t border-slate-100">
+        <section className="py-10 sm:py-10 bg-white relative border-t border-slate-100">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
               {/* Left Column (5 Cols): Section Title & Context */}
               <ScrollReveal direction="left" className="lg:col-span-5 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3 text-pink-500" />
                   Synergistic Framework
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1e1b4b] leading-tight">
-                  An Integrated Digital Marketing Strategy for Your Business
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  An Integrated Digital Marketing{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Strategy for Your Business
+                  </span>
                 </h2>
 
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
@@ -574,7 +587,7 @@ export default function DigitalMarketingPage() {
         </section>
 
         {/* WHY CHOOSE DIGITAL RAIZ — Executive Split Advantage Showcase */}
-        <section className="py-16 sm:py-5 bg-white ">
+        <section className="py-10 sm:py-10 bg-white ">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-1">
             <ScrollReveal direction="up">
               <div className="bg-white  rounded-3xl p-6 sm:p-10 lg:p-4">
@@ -582,13 +595,16 @@ export default function DigitalMarketingPage() {
 
                   {/* Left Column (5 Cols): Title, PDF intro paragraph & CTA */}
                   <div className="lg:col-span-5 space-y-5">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                      <Sparkles className="w-3 h-3" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                      <Sparkles className="w-3 h-3 text-pink-500" />
                       The Digital Raiz Advantage
                     </div>
 
-                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1e1b4b] leading-tight">
-                      Why Choose Digital Raiz for Digital Marketing in Hyderabad?
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                      Why Choose Digital Raiz for{" "}
+                      <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                        Digital Marketing in Hyderabad?
+                      </span>
                     </h2>
 
                     <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
@@ -596,13 +612,13 @@ export default function DigitalMarketingPage() {
                     </p>
 
                     <div className="pt-2">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                      <button
+                        onClick={() => openContactModal("SEO & Growth")}
+                        className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                       >
                         <span>Start Your Marketing Strategy</span>
                         <ArrowRight className="w-4 h-4 text-white" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
 
@@ -645,20 +661,23 @@ export default function DigitalMarketingPage() {
         <section className="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800 relative overflow-hidden">
           <div className="max-w-4xl mx-auto px-6 text-center space-y-6 relative z-10">
             <ScrollReveal direction="up">
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                Grow Your Business with Digital Raiz
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Grow Your Business with{" "}
+                <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                  Digital Raiz
+                </span>
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed pt-2">
                 The right digital marketing strategy can help your business become easier to discover, easier to understand, and easier to choose. Let&apos;s build a digital marketing strategy that puts your brand in front of the right audience and creates opportunities for sustainable growth.
               </p>
               <div className="pt-6">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 shadow-xl transition-all cursor-pointer"
+                <button
+                  onClick={() => openContactModal("SEO & Growth")}
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 shadow-xl transition-all cursor-pointer border-0"
                 >
                   <span>Get Started with Digital Raiz Today</span>
                   <ArrowRight className="w-4 h-4 text-white" />
-                </Link>
+                </button>
               </div>
             </ScrollReveal>
           </div>

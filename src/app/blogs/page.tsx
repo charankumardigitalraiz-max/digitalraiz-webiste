@@ -32,12 +32,12 @@ export default function BlogsPage() {
   });
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans select-none text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-white font-sans select-none text-slate-800 lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow">
         {/* HERO HEADER */}
-        <section className="relative overflow-hidden bg-white border-b border-slate-100 py-16 sm:py-24">
+        <section className="relative overflow-hidden bg-white  py-16 sm:py-10">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10 space-y-8 text-center">
             <ScrollReveal direction="up">
               <div className="space-y-4 max-w-3xl mx-auto">
@@ -73,11 +73,10 @@ export default function BlogsPage() {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
-                        selectedCategory === cat
-                          ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-md shadow-pink-500/20 scale-105"
-                          : "bg-white hover:bg-slate-100 text-slate-600 border border-slate-200/90"
-                      }`}
+                      className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${selectedCategory === cat
+                        ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-md shadow-pink-500/20 scale-105"
+                        : "bg-white hover:bg-slate-100 text-slate-600 border border-slate-200/90"
+                        }`}
                     >
                       {cat}
                     </button>
@@ -144,9 +143,9 @@ export default function BlogsPage() {
         )}
 
         {/* ALL POSTS GRID */}
-        <section className="py-16 bg-white">
-          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-10">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+        <section className="py-5 bg-white">
+          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-2">
+            <div className="flex items-center justify-between pb-4">
               <h2 className="text-xl font-bold uppercase tracking-tight text-[#1e1b4b]">
                 {selectedCategory} ({filteredPosts.length})
               </h2>
@@ -232,9 +231,9 @@ export default function BlogsPage() {
         </section>
 
         {/* CTA FOOTER BANNER */}
-        <section className="py-16 bg-white border-t border-slate-100">
+        <section className="py-16 bg-white">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-slate-50/80 border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center space-y-6">
+            <div className="bg-gradient-to-br from-slate-50 to-pink-50/30 border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center space-y-6">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-pink-600 bg-pink-50 border border-pink-100 px-3 py-1 rounded-full inline-block">
                 Digital Transformation
               </span>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { openContactModal } from "@/components/ContactModal";
 import {
   ArrowRight,
   Smartphone,
@@ -937,13 +938,13 @@ export default function MobileApplicationPage() {
 
               {/* Right Action Button */}
               <div className="shrink-0">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-2xl bg-[#1e1b4b] hover:bg-[#2d2a6e] text-white text-[10px] font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all"
+                <button
+                  onClick={() => openContactModal("Mobile Apps")}
+                  className="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-2xl bg-[#1e1b4b] hover:bg-[#2d2a6e] text-white text-[10px] font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                 >
                   <span>Get In Touch With Us</span>
                   <ArrowRight className="w-3.5 h-3.5 text-pink-400" />
-                </Link>
+                </button>
               </div>
 
             </div>

@@ -1,13 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import ContactModal from "@/components/ContactModal";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [modalService, setModalService] = useState("Web Development");
+
+  useEffect(() => {
+    const handleCustomOpen = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail?.service) {
+        setModalService(customEvent.detail.service);
+      }
+      setContactModalOpen(true);
+    };
+
+    window.addEventListener("open-contact-modal", handleCustomOpen);
+    return () => {
+      window.removeEventListener("open-contact-modal", handleCustomOpen);
+    };
+  }, []);
 
   const services = [
     { name: "Digital Marketing", href: "/digital-marketing-services-in-hyderabad" },
@@ -272,14 +290,16 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-primary text-white text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-primary-hover hover:scale-102 active:scale-98 transition-all"
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setContactModalOpen(true);
+                }}
+                className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest shadow-md hover:scale-102 active:scale-98 transition-all cursor-pointer"
               >
                 <span>CONNECT NOW</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </button>
             </div>
 
           </div>
@@ -309,6 +329,12 @@ export default function Header() {
           </div>
         </button>
       )}
+
+      {/* Global Contact Modal */}
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
     </>
   );
 }

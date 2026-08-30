@@ -1,12 +1,10 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { openContactModal } from "@/components/ContactModal";
 import { ArrowRight, BrainCircuit, BarChart, Settings, Database, LineChart, Shield, CheckCircle2, Sparkles } from "lucide-react";
-
-export const metadata = {
-  title: "Machine Learning Solutions & Data Models | DigitalRaiz",
-  description: "Custom Machine Learning (ML) pipelines, predictive models, classification neural networks, regression algorithms, and deep data analytics.",
-};
 
 export default function MlServicePage() {
   const capabilities = [
@@ -144,12 +142,12 @@ export default function MlServicePage() {
               <h3 className="text-lg sm:text-xl font-black uppercase tracking-tight">Need Predictive Data Models?</h3>
               <p className="text-white/85 text-xs font-light max-w-lg">Get in touch with our machine learning engineers to review database schemas and plan predictive models.</p>
             </div>
-            <Link 
-              href="/contact" 
-              className="py-3 px-6 rounded-xl bg-white text-slate-900 text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-slate-50 transition-transform active:scale-98"
+            <button 
+              onClick={() => openContactModal("Custom SaaS / Cloud")} 
+              className="py-3 px-6 rounded-xl bg-white text-slate-900 text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-slate-50 transition-transform active:scale-98 cursor-pointer border-0"
             >
               Consult ML Specialists
-            </Link>
+            </button>
           </div>
         </section>
       </main>

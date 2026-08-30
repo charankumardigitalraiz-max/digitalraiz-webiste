@@ -79,7 +79,7 @@ export default function Home() {
         <Services />
 
         {/* Capabilities Section (Contains H5 & H6 capability matrices) */}
-        {/* <CapabilitiesSection /> */}
+        <CapabilitiesSection />
 
         {/* Growth Section (Contains H2, H3, H4 content) */}
         <GrowthSection />
@@ -91,7 +91,7 @@ export default function Home() {
         <BlogSection />
 
         {/* Interactive Inquiry Form */}
-        {/* <Contact /> */}
+        <Contact />
       </main>
 
       {/* Branding Footer details */}

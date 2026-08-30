@@ -25,19 +25,20 @@ export default function BlogSection() {
     : secondaryPosts.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-slate-100">
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-14 relative z-10">
+    <section className="py-10 sm:py-10 bg-white relative overflow-hidden border-t border-slate-100">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-5 relative z-10">
 
         {/* SECTION HEADER */}
         <ScrollReveal direction="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-slate-100">
             <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                <Sparkles className="w-3 h-3" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                <Sparkles className="w-3 h-3 text-pink-500" />
                 Digital Insights & Engineering
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1e1b4b] leading-tight">
-                Latest Insights, Strategies & Tech Trends
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Latest Insights, <br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Strategies & Tech Trends</span>
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
                 Explore expert analysis, tactical growth playbooks, and technical deep-dives authored by Digital Raiz engineering and marketing teams.
@@ -77,7 +78,7 @@ export default function BlogSection() {
         <ScrollReveal direction="up" delay={50}>
           <Link
             href={`/blogs/${featuredPost.slug}`}
-            className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer relative overflow-hidden"
+            className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer relative overflow-hidden"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
@@ -158,7 +159,7 @@ export default function BlogSection() {
             <ScrollReveal key={post.id} delay={(idx % 3) * 60} direction="up" className="h-full">
               <Link
                 href={`/blogs/${post.slug}`}
-                className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
+                className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
               >
                 <div>
                   {/* Card Thumbnail — Flush Edge-to-Edge at Top */}
