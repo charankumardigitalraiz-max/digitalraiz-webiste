@@ -48,25 +48,25 @@ export default function MlServicePage() {
         <section className="relative py-20 bg-white border-b border-slate-100 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-orange-50/5 pointer-events-none" />
           <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
-            
+
             {/* Left Info Column */}
             <div className="space-y-6 flex-grow max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-[10px] font-bold uppercase tracking-wider text-orange-600">
                 <BrainCircuit className="w-3.5 h-3.5" />
                 Core Capability
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-slate-900 leading-none">
                 Machine Learning
               </h1>
-              
+
               <p className="text-slate-500 text-xs sm:text-sm leading-relaxed text-justify font-light">
                 We design and engineer bespoke Machine Learning pipelines. From data pre-processing and training to deployment, our models optimize workflow decisions and forecast strategic business indicators.
               </p>
 
               <div className="flex gap-4">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-1.5 py-3 px-6 rounded-xl bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-slate-800 transition-transform active:scale-98"
                 >
                   <span>Build ML Model</span>
@@ -142,8 +142,8 @@ export default function MlServicePage() {
               <h3 className="text-lg sm:text-xl font-black uppercase tracking-tight">Need Predictive Data Models?</h3>
               <p className="text-white/85 text-xs font-light max-w-lg">Get in touch with our machine learning engineers to review database schemas and plan predictive models.</p>
             </div>
-            <button 
-              onClick={() => openContactModal("Custom SaaS / Cloud")} 
+            <button
+              onClick={() => openContactModal("Custom SaaS / Cloud")}
               className="py-3 px-6 rounded-xl bg-white text-slate-900 text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-slate-50 transition-transform active:scale-98 cursor-pointer border-0"
             >
               Consult ML Specialists
