@@ -47,8 +47,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Fixed Top-Left Main Branding Header Logo Bar */}
-      <header className="fixed top-3 left-4 sm:top-5 sm:left-6 z-40 flex items-center pointer-events-auto">
+      {/* Fixed Top-Left Main Branding Header Logo Bar (Hidden on Mobile) */}
+      <header className="hidden sm:flex fixed top-3 left-4 sm:top-5 sm:left-6 z-40 items-center pointer-events-auto">
         <Link
           href="/"
           className="group flex items-center bg-white/90 backdrop-blur-md p-3 sm:px-2.5 sm:py-1 rounded-full border border-slate-200/80 shadow-lg hover:shadow-xl hover:border-pink-300/60 transition-all duration-300"
