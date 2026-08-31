@@ -177,7 +177,7 @@ export default function CapabilitiesSection() {
   const currentServices = activeStudio === "web" ? webServices : mobileServices;
 
   return (
-    <section className="relative font-sans overflow-hidden select-none border-t border-slate-100 bg-white py-10 sm:py-10">
+    <section className="relative font-sans overflow-hidden select-none  bg-white py-10 sm:py-10">
       {/* Dynamic Ambient Background Accents */}
       <div className="absolute top-10 left-1/3 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-pink-500/5 via-purple-500/5 to-transparent blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-indigo-500/5 via-pink-500/5 to-transparent blur-[140px] pointer-events-none -z-10" />

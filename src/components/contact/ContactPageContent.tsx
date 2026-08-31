@@ -93,7 +93,7 @@ export default function ContactPageContent() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* LEFT COLUMN: Contact Details & Collaboration Image (Takes 5/12 Width) */}
-          <ScrollReveal direction="left" delay={100} className="lg:col-span-5 flex flex-col gap-6">
+          <ScrollReveal direction="left" delay={100} className="lg:col-span-5 flex flex-col gap-2">
 
             {/* Contact Info Card */}
             <div className="bg-white border border-slate-200/80 rounded-lg p-8 shadow-[0_15px_45px_rgba(0,0,0,0.02)] space-y-6">
@@ -150,7 +150,7 @@ export default function ContactPageContent() {
             </div>
 
             {/* Image 2: Strategy Discussion (Framed beneath Details) */}
-            <div className="relative rounded-[24px] overflow-hidden border border-slate-200/80 bg-white shadow-xs w-full aspect-[16/5] group">
+            {/* <div className="relative rounded-lg overflow-hidden border border-slate-200/80 bg-white shadow-xs w-full aspect-[16/5] group">
               <img
                 src="/contact/contact-collaboration.webp"
                 alt="Strategy & Engineering Discussion"
@@ -160,42 +160,42 @@ export default function ContactPageContent() {
               <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-100 shadow-sm text-[10px] font-bold text-[#1e1b4b]">
                 Digital Marketing & Engineering Strategy
               </div>
-            </div>
+            </div> */}
 
           </ScrollReveal>
 
           {/* RIGHT COLUMN: Send Message Form (Takes 7/12 Width) */}
           <ScrollReveal direction="right" delay={150} className="lg:col-span-7 h-full">
-            <div className="bg-white border border-slate-200/80 rounded-lg p-6 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.02)] hover:border-pink-300 transition-all duration-300 relative h-full flex flex-col justify-center">
+            <div className="bg-white border border-slate-200/80 rounded-lg p-5 sm:p-6 shadow-[0_15px_45px_rgba(0,0,0,0.02)] hover:border-pink-300 transition-all duration-300 relative h-full flex flex-col justify-center">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center text-center py-20">
-                  <div className="w-20 h-20 bg-pink-50 rounded-full border border-pink-100 flex items-center justify-center mb-6 shadow-xs">
-                    <CheckCircle className="w-10 h-10 text-pink-500 animate-bounce" />
+                <div className="flex flex-col items-center justify-center text-center py-12">
+                  <div className="w-16 h-16 bg-pink-50 rounded-full border border-pink-100 flex items-center justify-center mb-4 shadow-xs">
+                    <CheckCircle className="w-8 h-8 text-pink-500 animate-bounce" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1e1b4b] mb-2 uppercase tracking-tight">Successfully Sent!</h3>
+                  <h3 className="text-xl font-bold text-[#1e1b4b] mb-1.5 uppercase tracking-tight">Successfully Sent!</h3>
                   <p className="text-slate-650 text-xs sm:text-sm max-w-xs font-normal leading-relaxed">
                     Thank you. We will get back to you shortly.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-8 px-8 py-3.5 rounded-xl bg-slate-900 hover:bg-pink-650 text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
+                    className="mt-6 px-6 py-3 rounded-xl bg-slate-900 hover:bg-pink-650 text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-1.5">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="space-y-1">
                     <span className="text-[10px] font-bold text-pink-600 uppercase tracking-widest block">Send Message</span>
-                    <h3 className="text-lg font-extrabold uppercase tracking-tight text-[#1e1b4b]">
+                    <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#1e1b4b]">
                       Drop Us A Line
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <label htmlFor="name" className="block text-[9px] font-extrabold uppercase tracking-widest text-[#1e1b4b]/80">
-                        Full Name*
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="space-y-1">
+                      <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Full Name *
                       </label>
                       <input
                         type="text"
@@ -203,13 +203,13 @@ export default function ContactPageContent() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-2xl px-5 py-4 text-xs transition-all focus:ring-4 focus:ring-pink-500/10"
+                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
                         placeholder="Full Name"
                       />
                     </div>
-                    <div className="space-y-1.5">
-                      <label htmlFor="phone" className="block text-[9px] font-extrabold uppercase tracking-widest text-[#1e1b4b]/80">
-                        Phone Number*
+                    <div className="space-y-1">
+                      <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Phone Number *
                       </label>
                       <input
                         type="tel"
@@ -218,16 +218,16 @@ export default function ContactPageContent() {
                         pattern="[0-9]{10}"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-2xl px-5 py-4 text-xs transition-all focus:ring-4 focus:ring-pink-500/10"
+                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
                         placeholder="Phone Number (10 digits)"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <label htmlFor="email" className="block text-[9px] font-extrabold uppercase tracking-widest text-[#1e1b4b]/80">
-                        Email Address*
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="space-y-1">
+                      <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Email Address *
                       </label>
                       <input
                         type="email"
@@ -235,13 +235,13 @@ export default function ContactPageContent() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-2xl px-5 py-4 text-xs transition-all focus:ring-4 focus:ring-pink-500/10"
+                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
                         placeholder="Email Address"
                       />
                     </div>
-                    <div className="space-y-1.5">
-                      <label htmlFor="subject" className="block text-[9px] font-extrabold uppercase tracking-widest text-[#1e1b4b]/80">
-                        Subject*
+                    <div className="space-y-1">
+                      <label htmlFor="subject" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Subject *
                       </label>
                       <input
                         type="text"
@@ -249,23 +249,23 @@ export default function ContactPageContent() {
                         required
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-2xl px-5 py-4 text-xs transition-all focus:ring-4 focus:ring-pink-500/10"
+                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
                         placeholder="Subject"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block text-[9px] font-extrabold uppercase tracking-widest text-[#1e1b4b]/80">
-                      Write A Message...*
+                  <div className="space-y-1">
+                    <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                      Write A Message... *
                     </label>
                     <textarea
                       id="message"
                       required
-                      rows={5}
+                      rows={3}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-2xl px-5 py-4 text-xs transition-all focus:ring-4 focus:ring-pink-500/10 resize-none"
+                      className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 resize-none font-medium placeholder:text-slate-400"
                       placeholder="Write A Message..."
                     />
                   </div>
@@ -273,7 +273,7 @@ export default function ContactPageContent() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 h-14 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 font-bold text-white shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 disabled:opacity-50 uppercase tracking-widest text-[10px] cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 h-11 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 font-bold text-white shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 disabled:opacity-50 uppercase tracking-widest text-xs cursor-pointer border-0"
                   >
                     {submitting ? "Sending..." : "Submit Quote"}
                     {!submitting && <Send className="w-3.5 h-3.5" />}

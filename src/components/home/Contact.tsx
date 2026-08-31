@@ -6,7 +6,11 @@ import {
   Sparkles,
   ArrowRight,
   MessageCircle,
-  Lock
+  Lock,
+  Laptop,
+  Smartphone,
+  TrendingUp,
+  Code2
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -22,10 +26,10 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const serviceOptions = [
-    "Web Development",
-    "Mobile Apps",
-    "SEO & Growth",
-    "Custom SaaS",
+    { label: "Web Development", icon: Laptop },
+    { label: "Mobile Apps", icon: Smartphone },
+    { label: "SEO & Growth", icon: TrendingUp },
+    { label: "Custom SaaS", icon: Code2 },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -92,9 +96,15 @@ export default function Contact() {
                 <div className="bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-5 sm:p-6 space-y-4">
 
                   {/* Card Title Header */}
-                  <div className="space-y-0.5 border-b border-slate-100 pb-3">
-                    <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Get in Touch</h3>
-                    <p className="text-slate-500 text-[11px]">Fill out the form below and we&apos;ll respond within 4 hours.</p>
+                  <div className="space-y-1 border-b border-slate-100 pb-3">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-pink-50 text-pink-600 border border-pink-100 text-[9px] font-mono font-bold uppercase tracking-wider">
+                      <Sparkles className="w-3 h-3 text-pink-500" />
+                      Direct Consultation
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                      Get in <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Touch</span>
+                    </h3>
+                    <p className="text-slate-500 text-[11px]">Fill out the form below and our team will respond within 4 hours.</p>
                   </div>
 
                   {submitted ? (
@@ -130,73 +140,78 @@ export default function Contact() {
                     <form onSubmit={handleSubmit} className="space-y-3.5">
 
                       {/* Service Choice Switcher */}
-                      <div className="space-y-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Select Service</span>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1 bg-slate-100/80 rounded-xl">
-                          {serviceOptions.map((svc) => (
-                            <button
-                              type="button"
-                              key={svc}
-                              onClick={() => setForm({ ...form, service: svc })}
-                              className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all duration-200 cursor-pointer text-center ${form.service === svc
-                                ? "bg-white text-pink-600 shadow-2xs scale-[1.01]"
-                                : "text-slate-500 hover:text-slate-900"
-                                }`}
-                            >
-                              <span className="truncate block">{svc}</span>
-                            </button>
-                          ))}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold text-slate-800 tracking-tight block">Select Service *</label>
+                        <div className="flex flex-wrap gap-2">
+                          {serviceOptions.map((svc) => {
+                            const isSelected = form.service === svc.label;
+                            const Icon = svc.icon;
+                            return (
+                              <button
+                                type="button"
+                                key={svc.label}
+                                onClick={() => setForm({ ...form, service: svc.label })}
+                                className={`flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs transition-all duration-200 cursor-pointer border shrink-0 ${isSelected
+                                    ? "bg-pink-50 border-pink-300 text-pink-600 font-bold shadow-2xs"
+                                    : "bg-slate-50/80 border-slate-200/80 text-slate-600 font-medium hover:bg-white hover:text-slate-900 hover:border-slate-300"
+                                  }`}
+                              >
+                                <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-pink-500" : "text-slate-400"}`} />
+                                <span className="whitespace-nowrap">{svc.label}</span>
+                              </button>
+                            );
+                          })}
                         </div>
                       </div>
 
                       {/* Inputs Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="space-y-1">
-                          <label className="text-[10.5px] font-bold text-slate-700 block">Full Name *</label>
+                          <label className="text-xs font-bold text-slate-800 tracking-tight block">Full Name *</label>
                           <input
                             type="text"
                             required
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            className="w-full bg-slate-50/70 border border-slate-200/80 rounded-xl px-3 py-2 text-slate-900 text-xs font-medium placeholder:text-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10 transition-all"
-                            placeholder="Rahul Sharma"
+                            className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/15 transition-all shadow-2xs"
+                            placeholder="e.g. Rahul Sharma"
                           />
                         </div>
 
                         <div className="space-y-1">
-                          <label className="text-[10.5px] font-bold text-slate-700 block">Work Email *</label>
+                          <label className="text-xs font-bold text-slate-800 tracking-tight block">Work Email *</label>
                           <input
                             type="email"
                             required
                             value={form.email}
                             onChange={(e) => setForm({ ...form, email: e.target.value })}
-                            className="w-full bg-slate-50/70 border border-slate-200/80 rounded-xl px-3 py-2 text-slate-900 text-xs font-medium placeholder:text-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10 transition-all"
+                            className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/15 transition-all shadow-2xs"
                             placeholder="rahul@company.com"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[10.5px] font-bold text-slate-700 block">Phone / WhatsApp Number *</label>
+                        <label className="text-xs font-bold text-slate-800 tracking-tight block">Phone / WhatsApp Number *</label>
                         <input
                           type="tel"
                           required
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          className="w-full bg-slate-50/70 border border-slate-200/80 rounded-xl px-3 py-2 text-slate-900 text-xs font-medium placeholder:text-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10 transition-all"
+                          className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/15 transition-all shadow-2xs"
                           placeholder="+91-9494613601"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[10.5px] font-bold text-slate-700 block">Project Requirements *</label>
+                        <label className="text-xs font-bold text-slate-800 tracking-tight block">Project Details &amp; Requirements *</label>
                         <textarea
                           required
                           rows={3}
                           value={form.message}
                           onChange={(e) => setForm({ ...form, message: e.target.value })}
-                          className="w-full bg-slate-50/70 border border-slate-200/80 rounded-xl px-3 py-2 text-slate-900 text-xs font-medium placeholder:text-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10 transition-all resize-none"
-                          placeholder="Briefly describe your project goals, scope, or questions..."
+                          className="w-full bg-slate-50/80 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal focus:outline-none focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/15 transition-all shadow-2xs resize-none"
+                          placeholder="Briefly describe your project goals, scope, target launch date, or questions..."
                         />
                       </div>
 
