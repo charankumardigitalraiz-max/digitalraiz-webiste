@@ -101,6 +101,7 @@ export default function Header() {
             <div className="flex flex-col items-center gap-8 my-auto py-4">
               <Link
                 href="/"
+                prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Home
@@ -116,18 +117,21 @@ export default function Header() {
               </button>
               <Link
                 href="/portfolio"
+                prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Portfolio
               </Link>
               <Link
                 href="/blogs"
+                prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 Blogs
               </Link>
               <Link
                 href="/about"
+                prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 About
@@ -182,6 +186,7 @@ export default function Header() {
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">01</span>
                 <Link
                   href="/"
+                  prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
@@ -211,6 +216,7 @@ export default function Header() {
                       <Link
                         key={i}
                         href={svc.href}
+                        prefetch={true}
                         onClick={() => setMenuOpen(false)}
                         className="group/item flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-pink-600 transition-all duration-200 py-1 pl-0 hover:pl-1.5"
                       >
@@ -220,6 +226,7 @@ export default function Header() {
                     ))}
                     <Link
                       href="/services"
+                      prefetch={true}
                       onClick={() => setMenuOpen(false)}
                       className="group/item flex items-center gap-1.5 text-[11px] font-bold text-pink-600 hover:text-pink-700 transition-all duration-200 pt-1.5 pb-0.5 border-t border-slate-100 mt-1"
                     >
@@ -235,6 +242,7 @@ export default function Header() {
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">03</span>
                 <Link
                   href="/portfolio"
+                  prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
@@ -247,6 +255,7 @@ export default function Header() {
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">04</span>
                 <Link
                   href="/blogs"
+                  prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
@@ -259,6 +268,7 @@ export default function Header() {
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">05</span>
                 <Link
                   href="/about"
+                  prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
@@ -271,6 +281,7 @@ export default function Header() {
                 <span className="text-xs font-mono font-bold text-slate-350 pt-1">06</span>
                 <Link
                   href="/contact"
+                  prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
                 >
