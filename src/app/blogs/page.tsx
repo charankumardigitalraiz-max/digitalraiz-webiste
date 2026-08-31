@@ -46,14 +46,17 @@ export default function BlogsPage() {
                   Insights for a Fast-Changing Digital World
                 </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  Digital Marketing &amp; Technology Blog
+                  Digital Marketing &amp;{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Technology Blog
+                  </span>
                 </h1>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
                   Welcome to the Digital Raiz Blog, where we share practical insights, ideas and perspectives on the technologies shaping modern businesses. We publish new content regularly covering digital marketing, SEO, social media, website development, mobile app development, artificial intelligence, software, emerging technologies and digital business trends.
                 </p>
-                <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto pt-1">
+                {/* <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto pt-1">
                   Our goal is to make complex technology and digital concepts easier to understand while sharing useful information that businesses, professionals and technology enthusiasts can apply in the real world. From emerging technology trends to practical digital strategies, our blog brings together knowledge designed to help you stay informed and ahead.
-                </p>
+                </p> */}
               </div>
             </ScrollReveal>
 
@@ -67,7 +70,7 @@ export default function BlogsPage() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search articles by keyword, topic, or tag (e.g. Next.js, SEO, Funnels)..."
-                    className="w-full bg-slate-50 border border-slate-200/90 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white transition-all shadow-2xs"
+                    className="w-full bg-white border border-slate-200/90 rounded-lg pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white transition-all shadow-2xs"
                   />
                 </div>
 
@@ -98,7 +101,7 @@ export default function BlogsPage() {
               <ScrollReveal direction="up">
                 <Link
                   href={`/blogs/${featuredPost.slug}`}
-                  className="group block bg-gradient-to-br from-slate-50/80 to-pink-50/20 border border-slate-200/90 hover:border-pink-300 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:shadow-xl cursor-pointer relative overflow-hidden"
+                  className="group block bg-gradient-to-br from-slate-50/80 to-pink-50/20 border border-slate-200/90 hover:border-pink-300 rounded-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-xl cursor-pointer relative overflow-hidden"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-6 rounded-2xl overflow-hidden relative h-64 sm:h-80 bg-slate-100">
@@ -118,7 +121,7 @@ export default function BlogsPage() {
                         <span className="text-slate-400">{featuredPost.date}</span>
                       </div>
 
-                      <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900  transition-colors tracking-tight leading-tight">
                         {featuredPost.title}
                       </h2>
 
@@ -149,7 +152,7 @@ export default function BlogsPage() {
         <section className="py-5 bg-white">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-2">
             <div className="flex items-center justify-between pb-4">
-              <h2 className="text-xl font-bold uppercase tracking-tight text-[#1e1b4b]">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
                 {selectedCategory} ({filteredPosts.length})
               </h2>
               {searchQuery && (
@@ -178,7 +181,7 @@ export default function BlogsPage() {
                   <ScrollReveal key={post.id} delay={(idx % 3) * 60} direction="up" className="h-full">
                     <Link
                       href={`/blogs/${post.slug}`}
-                      className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
+                      className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
                     >
                       <div>
                         {/* Card Thumbnail — Flush Edge-to-Edge at Top */}
@@ -204,7 +207,7 @@ export default function BlogsPage() {
                             <span>{post.date}</span>
                           </div>
 
-                          <h3 className="text-lg font-bold text-[#1e1b4b] group-hover:text-pink-600 transition-colors tracking-tight leading-snug">
+                          <h3 className="text-lg font-bold text-slate-900 group-hover:text-pink-600 transition-colors tracking-tight leading-snug">
                             {post.title}
                           </h3>
 

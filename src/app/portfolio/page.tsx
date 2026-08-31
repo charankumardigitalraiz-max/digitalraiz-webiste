@@ -123,8 +123,11 @@ export default function PortfolioPage() {
                   Portfolio Showcase Studio
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#1e1b4b] leading-none">
-                  Engineering <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Digital Excellence</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  Engineering{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Digital Excellence
+                  </span>
                 </h1>
 
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-2xl mx-auto leading-relaxed">
@@ -137,19 +140,18 @@ export default function PortfolioPage() {
 
         {/* INTERACTIVE DEVICE STUDIO & CONTROL BAR */}
         <section className="py-6 bg-white relative">
-          <div className="max-w-7xl mx-auto px-6 space-y-8">
+          <div className="max-w-7xl mx-auto px-6 space-y-4">
 
-            {/* CONTROL BAR: Type Filter, Category Pills, Search, & View Switcher */}
-            <div className="bg-white border border-slate-200/80 rounded-3xl p-4 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.03)] space-y-5">
+            {/* CONTROL BAR: Type Filter, Search, View Switcher, & Category Ribbon */}
+            <div className="bg-white border border-slate-200/80 rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.03)] space-y-4">
 
-              {/* Row 1: Type Tabs & View Switcher */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4">
-
+              {/* Row 1: Type Tabs (Left), Search Bar & View Switches (Right) */}
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 {/* Type Filters (All, Mobile Apps, Web Apps) */}
-                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 w-full sm:w-auto">
+                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 shrink-0">
                   <button
                     onClick={() => { setSelectedType("all"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -158,7 +160,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("mobile"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -168,7 +170,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("web"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -178,68 +180,70 @@ export default function PortfolioPage() {
                   </button>
                 </div>
 
-                {/* Search Bar */}
-                <div className="relative w-full sm:w-72">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search projects or tech..."
-                    className="w-full bg-white border border-slate-200 focus:border-pink-400 rounded-xl py-2 pl-9 pr-8 text-xs text-slate-800 placeholder-slate-400 focus:outline-none shadow-3xs transition-colors"
-                  />
-                  {searchQuery && (
+                {/* Right Group: Search Bar & View Mode Switcher */}
+                <div className="flex items-center gap-3 shrink-0">
+                  {/* Search Bar */}
+                  <div className="relative w-48 sm:w-64">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search projects..."
+                      className="w-full bg-white border border-slate-200 focus:border-pink-400 rounded-lg py-2 pl-9 pr-8 text-xs text-slate-800 placeholder-slate-400 focus:outline-none shadow-3xs transition-colors"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery("")}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* View Mode Switches */}
+                  <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 shrink-0">
                     <button
-                      onClick={() => setSearchQuery("")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                      onClick={() => setViewMode("grid")}
+                      title="Grid View"
+                      className={`p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "grid" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                        }`}
                     >
-                      <X className="w-3.5 h-3.5" />
+                      <LayoutGrid className="w-4 h-4" />
                     </button>
-                  )}
+                    <button
+                      onClick={() => setViewMode("simulator")}
+                      title="Device Studio"
+                      className={`p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "simulator" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                        }`}
+                    >
+                      <Smartphone className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setViewMode("list")}
+                      title="Spec List View"
+                      className={`hidden md:inline-flex p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "list" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                        }`}
+                    >
+                      <List className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
-
-                {/* View Mode Switches */}
-                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 shrink-0">
-                  <button
-                    onClick={() => setViewMode("grid")}
-                    title="Grid View"
-                    className={`p-2 rounded-xl transition-all cursor-pointer ${viewMode === "grid" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
-                      }`}
-                  >
-                    <LayoutGrid className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => setViewMode("simulator")}
-                    title="Device Studio"
-                    className={`p-2 rounded-xl transition-all cursor-pointer ${viewMode === "simulator" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
-                      }`}
-                  >
-                    <Smartphone className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => setViewMode("list")}
-                    title="Spec List View"
-                    className={`hidden md:inline-flex p-2 rounded-xl transition-all cursor-pointer ${viewMode === "list" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
-                      }`}
-                  >
-                    <List className="w-4 h-4" />
-                  </button>
-                </div>
-
               </div>
 
               {/* Row 2: Category Filter Ribbon */}
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+              <div className="flex items-center gap-2 border-t border-slate-100 pt-3 overflow-x-auto no-scrollbar">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 shrink-0 mr-1 flex items-center gap-1">
-                  <Filter className="w-3 h-3" /> Category:
+                  <Filter className="w-3 h-3 text-pink-500" /> Category:
                 </span>
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1.5 rounded-lg text-[11px] font-bold tracking-wider uppercase transition-all whitespace-nowrap shrink-0 cursor-pointer ${selectedCategory === cat
-                      ? "bg-gradient-to-r from-pink-500 to-violet-600 text-white shadow-2xs"
-                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-50"
+                    className={`px-3 py-1.5 rounded-xl text-[11px] font-bold tracking-wider uppercase transition-all whitespace-nowrap shrink-0 cursor-pointer ${selectedCategory === cat
+                      ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-2xs"
+                      : "bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-100"
                       }`}
                   >
                     {cat}
@@ -251,7 +255,7 @@ export default function PortfolioPage() {
 
             {/* MODE 1: INTERACTIVE DEVICE STUDIO (Smartphone for Mobile, iMac Stand Showcase for Web) */}
             {viewMode === "simulator" && (
-              <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 border border-slate-200/90 rounded-lg p-6 sm:p-10 shadow-lg relative overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
                   {/* LEFT: Dynamic Device Mockup (Smartphone for Mobile, iMac Showcase for Web) */}
@@ -343,15 +347,15 @@ export default function PortfolioPage() {
                   <div className="lg:col-span-6 space-y-6">
                     <div className="space-y-3">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-3 py-1 rounded-full border border-pink-200/60">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-3 py-1 rounded-full border border-pink-200/80">
                           {activeSimProject.category}
                         </span>
-                        <span className={`text-[9px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${activeSimProject.type === "mobile" ? "bg-pink-50 text-pink-700 border-pink-200" : "bg-violet-50 text-violet-700 border-violet-200"}`}>
+                        <span className={`text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${activeSimProject.type === "mobile" ? "bg-pink-50 text-pink-700 border-pink-200/80" : "bg-violet-50 text-violet-700 border-violet-200/80"}`}>
                           {activeSimProject.type === "mobile" ? "Mobile Application" : "Web Platform"}
                         </span>
                       </div>
 
-                      <h3 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                         {activeSimProject.name}
                       </h3>
 
@@ -361,13 +365,13 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Key Architecture Features */}
-                    <div className="space-y-2 pt-2 border-t border-slate-200/80">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 block">
+                    <div className="space-y-2.5 pt-3 border-t border-slate-200/80">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 block">
                         Core Architecture Features
                       </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
                         {activeSimProject.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-slate-200/70 shadow-3xs">
+                          <div key={fIdx} className="flex items-center gap-2.5 bg-slate-50/80 hover:bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs transition-all duration-200">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                             <span className="truncate">{feat}</span>
                           </div>
@@ -376,13 +380,13 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Tech Stack Pills */}
-                    <div className="space-y-2 pt-2">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 block">
+                    <div className="space-y-2.5 pt-1">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 block">
                         Technology Stack
                       </span>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-2">
                         {activeSimProject.tech.map((t, tIdx) => (
-                          <span key={tIdx} className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 shadow-3xs">
+                          <span key={tIdx} className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors">
                             {t}
                           </span>
                         ))}
@@ -390,22 +394,24 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Action CTAs */}
-                    <div className="pt-4 flex flex-wrap gap-3">
+                    <div className="pt-3 flex flex-wrap items-center gap-3">
                       <button
                         onClick={() => setModalProject(activeSimProject)}
-                        className="px-5 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider hover:scale-[1.02] active:scale-95 transition-all shadow-md cursor-pointer"
+                        className="px-6 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
                       >
-                        Inspect Full Blueprint
+                        <span>Inspect Full Blueprint</span>
+                        <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
                       </button>
+
                       {activeSimProject.url !== "#" && (
                         <a
                           href={activeSimProject.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
+                          className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200/80 text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 transition-all cursor-pointer shadow-2xs"
                         >
                           <span>Launch Project Live</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <ExternalLink className="w-4 h-4 text-slate-500 shrink-0" />
                         </a>
                       )}
                     </div>
@@ -537,7 +543,7 @@ export default function PortfolioPage() {
                               </div>
 
                               {/* Title */}
-                              <h3 className="text-lg font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors">
+                              <h3 className="text-lg font-bold text-slate-900  transition-colors tracking-tight leading-tight">
                                 {project.name}
                               </h3>
 
@@ -585,13 +591,13 @@ export default function PortfolioPage() {
                               </div>
 
                               {/* Card Footer Action Buttons */}
-                              <div className="flex items-center justify-between">
+                              <div className="flex items-center justify-between gap-2">
                                 <button
                                   onClick={() => setModalProject(project)}
-                                  className="text-[10px] font-mono font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-lg bg-pink-50 text-pink-600 hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-600 hover:text-white transition-all cursor-pointer shadow-3xs flex items-center gap-1"
+                                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
                                 >
                                   <span>Inspect Blueprint</span>
-                                  <ArrowUpRight className="w-3 h-3" />
+                                  <ArrowUpRight className="w-3.5 h-3.5" />
                                 </button>
 
                                 {project.url !== "#" ? (
@@ -599,14 +605,16 @@ export default function PortfolioPage() {
                                     href={project.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors cursor-pointer flex items-center gap-1"
+                                    className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200/80 text-[10px] font-bold uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs"
                                     title="Open Live Site / Store"
                                   >
                                     <span>Live Site</span>
-                                    <ExternalLink className="w-3 h-3" />
+                                    <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
                                   </a>
                                 ) : (
-                                  <span className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider">Enterprise SLA</span>
+                                  <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/60">
+                                    Enterprise SLA
+                                  </span>
                                 )}
                               </div>
                             </div>
@@ -623,10 +631,10 @@ export default function PortfolioPage() {
 
             {/* MODE 3: COMPACT SPEC LIST VIEW (Desktop Only) */}
             {viewMode === "list" && (
-              <div className="hidden md:block bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm">
+              <div className="hidden md:block bg-white border border-slate-200/90 rounded-lg overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-700">
-                    <thead className="bg-slate-50 border-b border-slate-200 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+                    <thead className="bg-white border-b border-slate-200 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
                       <tr>
                         <th className="py-3.5 px-6">Project Name</th>
                         <th className="py-3.5 px-6">Type</th>
@@ -652,21 +660,40 @@ export default function PortfolioPage() {
                           </td>
                           <td className="py-4 px-6 font-mono text-xs text-slate-600">{project.category}</td>
                           <td className="py-4 px-6">
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-1.5 max-w-xs">
                               {project.tech.map((t, idx) => (
-                                <span key={idx} className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/80">
+                                <span
+                                  key={idx}
+                                  className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-indigo-50/80 text-indigo-700 border border-indigo-200/80 hover:bg-indigo-100 transition-colors"
+                                >
                                   {t}
                                 </span>
                               ))}
                             </div>
                           </td>
-                          <td className="py-4 px-6 text-right space-x-2">
-                            <button
-                              onClick={() => setModalProject(project)}
-                              className="px-3 py-1.5 rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 text-[10px] font-mono font-bold uppercase tracking-wider cursor-pointer transition-colors"
-                            >
-                              Inspect
-                            </button>
+                          <td className="py-4 px-6 text-right">
+                            <div className="inline-flex flex-col items-end gap-1.5 justify-end">
+                              <button
+                                onClick={() => setModalProject(project)}
+                                className="w-32 sm:w-36 px-3.5 py-2 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                              >
+                                <span>Inspect</span>
+                                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                              </button>
+
+                              {project.url !== "#" && (
+                                <a
+                                  href={project.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="w-32 sm:w-36 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200/80 text-[10px] font-bold uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-2xs"
+                                  title="Launch Live Project"
+                                >
+                                  <span>Live Site</span>
+                                  <ExternalLink className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                                </a>
+                              )}
+                            </div>
                           </td>
                         </tr>
                       ))}
