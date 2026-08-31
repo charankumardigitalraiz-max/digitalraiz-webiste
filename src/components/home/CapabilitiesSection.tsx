@@ -43,8 +43,8 @@ export default function CapabilitiesSection() {
               </h2>
             </div>
 
-            {/* Studio Switcher Pills with Sliding Highlight & Morphing Effects */}
-            <div className="relative inline-flex p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 shadow-inner self-start md:self-auto shrink-0 overflow-hidden">
+            {/* Studio Switcher Pills with Full Mobile Width & Sliding Highlight */}
+            <div className="w-full sm:w-auto relative inline-flex p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 shadow-inner overflow-hidden">
               {/* Sliding Active Pill Background */}
               <div
                 className={`absolute top-1.5 bottom-1.5 rounded-xl bg-white shadow-md border transition-all duration-500 ease-out pointer-events-none ${activeStudio === "web"
@@ -55,19 +55,19 @@ export default function CapabilitiesSection() {
 
               <button
                 onClick={() => setActiveStudio("web")}
-                className={`relative z-10 flex items-center gap-2.5 px-4 py-2 rounded-xl font-bold text-xs tracking-wide transition-all duration-300 cursor-pointer ${activeStudio === "web"
+                className={`flex-1 sm:flex-initial relative z-10 flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-xl font-bold text-xs tracking-wide transition-all duration-300 cursor-pointer ${activeStudio === "web"
                   ? "text-slate-900 scale-[1.02]"
                   : "text-slate-500 hover:text-slate-900"
                   }`}
               >
-                <div className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${activeStudio === "web"
+                <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${activeStudio === "web"
                   ? "bg-gradient-to-br from-pink-500 to-rose-600 text-white shadow-xs scale-105"
                   : "bg-slate-200/70 text-slate-500"
                   }`}>
-                  <Laptop className="w-3.5 h-3.5" />
+                  <Laptop className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </div>
                 <span>Web Studio</span>
-                <span className={`text-[9.5px] font-mono font-bold px-2 py-0.5 rounded-full transition-all duration-300 ${activeStudio === "web" ? "bg-pink-50 text-pink-600 border border-pink-100" : "bg-slate-200 text-slate-500"
+                <span className={`text-[9px] sm:text-[9.5px] font-mono font-bold px-1.5 py-0.5 rounded-full transition-all duration-300 ${activeStudio === "web" ? "bg-pink-50 text-pink-600 border border-pink-100" : "bg-slate-200 text-slate-500"
                   }`}>
                   10
                 </span>
@@ -75,19 +75,19 @@ export default function CapabilitiesSection() {
 
               <button
                 onClick={() => setActiveStudio("mobile")}
-                className={`relative z-10 flex items-center gap-2.5 px-4 py-2 rounded-xl font-bold text-xs tracking-wide transition-all duration-300 cursor-pointer ${activeStudio === "mobile"
+                className={`flex-1 sm:flex-initial relative z-10 flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-xl font-bold text-xs tracking-wide transition-all duration-300 cursor-pointer ${activeStudio === "mobile"
                   ? "text-slate-900 scale-[1.02]"
                   : "text-slate-500 hover:text-slate-900"
                   }`}
               >
-                <div className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${activeStudio === "mobile"
+                <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${activeStudio === "mobile"
                   ? "bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-xs scale-105"
                   : "bg-slate-200/70 text-slate-500"
                   }`}>
-                  <Smartphone className="w-3.5 h-3.5" />
+                  <Smartphone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </div>
                 <span>Mobile Studio</span>
-                <span className={`text-[9.5px] font-mono font-bold px-2 py-0.5 rounded-full transition-all duration-300 ${activeStudio === "mobile" ? "bg-indigo-50 text-indigo-600 border border-indigo-100" : "bg-slate-200 text-slate-500"
+                <span className={`text-[9px] sm:text-[9.5px] font-mono font-bold px-1.5 py-0.5 rounded-full transition-all duration-300 ${activeStudio === "mobile" ? "bg-indigo-50 text-indigo-600 border border-indigo-100" : "bg-slate-200 text-slate-500"
                   }`}>
                   12
                 </span>

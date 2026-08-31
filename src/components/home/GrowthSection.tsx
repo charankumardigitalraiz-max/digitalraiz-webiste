@@ -1,12 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
-import { TrendingUp, Search, Share2, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { TrendingUp, Search, Share2, ArrowUpRight, Sparkles, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function GrowthSection() {
   const [activeCard, setActiveCard] = useState<number>(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === "left" ? -280 : 280;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   const phases = [
     {
@@ -82,77 +90,90 @@ export default function GrowthSection() {
           </div>
         </ScrollReveal>
 
-        {/* 3-Card Executive Studio Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        {/* Relative Wrapper for Mobile Matrix + Side Floating Scroll Buttons */}
+        <div className="relative">
+          {/* Left Side Scroll Arrow Button (Mobile Only) */}
+          <button
+            onClick={() => handleScroll("left")}
+            className="flex md:hidden absolute top-1/2 -translate-y-1/2 left-0 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-slate-800 shadow-md items-center justify-center active:scale-95 transition-all cursor-pointer"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5 text-pink-600" />
+          </button>
+
+          {/* Right Side Scroll Arrow Button (Mobile Only) */}
+          <button
+            onClick={() => handleScroll("right")}
+            className="flex md:hidden absolute top-1/2 -translate-y-1/2 right-0 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-slate-800 shadow-md items-center justify-center active:scale-95 transition-all cursor-pointer"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-pink-600" />
+          </button>
+
+          {/* 3-Card Executive Studio Matrix (1.1 Card Ratio Horizontal Scroll on Mobile, Grid on Desktop) */}
+          <div
+            ref={scrollRef}
+            className="flex md:grid md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch overflow-x-auto pb-4 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 scroll-smooth"
+          >
           {phases.map((svc, idx) => {
             const Icon = svc.icon;
             const isSelected = activeCard === idx;
 
             return (
-              <ScrollReveal key={idx} delay={idx * 150} direction="up" className="h-full flex flex-col">
+              <ScrollReveal key={idx} delay={idx * 150} direction="up" className="h-full flex flex-col w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 md:shrink snap-center">
                 <div
                   onClick={() => setActiveCard(idx)}
-                  className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full transition-all duration-300 ease-out cursor-pointer group border overflow-hidden ${isSelected
+                  className={`relative rounded-3xl p-4 sm:p-7 flex flex-col justify-between h-full transition-all duration-300 ease-out cursor-pointer group border overflow-hidden ${isSelected
                     ? "bg-white border-pink-400 shadow-md ring-1 ring-pink-400/30 -translate-y-1"
                     : "bg-white border-slate-200/90 shadow-2xs hover:border-pink-300 hover:shadow-md hover:-translate-y-1"
                     }`}
                 >
                   {/* Top Gradient Laser Bar with hover scale */}
-                  <div className={`h-1.5 w-full bg-gradient-to-r ${svc.accentGrad} rounded-t-3xl -mt-6 -mx-6 sm:-mt-7 sm:-mx-7 mb-6 transition-all duration-500 group-hover:scale-x-105`} />
+                  <div className={`h-1.5 w-full bg-gradient-to-r ${svc.accentGrad} rounded-t-3xl -mt-4 -mx-4 sm:-mt-7 sm:-mx-7 mb-4 transition-all duration-500 group-hover:scale-x-105`} />
 
                   {/* Background Monogram Watermark */}
-                  <span className="absolute top-5 right-6 text-5xl font-black text-slate-100 font-mono select-none pointer-events-none group-hover:text-pink-100 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <span className="absolute top-4 right-5 text-4xl sm:text-5xl font-black text-slate-100 font-mono select-none pointer-events-none group-hover:text-pink-100 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     {svc.id}
                   </span>
 
-                  <div className="space-y-6 relative z-10">
-                    {/* Top Bar: Icon + Phase Tag */}
-                    {/* <div className="flex items-center justify-between">
-                      <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${svc.pillBg} shadow-2xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[9px] font-mono font-bold text-slate-400 group-hover:text-pink-600 uppercase tracking-widest transition-colors duration-300">
-                        {svc.badgeText}
-                      </span>
-                    </div> */}
-
+                  <div className="space-y-4 relative z-10">
                     {/* Title & Subheading */}
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-black text-[#1e1b4b] uppercase tracking-tight group-hover:text-pink-600 transition-colors duration-300">
+                    <div className="space-y-0.5">
+                      <h3 className="text-base sm:text-2xl font-black text-[#1e1b4b] uppercase tracking-tight group-hover:text-pink-600 transition-colors duration-300">
                         {svc.title}
                       </h3>
-                      <p className="text-xs font-bold text-pink-600 uppercase tracking-wider">
+                      <p className="text-[11px] sm:text-xs font-bold text-pink-600 uppercase tracking-wider">
                         {svc.subheading}
                       </p>
                     </div>
 
                     {/* Hero Metric Showcase Card */}
-                    <div className="relative overflow-hidden p-4 rounded-2xl bg-gradient-to-br from-pink-50/70 via-purple-50/40 to-indigo-50/70 border border-pink-200/60 shadow-2xs space-y-1 text-center group-hover:border-pink-300 transition-all duration-300">
+                    <div className="relative overflow-hidden p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-pink-50/70 via-purple-50/40 to-indigo-50/70 border border-pink-200/60 shadow-2xs space-y-0.5 text-center group-hover:border-pink-300 transition-all duration-300">
                       <div className="flex items-center justify-center gap-1.5">
-                        <Sparkles className="w-4 h-4 text-pink-500 shrink-0 group-hover:rotate-12 transition-transform duration-300" />
-                        <span className={`text-3xl sm:text-4xl font-black font-mono tracking-tight bg-gradient-to-r ${svc.accentGrad} bg-clip-text text-transparent`}>
+                        <Sparkles className="w-3.5 h-3.5 text-pink-500 shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+                        <span className={`text-2xl sm:text-4xl font-black font-mono tracking-tight bg-gradient-to-r ${svc.accentGrad} bg-clip-text text-transparent`}>
                           {svc.heroStat}
                         </span>
                       </div>
-                      <p className="text-[10px] font-mono font-bold text-[#1e1b4b] uppercase tracking-wider">
+                      <p className="text-[9.5px] sm:text-[10px] font-mono font-bold text-[#1e1b4b] uppercase tracking-wider">
                         {svc.heroLabel}
                       </p>
-                      <p className="text-[8.5px] font-mono font-bold text-pink-600 uppercase tracking-widest pt-0.5 border-t border-pink-100/60">
+                      <p className="text-[8px] sm:text-[8.5px] font-mono font-bold text-pink-600 uppercase tracking-widest pt-0.5 border-t border-pink-100/60">
                         ★ {svc.subStat}
                       </p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-slate-600 text-xs leading-relaxed font-normal">
+                    <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed font-normal">
                       {svc.desc}
                     </p>
 
                     {/* Deliverables Tags - Glass Capsule Pills with Gradient Micro-Dots */}
-                    <div className="flex flex-wrap gap-1.5 pt-1">
+                    <div className="flex flex-wrap gap-1.5 pt-0.5">
                       {svc.items.map((item, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-white border border-slate-200/90 text-slate-800 shadow-xs hover:shadow-sm hover:border-pink-400 hover:text-pink-600 hover:-translate-y-0.5 transition-all duration-200 cursor-default group"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-mono font-bold bg-white border border-slate-200/90 text-slate-800 shadow-xs hover:shadow-sm hover:border-pink-400 hover:text-pink-600 hover:-translate-y-0.5 transition-all duration-200 cursor-default group"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 group-hover:scale-125 transition-transform shrink-0" />
                           <span>{item}</span>
@@ -178,6 +199,7 @@ export default function GrowthSection() {
             );
           })}
         </div>
+      </div>
 
       </div>
     </section>

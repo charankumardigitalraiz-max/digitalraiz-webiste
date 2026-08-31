@@ -6,8 +6,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-between bg-black text-white font-sans">
-      {/* Background Video */}
+    <section className="relative w-full h-[56.25vw] max-h-[500px] min-h-[220px] md:min-h-screen overflow-hidden flex flex-col items-center justify-between bg-black text-white font-sans">
+      {/* Background Video (Scaled to 16:9 Aspect Ratio on Mobile) */}
       <video
         autoPlay
         loop
@@ -68,8 +68,8 @@ export default function Hero() {
 
       </div> */}
 
-      {/* Scroll indicator */}
-      <div className="relative z-20 pb-8 flex flex-col items-center gap-2">
+      {/* Scroll indicator (Desktop Only) */}
+      <div className="hidden md:flex relative z-20 pb-8 flex-col items-center gap-2">
         <span className="text-[10px] text-white/40 tracking-widest uppercase">Scroll Down</span>
         <div className="w-5 h-8 rounded-full border border-white/30 p-1 flex justify-center">
           <div className="w-1 h-2 rounded-full bg-pink-500 animate-bounce" />
