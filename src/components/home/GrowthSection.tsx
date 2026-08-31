@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { TrendingUp, Search, Share2, ArrowUpRight, Sparkles } from "lucide-react";
+import { TrendingUp, Search, Share2, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -147,14 +147,15 @@ export default function GrowthSection() {
                       {svc.desc}
                     </p>
 
-                    {/* Deliverables Tags */}
+                    {/* Deliverables Tags - Glass Capsule Pills with Gradient Micro-Dots */}
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {svc.items.map((item, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-full text-[9px] font-bold bg-slate-100 text-slate-700 uppercase tracking-wider border border-slate-200/60 hover:scale-105 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-all duration-200"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-white border border-slate-200/90 text-slate-800 shadow-xs hover:shadow-sm hover:border-pink-400 hover:text-pink-600 hover:-translate-y-0.5 transition-all duration-200 cursor-default group"
                         >
-                          {item}
+                          <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 group-hover:scale-125 transition-transform shrink-0" />
+                          <span>{item}</span>
                         </span>
                       ))}
                     </div>

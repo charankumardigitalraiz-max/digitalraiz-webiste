@@ -622,12 +622,12 @@ export default function WebServicePage() {
                   {/* Right Column (7 Cols): Showcase Image & Scrolling Marquee Badges */}
                   <div className="lg:col-span-7 space-y-4">
                     {/* Standalone Showcase Image Container */}
-                    <div className="relative group rounded-2xl overflow-hidden bg-white transition-all duration-300">
-                      <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-white">
+                    <div className="relative group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 p-2">
+                      <div className="relative w-full flex items-center justify-center bg-white min-h-[220px] sm:min-h-[280px]">
                         <img
                           src="/web-development/website-development-agency-white-v2.png"
                           alt="Why Choose Digital Raiz Web Development"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-auto max-h-[340px] sm:max-h-[400px] object-contain group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                     </div>
