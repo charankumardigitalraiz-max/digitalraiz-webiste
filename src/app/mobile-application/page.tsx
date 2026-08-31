@@ -272,7 +272,7 @@ export default function MobileApplicationPage() {
       desc: "Premium dating and matchmaking application configured for location checks, instant chats, and profiles.",
       features: ["Premium matching algorithm", "Location verified check-ins", "Secure chat modules"],
       playStoreUrl: "#",
-      img: "/soloohearts.jpg"
+      img: "/soloohearts.webp"
     },
     {
       name: "Medicompares",
@@ -304,7 +304,7 @@ export default function MobileApplicationPage() {
       desc: "Corporate resource dashboard system configured for tracking field team tasks, attendance, and instant audits.",
       features: ["Field staff check-ins", "Offline report syncing", "Live dashboard syncs"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
-      img: "/jgfms.jpg"
+      img: "/jgfms.webp"
     },
     {
       name: "Eaglemart",
@@ -328,7 +328,7 @@ export default function MobileApplicationPage() {
       desc: "Booking and service scheduling interface with integrated maps, local search filters, and chats.",
       features: ["Appointment scheduling", "Local provider searches", "In-app customer chats"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
-      img: "/gocut-beauty.jpg"
+      img: "/gocut-beauty.webp"
     },
     {
       name: "Actin",
@@ -426,7 +426,7 @@ export default function MobileApplicationPage() {
                   {/* App Screen Viewport */}
                   <div className="absolute inset-0 overflow-y-auto no-scrollbar z-10 bg-slate-950 pt-7 pb-4">
                     <img
-                      src="/soloohearts.jpg"
+                      src="/soloohearts.webp"
                       alt="Mobile App Interface"
                       className="w-full h-auto object-cover object-top select-none pointer-events-none"
                     />

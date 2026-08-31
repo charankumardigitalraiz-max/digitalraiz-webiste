@@ -57,7 +57,7 @@ export default function GrowthSection() {
   ];
 
   return (
-    <section className="relative text-slate-900 bg-white font-sans overflow-hidden select-none py-16 border-t border-slate-100">
+    <section className="relative text-slate-900 bg-white font-sans overflow-hidden select-none py-10">
       {/* Background ambient glows */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-pink-500/5 blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none -z-10" />

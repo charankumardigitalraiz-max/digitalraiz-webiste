@@ -50,7 +50,7 @@ export default function WebServicePage() {
     {
       name: "Sherla Properties",
       url: "#",
-      img: "/websites/sherlaproperties.png",
+      img: "/websites/sherlaproperties.webp",
       logo: "/project-logs/sherla-properties.webp",
       category: "Real Estate",
       desc: "Premium real estate platform engineered for showcasing luxury listings. Features advanced search filters, fluid listing galleries, and interactive agent contact forms. Designed to streamline client acquisition and maximize property exposure with modern, responsive layouts and rapid loading times.",
@@ -59,8 +59,8 @@ export default function WebServicePage() {
     {
       name: "Medicompares",
       url: "#",
-      img: "/websites/medicompares.png",
-      logo: "/project-logs/MediCompares_Logo.png",
+      img: "/websites/medicompares.webp",
+      logo: "/project-logs/MediCompares_Logo.webp",
       category: "Healthcare Portal",
       desc: "Comprehensive healthcare comparison portal. Empowers users to compare medical procedures, clinic ratings, and pricing options with real-time analytics data. Features high-security medical directory search integrations, dynamic pricing sheets, and automated appointment scheduling options.",
       tech: ["React.js", "Next.js Static Pages", "Tailwind CSS", "Data Sheets API", "Medical Analytics"]
@@ -68,7 +68,7 @@ export default function WebServicePage() {
     {
       name: "Skanda Hospital",
       url: "#",
-      img: "/websites/skanda-life-line-hospital.png",
+      img: "/websites/skanda-life-line-hospital.webp",
       logo: "/project-logs/skanda.png",
       category: "Healthcare Platform",
       desc: "Advanced healthcare management and clinic lookup portal for Skanda Life Line Hospital. Features interactive consultant listings, department directory lookups, emergency scheduling services, and a patient inquiry module designed for rapid local clinic navigation.",
@@ -77,7 +77,7 @@ export default function WebServicePage() {
     {
       name: "Livewell Rehab",
       url: "#",
-      img: "/websites/livewell.png",
+      img: "/websites/livewell.webp",
       logo: "/project-logs/livewell.png",
       category: "Rehabilitation Services",
       desc: "Premium digital portal for Livewell Rehabilitation Services. Engineered to coordinate post-operative care, dynamic therapeutic exercise plans, physiotherapist consultant schedules, and interactive appointment bookings for recovering patients.",
@@ -239,7 +239,7 @@ export default function WebServicePage() {
               <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center">
                 <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group">
                   <img
-                    src="/services/digital-raiz-imac-showcase-vertical.png"
+                    src="/services/digital-raiz-imac-showcase-vertical.webp"
                     alt="Website Development Company in Hyderabad - Digital Raiz Desktop & Laptop Studio"
                     className="w-full h-auto object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
                     style={{ imageRendering: '-webkit-optimize-contrast' }}
@@ -415,7 +415,7 @@ export default function WebServicePage() {
                 <div className="relative group rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-pink-300">
                   <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-50">
                     <img
-                      src="/web-development/modern-minimalist-workspace-white.png"
+                      src="/web-development/modern-minimalist-workspace-white.webp"
                       alt="Website Design Showcase"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -430,7 +430,7 @@ export default function WebServicePage() {
                 <div className="relative group rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-violet-300">
                   <div className="relative h-64 sm:h-72 w-full overflow-hidden">
                     <img
-                      src="/web-development/enterprise-software-architecture-white.png"
+                      src="/web-development/enterprise-software-architecture-white.webp"
                       alt="Custom Web Architecture"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -622,10 +622,10 @@ export default function WebServicePage() {
                   {/* Right Column (7 Cols): Showcase Image & Scrolling Marquee Badges */}
                   <div className="lg:col-span-7 space-y-4">
                     {/* Standalone Showcase Image Container */}
-                    <div className="relative group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 p-2">
+                    <div className="relative group overflow-hidden bg-white transition-all duration-300 p-2">
                       <div className="relative w-full flex items-center justify-center bg-white min-h-[220px] sm:min-h-[280px]">
                         <img
-                          src="/web-development/website-development-agency-white-v2.png"
+                          src="/web-development/website-development-agency-white-v2.webp"
                           alt="Why Choose Digital Raiz Web Development"
                           className="w-full h-auto max-h-[340px] sm:max-h-[400px] object-contain group-hover:scale-105 transition-transform duration-500"
                         />

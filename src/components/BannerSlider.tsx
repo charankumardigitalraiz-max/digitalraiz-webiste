@@ -14,21 +14,21 @@ interface Slide {
 export default function BannerSlider() {
   const slides: Slide[] = [
     {
-      image: "/images/digital_raiz_slide1.png",
+      image: "/images/digital_raiz_slide1.webp",
       badge: "Software Engineering",
       title: "Precision Custom Codebases",
       subtitle: "Scalable corporate portals & cloud-native web apps built on modern tech.",
       icon: <Zap className="w-3.5 h-3.5 text-pink-500 animate-pulse" />
     },
     {
-      image: "/images/digital_raiz_slide2.png",
+      image: "/images/digital_raiz_slide2.webp",
       badge: "Digital Marketing",
       title: "Data-Driven Marketing & ROI",
       subtitle: "High-conversion campaigns & optimized SEO matching modern algorithms.",
       icon: <Target className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
     },
     {
-      image: "/images/digital_raiz_slide3.png",
+      image: "/images/digital_raiz_slide3.webp",
       badge: "Tech Scale & Cloud",
       title: "Secure Cloud Architecture",
       subtitle: "Optimized infrastructure ensuring blazing-fast performance and stability.",

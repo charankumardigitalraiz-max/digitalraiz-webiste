@@ -115,7 +115,7 @@ export default function PlatformExplorer() {
         { label: "UI System", value: "Compose 1.7" },
         { label: "Target API", value: "API 35 (15.0)" }
       ],
-      img: "/platforms/android_banner.png",
+      img: "/platforms/android_banner.webp",
       accentColor: "#ec4899",
       glowColor: "rgba(236,72,153,0.12)"
     },
@@ -140,7 +140,7 @@ export default function PlatformExplorer() {
         { label: "UI System", value: "SwiftUI 6.0" },
         { label: "Target iOS", value: "iOS 18.0+" }
       ],
-      img: "/platforms/ios_banner.png",
+      img: "/platforms/ios_banner.webp",
       accentColor: "#6366f1",
       glowColor: "rgba(99,102,241,0.12)"
     },
@@ -165,7 +165,7 @@ export default function PlatformExplorer() {
         { label: "Framework", value: "AppKit / Catalyst" },
         { label: "Min OS", value: "macOS Sonoma (14)" }
       ],
-      img: "/platforms/macos_white_modern_banner.png",
+      img: "/platforms/macos_white_modern_banner.webp",
       accentColor: "#ec4899",
       glowColor: "rgba(236,72,153,0.12)"
     },
@@ -190,7 +190,7 @@ export default function PlatformExplorer() {
         { label: "Runtime", value: ".NET 8.5 CLR" },
         { label: "Min Version", value: "Windows 11 (22H2)" }
       ],
-      img: "/platforms/windows_white_modern_banner.png",
+      img: "/platforms/windows_white_modern_banner.webp",
       accentColor: "#6366f1",
       glowColor: "rgba(99,102,241,0.12)"
     }

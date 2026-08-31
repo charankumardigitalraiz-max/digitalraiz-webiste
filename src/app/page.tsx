@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
+import HomeBannerCarousel from "@/components/home/HomeBannerCarousel";
 import GrowthSection from "@/components/home/GrowthSection";
 import CapabilitiesSection from "@/components/home/CapabilitiesSection";
 import SolutionsSection from "@/components/home/SolutionsSection";
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     siteName: "Digital Raiz",
     images: [
       {
-        url: "/logo/digital-raiz-logo.png",
+        url: "/logo/digital-raiz-logo.webp",
         width: 1200,
         height: 630,
         alt: "Digital Raiz Logo",
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
     description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
-    images: ["/logo/digital-raiz-logo.png"],
+    images: ["/logo/digital-raiz-logo.webp"],
   },
 };
 
@@ -77,6 +78,9 @@ export default function Home() {
 
         {/* Interactive Services / Solutions Section */}
         <Services />
+
+        {/* Unified Studio Banner Carousel (Auto-Rotating All 3 Banners) */}
+        {/* <HomeBannerCarousel /> */}
 
         {/* Capabilities Section (Contains H5 & H6 capability matrices) */}
         <CapabilitiesSection />

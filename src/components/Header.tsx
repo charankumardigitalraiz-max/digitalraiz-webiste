@@ -46,7 +46,7 @@ export default function Header() {
           className="group flex items-center bg-white/90 backdrop-blur-md p-3 sm:px-2.5 sm:py-1 rounded-full border border-slate-200/80 shadow-lg hover:shadow-xl hover:border-pink-300/60 transition-all duration-300"
         >
           <Image
-            src="/logo/digital-raiz-logo.png"
+            src="/logo/digital-raiz-logo.webp"
             alt="Digital Raiz Logo"
             width={220}
             height={60}
@@ -79,7 +79,7 @@ export default function Header() {
             <div className="w-14 flex items-center justify-center p-1 hover:scale-105 transition-transform duration-200">
               <Link href="/">
                 <Image
-                  src="/logo/digital-raiz-logo.png"
+                  src="/logo/digital-raiz-logo.webp"
                   alt="Digital Raiz Logo"
                   width={150}
                   height={40}
@@ -151,7 +151,7 @@ export default function Header() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 <Image
-                  src="/logo/digital-raiz-logo.png"
+                  src="/logo/digital-raiz-logo.webp"
                   alt="Digital Raiz Logo"
                   width={240}
                   height={65}
@@ -317,7 +317,7 @@ export default function Header() {
           {/* Logo Mark (Fades out / shrinks on hover) */}
           <div className="absolute inset-0 flex items-center justify-center p-1 transition-all duration-300 transform scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 pointer-events-none">
             <img
-              src="/logo/digital-raiz-logo.png"
+              src="/logo/digital-raiz-logo.webp"
               alt="Brand Logo"
               className="w-full h-full object-contain"
             />

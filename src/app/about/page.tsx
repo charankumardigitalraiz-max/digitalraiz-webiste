@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div
           className="relative pt-10 pb-10 overflow-hidden select-none bg-cover bg-center border-b border-slate-100/80"
           style={{
-            backgroundImage: "url('/images/about_us_banner.png')"
+            backgroundImage: "url('/images/about_us_banner.webp')"
           }}
         >
           {/* Ambient overlays */}
@@ -117,7 +117,7 @@ export default function AboutPage() {
               {/* Right image column */}
               <div className="w-full lg:w-[360px] shrink-0 flex items-center justify-center">
                 <img
-                  src="/images/about_us_branding.png"
+                  src="/images/about_us_branding.webp"
                   alt="DigitalRaiz Brand Illustration"
                   className="w-full max-w-[320px] h-auto object-contain hover:scale-102 transition-transform duration-500 mix-blend-multiply"
                 />

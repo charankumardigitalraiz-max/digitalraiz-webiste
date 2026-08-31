@@ -63,13 +63,13 @@ export default function BlogSection() {
                 ))}
               </div> */}
 
-              <Link
+              {/* <Link
                 href="/blogs"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 hover:bg-pink-600 text-white text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 cursor-pointer"
               >
                 <span>View All Blogs</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </ScrollReveal>
@@ -111,7 +111,7 @@ export default function BlogSection() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b] group-hover:text-pink-600 transition-colors leading-tight">
+                <h3 className="text-2xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b] transition-colors leading-tight">
                   {featuredPost.title}
                 </h3>
 
@@ -214,7 +214,7 @@ export default function BlogSection() {
 
         {/* SECTION FOOTER CTA BANNER */}
         <ScrollReveal direction="up" delay={100}>
-          <div className="bg-slate-50/80 border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="bg-slate-50/80 border border-slate-200/90 rounded-lg p-4 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="space-y-1">
               <h3 className="text-lg font-extrabold uppercase tracking-tight text-[#1e1b4b]">
                 Looking for All Industry Insights & Playbooks?
@@ -226,7 +226,7 @@ export default function BlogSection() {
 
             <Link
               href="/blogs"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
             >
               <span>Explore All Articles</span>
               <ArrowRight className="w-4 h-4 text-white" />

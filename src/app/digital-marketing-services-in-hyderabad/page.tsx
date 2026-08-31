@@ -47,7 +47,7 @@ export default function DigitalMarketingPage() {
       accentBorder: "border-pink-200/80",
       accentText: "text-pink-600",
       pillBg: "bg-pink-50 text-pink-600 border-pink-200/60",
-      img: "/digital-marketing-service/seo-vertical-3d.png",
+      img: "/digital-marketing-service/seo-vertical-3d.webp",
       para1: "Search is often the starting point for customers researching a product, service, or business. Our SEO services in Hyderabad focus on helping your website become more visible for searches that are relevant to your business.",
       para2: "We work across keyword research, on-page optimization, technical SEO, content optimization, internal linking, local SEO, and website structure. As an SEO company in Hyderabad, we focus on search intent rather than simply inserting keywords into content.",
       para3: "",
@@ -69,11 +69,11 @@ export default function DigitalMarketingPage() {
       title: "Social Media Marketing Services in Hyderabad That Build Your Brand",
       badge: "Creative Social Presence",
       icon: <Share2 className="w-5 h-5 text-violet-500" />,
-      color: "from-violet-500/10 via-violet-500/5 to-transparent",
+      color: "from-violet-50/10 via-violet-50/5 to-transparent",
       accentBorder: "border-violet-200/80",
       accentText: "text-violet-600",
       pillBg: "bg-violet-50 text-violet-600 border-violet-200/60",
-      img: "/digital-marketing-service/social-vertical-3d.png",
+      img: "/digital-marketing-service/social-vertical-3d.webp",
       para1: "Social media has become an important part of how customers discover and evaluate businesses. Our social media marketing services in Hyderabad help brands create a consistent presence while communicating their products, services, and personality clearly.",
       para2: "Digital Raiz develops social media strategies based on your target audience and brand positioning. Our capabilities include content planning, creative development, social media management, campaign planning, paid social advertising, and performance analysis.",
       para3: "",
@@ -95,11 +95,11 @@ export default function DigitalMarketingPage() {
       title: "Google Ads & Performance Marketing in Hyderabad",
       badge: "High-Intent Paid Acquisition",
       icon: <MousePointerClick className="w-5 h-5 text-indigo-500" />,
-      color: "from-indigo-500/10 via-indigo-500/5 to-transparent",
+      color: "from-indigo-50/10 via-indigo-50/5 to-transparent",
       accentBorder: "border-indigo-200/80",
       accentText: "text-indigo-600",
       pillBg: "bg-indigo-50 text-indigo-600 border-indigo-200/60",
-      img: "/digital-marketing-service/ppc-vertical-3d.png",
+      img: "/digital-marketing-service/ppc-vertical-3d.webp",
       para1: "When businesses need targeted visibility and faster opportunities, paid advertising can complement organic marketing. Our Google Ads services in Hyderabad are designed around relevant audiences, search intent, and campaign objectives.",
       para2: "We help businesses plan and manage paid campaigns across appropriate digital advertising channels, with attention to keyword selection, audience targeting, ad messaging, landing pages, and campaign performance. Performance marketing is not simply about generating clicks — the focus is on attracting the right traffic and creating meaningful actions such as inquiries, calls, registrations, or purchases.",
       para3: "",
@@ -121,11 +121,11 @@ export default function DigitalMarketingPage() {
       title: "Content Marketing & Lead Generation for Growing Businesses",
       badge: "Qualified Inquiry Pipeline",
       icon: <FileText className="w-5 h-5 text-emerald-500" />,
-      color: "from-emerald-500/10 via-emerald-500/5 to-transparent",
+      color: "from-emerald-50/10 via-emerald-50/5 to-transparent",
       accentBorder: "border-emerald-200/80",
       accentText: "text-emerald-600",
       pillBg: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-      img: "/digital-marketing-service/content-vertical-3d.png",
+      img: "/digital-marketing-service/content-vertical-3d.webp",
       para1: "Good digital marketing needs good content. From website pages and search-focused articles to social media creatives and campaign messaging, content plays a vital role in how customers understand your business.",
       para2: "Our content marketing services in Hyderabad help businesses communicate their expertise, answer customer questions, and create content that supports their broader marketing strategy.",
       para3: "We develop lead generation strategies in Hyderabad that connect digital campaigns with business opportunities. Depending on your objectives, this includes search campaigns, social media campaigns, landing pages, website optimization, and targeted digital promotions.",
@@ -164,15 +164,15 @@ export default function DigitalMarketingPage() {
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
   const capabilities = [
-    { title: "Search Engine Optimization", desc: "Technical, on-page, and keyword research for long-term organic visibility.", icon: <Search className="w-5 h-5 text-pink-500" />, tag: "SEO Search", color: "from-pink-50/70 to-pink-100/20", border: "border-pink-200/70 text-pink-700", img: "/digital-marketing-service/seo-search-chart.png" },
-    { title: "Social Media Marketing", desc: "Brand positioning, content planning, and creative social media management.", icon: <Share2 className="w-5 h-5 text-violet-500" />, tag: "Social Reach", color: "from-violet-50/70 to-violet-100/20", border: "border-violet-200/70 text-violet-700", img: "/digital-marketing-service/social-media-phone.png" },
-    { title: "Google Ads & Paid PPC", desc: "High-intent paid search, ad messaging, and conversion-focused landing pages.", icon: <MousePointerClick className="w-5 h-5 text-indigo-500" />, tag: "Google PPC", color: "from-indigo-50/70 to-indigo-100/20", border: "border-indigo-200/70 text-indigo-700", img: "/digital-marketing-service/ppc-ad-cursor.png" },
-    { title: "Content Marketing", desc: "Expertise-driven articles, search copy, and creative brand storytelling.", icon: <FileText className="w-5 h-5 text-emerald-500" />, tag: "Content Copy", color: "from-emerald-50/70 to-emerald-100/20", border: "border-emerald-200/70 text-emerald-700", img: "/digital-marketing-service/content-creation-notebook.png" },
-    { title: "Local SEO", desc: "Geofenced maps optimization and local business search dominance in Hyderabad.", icon: <Compass className="w-5 h-5 text-amber-500" />, tag: "Local Maps", color: "from-amber-50/70 to-amber-100/20", border: "border-amber-200/70 text-amber-700", img: "/digital-marketing-service/local-seo-location.png" },
-    { title: "Lead Generation", desc: "Funnel architecture connecting campaign traffic to genuine business inquiries.", icon: <Target className="w-5 h-5 text-rose-500" />, tag: "Lead Funnels", color: "from-rose-50/70 to-rose-100/20", border: "border-rose-200/70 text-rose-700", img: "/digital-marketing-service/conversion-funnel.png" },
-    { title: "Performance Marketing", desc: "Data-informed metrics tracking ROI, cost per acquisition, and conversions.", icon: <LineChart className="w-5 h-5 text-cyan-500" />, tag: "ROI Metrics", color: "from-cyan-50/70 to-cyan-100/20", border: "border-cyan-200/70 text-cyan-700", img: "/digital-marketing-service/roi-growth-chart.png" },
-    { title: "Online Brand Promotion", desc: "Multi-channel digital presence strengthening authority and recall.", icon: <Megaphone className="w-5 h-5 text-purple-500" />, tag: "Brand Recall", color: "from-purple-50/70 to-purple-100/20", border: "border-purple-200/70 text-purple-700", img: "/digital-marketing-service/brand-megaphone.png" },
-    { title: "Campaign Management", desc: "Continuous monitoring, A/B testing, and end-to-end campaign optimization.", icon: <Layers className="w-5 h-5 text-pink-600" />, tag: "A/B Testing", color: "from-pink-50/70 to-purple-100/20", border: "border-pink-200/70 text-pink-700", img: "/digital-marketing-service/ab-testing-cards.png" }
+    { title: "Search Engine Optimization", desc: "Technical, on-page, and keyword research for long-term organic visibility.", icon: <Search className="w-5 h-5 text-pink-500" />, tag: "SEO Search", color: "from-pink-50/70 to-pink-100/20", border: "border-pink-200/70 text-pink-700", img: "/digital-marketing-service/seo-search-chart.webp" },
+    { title: "Social Media Marketing", desc: "Brand positioning, content planning, and creative social media management.", icon: <Share2 className="w-5 h-5 text-violet-500" />, tag: "Social Reach", color: "from-violet-50/70 to-violet-100/20", border: "border-violet-200/70 text-violet-700", img: "/digital-marketing-service/social-media-phone.webp" },
+    { title: "Google Ads & Paid PPC", desc: "High-intent paid search, ad messaging, and conversion-focused landing pages.", icon: <MousePointerClick className="w-5 h-5 text-indigo-500" />, tag: "Google PPC", color: "from-indigo-50/70 to-indigo-100/20", border: "border-indigo-200/70 text-indigo-700", img: "/digital-marketing-service/ppc-ad-cursor.webp" },
+    { title: "Content Marketing", desc: "Expertise-driven articles, search copy, and creative brand storytelling.", icon: <FileText className="w-5 h-5 text-emerald-500" />, tag: "Content Copy", color: "from-emerald-50/70 to-emerald-100/20", border: "border-emerald-200/70 text-emerald-700", img: "/digital-marketing-service/content-creation-notebook.webp" },
+    { title: "Local SEO", desc: "Geofenced maps optimization and local business search dominance in Hyderabad.", icon: <Compass className="w-5 h-5 text-amber-500" />, tag: "Local Maps", color: "from-amber-50/70 to-amber-100/20", border: "border-amber-200/70 text-amber-700", img: "/digital-marketing-service/local-seo-location.webp" },
+    { title: "Lead Generation", desc: "Funnel architecture connecting campaign traffic to genuine business inquiries.", icon: <Target className="w-5 h-5 text-rose-500" />, tag: "Lead Funnels", color: "from-rose-50/70 to-rose-100/20", border: "border-rose-200/70 text-rose-700", img: "/digital-marketing-service/conversion-funnel.webp" },
+    { title: "Performance Marketing", desc: "Data-informed metrics tracking ROI, cost per acquisition, and conversions.", icon: <LineChart className="w-5 h-5 text-cyan-500" />, tag: "ROI Metrics", color: "from-cyan-50/70 to-cyan-100/20", border: "border-cyan-200/70 text-cyan-700", img: "/digital-marketing-service/roi-growth-chart.webp" },
+    { title: "Online Brand Promotion", desc: "Multi-channel digital presence strengthening authority and recall.", icon: <Megaphone className="w-5 h-5 text-purple-500" />, tag: "Brand Recall", color: "from-purple-50/70 to-purple-100/20", border: "border-purple-200/70 text-purple-700", img: "/digital-marketing-service/brand-megaphone.webp" },
+    { title: "Campaign Management", desc: "Continuous monitoring, A/B testing, and end-to-end campaign optimization.", icon: <Layers className="w-5 h-5 text-pink-600" />, tag: "A/B Testing", color: "from-pink-50/70 to-purple-100/20", border: "border-pink-200/70 text-pink-700", img: "/digital-marketing-service/ab-testing-cards.webp" }
   ];
 
   const integratedStrategySteps = [
@@ -329,7 +329,7 @@ export default function DigitalMarketingPage() {
               <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[480px] shrink-0 flex justify-center">
                 <div className="relative w-full max-w-[460px]">
                   <img
-                    src="/services/service_light_3d_marketing.png"
+                    src="/services/service_light_3d_marketing.webp"
                     alt="Digital Marketing Services Showcase"
                     className="w-full h-auto object-contain  select-none pointer-events-none transition-transform duration-500 hover:scale-[1.02]"
                     style={{ imageRendering: "-webkit-optimize-contrast" }}

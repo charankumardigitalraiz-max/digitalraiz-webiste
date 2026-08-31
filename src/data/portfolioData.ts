@@ -31,7 +31,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Premium dating and social connection application featuring intelligent location-based matchmaking, real-time encrypted socket chat, verified profile badges, and interactive discovery reels.",
     features: ["Intelligent Matching Algorithm", "Geofenced Check-ins & Radius Search", "End-to-End Encrypted Chat", "Retina Image Video Profiles"],
     tech: ["Flutter / React Native", "Node.js WebSockets", "Redis Caching", "Firebase Auth", "PostgreSQL"],
-    img: "/soloohearts.jpg",
+    img: "/soloohearts.webp",
     logo: "/project-logs/sherla-properties.webp",
     url: "#",
     metrics: { val1: "50K+", label1: "Active Users", val2: "4.9★", label2: "User Rating" }
@@ -46,7 +46,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     features: ["Real-time Test Price Matrix", "Clinic & Doctor Locator", "Encrypted Health Report Locker", "Instant Appointment Booking"],
     tech: ["React Native", "Next.js REST API", "Node.js Microservices", "Tailwind Mobile UI", "Stripe Healthcare API"],
     img: "/medicompares.jpg",
-    logo: "/project-logs/MediCompares_Logo.png",
+    logo: "/project-logs/MediCompares_Logo.webp",
     url: "#",
     metrics: { val1: "100K+", label1: "Lab Searches", val2: "99.9%", label2: "Uptime SLA" }
   },
@@ -87,7 +87,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Corporate field workforce management system engineered for offline task attendance checks, inventory syncs, instant audit logs, and supervisor real-time analytics dashboards.",
     features: ["Field Staff Geofenced Check-Ins", "Offline Data Syncing Engine", "Automated Audit Sheet Generator", "Supervisor Approval Pipeline"],
     tech: ["Flutter Cross-Platform", "GraphQL API", "PostgreSQL Server", "AWS S3 Cloud", "OAuth 2.0"],
-    img: "/jgfms.jpg",
+    img: "/jgfms.webp",
     url: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
     metrics: { val1: "10K+", label1: "Staff Logins", val2: "99.9%", label2: "Crash-Free" }
@@ -129,7 +129,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "On-demand salon and beauty service booking mobile interface. Integrated with interactive map provider discovery, stylist calendar selection, in-app messaging, and automated booking reminders.",
     features: ["Real-Time Stylist Availability", "Interactive Location Map", "In-App Customer Chat", "Automated Booking Reminders"],
     tech: ["React Native", "Google Maps API", "Node.js REST", "Firebase Cloud Messaging"],
-    img: "/gocut-beauty.jpg",
+    img: "/gocut-beauty.webp",
     url: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
     metrics: { val1: "15K+", label1: "Bookings", val2: "4.9★", label2: "Rating" }
@@ -159,7 +159,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Premium real estate platform engineered for showcasing luxury listings. Features advanced search filters, fluid listing galleries, interactive agent contact forms, and rapid loading times.",
     features: ["Advanced Multi-Parametric Search", "Glassmorphic Listing Cards", "Interactive Agent Consultation Form", "Ultra-Fast Vercel Edge Hosting"],
     tech: ["Next.js", "Tailwind CSS", "React Dynamic Search", "Framer Motion", "Vercel Deploy"],
-    img: "/websites/sherlaproperties.png",
+    img: "/websites/sherlaproperties.webp",
     logo: "/project-logs/sherla-properties.webp",
     url: "https://sherlaproperties.com",
     metrics: { val1: "0.2s", label1: "Load Speed", val2: "100", label2: "Lighthouse" }
@@ -173,8 +173,8 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Comprehensive healthcare comparison portal. Empowers users to compare medical procedures, clinic ratings, and pricing options with real-time analytics data and high-security medical directory search.",
     features: ["Medical Directory Indexing", "Real-Time Pricing Matrix", "Automated Appointment Queue", "HIPAA Compliant Data Pipeline"],
     tech: ["React.js", "Next.js Static Pages", "Tailwind CSS", "Medical Directory API", "Vercel"],
-    img: "/websites/medicompares.png",
-    logo: "/project-logs/MediCompares_Logo.png",
+    img: "/websites/medicompares.webp",
+    logo: "/project-logs/MediCompares_Logo.webp",
     url: "#",
     metrics: { val1: "150K+", label1: "Searches", val2: "A+", label2: "SSL Grade" }
   },
@@ -187,7 +187,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Advanced healthcare management and clinic lookup portal for Skanda Life Line Hospital. Features consultant listings, department directories, emergency service scheduling, and patient inquiry modules.",
     features: ["Interactive Doctor Schedules", "Department Directory Lookup", "Emergency Consultation Queue", "Patient Portal Booking"],
     tech: ["React.js", "Next.js SSG", "Tailwind CSS", "Clinic Locator API", "Node.js REST"],
-    img: "/websites/skanda-life-line-hospital.png",
+    img: "/websites/skanda-life-line-hospital.webp",
     logo: "/project-logs/skanda.png",
     url: "#",
     metrics: { val1: "50+", label1: "Specialists", val2: "99.9%", label2: "Uptime" }
@@ -201,7 +201,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     desc: "Premium digital portal for Livewell Rehabilitation Services. Engineered to coordinate post-operative care, dynamic therapeutic exercise plans, physiotherapist schedules, and patient appointment bookings.",
     features: ["Therapeutic Exercise Module", "Physiotherapist Booking Scheduler", "Patient Care Progress Tracker", "Fluid Mobile-First UI"],
     tech: ["React.js", "Tailwind CSS", "Next.js Pre-rendering", "Booking Scheduler API"],
-    img: "/websites/livewell.png",
+    img: "/websites/livewell.webp",
     logo: "/project-logs/livewell.png",
     url: "#",
     metrics: { val1: "10K+", label1: "Patients Served", val2: "4.9★", label2: "Rating" }

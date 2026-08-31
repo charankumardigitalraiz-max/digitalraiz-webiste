@@ -88,7 +88,7 @@ export const blogPostsData: BlogPost[] = [
       avatar: "/project-logs/sherla-properties.webp",
       bio: "Charan Kumar leads growth strategy at Digital Raiz, specializing in multi-channel customer acquisition and ROI-driven digital campaigns."
     },
-    img: "/blogs/digital-marketing-strategy.png",
+    img: "/blogs/digital-marketing-strategy.webp",
     isFeatured: true,
     tags: ["Digital Marketing", "ROAS Optimization", "Conversion Funnels", "Hyderabad Business"]
   },
@@ -139,7 +139,7 @@ export const blogPostsData: BlogPost[] = [
       avatar: "/project-logs/skanda.png",
       bio: "Senior engineer specializing in Next.js architecture, performance engineering, and full-stack web platforms."
     },
-    img: "/blogs/web-engineering-nextjs.png",
+    img: "/blogs/web-engineering-nextjs.webp",
     tags: ["Next.js 15", "Web Development", "React Server Components", "Page Speed"]
   },
   {
@@ -182,7 +182,7 @@ export const blogPostsData: BlogPost[] = [
       avatar: "/project-logs/livewell.png",
       bio: "SEO technical specialist focused on organic search growth, entity building, and generative AI search optimization."
     },
-    img: "/blogs/ai-seo-ranking.png",
+    img: "/blogs/ai-seo-ranking.webp",
     tags: ["SEO", "AI Search", "Schema Markup", "Search Strategy"]
   },
   {
@@ -222,10 +222,10 @@ export const blogPostsData: BlogPost[] = [
     author: {
       name: "Mobile Lead",
       role: "Principal Mobile Architect",
-      avatar: "/project-logs/MediCompares_Logo.png",
+      avatar: "/project-logs/MediCompares_Logo.webp",
       bio: "Mobile systems architect specialized in React Native, native Android/iOS integration, and enterprise app security."
     },
-    img: "/digital-marketing-service/social-vertical-3d.png",
+    img: "/digital-marketing-service/social-vertical-3d.webp",
     tags: ["Mobile Apps", "React Native", "App Security", "iOS & Android"]
   }
 ];
