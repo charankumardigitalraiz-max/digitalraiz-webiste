@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & Technology Insights Blog | Digital Raiz",
+  title: "Digital Marketing & Technology Blog | Digital Raiz Hyderabad",
   description:
-    "Explore latest articles, growth playbooks, technical tutorials, and digital marketing insights from Digital Raiz experts in Hyderabad.",
+    "Explore the Digital Raiz blog for insights on digital marketing, SEO, social media, website development, mobile apps, AI, technology trends and business growth.",
   keywords: [
     "digital marketing blog",
     "seo insights hyderabad",
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "digital raiz blog"
   ],
   alternates: {
-    canonical: "https://digitalraiz.com/blogs/"
+    canonical: "https://digitalraiz.com/insights/blog/"
   },
   openGraph: {
-    title: "Digital Marketing & Technology Insights Blog | Digital Raiz",
+    title: "Digital Marketing & Technology Blog | Digital Raiz Hyderabad",
     description:
-      "Explore latest articles, growth playbooks, technical tutorials, and digital marketing insights from Digital Raiz experts in Hyderabad.",
-    url: "https://digitalraiz.com/blogs/",
+      "Explore the Digital Raiz blog for insights on digital marketing, SEO, social media, website development, mobile apps, AI, technology trends and business growth.",
+    url: "https://digitalraiz.com/insights/blog/",
     siteName: "Digital Raiz",
     type: "website"
   }

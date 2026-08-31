@@ -41,15 +41,18 @@ export default function BlogsPage() {
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10 space-y-8 text-center">
             <ScrollReveal direction="up">
               <div className="space-y-4 max-w-3xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3" />
-                  Digital Raiz Engineering & Growth Journal
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600">
+                  <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+                  Insights for a Fast-Changing Digital World
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#1e1b4b] leading-[1.05]">
-                  Articles, Insights & Growth Playbooks
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  Digital Marketing &amp; Technology Blog
                 </h1>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-                  Technical guides, search engine optimization tactics, conversion rate frameworks, and enterprise software insights directly from our Hyderabad studio.
+                  Welcome to the Digital Raiz Blog, where we share practical insights, ideas and perspectives on the technologies shaping modern businesses. We publish new content regularly covering digital marketing, SEO, social media, website development, mobile app development, artificial intelligence, software, emerging technologies and digital business trends.
+                </p>
+                <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto pt-1">
+                  Our goal is to make complex technology and digital concepts easier to understand while sharing useful information that businesses, professionals and technology enthusiasts can apply in the real world. From emerging technology trends to practical digital strategies, our blog brings together knowledge designed to help you stay informed and ahead.
                 </p>
               </div>
             </ScrollReveal>
@@ -231,7 +234,7 @@ export default function BlogsPage() {
         </section>
 
         {/* CTA FOOTER BANNER */}
-        <section className="py-16 bg-white">
+        {/* <section className="py-16 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="bg-gradient-to-br from-slate-50 to-pink-50/30 border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center space-y-6">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-pink-600 bg-pink-50 border border-pink-100 px-3 py-1 rounded-full inline-block">
@@ -257,7 +260,7 @@ export default function BlogsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
       </main>
 

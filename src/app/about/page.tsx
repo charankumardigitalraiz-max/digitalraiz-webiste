@@ -101,16 +101,12 @@ export default function AboutPage() {
                   Shaping Ideas into Digital Possibilities
                 </div>
 
-                <h1 className="space-y-1">
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.2rem] font-black uppercase tracking-tight text-[#1e1b4b] leading-[0.95]">
-                    About Digital
-                  </span>
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.2rem] font-black uppercase tracking-tight leading-[0.95] bg-gradient-to-r from-pink-500 via-violet-500 to-indigo-500 bg-clip-text text-transparent">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  About Digital{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
                     Raiz Technologies
-                  </span>
-                  <span className="block text-3xl sm:text-4xl font-black uppercase tracking-tight text-slate-300 leading-[0.95]">
-                    Hyderabad &amp; Global
-                  </span>
+                  </span>{" "}
+                  Hyderabad &amp; Global
                 </h1>
 
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -191,7 +187,10 @@ export default function AboutPage() {
                   Strategic Foundation
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Our Vision &amp; Mission
+                  Our Vision &amp;{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Mission
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto leading-relaxed">
                   Driven by long-term purpose, technological adaptability, and measurable business outcomes.
@@ -294,7 +293,10 @@ export default function AboutPage() {
                   Methodology &amp; Execution
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Our Approach
+                  Our{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Approach
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto leading-relaxed">
                   We believe great work starts before development or marketing begins — by listening, understanding, and connecting every digital element.
@@ -417,7 +419,10 @@ export default function AboutPage() {
                   Core Values
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  What Drives Us
+                  What{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Drives Us
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto leading-relaxed">
                   Technology is constantly changing, but our principles remain consistent.
@@ -512,7 +517,10 @@ export default function AboutPage() {
                   </div>
 
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                    Growing from Hyderabad, Thinking Beyond
+                    Growing from Hyderabad,{" "}
+                    <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                      Thinking Beyond
+                    </span>
                   </h2>
 
                   <p className="text-slate-650 text-xs sm:text-sm font-normal leading-relaxed">

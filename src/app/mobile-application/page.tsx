@@ -362,17 +362,12 @@ export default function MobileApplicationPage() {
 
               {/* LEFT — H1 & Intro Copy from PDF */}
               <ScrollReveal direction="left" className="flex-grow space-y-7 text-center lg:text-left max-w-[560px]">
-                <h1 className="space-y-1">
-                  <span className="block text-[10px] font-semibold text-slate-400 tracking-[0.3em] uppercase">Engineering Scalable Mobile Products</span>
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.4rem] font-black uppercase tracking-tight text-[#1e1b4b] leading-[0.95]">
-                    Mobile App
-                  </span>
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.4rem] font-black uppercase tracking-tight leading-[0.95] bg-gradient-to-r from-pink-500 via-violet-500 to-indigo-500 bg-clip-text text-transparent">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  Mobile App{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
                     Development
-                  </span>
-                  <span className="block text-4xl sm:text-5xl lg:text-[3.4rem] font-black uppercase tracking-tight text-slate-200 leading-[0.95]">
-                    In Hyderabad
-                  </span>
+                  </span>{" "}
+                  In Hyderabad
                 </h1>
 
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-md mx-auto lg:mx-0">
@@ -482,12 +477,15 @@ export default function MobileApplicationPage() {
 
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600">
+                  <Sparkles className="w-3.5 h-3.5 text-pink-500" />
                   Tailored Solutions
                 </div>
-                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Mobile App Development Services in Hyderabad
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Mobile App Development Services in{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Hyderabad
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
                   Our mobile app development services are designed around the specific needs of each business — from initial concept to deployment and maintenance.
@@ -546,9 +544,12 @@ export default function MobileApplicationPage() {
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-12">
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-violet-600 block">Platform Coverage</span>
-                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Android & iOS App Development for Modern Businesses
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-violet-600 block">Platform Coverage</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Android &amp; iOS App Development for{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Modern Businesses
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
                   Different platforms require different considerations. We deliver consistent, high-performance mobile experiences across Android, iOS, and cross-platform Flutter/React Native environments.
@@ -569,12 +570,15 @@ export default function MobileApplicationPage() {
             {/* Heading */}
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Workflow className="w-3 h-3" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600">
+                  <Workflow className="w-3.5 h-3.5 text-pink-500" />
                   Engineering Pipeline
                 </div>
-                <h2 className="text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Our 7-Step Mobile Engineering Process
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Our 7-Step Mobile{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Engineering Process
+                  </span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
                   From technical consultation to post-launch SLA support — click any phase to inspect phase deliverables and toolchains.
@@ -641,7 +645,7 @@ export default function MobileApplicationPage() {
                           <span className="w-1 h-1 rounded-full bg-slate-300" />
                           <span className="text-slate-400">Roadmap Phase</span>
                         </div>
-                        <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                           {pdfProcessSteps[activeStep].name}
                         </h3>
                       </div>
@@ -748,12 +752,12 @@ export default function MobileApplicationPage() {
 
                   {/* Left Column (5 cols) — Copy & Onboarding Badges */}
                   <div className="lg:col-span-5 space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-[9px] font-mono font-bold uppercase tracking-widest text-pink-400">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-400">
                       <Users className="w-3.5 h-3.5" />
                       Dedicated Engineering Talent
                     </div>
 
-                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                    <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                       Hire Mobile App Developers <span className="bg-gradient-to-r from-pink-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">from Hyderabad</span>
                     </h2>
 
@@ -791,7 +795,7 @@ export default function MobileApplicationPage() {
                   {/* Right Column (7 cols) — Why Choose Digital Raiz 8 Glass Cards */}
                   <div className="lg:col-span-7 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
                     <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                      <h3 className="text-lg font-black uppercase tracking-tight text-white flex items-center gap-2">
+                      <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                         Why Choose Digital Raiz?
                       </h3>
@@ -830,8 +834,16 @@ export default function MobileApplicationPage() {
           <div className="w-full space-y-12">
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-2 px-6">
-                <span className="text-[10px] font-bold text-pink-600 uppercase tracking-[0.25em] block">App Showcase</span>
-                <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Mobile App Projects</h2>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600">
+                  <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+                  App Showcase
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Our Mobile App{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Projects
+                  </span>
+                </h2>
                 <p className="text-slate-500 text-xs sm:text-sm font-normal">Explore real-world applications engineered by DigitalRaiz currently active on the Google Play Store.</p>
               </div>
             </ScrollReveal>
@@ -924,12 +936,15 @@ export default function MobileApplicationPage() {
 
               {/* Left Content */}
               <div className="space-y-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-pink-200/60 shadow-2xs text-[8.5px] font-mono font-black text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3 text-pink-500" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-pink-200/60 shadow-2xs text-[10px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3.5 h-3.5 text-pink-500" />
                   Mobile App Engineering
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
-                  Ready to Build Your Mobile Application with Digital Raiz?
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                  Ready to Build Your Mobile Application with{" "}
+                  <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    Digital Raiz?
+                  </span>
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm font-normal">
                   Android • iOS • Cross-Platform Flutter & React Native Solutions in Hyderabad
