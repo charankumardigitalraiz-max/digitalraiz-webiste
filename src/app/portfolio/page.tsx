@@ -8,7 +8,9 @@ import ThreeDShowcase from "@/components/ThreeDShowcase";
 import ProjectModal from "@/components/ProjectModal";
 import { openContactModal } from "@/components/ContactModal";
 import Link from "next/link";
-import { PORTFOLIO_PROJECTS, ProjectItem } from "@/data/portfolioData";
+import { PORTFOLIO_PROJECTS, ProjectItem, PORTFOLIO_CATEGORIES, getPortfolioCategories } from "@/data/portfolioData";
+import { usePortfolioStore } from "@/store/usePortfolioStore";
+import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 import {
   Smartphone,
   Globe,
@@ -39,27 +41,44 @@ import {
 } from "lucide-react";
 
 export default function PortfolioPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
-  const [selectedType, setSelectedType] = useState<"all" | "mobile" | "web">("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [viewMode, setViewMode] = useState<"grid" | "simulator" | "list">("grid");
-  const [simActiveIndex, setSimActiveIndex] = useState<number>(0);
-  const [simPaused, setSimPaused] = useState<boolean>(false);
-  const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
+  // TanStack Query Data Fetching & Caching
+  const { data: projects = PORTFOLIO_PROJECTS } = usePortfolioProjects();
+
+  // Zustand Client UI State Store
+  const {
+    selectedCategory,
+    selectedType,
+    viewMode,
+    searchQuery,
+    modalProject,
+    simActiveIndex,
+    simPaused,
+    displayLimit,
+    setSelectedCategory,
+    setSelectedType,
+    setViewMode,
+    setSearchQuery,
+    setModalProject,
+    setSimActiveIndex,
+    setSimPaused,
+    loadMoreProjects,
+  } = usePortfolioStore();
+
   const [expandedCardIds, setExpandedCardIds] = useState<Record<string, boolean>>({});
 
   const deviceViewportRef = useRef<HTMLDivElement>(null);
+  const observerTargetRef = useRef<HTMLDivElement>(null);
 
   const toggleCardExpanded = (id: string) => {
     setExpandedCardIds((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // Categories list
-  const categories = ["ALL", "Social", "Healthcare", "Logistics", "E-Commerce", "Real Estate", "Enterprise", "On-Demand", "Fitness", "Creative", "Entertainment"];
+  // Categories list (exported from data module, with getPortfolioCategories helper available for dynamic mode)
+  const categories = PORTFOLIO_CATEGORIES;
 
   // Filtered projects list
   const filteredProjects = useMemo(() => {
-    return PORTFOLIO_PROJECTS.filter((p) => {
+    return projects.filter((p) => {
       // Filter by type
       if (selectedType === "mobile" && p.type !== "mobile") return false;
       if (selectedType === "web" && p.type !== "web") return false;
@@ -83,11 +102,34 @@ export default function PortfolioPage() {
 
       return true;
     });
-  }, [selectedType, selectedCategory, searchQuery]);
+  }, [projects, selectedType, selectedCategory, searchQuery]);
+
+  // Paginated visible projects slice (loads 10 initially, triggers +10 on scroll)
+  const visibleProjects = useMemo(() => {
+    return filteredProjects.slice(0, displayLimit);
+  }, [filteredProjects, displayLimit]);
+
+  // Infinite Scroll Trigger via Intersection Observer
+  useEffect(() => {
+    const target = observerTargetRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleProjects.length < filteredProjects.length) {
+          loadMoreProjects(10);
+        }
+      },
+      { threshold: 0.1, rootMargin: "250px" }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [visibleProjects.length, filteredProjects.length, loadMoreProjects]);
 
   // Simulator subset matches current filters or all projects
-  const simProjects = useMemo(() => filteredProjects.length > 0 ? filteredProjects : PORTFOLIO_PROJECTS, [filteredProjects]);
-  const activeSimProject = simProjects[simActiveIndex % simProjects.length] || PORTFOLIO_PROJECTS[0];
+  const simProjects = useMemo(() => filteredProjects.length > 0 ? filteredProjects : projects, [filteredProjects, projects]);
+  const activeSimProject = simProjects[simActiveIndex % simProjects.length] || projects[0];
 
   // Auto-slide simulator every 4.5 seconds if not paused
   useEffect(() => {
@@ -113,7 +155,7 @@ export default function PortfolioPage() {
         {/* HERO SECTION — Clean Light Studio Showcase Header */}
         <section className="relative overflow-hidden bg-white py-12 lg:py-10">
           {/* Ambient Glow Accents */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-pink-500/10 via-violet-500/10 to-indigo-500/10 blur-[130px] rounded-full pointer-events-none" />
+          {/* <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-pink-500/10 via-violet-500/10 to-indigo-500/10 blur-[130px] rounded-full pointer-events-none" /> */}
 
           <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-6 text-center">
             <ScrollReveal direction="up">
@@ -148,10 +190,10 @@ export default function PortfolioPage() {
               {/* Row 1: Type Tabs (Left), Search Bar & View Switches (Right) */}
               <div className="flex flex-wrap items-center justify-between gap-3">
                 {/* Type Filters (All, Mobile Apps, Web Apps) */}
-                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 shrink-0">
+                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-lg border border-slate-200/80 shrink-0">
                   <button
                     onClick={() => { setSelectedType("all"); setSimActiveIndex(0); }}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -160,7 +202,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("mobile"); setSimActiveIndex(0); }}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -170,7 +212,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("web"); setSimActiveIndex(0); }}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -203,11 +245,11 @@ export default function PortfolioPage() {
                   </div>
 
                   {/* View Mode Switches */}
-                  <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 shrink-0">
+                  <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-lg border border-slate-200/80 shrink-0">
                     <button
                       onClick={() => setViewMode("grid")}
                       title="Grid View"
-                      className={`p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "grid" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                      className={`p-1.5 rounded-lg transition-all cursor-pointer ${viewMode === "grid" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
                         }`}
                     >
                       <LayoutGrid className="w-4 h-4" />
@@ -215,7 +257,7 @@ export default function PortfolioPage() {
                     <button
                       onClick={() => setViewMode("simulator")}
                       title="Device Studio"
-                      className={`p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "simulator" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                      className={`p-1.5 rounded-lg transition-all cursor-pointer ${viewMode === "simulator" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
                         }`}
                     >
                       <Smartphone className="w-4 h-4" />
@@ -223,7 +265,7 @@ export default function PortfolioPage() {
                     <button
                       onClick={() => setViewMode("list")}
                       title="Spec List View"
-                      className={`hidden md:inline-flex p-1.5 rounded-xl transition-all cursor-pointer ${viewMode === "list" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
+                      className={`hidden md:inline-flex p-1.5 rounded-lg transition-all cursor-pointer ${viewMode === "list" ? "bg-white text-pink-600 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-900"
                         }`}
                     >
                       <List className="w-4 h-4" />
@@ -241,7 +283,7 @@ export default function PortfolioPage() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1.5 rounded-xl text-[11px] font-bold tracking-wider uppercase transition-all whitespace-nowrap shrink-0 cursor-pointer ${selectedCategory === cat
+                    className={`px-3 py-1.5 rounded-lg text-[11px] font-bold tracking-wider uppercase transition-all whitespace-nowrap shrink-0 cursor-pointer ${selectedCategory === cat
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-2xs"
                       : "bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-100"
                       }`}
@@ -442,7 +484,7 @@ export default function PortfolioPage() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7">
-                    {filteredProjects.map((project, idx) => (
+                    {visibleProjects.map((project, idx) => (
                       <ScrollReveal key={project.id} delay={(idx % 6) * 50} direction="up" className="h-full">
                         <div className="group bg-white border border-slate-200/90 hover:border-pink-300 rounded-xl p-4.5 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-stretch h-full relative overflow-hidden">
 
@@ -644,7 +686,7 @@ export default function PortfolioPage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
-                      {filteredProjects.map((project) => (
+                      {visibleProjects.map((project) => (
                         <tr key={project.id} className="hover:bg-slate-50/80 transition-colors group">
                           <td className="py-4 px-6 font-bold text-[#1e1b4b] uppercase tracking-tight flex items-center gap-3">
                             <img src={project.img} alt={project.name} className="w-10 h-10 rounded-lg object-cover object-top border border-slate-200 shrink-0" />
@@ -700,6 +742,23 @@ export default function PortfolioPage() {
                     </tbody>
                   </table>
                 </div>
+              </div>
+            )}
+
+            {/* INFINITE SCROLL SENTINEL & STATUS INDICATOR */}
+            {filteredProjects.length > 0 && (
+              <div ref={observerTargetRef} className="pt-6 pb-2 flex flex-col items-center justify-center space-y-2">
+                {visibleProjects.length < filteredProjects.length ? (
+                  <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-pink-200/80 text-xs font-mono font-bold text-slate-700 shadow-md">
+                    <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping" />
+                    <span>Loading projects ({visibleProjects.length} of {filteredProjects.length})...</span>
+                  </div>
+                ) : (
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100/90 border border-slate-200 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>Showing all {filteredProjects.length} projects</span>
+                  </div>
+                )}
               </div>
             )}
 

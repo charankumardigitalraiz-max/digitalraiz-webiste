@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { openContactModal } from "@/components/ContactModal";
+import { usePortfolioStore, getMobileProjects } from "@/store";
+import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 import {
   ArrowRight,
   Smartphone,
@@ -30,6 +32,15 @@ import PlatformExplorer from "@/components/PlatformExplorer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function MobileApplicationPage() {
+  const storeProjects = usePortfolioStore((state) => state.projects);
+  // TanStack Query for Data Fetching & Caching
+  const { data: allProjects = storeProjects } = usePortfolioProjects();
+
+  // Dynamically filter top 10 mobile apps via store helper
+  const portfolioApps = useMemo(() => {
+    return getMobileProjects(allProjects, 10);
+  }, [allProjects]);
+
   const [activeIndex, setActiveIndex] = useState(2);
   const [activeStep, setActiveStep] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -261,83 +272,8 @@ export default function MobileApplicationPage() {
     "Performance-focused development with sub-second response times",
     "Flexible and future-ready technology stack selections",
     "Structured automated testing and rigorous quality assurance",
-    "Transparent communication and sprint milestone tracking",
+    "Transparent communication and sprint milestosne tracking",
     "Post-launch maintenance, OS upgrades, and continuous support"
-  ];
-
-  const portfolioApps = [
-    {
-      name: "Solo Hearts",
-      tag: "Social Connection",
-      desc: "Premium dating and matchmaking application configured for location checks, instant chats, and profiles.",
-      features: ["Premium matching algorithm", "Location verified check-ins", "Secure chat modules"],
-      playStoreUrl: "#",
-      img: "/soloohearts.webp"
-    },
-    {
-      name: "Medicompares",
-      tag: "Medical & Health",
-      desc: "Comprehensive medical services comparison platform designed to compare clinical tests, reports, and prices.",
-      features: ["Medical comparison engine", "Clinical report details", "Instant pricing updates"],
-      playStoreUrl: "#",
-      img: "/medicompares.jpg"
-    },
-    {
-      name: "Shri Manik Prabhu Samsthan",
-      tag: "Devotional & Community",
-      desc: "Official mobile application for managing organization schedules, calendar updates, and daily resources.",
-      features: ["Custom calendar systems", "Push alerts & notifications", "Offline asset loading"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.maniksamstahnapp&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/d72a821a275279ea42bc5c58af0f6cc3.png"
-    },
-    {
-      name: "Waypartner",
-      tag: "Logistics & Transport",
-      desc: "High-performance logistics coordination app designed for driver tracking, dispatch logging, and route reports.",
-      features: ["Real-time GPS tracking", "In-app routing & map updates", "Automated trip log files"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.waypartner.waypartner&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/3d5cfa303ab218435bcd47544379e4c8.png"
-    },
-    {
-      name: "JBFMS India",
-      tag: "Enterprise Workflow",
-      desc: "Corporate resource dashboard system configured for tracking field team tasks, attendance, and instant audits.",
-      features: ["Field staff check-ins", "Offline report syncing", "Live dashboard syncs"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
-      img: "/jgfms.webp"
-    },
-    {
-      name: "Eaglemart",
-      tag: "E-Commerce",
-      desc: "Full-scale consumer shopping application featuring secure payment checkout gateways, catalogs, and tracking.",
-      features: ["Instant secure checkout", "Multi-payment support", "Real-time order tracking"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.eaglemartuser&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/c93157eeeedb156a1ef3fd23227f742d.png"
-    },
-    {
-      name: "Helomate",
-      tag: "Social Connection",
-      desc: "Interactive social networking client enabling location matches, real-time chats, and media uploads.",
-      features: ["Real-time socket chats", "Location matching engine", "Media sharing streams"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.helomate.meetpeoplevirtual&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/dd0bff5ed7e3698d06753f38a8c985c2.png"
-    },
-    {
-      name: "Gocut Beauty App",
-      tag: "On-Demand Services",
-      desc: "Booking and service scheduling interface with integrated maps, local search filters, and chats.",
-      features: ["Appointment scheduling", "Local provider searches", "In-app customer chats"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
-      img: "/gocut-beauty.webp"
-    },
-    {
-      name: "Actin",
-      tag: "Activity Tracker",
-      desc: "Fitness and workflow check-in client logging user progress, session counts, and targets dynamically.",
-      features: ["User metrics tracking", "Goal setting widgets", "Detailed historical logs"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.actin.user&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/2694ae7bddec4a4d521ea9e9870638db.png"
-    }
   ];
 
   useEffect(() => {

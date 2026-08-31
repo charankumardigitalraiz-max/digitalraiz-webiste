@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, Poppins, Lexend } from "next/font/google";
 import FloatingSocials from "@/components/FloatingSocials";
+import QueryProvider from "@/providers/QueryProvider";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -70,15 +71,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       className={`${plusJakarta.variable} ${poppins.variable} ${lexend.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-800 relative">
-        {children}
-        <FloatingSocials />
+        <QueryProvider>
+          {children}
+          <FloatingSocials />
+        </QueryProvider>
       </body>
     </html>
   );

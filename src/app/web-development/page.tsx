@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { openContactModal } from "@/components/ContactModal";
 import dynamic from "next/dynamic";
 import ScrollReveal from "@/components/ScrollReveal";
+import { usePortfolioStore, getWebProjects } from "@/store";
+import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 
 const ThreeDShowcase = dynamic(() => import("@/components/ThreeDShowcase"), {
   ssr: false,
@@ -41,81 +43,22 @@ import {
 } from "lucide-react";
 
 export default function WebServicePage() {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const storeProjects = usePortfolioStore((state) => state.projects);
+  // TanStack Query for Data Fetching & Caching
+  const { data: allProjects = storeProjects } = usePortfolioProjects();
+
+  // Dynamically filter top 10 web portfolio projects via store helper
+  const webPortfolio = useMemo(() => {
+    return getWebProjects(allProjects, 10);
+  }, [allProjects]);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeWebProject = useMemo(() => {
+    return webPortfolio[activeIndex % webPortfolio.length] || webPortfolio[0];
+  }, [webPortfolio, activeIndex]);
   const [isPaused, setIsPaused] = useState(false);
   const techScrollRef = useRef<HTMLDivElement>(null);
   const [techPaused, setTechPaused] = useState(false);
-
-  const webPortfolio = [
-    {
-      name: "Sherla Properties",
-      url: "#",
-      img: "/websites/sherlaproperties.webp",
-      logo: "/project-logs/sherla-properties.webp",
-      category: "Real Estate",
-      desc: "Premium real estate platform engineered for showcasing luxury listings. Features advanced search filters, fluid listing galleries, and interactive agent contact forms. Designed to streamline client acquisition and maximize property exposure with modern, responsive layouts and rapid loading times.",
-      tech: ["Next.js", "Tailwind CSS", "React Dynamic Search", "Glassmorphic UI", "Vercel Deploy"]
-    },
-    {
-      name: "Medicompares",
-      url: "#",
-      img: "/websites/medicompares.webp",
-      logo: "/project-logs/MediCompares_Logo.webp",
-      category: "Healthcare Portal",
-      desc: "Comprehensive healthcare comparison portal. Empowers users to compare medical procedures, clinic ratings, and pricing options with real-time analytics data. Features high-security medical directory search integrations, dynamic pricing sheets, and automated appointment scheduling options.",
-      tech: ["React.js", "Next.js Static Pages", "Tailwind CSS", "Data Sheets API", "Medical Analytics"]
-    },
-    {
-      name: "Skanda Hospital",
-      url: "#",
-      img: "/websites/skanda-life-line-hospital.webp",
-      logo: "/project-logs/skanda.png",
-      category: "Healthcare Platform",
-      desc: "Advanced healthcare management and clinic lookup portal for Skanda Life Line Hospital. Features interactive consultant listings, department directory lookups, emergency scheduling services, and a patient inquiry module designed for rapid local clinic navigation.",
-      tech: ["React.js", "Next.js Static Pages", "Tailwind CSS", "Clinic Locator API", "Patient Inquiry Portal"]
-    },
-    {
-      name: "Livewell Rehab",
-      url: "#",
-      img: "/websites/livewell.webp",
-      logo: "/project-logs/livewell.png",
-      category: "Rehabilitation Services",
-      desc: "Premium digital portal for Livewell Rehabilitation Services. Engineered to coordinate post-operative care, dynamic therapeutic exercise plans, physiotherapist consultant schedules, and interactive appointment bookings for recovering patients.",
-      tech: ["React.js", "Tailwind CSS", "Next.js Pre-rendering", "Booking Scheduler", "Patient Care Module"]
-    },
-    {
-      name: "Sr Associates",
-      url: "https://srimportexport.com/",
-      img: "https://digitalraiz.com/uploads/portfolio/27113090177f02688143b9c4812bcd28.png",
-      category: "Import Export",
-      desc: "Modern import-export logistics portal. Built with secure client dashboards, real-time shipment status tracking, and multilocational currency conversion tools. Streamlines communication between global trade partners, custom house brokers, and transport carriers with ease.",
-      tech: ["Next.js Routing", "Node.js REST API", "Client Dashboard", "Real-Time Tracking", "Currency Converter"]
-    },
-    {
-      name: "Gselfi",
-      url: "#",
-      img: "https://digitalraiz.com/uploads/portfolio/24243c9467fa85c48e8ae6bf1c79b513.png",
-      category: "Studio & Portfolio",
-      desc: "High-end photography studio and interactive portfolio site. Features fluid masonry galleries, dynamic lightboxes, and smooth contact integrations. Tailored for creative professionals looking to showcase visual arts with high-fidelity retina images, lazy loading, and premium layouts.",
-      tech: ["HTML5 / CSS3", "Tailwind CSS", "Framer Motion", "Lazy Image Loading", "Portfolio Masonry"]
-    },
-    {
-      name: "Techpro",
-      url: "https://www.techprolog.com/",
-      img: "https://digitalraiz.com/uploads/portfolio/c443a4a734e299e9d7f21126ce4542e5.png",
-      category: "IT Solutions",
-      desc: "Full-scale corporate IT services portal. Showcases robust cloud computing solutions, cybersecurity diagnostics tools, and service request forms. Designed for enterprises requiring detailed documentation, custom booking slots, and automated support ticket generation.",
-      tech: ["Next.js Static Pages", "Secure Forms Backend", "IT Service Catalog", "Booking Calendar API", "SEO Pre-rendering"]
-    },
-    {
-      name: "Svmart",
-      url: "https://www.svmart.in/",
-      img: "https://digitalraiz.com/uploads/portfolio/636cb38b4591f85743372a229c247ba7.jpg",
-      category: "E-Commerce",
-      desc: "Modern e-commerce platform built for retail scaling. Features product catalogs, secure checkout gateways, and integrated user profiles. Designed to handle high concurrent traffic with quick product loading, automated cart recovery, and shipping API connections.",
-      tech: ["Next.js SSG / SSR", "Stripe Checkout API", "Product Catalog CRM", "Cart System Hooks", "Shipping API Hooks"]
-    }
-  ];
 
   const developedServices = [
     { title: "Corporate & Business Websites", desc: "Professional, brand-aligned websites built to establish strong online presence, communicate business value, and convert visitors into active leads.", icon: Globe },
@@ -737,8 +680,8 @@ export default function WebServicePage() {
                   <div className="flex items-center justify-between gap-4 px-3 py-2 border-b border-slate-100">
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1.5">
-                        {webPortfolio[activeIndex].logo ? (
-                          <img src={webPortfolio[activeIndex].logo} alt={webPortfolio[activeIndex].name} className="w-full h-full object-contain filter brightness-200" />
+                        {activeWebProject?.logo ? (
+                          <img src={activeWebProject.logo} alt={activeWebProject.name} className="w-full h-full object-contain filter brightness-200" />
                         ) : (
                           <Globe className="w-4 h-4 text-pink-400" />
                         )}
@@ -746,7 +689,7 @@ export default function WebServicePage() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest leading-none">
-                            {webPortfolio[activeIndex].category}
+                            {activeWebProject?.category}
                           </span>
                           <span className="w-1 h-1 rounded-full bg-slate-300 hidden sm:inline-block" />
                           <span className="hidden sm:inline-flex items-center gap-1 text-[8px] font-mono font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full">
@@ -755,7 +698,7 @@ export default function WebServicePage() {
                           </span>
                         </div>
                         <div className="text-sm sm:text-base font-extrabold text-[#1e1b4b] uppercase tracking-tight truncate mt-0.5">
-                          {webPortfolio[activeIndex].name}
+                          {activeWebProject?.name}
                         </div>
                       </div>
                     </div>
@@ -850,7 +793,7 @@ export default function WebServicePage() {
                     <div className="space-y-3.5">
                       <div className="flex items-center gap-2">
                         <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-200/60">
-                          {webPortfolio[activeIndex].category}
+                          {activeWebProject?.category}
                         </span>
                         <span className="text-[9px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 flex items-center gap-1">
                           <Sparkles className="w-3 h-3 text-emerald-500" />
@@ -859,17 +802,17 @@ export default function WebServicePage() {
                       </div>
 
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                        {webPortfolio[activeIndex].name}
+                        {activeWebProject?.name}
                       </h3>
 
                       <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed font-sans">
-                        {webPortfolio[activeIndex].desc}
+                        {activeWebProject?.desc}
                       </p>
 
                       <div className="space-y-2 pt-2">
                         <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest block">Project Tech Stack</span>
                         <div className="flex flex-wrap gap-1.5">
-                          {webPortfolio[activeIndex].tech?.map((technology, idx) => (
+                          {activeWebProject?.tech?.map((technology, idx) => (
                             <span
                               key={idx}
                               className="text-[9px] font-mono font-bold uppercase tracking-wider bg-white border border-slate-200/60 rounded-lg px-2.5 py-1 text-slate-600 hover:text-pink-600 transition-colors cursor-default"
@@ -882,9 +825,9 @@ export default function WebServicePage() {
                     </div>
 
                     <div className="pt-4 border-t border-slate-100">
-                      {webPortfolio[activeIndex].url !== "#" && (
+                      {activeWebProject?.url && activeWebProject.url !== "#" && (
                         <a
-                          href={webPortfolio[activeIndex].url}
+                          href={activeWebProject.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm hover:scale-[1.02] active:scale-95 transition-all duration-300"

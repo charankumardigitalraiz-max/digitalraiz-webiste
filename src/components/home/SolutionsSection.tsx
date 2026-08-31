@@ -4,29 +4,10 @@ import React, { useState } from "react";
 import { Lightbulb, Users, CheckCircle2, ArrowRight, Globe, Smartphone, TrendingUp, Search, Share2, Zap, Sparkles } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { partnerStrengths, homeEcosystem as ecosystem } from "@/data/homeData";
 
 export default function SolutionsSection() {
   const [hoveredStrength, setHoveredStrength] = useState<number | null>(null);
-
-  const partnerStrengths = [
-    "Customized digital marketing strategies",
-    "SEO-friendly website development",
-    "Professional and user-focused experiences",
-    "Performance-oriented marketing campaigns",
-    "Customized website and mobile app development",
-    "Scalable technology solutions",
-    "Clear project planning and communication",
-    "Ongoing optimization and support"
-  ];
-
-  const ecosystem = [
-    { icon: Globe, label: "Website", desc: "Converts visitors", color: "text-primary", bg: "bg-pink-50", border: "border-pink-100" },
-    { icon: Search, label: "SEO", desc: "Drives organic traffic", color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
-    { icon: Share2, label: "Social Media", desc: "Builds brand awareness", color: "text-primary", bg: "bg-pink-50", border: "border-pink-100" },
-    { icon: TrendingUp, label: "Digital Ads", desc: "Generates targeted leads", color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
-    { icon: Smartphone, label: "Mobile App", desc: "Retains loyal users", color: "text-primary", bg: "bg-pink-50", border: "border-pink-100" },
-    { icon: Zap, label: "Performance", desc: "Tracks & optimizes results", color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" }
-  ];
 
   return (
     <section className="py-5 pb-10 relative bg-white text-slate-800 font-sans overflow-hidden  select-none">

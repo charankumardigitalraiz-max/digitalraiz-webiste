@@ -1,56 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles, MessageSquare, ShieldCheck, Clock } from "lucide-react";
+import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useContactStore } from "@/store";
 
 export default function ContactPageContent() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1500);
-  };
-
-  const steps = [
-    {
-      icon: MessageSquare,
-      title: "1. Strategy Call",
-      desc: "Discuss objectives, outline scope, and identify high-growth channels.",
-      color: "from-pink-500 to-rose-450",
-    },
-    {
-      icon: Clock,
-      title: "2. Execution Proposal",
-      desc: "Receive a transparent roadmap with deliverables, tech stacks, and metrics.",
-      color: "from-violet-650 to-indigo-500",
-    },
-    {
-      icon: ShieldCheck,
-      title: "3. Direct Implementation",
-      desc: "Launch campaigns, optimize platforms, and track weekly KPIs.",
-      color: "from-indigo-600 to-blue-500",
-    },
-  ];
+  const {
+    processSteps,
+    officeDetails,
+    formData,
+    submitting,
+    submitted,
+    setFormField,
+    submitForm,
+  } = useContactStore();
 
   return (
     <div className="relative bg-white text-slate-800 overflow-hidden min-h-screen">
@@ -89,251 +52,249 @@ export default function ContactPageContent() {
       {/* Main container for lower content */}
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 relative z-10 space-y-12 sm:space-y-16 py-12 sm:py-16">
 
-        {/* Lower Main Layout: Details & Collaboration Image (Left) & Form (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Lower Main Layout: Details (Left) & Form (Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-          {/* LEFT COLUMN: Contact Details & Collaboration Image (Takes 5/12 Width) */}
-          <ScrollReveal direction="left" delay={100} className="lg:col-span-5 flex flex-col gap-2">
+          {/* LEFT COLUMN: Contact Details (Takes 5/12 Width - Matches Form Card Height) */}
+          <ScrollReveal direction="left" delay={100} className="lg:col-span-5 flex flex-col h-full">
 
             {/* Contact Info Card */}
-            <div className="bg-white border border-slate-200/80 rounded-lg p-8 shadow-[0_15px_45px_rgba(0,0,0,0.02)] space-y-6">
+            <div className="bg-white border border-slate-200/80 rounded-lg p-8 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.02)] space-y-8 flex flex-col justify-between h-full">
 
               <div className="space-y-2">
-                {/* <span className="text-[10px] font-bold text-pink-600 uppercase tracking-widest block">Come Visit Us At</span> */}
                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">Our Address</h3>
               </div>
 
-              {/* Address */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center text-pink-650 shrink-0 shadow-3xs">
-                  <MapPin className="w-5 h-5" />
+              {/* Details List */}
+              <div className="space-y-6 flex-grow flex flex-col justify-around">
+                {/* Address */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-pink-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Office Address</h4>
+                    <p className="text-slate-800 font-bold text-xs leading-relaxed">
+                      {officeDetails.companyName},<br />
+                      {officeDetails.addressLines[0]}<br />
+                      {officeDetails.addressLines[1]}<br />
+                      {officeDetails.addressLines[2]}
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Office Address</h4>
-                  <p className="text-slate-800 font-bold text-xs leading-relaxed">
-                    DigitalRaiz Creative Solutions PVT LTD,<br />
-                    #616, Manjeera Majestic Commercial,<br />
-                    KPHB-JNTU road, Hyderabad 500085,<br />
-                    Telangana, India.
-                  </p>
-                </div>
-              </div>
 
-              {/* Phone */}
-              <div className="flex items-start gap-4 border-t border-slate-100 pt-5">
-                <div className="w-12 h-12 rounded-2xl bg-violet-50 flex items-center justify-center text-violet-650 shrink-0 shadow-3xs">
-                  <Phone className="w-5 h-5" />
+                {/* Phone */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-violet-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Phone Numbers</h4>
+                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-0.5">
+                      {officeDetails.phones.map((phone, idx) => (
+                        <a key={idx} href={`tel:${phone.replace(/[^0-9+]/g, "")}`} className="hover:text-pink-600 transition-colors">
+                          {phone}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Our Phone Number</h4>
-                  <p className="text-slate-800 font-bold text-xs">
-                    <a href="tel:+91-9494613601" className="hover:text-pink-600 transition-colors block">+91-9494613601</a>
-                    <a href="tel:+91-8179163601" className="hover:text-pink-600 transition-colors block">+91-8179163601</a>
-                  </p>
-                </div>
-              </div>
 
-              {/* Email */}
-              <div className="flex items-start gap-4 border-t border-slate-100 pt-5">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-650 shrink-0 shadow-3xs">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Our Email</h4>
-                  <p className="text-slate-850 font-bold text-xs">
-                    <a href="mailto:info@digitalraiz.com" className="hover:text-pink-600 transition-colors block break-all">info@digitalraiz.com</a>
-                    <a href="mailto:digitalraizinst@gmail.com" className="hover:text-pink-600 transition-colors block break-all">digitalraizinst@gmail.com</a>
-                  </p>
+                {/* Email */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Email Address</h4>
+                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-0.5">
+                      {officeDetails.emails.map((email, idx) => (
+                        <a key={idx} href={`mailto:${email}`} className="hover:text-pink-600 transition-colors">
+                          {email}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Image 2: Strategy Discussion (Framed beneath Details) */}
-            {/* <div className="relative rounded-lg overflow-hidden border border-slate-200/80 bg-white shadow-xs w-full aspect-[16/5] group">
-              <img
-                src="/contact/contact-collaboration.webp"
-                alt="Strategy & Engineering Discussion"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-100 shadow-sm text-[10px] font-bold text-[#1e1b4b]">
-                Digital Marketing & Engineering Strategy
-              </div>
-            </div> */}
-
           </ScrollReveal>
 
-          {/* RIGHT COLUMN: Send Message Form (Takes 7/12 Width) */}
-          <ScrollReveal direction="right" delay={150} className="lg:col-span-7 h-full">
-            <div className="bg-white border border-slate-200/80 rounded-lg p-5 sm:p-6 shadow-[0_15px_45px_rgba(0,0,0,0.02)] hover:border-pink-300 transition-all duration-300 relative h-full flex flex-col justify-center">
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-16 h-16 bg-pink-50 rounded-full border border-pink-100 flex items-center justify-center mb-4 shadow-xs">
-                    <CheckCircle className="w-8 h-8 text-pink-500 animate-bounce" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1e1b4b] mb-1.5 uppercase tracking-tight">Successfully Sent!</h3>
-                  <p className="text-slate-650 text-xs sm:text-sm max-w-xs font-normal leading-relaxed">
-                    Thank you. We will get back to you shortly.
+          {/* RIGHT COLUMN: Modern Clean Contact Form (Takes 7/12 Width) */}
+          <ScrollReveal direction="right" delay={150} className="lg:col-span-7 flex flex-col h-full">
+            <div className="bg-white border border-slate-200/80 rounded-lg p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.03)] relative overflow-hidden flex flex-col justify-between h-full">
+              <div className="space-y-6">
+
+                <div className="space-y-2 border-b border-slate-100 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                    Send Us A Message
+                  </h3>
+                  <p className="text-slate-500 text-xs font-normal">
+                    Fill out the inquiry form below and our team will get back to you within 2 hours.
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-6 px-6 py-3 rounded-xl bg-slate-900 hover:bg-pink-650 text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
-                  >
-                    Send Another Message
-                  </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold text-pink-600 uppercase tracking-widest block">Send Message</span>
-                    <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#1e1b4b]">
-                      Drop Us A Line
-                    </h3>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {submitted ? (
+                  <div className="bg-emerald-50 border border-emerald-200/80 rounded-xl p-8 text-center space-y-3">
+                    <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto" />
+                    <h4 className="text-lg font-bold text-slate-900">Message Received!</h4>
+                    <p className="text-slate-600 text-xs max-w-md mx-auto">
+                      Thank you for reaching out. A Digital Raiz senior strategist has received your inquiry and will contact you shortly.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={submitForm} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormField("name", e.target.value)}
+                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          placeholder="Full Name"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          required
+                          pattern="[0-9]{10}"
+                          value={formData.phone}
+                          onChange={(e) => setFormField("phone", e.target.value)}
+                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          placeholder="Phone Number (10 digits)"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormField("email", e.target.value)}
+                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          placeholder="Email Address"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label htmlFor="subject" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                          Subject *
+                        </label>
+                        <input
+                          type="text"
+                          id="subject"
+                          required
+                          value={formData.subject || ""}
+                          onChange={(e) => setFormField("subject", e.target.value)}
+                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          placeholder="Subject"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-1">
-                      <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                        Full Name *
+                      <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Write A Message... *
                       </label>
-                      <input
-                        type="text"
-                        id="name"
+                      <textarea
+                        id="message"
                         required
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
-                        placeholder="Full Name"
+                        rows={3}
+                        value={formData.message}
+                        onChange={(e) => setFormField("message", e.target.value)}
+                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 resize-none font-medium placeholder:text-slate-400"
+                        placeholder="Write A Message..."
                       />
                     </div>
-                    <div className="space-y-1">
-                      <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        required
-                        pattern="[0-9]{10}"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
-                        placeholder="Phone Number (10 digits)"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="space-y-1">
-                      <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        required
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
-                        placeholder="Email Address"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label htmlFor="subject" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                        Subject *
-                      </label>
-                      <input
-                        type="text"
-                        id="subject"
-                        required
-                        value={form.subject}
-                        onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
-                        placeholder="Subject"
-                      />
-                    </div>
-                  </div>
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="w-full inline-flex items-center justify-center gap-2 h-11 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 font-bold text-white shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 disabled:opacity-50 uppercase tracking-widest text-xs cursor-pointer border-0"
+                    >
+                      {submitting ? "Sending..." : "Submit Quote"}
+                      {!submitting && <Send className="w-3.5 h-3.5" />}
+                    </button>
+                  </form>
+                )}
 
-                  <div className="space-y-1">
-                    <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                      Write A Message... *
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={3}
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 resize-none font-medium placeholder:text-slate-400"
-                      placeholder="Write A Message..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 h-11 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 font-bold text-white shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 disabled:opacity-50 uppercase tracking-widest text-xs cursor-pointer border-0"
-                  >
-                    {submitting ? "Sending..." : "Submit Quote"}
-                    {!submitting && <Send className="w-3.5 h-3.5" />}
-                  </button>
-                </form>
-              )}
+              </div>
             </div>
           </ScrollReveal>
 
         </div>
 
-        {/* Map Section */}
+        {/* Dynamic 3-Step Process Flow */}
         <ScrollReveal direction="up" delay={200}>
-          <div className="w-full rounded-lg overflow-hidden border border-slate-200/80 shadow-xs bg-white p-2">
-            <div className="w-full h-96 sm:h-[400px] md:h-[450px] rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.326392496344!2d78.39146131435463!3d17.49192600438689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91c70d3f2329%3A0xe69263b460c8fae6!2sDigital%20Raiz%20Creative%20Solutions%20%7C%20Digital%20Raiz!5e0!3m2!1sen!2sin!4v1615387349786!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Digital Raiz Google Maps Location"
-              ></iframe>
+          <div className="bg-white border border-slate-200/80 rounded-lg p-8 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.02)] space-y-8">
+            <div className="text-center max-w-xl mx-auto space-y-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-pink-650 bg-pink-50 border border-pink-100 px-3 py-1 rounded-full">
+                What Happens Next?
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1e1b4b]">
+                Our Consultation Process
+              </h3>
             </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Process Timeline Card Layout */}
-        <section className="pt-4 sm:pt-5">
-          <div className="space-y-10">
-            <h2 className="text-2xl font-black uppercase tracking-tight text-center text-[#1e1b4b]">
-              Consultation & Launch Process
-            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {steps.map((s, idx) => {
-                const Icon = s.icon;
+              {processSteps.map((step, idx) => {
+                const Icon = step.icon;
                 return (
-                  <ScrollReveal key={idx} delay={idx * 100} direction="up">
-                    <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs hover:border-pink-300 transition-all duration-300 flex items-start gap-4 h-full">
-                      <div className={`w-11 h-11 rounded-xl bg-gradient-to-tr ${s.color} text-white flex items-center justify-center shrink-0 shadow-sm`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="font-extrabold text-xs uppercase tracking-wider text-[#1e1b4b]">
-                          {s.title}
-                        </h4>
-                        <p className="text-slate-500 text-[11px] leading-relaxed font-normal">
-                          {s.desc}
-                        </p>
-                      </div>
+                  <div key={idx} className="bg-slate-50/60 border border-slate-200/70 rounded-2xl p-6 space-y-3 relative group hover:border-pink-300 hover:bg-white transition-all duration-300">
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${step.color} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-5 h-5" />
                     </div>
-                  </ScrollReveal>
+                    <h4 className="text-base font-bold text-slate-900 tracking-tight">{step.title}</h4>
+                    <p className="text-slate-600 text-xs font-normal leading-relaxed">{step.desc}</p>
+                  </div>
                 );
               })}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
+
+        {/* Full-Width Interactive Google Maps Location Frame */}
+        <ScrollReveal direction="up" delay={250}>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-pink-650">Find Our Head Office</span>
+                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1e1b4b]">Hyderabad Location Map</h3>
+              </div>
+            </div>
+
+            <div className="w-full h-80 sm:h-96 rounded-lg overflow-hidden border border-slate-200/80 shadow-md relative bg-slate-100">
+              <iframe
+                title="Digital Raiz Google Maps Location"
+                src={officeDetails.googleMapsEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </div>

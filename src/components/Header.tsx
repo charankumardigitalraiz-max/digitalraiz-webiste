@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import { useContactStore } from "@/store";
+import { useContactDetails } from "@/hooks/useContactDetails";
 import ContactModal from "@/components/ContactModal";
 
 export default function Header() {
@@ -11,6 +13,12 @@ export default function Header() {
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [modalService, setModalService] = useState("Web Development");
+
+  // TanStack Query for Data Fetching & Caching
+  const { data: contactData } = useContactDetails();
+  // Zustand Store Fallback
+  const storeOfficeDetails = useContactStore((state) => state.officeDetails);
+  const officeDetails = contactData?.officeDetails || storeOfficeDetails;
 
   useEffect(() => {
     const handleCustomOpen = (e: Event) => {
@@ -275,17 +283,21 @@ export default function Header() {
             <div className="space-y-4 border-t border-slate-100 pt-6">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2 text-xs text-slate-600">
-                  <Mail className="w-4 h-4 text-primary shrink-0" />
-                  <span className="font-medium text-slate-800">info@digitalraiz.com</span>
+                  <Mail className="w-4 h-4 text-pink-600 shrink-0" />
+                  <a href={`mailto:${officeDetails.emails[0]}`} className="font-medium text-slate-800 hover:text-pink-600 transition-colors">
+                    {officeDetails.emails[0]}
+                  </a>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-600">
-                  <Phone className="w-4 h-4 text-primary shrink-0" />
-                  <span className="font-medium text-slate-800">+91-9494613601</span>
+                  <Phone className="w-4 h-4 text-pink-600 shrink-0" />
+                  <a href={`tel:${officeDetails.phones[0].replace(/[^0-9+]/g, "")}`} className="font-medium text-slate-800 hover:text-pink-600 transition-colors">
+                    {officeDetails.phones[0]}
+                  </a>
                 </div>
                 <div className="flex items-start gap-2 text-xs text-slate-600">
                   <MapPin className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
                   <span className="font-medium text-slate-800 leading-tight">
-                    #616, Manjeera Majestic Commercial, KPHB-JNTU Road, Hyderabad
+                    {officeDetails.addressLines[0]} {officeDetails.addressLines[1]}
                   </span>
                 </div>
               </div>

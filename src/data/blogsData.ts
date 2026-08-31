@@ -1,28 +1,6 @@
-export interface BlogPost {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  subtitle?: string;
-  content: {
-    heading?: string;
-    paragraphs: string[];
-    bulletPoints?: string[];
-  }[];
-  takeaways: string[];
-  category: "Digital Marketing" | "Web Development" | "SEO & Search" | "Mobile & AI";
-  date: string;
-  readTime: string;
-  author: {
-    name: string;
-    role: string;
-    avatar: string;
-    bio: string;
-  };
-  img: string;
-  isFeatured?: boolean;
-  tags: string[];
-}
+import { BlogPost, AuthorInfo } from "@/interfaces/blog";
+
+export type { BlogPost, AuthorInfo };
 
 export const blogPostsData: BlogPost[] = [
   {
@@ -232,4 +210,12 @@ export const blogPostsData: BlogPost[] = [
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPostsData.find((p) => p.slug === slug || p.id === slug);
+}
+
+export function getBlogCategories(posts: BlogPost[] = blogPostsData): string[] {
+  const catSet = new Set<string>();
+  posts.forEach((p) => {
+    if (p.category) catSet.add(p.category);
+  });
+  return ["All Insights", ...Array.from(catSet)];
 }

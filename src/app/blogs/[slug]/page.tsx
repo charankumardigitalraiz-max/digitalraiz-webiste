@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { blogPostsData, getBlogPostBySlug } from "@/data/blogsData";
+import { getAllBlogPosts, getBlogPostBySlug, getRelatedBlogPosts } from "@/store";
 import {
   Sparkles,
   ArrowRight,
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return blogPostsData.map((post) => ({
+  return getAllBlogPosts().map((post) => ({
     slug: post.slug,
   }));
 }
@@ -77,9 +77,7 @@ export default async function SingleBlogPage({ params }: Props) {
     notFound();
   }
 
-  const relatedPosts = blogPostsData
-    .filter((p) => p.slug !== post.slug)
-    .slice(0, 3);
+  const relatedPosts = getRelatedBlogPosts(post.slug, 3);
 
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-slate-800 lg:pr-[80px]">
@@ -191,7 +189,7 @@ export default async function SingleBlogPage({ params }: Props) {
                 {/* FORMATTED ARTICLE SECTIONS */}
                 <div className="space-y-10 text-slate-700">
                   {post.content.map((sec, i) => (
-                    <div key={i} className="space-y-4">
+                    <div key={i} id={`sec-${i}`} className="space-y-4 scroll-mt-28">
                       {sec.heading && (
                         <div className="space-y-1 pt-2">
                           <div className="text-[10px] font-mono font-bold text-pink-600 uppercase tracking-widest">

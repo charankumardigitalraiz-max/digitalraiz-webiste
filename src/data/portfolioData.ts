@@ -1,27 +1,8 @@
-export interface ProjectItem {
-  id: string;
-  name: string;
-  type: "mobile" | "web";
-  category: string;
-  tag: string;
-  desc: string;
-  features: string[];
-  tech: string[];
-  img: string;
-  logo?: string;
-  url: string;
-  playStoreUrl?: string;
-  appStoreUrl?: string;
-  metrics?: {
-    label1?: string;
-    val1?: string;
-    label2?: string;
-    val2?: string;
-  };
-}
+import { ProjectItem, ProjectMetrics } from "@/interfaces/portfolio";
+
+export type { ProjectItem, ProjectMetrics };
 
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
-  // --- MOBILE APPLICATIONS ---
   {
     id: "solo-hearts",
     name: "Solo Hearts",
@@ -363,3 +344,27 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     metrics: { val1: "99.99%", label1: "SLA Uptime", val2: "500+", label2: "Tenants" }
   }
 ];
+
+// Portfolio Categories Data
+export const PORTFOLIO_CATEGORIES: string[] = [
+  "ALL",
+  "Social",
+  "Healthcare",
+  "Logistics",
+  "E-Commerce",
+  "Real Estate",
+  "Enterprise",
+  "On-Demand",
+  "Fitness",
+  "Creative",
+  "Entertainment",
+];
+
+// Dynamic category extraction helper for future dynamic backend integration
+export const getPortfolioCategories = (projects: ProjectItem[] = PORTFOLIO_PROJECTS): string[] => {
+  const categorySet = new Set<string>();
+  projects.forEach((p) => {
+    if (p.category) categorySet.add(p.category);
+  });
+  return ["ALL", ...Array.from(categorySet)];
+};
