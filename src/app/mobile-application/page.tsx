@@ -814,12 +814,23 @@ export default function MobileApplicationPage() {
                         onMouseLeave={stopAutoScroll}
                         className="absolute transition-all duration-500 ease-out cursor-pointer flex flex-col items-center gap-4 group"
                         style={{
-                          transform: `translateX(${offset * 255}px) scale(${absOffset === 0 ? 1.08 : 0.92})`,
+                          transform: `translate3d(${offset * 255}px, 0, 0) scale(${absOffset === 0 ? 1.05 : 0.92})`,
                           zIndex: 100 - absOffset,
                           opacity: 1,
                         }}
                       >
-                        <h4 className={`text-[11px] font-black uppercase tracking-wider text-center max-w-[190px] transition-all duration-500 ${absOffset === 0 ? 'text-pink-600 scale-105 opacity-100' : 'text-slate-500 opacity-60'}`}>
+                        <h4
+                          className={`text-xs sm:text-[13px] uppercase text-center max-w-[210px] truncate transition-all duration-300 ${
+                            absOffset === 0
+                              ? 'font-bold tracking-widest text-slate-900 opacity-100'
+                              : 'font-medium tracking-wider text-slate-500 opacity-60'
+                          }`}
+                          style={{
+                            WebkitFontSmoothing: 'subpixel-antialiased',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)'
+                          }}
+                        >
                           {app.name}
                         </h4>
 

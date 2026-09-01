@@ -145,6 +145,31 @@ export default function PlatformExplorer() {
       glowColor: "rgba(99,102,241,0.12)"
     },
     {
+      name: "Windows Application",
+      desc: "We compile enterprise Windows software using C# .NET and WinUI 3. Our implementations utilize hardware-accelerated render trees, native Win32 bridges, secure MSIX packaging, and local SQL Server database syncs.",
+      logo: windowsOSLogo,
+      tag: "Microsoft Desktop",
+      features: [
+        "Modern WinUI 3 fluent design responsive panels",
+        "Secure Windows MSIX packaging profiles for deployment",
+        "Low-level DLL connector hardware adapters",
+        "Integrated SQL Server database backend connections"
+      ],
+      techs: [
+        { name: "Java", logo: javaLogo },
+        { name: "Flutter", logo: flutterLogo },
+        { name: "C# / .NET", logo: csharpLogo }
+      ],
+      specs: [
+        { label: "Framework", value: "WinUI 3 / WASDK" },
+        { label: "Runtime", value: ".NET 8.5 CLR" },
+        { label: "Min Version", value: "Windows 11 (22H2)" }
+      ],
+      img: "/platforms/windows_white_modern_banner.webp",
+      accentColor: "#6366f1",
+      glowColor: "rgba(99,102,241,0.12)"
+    },
+    {
       name: "macOS Application",
       desc: "We develop desktop macOS systems optimized for Apple Silicon (M1/M2/M3). By incorporating native sandboxed directories, Cocoa layouts, and background worker threads, we deliver low-latency professional utilities.",
       logo: appleOSLogo,
@@ -169,31 +194,6 @@ export default function PlatformExplorer() {
       accentColor: "#ec4899",
       glowColor: "rgba(236,72,153,0.12)"
     },
-    {
-      name: "Windows Application",
-      desc: "We compile enterprise Windows software using C# .NET and WinUI 3. Our implementations utilize hardware-accelerated render trees, native Win32 bridges, secure MSIX packaging, and local SQL Server database syncs.",
-      logo: windowsOSLogo,
-      tag: "Microsoft Desktop",
-      features: [
-        "Modern WinUI 3 fluent design responsive panels",
-        "Secure Windows MSIX packaging profiles for deployment",
-        "Low-level DLL connector hardware adapters",
-        "Integrated SQL Server database backend connections"
-      ],
-      techs: [
-        { name: "Java", logo: javaLogo },
-        { name: "Flutter", logo: flutterLogo },
-        { name: "C# / .NET", logo: csharpLogo }
-      ],
-      specs: [
-        { label: "Framework", value: "WinUI 3 / WASDK" },
-        { label: "Runtime", value: ".NET 8.5 CLR" },
-        { label: "Min Version", value: "Windows 11 (22H2)" }
-      ],
-      img: "/platforms/windows_white_modern_banner.webp",
-      accentColor: "#6366f1",
-      glowColor: "rgba(99,102,241,0.12)"
-    }
   ];
 
   const activePlatform = platforms[activeIndex];
