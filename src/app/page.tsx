@@ -5,6 +5,7 @@ import Services from "@/components/home/Services";
 import HomeBannerCarousel from "@/components/home/HomeBannerCarousel";
 import GrowthSection from "@/components/home/GrowthSection";
 import CapabilitiesSection from "@/components/home/CapabilitiesSection";
+import FloatingPortfolioWidget from "@/components/FloatingPortfolioWidget";
 import SolutionsSection from "@/components/home/SolutionsSection";
 import BlogSection from "@/components/home/BlogSection";
 import Contact from "@/components/home/Contact";
@@ -88,14 +89,17 @@ export default function Home() {
         {/* Growth Section (Contains H2, H3, H4 content) */}
         <GrowthSection />
 
+        {/* Floating Portfolio Spotlight Badge Widget */}
+        <FloatingPortfolioWidget />
+
         {/* Solutions Section (Contains H7, H8, H9 partner details) */}
         <SolutionsSection />
 
         {/* Dynamic Studio Blog & Thought Leadership Section */}
-        <BlogSection />
+        {/* <BlogSection /> */}
 
         {/* Interactive Inquiry Form */}
-        <Contact />
+        {/* <Contact /> */}
       </main>
 
       {/* Branding Footer details */}

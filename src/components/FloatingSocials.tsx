@@ -1,19 +1,39 @@
 "use client";
 
-import { useState } from "react";
-import { MessageCircle, Phone, ChevronDown, ChevronUp, Share2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, Phone, ChevronDown, ChevronUp } from "lucide-react";
 
 import { useContactStore } from "@/store";
 import { useContactDetails } from "@/hooks/useContactDetails";
 
 export default function FloatingSocials() {
   const [isOpen, setIsOpen] = useState(true);
+  const [isFooterInView, setIsFooterInView] = useState(false);
 
   // TanStack Query for Data Fetching & Caching
   const { data: contactData } = useContactDetails();
   // Zustand Store Fallback
   const storeOfficeDetails = useContactStore((state) => state.officeDetails);
   const officeDetails = contactData?.officeDetails || storeOfficeDetails;
+
+  useEffect(() => {
+    const footerElement = document.querySelector("footer");
+    if (!footerElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterInView(entry.isIntersecting);
+      },
+      { root: null, threshold: 0.05 }
+    );
+
+    observer.observe(footerElement);
+    return () => observer.disconnect();
+  }, []);
+
+  if (isFooterInView) {
+    return null;
+  }
 
   const primaryPhone = officeDetails.phones[0] || "+91-9494613601";
   const whatsappNum = primaryPhone.replace(/[^0-9]/g, "");
@@ -98,19 +118,30 @@ export default function FloatingSocials() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[9999] bg-white/90 backdrop-blur-xl border border-slate-200/80 text-pink-600 font-mono text-[9.5px] font-bold uppercase tracking-wider px-4 py-2.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 cursor-pointer group"
+        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[9999] bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:via-pink-600 hover:to-purple-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider px-4.5 py-1.5 rounded-full shadow-lg border border-white/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 cursor-pointer group select-none"
         aria-label="Open Social Links"
       >
-        <div className="w-5 h-5 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center group-hover:-translate-y-0.5 transition-transform">
-          <ChevronUp className="w-3.5 h-3.5" />
+        {/* Animated Chevron Badge */}
+        <div className="w-5.5 h-5.5 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+          <ChevronUp className="w-3.5 h-3.5 animate-bounce" />
         </div>
-        <span>Connect With Us</span>
+
+        {/* Text */}
+        <span className="tracking-wider text-white font-extrabold drop-shadow-sm">
+          Connect With Us
+        </span>
+
+        {/* Live Animated Pulse Badge */}
+        <span className="relative flex h-2.5 w-2.5 ml-0.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80" />
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 border border-white/50" />
+        </span>
       </button>
     );
   }
 
   return (
-    <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-2 sm:gap-2.5 p-2 rounded-full bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_20px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] select-none pointer-events-auto transition-all duration-300">
+    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[9999] flex items-center gap-2 sm:gap-2.5 p-2 rounded-full bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_20px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] select-none pointer-events-auto transition-all duration-300">
       {socials.map((item) => (
         <a
           key={item.name}
@@ -118,7 +149,7 @@ export default function FloatingSocials() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={item.name}
-          className={`group relative w-10 sm:w-11 h-10 sm:h-11 rounded-full ${item.bgColor} ${item.textColor} flex items-center justify-center shadow-md ${item.glow} hover:scale-115 active:scale-95 transition-all duration-300 border border-white/40`}
+          className={`group relative w-10 sm:w-9 h-10 sm:h-9 rounded-full ${item.bgColor} ${item.textColor} flex items-center justify-center shadow-md ${item.glow} hover:scale-115 active:scale-95 transition-all duration-300 border border-white/40`}
         >
           {item.icon}
 

@@ -72,12 +72,23 @@ export default function ContactModal({
 
   if (!isOpen) return null;
 
-  const serviceOptions = [
-    { label: "Web Development", icon: Laptop },
-    { label: "Mobile Apps", icon: Smartphone },
-    { label: "SEO & Growth", icon: TrendingUp },
-    { label: "Custom SaaS / Cloud", icon: Code2 },
+  const baseServiceOptions = [
+    "Web Development",
+    "Mobile App Development",
+    "Digital Marketing & SEO",
+    "Influencer Marketing",
+    "AI & Generative AI Solutions",
+    "Machine Learning Studio",
+    "SAP Cloud Services",
+    "Cloud & DevOps Engineering",
+    "Testing & Quality Assurance",
+    "Data Analytics & BI",
+    "Cybersecurity Services",
+    "Other Services"
   ];
+  
+  // Ensure the dynamically passed service is in the dropdown list
+  const serviceOptions = Array.from(new Set([...baseServiceOptions, form.service]));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -175,28 +186,25 @@ export default function ContactModal({
               {/* Step 1: Select Service */}
               <div className="space-y-1.5">
                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
-                  Select Capability
+                  Select Service
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {serviceOptions.map((svc) => {
-                    const Icon = svc.icon;
-                    const isSelected = form.service === svc.label;
-                    return (
-                      <button
-                        type="button"
-                        key={svc.label}
-                        onClick={() => setForm({ ...form, service: svc.label })}
-                        className={`flex flex-col items-center text-center p-2.5 rounded-xl border transition-all duration-200 cursor-pointer ${
-                          isSelected
-                            ? "bg-pink-50/80 border-pink-400 text-pink-700 shadow-xs scale-[1.02]"
-                            : "bg-slate-50/80 border-slate-200/80 text-slate-600 hover:border-slate-300 hover:bg-white"
-                        }`}
-                      >
-                        <Icon className={`w-4 h-4 mb-1 ${isSelected ? "text-pink-600" : "text-slate-400"}`} />
-                        <span className="text-[11px] font-bold leading-tight">{svc.label}</span>
-                      </button>
-                    );
-                  })}
+                <div className="relative">
+                  <select
+                    value={form.service}
+                    onChange={(e) => setForm({ ...form, service: e.target.value })}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-3 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs appearance-none cursor-pointer font-medium"
+                  >
+                    {serviceOptions.map((svc) => (
+                      <option key={svc} value={svc}>
+                        {svc}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
 

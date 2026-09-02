@@ -73,11 +73,11 @@ export default function Services() {
 
             return (
               <ScrollReveal key={activeIdx} direction="up" className="w-full">
-                <div className={`rounded-2xl bg-gradient-to-br ${activeSvc.bg} p-4 border border-slate-200/90 shadow-xs space-y-3 relative overflow-hidden transition-all duration-500`}>
+                <div className={`rounded-2xl bg-gradient-to-br ${activeSvc.bg} p-4 sm:p-5 border border-slate-200/90 shadow-xs space-y-4 relative overflow-hidden transition-all duration-500`}>
 
-                  {/* Top Bar: Number + Icon Image */}
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="space-y-0.5">
+                  {/* Header Title + Number */}
+                  <div className="flex items-center justify-between gap-3 pb-1 border-b border-slate-200/60">
+                    <div className="flex items-center gap-2.5">
                       <span
                         className="text-2xl font-mono font-black leading-none block"
                         style={{ color: activeSvc.color }}
@@ -91,50 +91,52 @@ export default function Services() {
                         {activeSvc.title}
                       </h3>
                     </div>
+                  </div>
 
-                    <div className="w-12 h-12 shrink-0 relative flex items-center justify-center bg-white/80 backdrop-blur-md rounded-xl p-1.5 border border-slate-200/60 shadow-2xs">
-                      <Image
-                        src={activeSvc.img}
-                        alt={activeSvc.title}
-                        width={40}
-                        height={40}
-                        className="object-contain drop-shadow-sm select-none pointer-events-none"
-                      />
-                    </div>
+                  {/* Service Visual Illustration Stage */}
+                  <div className="w-full h-44 sm:h-52 relative flex items-center justify-center rounded-xl bg-white/70 backdrop-blur-sm border border-white/80 shadow-inner p-3 overflow-hidden group">
+                    <Image
+                      src={activeSvc.img}
+                      alt={activeSvc.title}
+                      width={220}
+                      height={220}
+                      className="h-full w-auto max-h-[170px] object-contain drop-shadow-md select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                      priority
+                    />
                   </div>
 
                   {/* Description Copy */}
-                  <p className="text-slate-600 text-[11px] font-normal leading-relaxed">
+                  <p className="text-slate-600 text-xs font-normal leading-relaxed">
                     {activeSvc.desc}
                   </p>
 
                   {/* Deliverables Tags */}
-                  <div className="flex flex-wrap gap-1 pt-0.5">
+                  <div className="flex flex-wrap gap-1.5 pt-0.5">
                     {activeSvc.items.map((item, i) => (
-                      <span key={i} className={`px-2 py-0.5 rounded-full text-[8.5px] font-bold uppercase tracking-wider ${activeSvc.tag}`}>
+                      <span key={i} className={`px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider ${activeSvc.tag}`}>
                         {item}
                       </span>
                     ))}
                   </div>
 
                   {/* Bottom Action CTA Button */}
-                  <div className="pt-2.5 border-t border-slate-200/70">
+                  <div className="pt-2 border-t border-slate-200/70">
                     <Link
                       href={activeSvc.href}
-                      className="group/btn flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white border border-slate-200/90 text-slate-900 shadow-2xs hover:shadow-xs hover:border-pink-300 transition-all duration-300"
+                      className="group/btn flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-white border border-slate-200/90 text-slate-900 shadow-2xs hover:shadow-xs hover:border-pink-300 transition-all duration-300"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0" style={{ backgroundColor: activeSvc.color }} />
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-800">
+                        <span className="w-2 h-2 rounded-full animate-pulse shrink-0" style={{ backgroundColor: activeSvc.color }} />
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                           Explore {activeSvc.title} Studio
                         </span>
                       </div>
 
                       <div
-                        className="w-6 h-6 rounded-lg flex items-center justify-center text-white shadow-2xs group-hover/btn:scale-110 transition-transform duration-300 shrink-0"
+                        className="w-7 h-7 rounded-lg flex items-center justify-center text-white shadow-2xs group-hover/btn:scale-110 transition-transform duration-300 shrink-0"
                         style={{ backgroundColor: activeSvc.color }}
                       >
-                        <ArrowUpRight className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </div>
                     </Link>
                   </div>
@@ -233,16 +235,17 @@ export default function Services() {
                         </div>
                       </div>
 
-                      {/* Right: Image */}
-                      <div className="sm:col-span-4 flex items-center justify-center">
-                        <Image
-                          src={svc.img}
-                          alt={svc.title}
-                          width={130}
-                          height={130}
-                          style={{ height: "auto" }}
-                          className="object-contain drop-shadow-xl select-none pointer-events-none"
-                        />
+                      {/* Right: Image Stage */}
+                      <div className="sm:col-span-4 flex items-center justify-center p-2">
+                        <div className="w-full max-w-[220px] h-48 relative flex items-center justify-center rounded-2xl bg-white/70 backdrop-blur-sm border border-white/80 shadow-sm p-4 group">
+                          <Image
+                            src={svc.img}
+                            alt={svc.title}
+                            width={200}
+                            height={200}
+                            className="h-full w-auto max-h-[170px] object-contain drop-shadow-md select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
                       </div>
 
                     </div>

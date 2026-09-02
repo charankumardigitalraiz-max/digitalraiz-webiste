@@ -39,7 +39,7 @@ export const homeServices: HomeServiceItem[] = [
     tag: "bg-pink-100/50 text-[#3b1244]",
     desc: "Unique corporate identities driven by AI insights and creative human vision. We build brands that communicate distinctly and are built to last.",
     items: ["Brand Strategy", "Identity Design", "Logo Design", "AI-Assisted Copywriting", "Brand Guidelines"],
-    img: "/services/intelligence.webp",
+    img: "/services/service_light_3d_brain.webp",
     href: "/services#branding",
   },
   {
@@ -51,7 +51,7 @@ export const homeServices: HomeServiceItem[] = [
     tag: "bg-indigo-100/50 text-[#4f46e5]",
     desc: "High-performance web applications and native mobile apps built to scale. Clean design, usability, search-friendly structure, and clean code.",
     items: ["Next.js & React Apps", "Mobile Apps (iOS/Android)", "UI/UX Prototyping", "E-commerce Platforms", "SAP Integration"],
-    img: "/services/mobile-web.webp",
+    img: "/services/service_light_3d_phone.webp",
     href: "/services#engineering",
   },
   {
@@ -63,7 +63,7 @@ export const homeServices: HomeServiceItem[] = [
     tag: "bg-pink-100/50 text-[#3b1244]",
     desc: "Integrated campaigns designed to increase search engine visibility, brand engagement, and convert target traffic into real business results.",
     items: ["Advanced SEO", "Google Ads (PPC)", "Social Media Marketing", "Content Marketing", "Performance Campaigns"],
-    img: "/services/digital-marketing.webp",
+    img: "/services/service_light_3d_marketing.webp",
     href: "/services#marketing",
   },
   {
@@ -75,7 +75,7 @@ export const homeServices: HomeServiceItem[] = [
     tag: "bg-indigo-100/50 text-[#4f46e5]",
     desc: "High-quality visual campaigns and cinematic stories that build a stronger emotional connection with your audience across every platform.",
     items: ["Video Production", "Commercial Campaigns", "Brand Storytelling", "Motion Graphics", "Design Collaterals"],
-    img: "/services/digitalraiz_content_video_production_no_human.webp",
+    img: "/services/service_light_3d_camera.webp",
     href: "/services#production",
   },
 ];

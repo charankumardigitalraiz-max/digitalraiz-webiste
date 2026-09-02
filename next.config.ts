@@ -6,6 +6,20 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "digitalraiz.com",
+      },
+      {
+        protocol: "http",
+        hostname: "digitalraiz.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.digitalraiz.com",
+      },
+    ],
   },
 };
 

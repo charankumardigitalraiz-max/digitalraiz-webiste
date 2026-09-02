@@ -113,23 +113,23 @@ export default function GrowthSection() {
           {/* 3-Card Executive Studio Matrix (1.1 Card Ratio Horizontal Scroll on Mobile, Grid on Desktop) */}
           <div
             ref={scrollRef}
-            className="flex md:grid md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch overflow-x-auto pb-4 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 scroll-smooth"
+            className="flex md:grid md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch overflow-x-auto pt-4 pb-5 md:pt-4 md:pb-4 snap-x snap-mandatory no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 scroll-smooth"
           >
           {phases.map((svc, idx) => {
             const Icon = svc.icon;
             const isSelected = activeCard === idx;
 
             return (
-              <ScrollReveal key={idx} delay={idx * 150} direction="up" className="h-full flex flex-col w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 md:shrink snap-center">
+              <ScrollReveal key={idx} delay={idx * 150} direction="up" className="h-full flex flex-col w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 md:shrink snap-center pt-1.5 pb-1.5">
                 <div
                   onClick={() => setActiveCard(idx)}
                   className={`relative rounded-3xl p-4 sm:p-7 flex flex-col justify-between h-full transition-all duration-300 ease-out cursor-pointer group border overflow-hidden ${isSelected
-                    ? "bg-white border-pink-400 shadow-md ring-1 ring-pink-400/30 -translate-y-1"
-                    : "bg-white border-slate-200/90 shadow-2xs hover:border-pink-300 hover:shadow-md hover:-translate-y-1"
+                    ? "bg-white border-pink-400 shadow-md ring-1 ring-pink-400/30 -translate-y-1.5"
+                    : "bg-white border-slate-200/90 shadow-2xs hover:border-pink-300 hover:shadow-md hover:-translate-y-1.5"
                     }`}
                 >
-                  {/* Top Gradient Laser Bar with hover scale */}
-                  <div className={`h-1.5 w-full bg-gradient-to-r ${svc.accentGrad} rounded-t-3xl -mt-4 -mx-4 sm:-mt-7 sm:-mx-7 mb-4 transition-all duration-500 group-hover:scale-x-105`} />
+                  {/* Top Gradient Laser Bar */}
+                  <div className={`h-1.5 w-full bg-gradient-to-r ${svc.accentGrad} rounded-t-3xl -mt-4 -mx-4 sm:-mt-7 sm:-mx-7 mb-4 transition-all duration-500`} />
 
                   {/* Background Monogram Watermark */}
                   <span className="absolute top-4 right-5 text-4xl sm:text-5xl font-black text-slate-100 font-mono select-none pointer-events-none group-hover:text-pink-100 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">

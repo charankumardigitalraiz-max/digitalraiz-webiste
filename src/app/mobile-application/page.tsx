@@ -476,7 +476,7 @@ export default function MobileApplicationPage() {
         </section>
 
         {/* PLATFORM EXPLORER (Android, iOS & Cross-Platform) */}
-        <section className="py-16 bg-slate-50/60 border-y border-slate-100">
+        <section className="py-16 bg-white ">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-12">
             <ScrollReveal direction="up">
               <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -820,11 +820,10 @@ export default function MobileApplicationPage() {
                         }}
                       >
                         <h4
-                          className={`text-xs sm:text-[13px] uppercase text-center max-w-[210px] truncate transition-all duration-300 ${
-                            absOffset === 0
-                              ? 'font-bold tracking-widest text-slate-900 opacity-100'
-                              : 'font-medium tracking-wider text-slate-500 opacity-60'
-                          }`}
+                          className={`text-xs sm:text-[13px] uppercase text-center max-w-[210px] truncate transition-all duration-300 ${absOffset === 0
+                            ? 'font-bold tracking-widest text-slate-900 opacity-100'
+                            : 'font-medium tracking-wider text-slate-500 opacity-60'
+                            }`}
                           style={{
                             WebkitFontSmoothing: 'subpixel-antialiased',
                             backfaceVisibility: 'hidden',
