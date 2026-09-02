@@ -114,7 +114,7 @@ export default function WebServicePage() {
 
       <main className="flex-grow">
         {/* HERO SECTION — Modern Clean Studio Layout */}
-        <section className="relative overflow-hidden bg-white border-b border-slate-100 py-10 sm:py-14">
+        <section className="relative overflow-hidden bg-white  py-10 sm:py-14">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
 
@@ -216,7 +216,7 @@ export default function WebServicePage() {
           </div>
 
           {/* Tech stack ticker strip */}
-          <div className="border-t border-slate-100 py-3 w-full overflow-hidden mt-8">
+          <div className="py-3 w-full overflow-hidden mt-8">
             <div
               ref={techScrollRef}
               onMouseEnter={() => setTechPaused(true)}
@@ -254,7 +254,7 @@ export default function WebServicePage() {
         </section>
 
         {/* SECTION 1: WEBSITE DEVELOPMENT SERVICES BUILT AROUND YOUR BUSINESS */}
-        <section id="web-services-grid" className="py-10 sm:py-10 bg-white relative border-t border-slate-100">
+        <section id="web-services-grid" className="py-10 sm:py-10 bg-white relative ">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-8">
             <ScrollReveal direction="up">
               <div className="text-center max-w-3xl mx-auto space-y-3">

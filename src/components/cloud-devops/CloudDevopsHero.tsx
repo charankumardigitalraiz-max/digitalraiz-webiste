@@ -18,11 +18,11 @@ export default function CloudDevopsHero() {
             Cloud & DevOps Services
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Cloud & DevOps Services Built for <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">Continuous Digital Evolution</span>
           </h1>
 
-          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+          <p className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
             Digital businesses cannot afford infrastructure that becomes a constraint as applications, users and workloads grow. Digital Raiz delivers Cloud and DevOps services focused on creating technology environments that are adaptable, automated and engineered for sustained performance.
           </p>
 

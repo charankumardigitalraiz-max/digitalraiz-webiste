@@ -38,17 +38,18 @@ export default function Header() {
   }, []);
 
   const services = [
-    { name: "Web Development", href: "/web-development" },
-    { name: "Mobile App Development", href: "/mobile-application" },
-    { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },
-    { name: "Influencer Marketing", href: "/influencer-marketing" },
-    { name: "AI & Generative AI Solutions", href: "/artificial-intelligence" },
-    { name: "Machine Learning Studio", href: "/machine-learning" },
     { name: "SAP Cloud Services", href: "/sap-cloud-services" },
     { name: "Cloud & DevOps Engineering", href: "/cloud-and-devops" },
-    { name: "Testing & Quality Assurance", href: "/services" },
-    { name: "Data Analytics & BI", href: "/services" },
-    { name: "Cybersecurity Services", href: "/services" },
+    { name: "AI & Generative AI Solutions", href: "/artificial-intelligence" },
+    { name: "Data Analytics & BI", href: "/data-analytics-and-bi" },
+    { name: "Cybersecurity Services", href: "/cybersecurity-services" },
+    { name: "Web Development", href: "/web-development" },
+    { name: "Mobile App Development", href: "/mobile-application" },
+    { name: "Testing & Quality Assurance", href: "/testing-and-quality-assurance" },
+    { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },
+    { name: "Influencer Marketing", href: "/influencer-marketing" },
+    // { name: "Machine Learning Studio", href: "/machine-learning" },
+
   ];
 
   return (
