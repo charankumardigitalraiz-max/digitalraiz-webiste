@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, Poppins, Lexend } from "next/font/google";
 import FloatingSocials from "@/components/FloatingSocials";
+import FloatingPortfolioWidget from "@/components/FloatingPortfolioWidget";
 import QueryProvider from "@/providers/QueryProvider";
 import "./globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-800 relative">
         <QueryProvider>
           {children}
+          <FloatingPortfolioWidget />
           <FloatingSocials />
         </QueryProvider>
       </body>

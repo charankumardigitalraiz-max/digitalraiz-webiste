@@ -1,49 +1,10 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import {
-  Brain,
-  Database,
-  MessageSquareCode,
-  Bot,
-  CheckCircle2,
-  ArrowRight,
-  Sparkles
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { aiPillars } from "@/data/aiData";
 
 export default function CoreAiEngineeringSection() {
-  const aiPillars = [
-    {
-      step: "01",
-      title: "Predictive Analytics & Forecasting",
-      desc: "Developing Machine Learning models that analyze data patterns to deliver predictive analytics, demand forecasting, and decision support.",
-      icon: Brain,
-      gradient: "from-purple-600 via-pink-600 to-indigo-600"
-    },
-    {
-      step: "02",
-      title: "Intelligent Search & Retrieval (RAG)",
-      desc: "Building AI-powered search, document intelligence, and semantic retrieval systems using vector databases for instant contextual knowledge access.",
-      icon: Database,
-      gradient: "from-indigo-600 via-violet-600 to-purple-600"
-    },
-    {
-      step: "03",
-      title: "Generative AI & LLM Assistants",
-      desc: "Creating custom AI assistants, conversational experiences, and automated content workflows tailored to internal business processes.",
-      icon: MessageSquareCode,
-      gradient: "from-pink-600 via-rose-500 to-purple-600"
-    },
-    {
-      step: "04",
-      title: "Personalization & Recommendation Engines",
-      desc: "Integrating intelligent recommendations, user classification, and automated decision-making into web and mobile applications.",
-      icon: Bot,
-      gradient: "from-violet-600 via-indigo-600 to-pink-600"
-    }
-  ];
-
   return (
     <section className="py-10 sm:py-10 bg-gradient-to-b from-white via-purple-50/20 to-white text-slate-900 relative overflow-hidden">
       {/* Dynamic Background Architectural Dot Mesh */}
@@ -74,20 +35,16 @@ export default function CoreAiEngineeringSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
 
           {/* Left Visual AI Architecture Image Stage (lg:col-span-5) */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="relative rounded-2xl bg-white p-1 sm:p-4 overflow-hidden group h-full flex flex-col justify-center">
-
-              <div className="relative rounded-xl overflow-hidden flex-grow flex items-center justify-center">
-                <Image
+          <div className="lg:col-span-5 flex flex-col justify-center items-center">
+            <div className="relative w-full max-w-[480px] rounded-2xl bg-white p-2  group hover:shadow-xl transition-all duration-300">
+              <div className="relative w-full rounded-xl overflow-hidden  flex items-center justify-center">
+                <img
                   src="/artificial-intelligence/ai_llm_processing_core_pure_white_square.png"
                   alt="LLM RAG Vector Database & AI Engineering Architecture"
-                  width={650}
-                  height={650}
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-102 transition-transform duration-500"
-                  priority
+                  className="w-full h-auto object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 select-none pointer-events-none"
+                  style={{ imageRendering: '-webkit-optimize-contrast' }}
                 />
               </div>
-
             </div>
           </div>
 

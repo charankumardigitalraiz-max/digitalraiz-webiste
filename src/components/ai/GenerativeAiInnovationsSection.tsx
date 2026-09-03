@@ -1,64 +1,10 @@
 "use client";
 
 import React from "react";
-import {
-  Sparkles,
-  MessageSquareCode,
-  Database,
-  Cpu,
-  Eye,
-  Network,
-  Workflow,
-  CheckCircle2,
-  ArrowRight
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { aiTechMatrix } from "@/data/aiData";
 
 export default function GenerativeAiInnovationsSection() {
-  const techMatrix = [
-    {
-      name: "Generative LLM Pipelines",
-      desc: "OpenAI GPT, Claude, Llama Integrations",
-      icon: MessageSquareCode,
-      gradient: "from-pink-500 via-rose-500 to-purple-600",
-      tags: ["GPT-4o", "Claude 3.5", "Llama 3", "LangChain", "Vercel AI SDK"]
-    },
-    {
-      name: "Vector Databases & Search",
-      desc: "Pinecone, Milvus, ChromaDB, RAG Architecture",
-      icon: Database,
-      gradient: "from-indigo-600 via-violet-600 to-cyan-500",
-      tags: ["Pinecone", "Milvus", "ChromaDB", "pgvector", "Embeddings"]
-    },
-    {
-      name: "Machine Learning Studio",
-      desc: "PyTorch, TensorFlow, Scikit-learn",
-      icon: Cpu,
-      gradient: "from-purple-600 via-pink-600 to-indigo-600",
-      tags: ["PyTorch", "TensorFlow", "Scikit-learn", "HuggingFace", "CUDA"]
-    },
-    {
-      name: "Document Intelligence",
-      desc: "OCR Data Extraction & Semantic Search",
-      icon: Eye,
-      gradient: "from-emerald-500 via-teal-600 to-indigo-600",
-      tags: ["OCR Data", "PDF Parsing", "Semantic Search", "NER", "LayoutLM"]
-    },
-    {
-      name: "AI Web & App Integration",
-      desc: "Custom AI Assistant APIs",
-      icon: Network,
-      gradient: "from-blue-500 via-indigo-600 to-purple-600",
-      tags: ["REST APIs", "GraphQL", "Webhooks", "Stream Response", "Next.js AI"]
-    },
-    {
-      name: "Process Automation",
-      desc: "Intelligent Workflow Orchestration",
-      icon: Workflow,
-      gradient: "from-amber-500 via-orange-500 to-indigo-600",
-      tags: ["n8n", "AutoGPT", "Function Calling", "Agent Workflows", "Zapier"]
-    }
-  ];
-
   return (
     <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
       {/* Ambient Background Glows */}
@@ -88,7 +34,7 @@ export default function GenerativeAiInnovationsSection() {
 
         {/* 6 Tech Matrix Ecosystem Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {techMatrix.map((item, i) => {
+          {aiTechMatrix.map((item, i) => {
             const Icon = item.icon;
 
             return (

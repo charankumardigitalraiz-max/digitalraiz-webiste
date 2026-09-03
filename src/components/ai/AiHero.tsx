@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { openContactModal } from "@/components/ContactModal";
 
@@ -40,13 +39,11 @@ export default function AiHero() {
 
         {/* Right Visual AI Architecture Image Stage */}
         <div className="w-full lg:w-[540px] shrink-0">
-          <Image
+          <img
             src="/cloud-and-devops/ai-ml-genai.png"
             alt="AI Machine Learning & Generative AI Architecture"
-            width={900}
-            height={600}
-            className="w-full h-auto object-contain"
-            priority
+            className="w-full h-auto object-contain select-none pointer-events-none"
+            style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
         </div>
 
