@@ -61,10 +61,10 @@ export const blogPostsData: BlogPost[] = [
     date: "August 28, 2026",
     readTime: "5 min read",
     author: {
-      name: "Charan Kumar",
+      name: "Suman Akula",
       role: "Head of Growth Strategy",
       avatar: "/project-logs/sherla-properties.webp",
-      bio: "Charan Kumar leads growth strategy at Digital Raiz, specializing in multi-channel customer acquisition and ROI-driven digital campaigns."
+      bio: "Suman Akula leads growth strategy at Digital Raiz, specializing in multi-channel customer acquisition and ROI-driven digital campaigns."
     },
     img: "/blogs/digital-marketing-strategy.webp",
     isFeatured: true,
@@ -112,10 +112,10 @@ export const blogPostsData: BlogPost[] = [
     date: "August 24, 2026",
     readTime: "4 min read",
     author: {
-      name: "Dev Team Lead",
-      role: "Senior Full-Stack Engineer",
+      name: "Vikram Malhotra",
+      role: "VP of Web Engineering",
       avatar: "/project-logs/skanda.png",
-      bio: "Senior engineer specializing in Next.js architecture, performance engineering, and full-stack web platforms."
+      bio: "Vikram Malhotra specializes in Next.js architecture, React Server Components, and enterprise web performance engineering."
     },
     img: "/blogs/web-engineering-nextjs.webp",
     tags: ["Next.js 15", "Web Development", "React Server Components", "Page Speed"]
@@ -155,10 +155,10 @@ export const blogPostsData: BlogPost[] = [
     date: "August 18, 2026",
     readTime: "6 min read",
     author: {
-      name: "SEO Architect",
-      role: "Search Technical Specialist",
+      name: "Ananya Reddy",
+      role: "Lead Technical SEO Architect",
       avatar: "/project-logs/livewell.png",
-      bio: "SEO technical specialist focused on organic search growth, entity building, and generative AI search optimization."
+      bio: "Ananya Reddy leads search technical strategies, entity building, and generative AI search authority at Digital Raiz."
     },
     img: "/blogs/ai-seo-ranking.webp",
     tags: ["SEO", "AI Search", "Schema Markup", "Search Strategy"]
@@ -198,10 +198,10 @@ export const blogPostsData: BlogPost[] = [
     date: "August 12, 2026",
     readTime: "5 min read",
     author: {
-      name: "Mobile Lead",
+      name: "Aditya Sharma",
       role: "Principal Mobile Architect",
       avatar: "/project-logs/MediCompares_Logo.webp",
-      bio: "Mobile systems architect specialized in React Native, native Android/iOS integration, and enterprise app security."
+      bio: "Aditya Sharma leads cross-platform mobile engineering, specializing in React Native performance, security, and native integrations."
     },
     img: "/digital-marketing-service/social-vertical-3d.webp",
     tags: ["Mobile Apps", "React Native", "App Security", "iOS & Android"]
