@@ -7,9 +7,7 @@ import {
   Cloud,
   GitBranch,
   Layers,
-  Terminal,
-  CheckCircle2,
-  ArrowRight
+  Terminal
 } from "lucide-react";
 
 export default function InfrastructureAdvantage() {
@@ -78,33 +76,18 @@ export default function InfrastructureAdvantage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Left Visual Image Stage (lg:col-span-5) */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="relative rounded-2xl bg-white   p-3 sm:p-4 overflow-hidden group h-full flex flex-col justify-between">
-
-              <div className="relative rounded-xl overflow-hidden bg-slate-900/5 flex-grow flex items-center justify-center">
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="relative rounded-2xl bg-white border border-slate-200/90 shadow-xs p-3.5 sm:p-4 overflow-hidden group h-full flex flex-col">
+              <div className="relative rounded-xl overflow-hidden bg-slate-900/5 w-full h-full flex-grow min-h-[280px]">
                 <Image
                   src="/cloud-and-devops/square-realistic-cloud-devops-infrastructure.png"
                   alt="Futuristic Cloud & DevOps Infrastructure Architecture"
-                  width={650}
-                  height={450}
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-102 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover object-center rounded-xl group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
-
-                {/* Floating Top SLA Badge */}
-                {/* <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md border border-slate-200/80 px-2.5 py-1 rounded-full shadow-xs text-[10px] font-mono font-bold text-slate-800 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>99.99% SLA Uptime</span>
-                </div> */}
               </div>
-
-              {/* <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-700 px-1">
-                <span className="flex items-center gap-1.5 text-indigo-950">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  Production-Grade Setup
-                </span>
-                <span className="text-[10px] font-mono text-slate-400">AWS · Azure · GCP</span>
-              </div> */}
             </div>
           </div>
 
@@ -116,7 +99,7 @@ export default function InfrastructureAdvantage() {
               return (
                 <div
                   key={i}
-                  className={`group relative p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${pillar.accentBorder}`}
+                  className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${pillar.accentBorder}`}
                 >
                   <div className="space-y-3">
                     {/* Top Bar: Icon Badge & Step Counter */}
@@ -138,15 +121,6 @@ export default function InfrastructureAdvantage() {
                         {pillar.desc}
                       </p>
                     </div>
-                  </div>
-
-                  {/* Bottom Line */}
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-700">
-                    <span className="flex items-center gap-1.5 text-indigo-950">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      Production-Grade Setup
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               );

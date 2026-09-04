@@ -1,6 +1,7 @@
 "use client";
 
-import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles, AlertCircle } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useContactStore } from "@/store";
 
@@ -14,6 +15,150 @@ export default function ContactPageContent() {
     setFormField,
     submitForm,
   } = useContactStore();
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
+  const [copiedPhone, setCopiedPhone] = useState<string | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlSubject = params.get("subject");
+      const urlService = params.get("service");
+
+      if (urlSubject) {
+        setFormField("subject", urlSubject);
+      } else if (urlService) {
+        setFormField("subject", `Inquiry regarding ${urlService}`);
+        setFormField("service", urlService);
+      }
+    }
+  }, [setFormField]);
+
+  const validate = (fieldValues = formData) => {
+    const tempErrors: { [key: string]: string } = {};
+
+    if ("name" in fieldValues) {
+      if (!fieldValues.name.trim()) {
+        tempErrors.name = "Full name is required";
+      } else if (fieldValues.name.trim().length < 2) {
+        tempErrors.name = "Name must be at least 2 characters";
+      }
+    }
+
+    if ("phone" in fieldValues) {
+      const phoneDigits = fieldValues.phone.replace(/[^0-9]/g, "");
+      if (!fieldValues.phone.trim()) {
+        tempErrors.phone = "Phone number is required";
+      } else if (phoneDigits.length !== 10) {
+        tempErrors.phone = "Must be a valid 10-digit mobile number";
+      } else if (!/^[6-9]\d{9}$/.test(phoneDigits)) {
+        tempErrors.phone = "Please enter a valid 10-digit mobile number";
+      }
+    }
+
+    if ("email" in fieldValues) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!fieldValues.email.trim()) {
+        tempErrors.email = "Work email is required";
+      } else if (!emailRegex.test(fieldValues.email.trim())) {
+        tempErrors.email = "Please enter a valid work email address";
+      }
+    }
+
+    if ("subject" in fieldValues) {
+      if (!fieldValues.subject || !fieldValues.subject.trim()) {
+        tempErrors.subject = "Subject is required";
+      } else if (fieldValues.subject.trim().length < 3) {
+        tempErrors.subject = "Subject must be at least 3 characters";
+      }
+    }
+
+    if ("message" in fieldValues) {
+      if (!fieldValues.message.trim()) {
+        tempErrors.message = "Message details are required";
+      } else if (fieldValues.message.trim().length < 10) {
+        tempErrors.message = "Message must be at least 10 characters";
+      }
+    }
+
+    return tempErrors;
+  };
+
+  const handleFieldChange = (field: keyof typeof formData, value: string) => {
+    let sanitizedValue = value;
+    if (field === "phone") {
+      sanitizedValue = value.replace(/[^0-9]/g, "").slice(0, 10);
+    }
+    setFormField(field, sanitizedValue);
+
+    if (touched[field]) {
+      const updatedData = { ...formData, [field]: sanitizedValue };
+      const fieldErrors = validate(updatedData);
+      setErrors((prev) => ({
+        ...prev,
+        [field]: fieldErrors[field] || "",
+      }));
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const fieldErrors = validate(formData);
+    setErrors((prev) => ({
+      ...prev,
+      [field]: fieldErrors[field] || "",
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validate(formData);
+    setErrors(validationErrors);
+    setTouched({
+      name: true,
+      phone: true,
+      email: true,
+      subject: true,
+      message: true,
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    submitForm(e);
+    setErrors({});
+    setTouched({});
+  };
+
+  const handlePhoneClick = (e: React.MouseEvent, phone: string) => {
+    e.preventDefault();
+    const cleanPhone = phone.replace(/[^0-9+]/g, "");
+    window.location.href = `tel:${cleanPhone}`;
+
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(phone);
+      setCopiedPhone(phone);
+      setTimeout(() => setCopiedPhone(null), 2200);
+    }
+  };
+
+  const handleEmailClick = (e: React.MouseEvent, email: string) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(formData.subject || "Inquiry from Digital Raiz Website");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${email}&su=${subject}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    window.location.href = `mailto:${email}?subject=${subject}`;
+
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(email);
+      setCopiedEmail(email);
+      setTimeout(() => setCopiedEmail(null), 2200);
+    }
+  };
 
   return (
     <div className="relative bg-white text-slate-800 overflow-hidden min-h-screen">
@@ -40,10 +185,10 @@ export default function ContactPageContent() {
               Strategic Growth Consultation
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[0.95]">
-              Let's Build Your <span className="bg-gradient-to-r from-pink-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">Brand Together</span>
+              Let&apos;s Build Your <span className="bg-gradient-to-r from-pink-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">Brand Together</span>
             </h1>
             <p className="text-white/80 text-xs sm:text-sm font-medium leading-relaxed max-w-2xl">
-              Have any questions or comments? Drop us a line. We'd love to hear from you! Connect with our digital strategists and systems engineers in Hyderabad to design, build, and optimize your next digital platform.
+              Have any questions or comments? Drop us a line. We&apos;d love to hear from you! Connect with our digital strategists and systems engineers in Hyderabad to design, build, and optimize your next digital platform.
             </p>
           </div>
         </section>
@@ -90,11 +235,22 @@ export default function ContactPageContent() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Phone Numbers</h4>
-                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-0.5">
+                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-1">
                       {officeDetails.phones.map((phone, idx) => (
-                        <a key={idx} href={`tel:${phone.replace(/[^0-9+]/g, "")}`} className="hover:text-pink-600 transition-colors">
-                          {phone}
-                        </a>
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => handlePhoneClick(e, phone)}
+                          className="hover:text-pink-600 transition-colors text-left flex items-center gap-1.5 cursor-pointer"
+                          title="Click to call / copy phone number"
+                        >
+                          <span>{phone}</span>
+                          {copiedPhone === phone && (
+                            <span className="text-[9px] font-mono font-bold text-pink-600 bg-pink-50 px-1.5 py-0.5 rounded border border-pink-100 animate-in fade-in">
+                              Copied!
+                            </span>
+                          )}
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -107,11 +263,22 @@ export default function ContactPageContent() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Email Address</h4>
-                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-0.5">
+                    <div className="flex flex-col text-xs font-bold text-slate-800 gap-1">
                       {officeDetails.emails.map((email, idx) => (
-                        <a key={idx} href={`mailto:${email}`} className="hover:text-pink-600 transition-colors">
-                          {email}
-                        </a>
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => handleEmailClick(e, email)}
+                          className="hover:text-pink-600 transition-colors text-left flex items-center gap-1.5 cursor-pointer"
+                          title="Click to compose email / copy address"
+                        >
+                          <span>{email}</span>
+                          {copiedEmail === email && (
+                            <span className="text-[9px] font-mono font-bold text-pink-600 bg-pink-50 px-1.5 py-0.5 rounded border border-pink-100 animate-in fade-in">
+                              Copied!
+                            </span>
+                          )}
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -145,81 +312,144 @@ export default function ContactPageContent() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={submitForm} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {/* Full Name */}
                       <div className="space-y-1">
-                        <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                          Full Name *
-                        </label>
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                            Full Name *
+                          </label>
+                          {touched.name && errors.name && (
+                            <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                              <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                              {errors.name}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="text"
                           id="name"
-                          required
                           value={formData.name}
-                          onChange={(e) => setFormField("name", e.target.value)}
-                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          onChange={(e) => handleFieldChange("name", e.target.value)}
+                          onBlur={() => handleBlur("name")}
+                          className={`w-full bg-slate-50/50 border text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all font-medium placeholder:text-slate-400 focus:outline-none ${touched.name && errors.name
+                            ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
+                            }`}
                           placeholder="Full Name"
                         />
                       </div>
+
+                      {/* Phone Number */}
                       <div className="space-y-1">
-                        <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                          Phone Number *
-                        </label>
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                            Phone Number *
+                          </label>
+                          {touched.phone && errors.phone && (
+                            <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                              <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                              {errors.phone}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="tel"
                           id="phone"
-                          required
-                          pattern="[0-9]{10}"
+                          inputMode="numeric"
+                          maxLength={10}
                           value={formData.phone}
-                          onChange={(e) => setFormField("phone", e.target.value)}
-                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
-                          placeholder="Phone Number (10 digits)"
+                          onChange={(e) => handleFieldChange("phone", e.target.value)}
+                          onBlur={() => handleBlur("phone")}
+                          className={`w-full bg-slate-50/50 border text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all font-mono placeholder:text-slate-400 focus:outline-none ${touched.phone && errors.phone
+                            ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
+                            }`}
+                          placeholder="10-digit mobile number (e.g. 9494613601)"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {/* Email Address */}
                       <div className="space-y-1">
-                        <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                          Email Address *
-                        </label>
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                            Email Address *
+                          </label>
+                          {touched.email && errors.email && (
+                            <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                              <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                              {errors.email}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="email"
                           id="email"
-                          required
                           value={formData.email}
-                          onChange={(e) => setFormField("email", e.target.value)}
-                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          onChange={(e) => handleFieldChange("email", e.target.value)}
+                          onBlur={() => handleBlur("email")}
+                          className={`w-full bg-slate-50/50 border text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all font-medium placeholder:text-slate-400 focus:outline-none ${touched.email && errors.email
+                            ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
+                            }`}
                           placeholder="Email Address"
                         />
                       </div>
+
+                      {/* Subject */}
                       <div className="space-y-1">
-                        <label htmlFor="subject" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                          Subject *
-                        </label>
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="subject" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                            Subject *
+                          </label>
+                          {touched.subject && errors.subject && (
+                            <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                              <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                              {errors.subject}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="text"
                           id="subject"
-                          required
                           value={formData.subject || ""}
-                          onChange={(e) => setFormField("subject", e.target.value)}
-                          className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 font-medium placeholder:text-slate-400"
+                          onChange={(e) => handleFieldChange("subject", e.target.value)}
+                          onBlur={() => handleBlur("subject")}
+                          className={`w-full bg-slate-50/50 border text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all font-medium placeholder:text-slate-400 focus:outline-none ${touched.subject && errors.subject
+                            ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
+                            }`}
                           placeholder="Subject"
                         />
                       </div>
                     </div>
 
+                    {/* Message */}
                     <div className="space-y-1">
-                      <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
-                        Write A Message... *
-                      </label>
+                      <div className="flex items-center justify-between">
+                        <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                          Write A Message... *
+                        </label>
+                        {touched.message && errors.message && (
+                          <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                            <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                            {errors.message}
+                          </span>
+                        )}
+                      </div>
                       <textarea
                         id="message"
-                        required
                         rows={3}
                         value={formData.message}
-                        onChange={(e) => setFormField("message", e.target.value)}
-                        className="w-full bg-slate-50/50 border border-slate-200/80 focus:border-pink-500 focus:bg-white text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all focus:ring-2 focus:ring-pink-500/10 resize-none font-medium placeholder:text-slate-400"
+                        onChange={(e) => handleFieldChange("message", e.target.value)}
+                        onBlur={() => handleBlur("message")}
+                        className={`w-full bg-slate-50/50 border text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all resize-none font-medium placeholder:text-slate-400 focus:outline-none ${touched.message && errors.message
+                          ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                          : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
+                          }`}
                         placeholder="Write A Message..."
                       />
                     </div>
@@ -300,3 +530,4 @@ export default function ContactPageContent() {
     </div>
   );
 }
+

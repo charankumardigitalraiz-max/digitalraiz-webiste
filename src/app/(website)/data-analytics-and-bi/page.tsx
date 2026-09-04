@@ -26,17 +26,14 @@ import {
   Cloud,
   ChevronLeft,
   ChevronRight,
-  Send,
-  X,
   Phone,
   Mail,
-  User,
-  Building,
-  MessageSquare,
   Radio
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServiceCtaBanner from "@/components/ServiceCtaBanner";
+import { openContactModal } from "@/components/ContactModal";
 
 // ScrollReveal Wrapper
 const ScrollReveal = ({
@@ -131,37 +128,6 @@ export default function DataAnalyticsPage() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [section1Paused]);
 
-  // Contact Modal State
-  const [isContactOpen, setIsContactOpen] = useState(false);
-  const [modalService, setModalService] = useState("");
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: ""
-  });
-
-  const openContactModal = (serviceName: string) => {
-    setModalService(serviceName);
-    setIsContactOpen(true);
-    setFormSubmitted(false);
-  };
-
-  const closeContactModal = () => {
-    setIsContactOpen(false);
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setIsContactOpen(false);
-      setFormSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    }, 2500);
-  };
 
   // Continuous auto-scroll for technology ticker
   useEffect(() => {
@@ -370,7 +336,7 @@ export default function DataAnalyticsPage() {
                 <ScrollReveal direction="up" delay={250}>
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <button
-                      onClick={() => openContactModal("Data Analytics Services")}
+                      onClick={() => openContactModal("Data Analytics & BI", "Build Data Infrastructure")}
                       className="inline-flex items-center gap-2.5 py-4 px-8 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[11px] font-black uppercase tracking-wider shadow-[0_10px_25px_rgba(236,72,153,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                     >
                       <span>Build Data Infrastructure</span>
@@ -378,7 +344,7 @@ export default function DataAnalyticsPage() {
                     </button>
 
                     <button
-                      onClick={() => openContactModal("Book BI Audit")}
+                      onClick={() => openContactModal("Data Analytics & BI", "Book BI Strategy Audit")}
                       className="inline-flex items-center gap-2 py-4 px-7 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-[11px] font-bold uppercase tracking-wider hover:border-pink-300 transition-all cursor-pointer shadow-2xs"
                     >
                       <PieChart className="w-4 h-4 text-pink-500" />
@@ -501,7 +467,7 @@ export default function DataAnalyticsPage() {
                 <div key={idx} className="w-[88vw] sm:w-[540px] lg:w-[580px] min-h-[280px] sm:min-h-[260px] shrink-0">
                   <ScrollReveal direction="up" delay={idx * 60} className="h-full w-full">
                     <div
-                      onClick={() => openContactModal(`Architecture Tier: ${tier.title}`)}
+                      onClick={() => openContactModal("Data Analytics & BI", `Architecture Tier: ${tier.title}`)}
                       className="group bg-white border border-slate-200/80 hover:border-pink-300/90 rounded-lg p-5 sm:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-1.5 cursor-pointer relative flex flex-col justify-between h-full w-full"
                     >
                       {/* Top Accent Line on Hover */}
@@ -708,7 +674,7 @@ export default function DataAnalyticsPage() {
                   {/* CTA Button */}
                   <div className="pt-4 border-t border-slate-100 relative z-10">
                     <button
-                      onClick={() => openContactModal("Hire Data Engineers")}
+                      onClick={() => openContactModal("Data Analytics & BI", "Hire Dedicated Data Engineers")}
                       className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[11px] font-black uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-0 flex items-center justify-center gap-2"
                     >
                       <span>Deploy Dedicated Data Engineers</span>
@@ -773,133 +739,16 @@ export default function DataAnalyticsPage() {
 
           </div>
         </section>
+        {/* CALL TO ACTION BANNER */}
+        <ServiceCtaBanner
+          badge="Data Analytics & BI Studio"
+          title="Ready to Build Your Enterprise Data Strategy with Digital Raiz?"
+          description="Snowflake Cloud Warehousing • Real-time Streaming • PowerBI Executive Dashboards • Customer 360 in Hyderabad"
+        />
 
       </main>
 
-      {/* CONTACT MODAL */}
-      {isContactOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 sm:p-8 space-y-6">
-            <button
-              onClick={closeContactModal}
-              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
 
-            <div className="space-y-2 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-                <Database className="w-3.5 h-3.5 text-pink-500" />
-                Data Engineering Consultation
-              </div>
-              <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">
-                {modalService ? `Request ${modalService}` : "Schedule Data Strategy Call"}
-              </h3>
-              <p className="text-xs text-slate-500 font-normal">
-                Fill out the form below to connect with our senior Snowflake &amp; PowerBI data architects within 2 hours.
-              </p>
-            </div>
-
-            {formSubmitted ? (
-              <div className="py-8 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-7 h-7" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">Consultation Request Received!</h4>
-                <p className="text-xs text-slate-500">
-                  Our Data Engineering Lead will reach out shortly.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-pink-500" />
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-pink-500" />
-                      Business Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-pink-500" />
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Building className="w-3.5 h-3.5 text-pink-500" />
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Acme Corp"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                    <MessageSquare className="w-3.5 h-3.5 text-pink-500" />
-                    Data Infrastructure Requirements
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your data warehouse, PowerBI reporting, or ETL pipeline needs..."
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-0 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Data Strategy Inquiry</span>
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>

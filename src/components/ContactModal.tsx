@@ -14,12 +14,81 @@ import {
   ArrowRight,
   MessageCircle,
   Phone,
-  Mail
+  Mail,
+  AlertCircle
 } from "lucide-react";
 
-export function openContactModal(service?: string) {
+export function resolveServiceAndSubject(serviceInput?: string, subjectInput?: string): {
+  service: string;
+  subject: string;
+} {
+  const baseServiceOptions = [
+    "Web Development",
+    "Mobile App Development",
+    "AI & Generative AI Solutions",
+    "Data Analytics & BI",
+    "Cybersecurity Services",
+    "SAP Cloud Services",
+    "Cloud & DevOps Engineering",
+    "Testing & Quality Assurance",
+    "Digital Marketing & SEO",
+    "Influencer Marketing",
+    "Other Services"
+  ];
+
+  if (!serviceInput) {
+    return {
+      service: "Web Development",
+      subject: subjectInput || "General Service Proposal",
+    };
+  }
+
+  // Check exact match first
+  const exactMatch = baseServiceOptions.find(
+    (s) => s.toLowerCase() === serviceInput.trim().toLowerCase()
+  );
+  if (exactMatch) {
+    return {
+      service: exactMatch,
+      subject: subjectInput || `Inquiry regarding ${exactMatch}`,
+    };
+  }
+
+  // If serviceInput doesn't match base options directly, infer main service and treat serviceInput as subject
+  const inputLower = serviceInput.toLowerCase();
+  let resolvedService = "Other Services";
+
+  if (inputLower.includes("data") || inputLower.includes("bi") || inputLower.includes("analytics")) {
+    resolvedService = "Data Analytics & BI";
+  } else if (inputLower.includes("cyber") || inputLower.includes("security") || inputLower.includes("pentest") || inputLower.includes("vapt") || inputLower.includes("hacker")) {
+    resolvedService = "Cybersecurity Services";
+  } else if (inputLower.includes("qa") || inputLower.includes("testing") || inputLower.includes("quality")) {
+    resolvedService = "Testing & Quality Assurance";
+  } else if (inputLower.includes("web") || inputLower.includes("frontend") || inputLower.includes("backend")) {
+    resolvedService = "Web Development";
+  } else if (inputLower.includes("mobile") || inputLower.includes("app") || inputLower.includes("ios") || inputLower.includes("android")) {
+    resolvedService = "Mobile App Development";
+  } else if (inputLower.includes("ai") || inputLower.includes("ml") || inputLower.includes("intelligence") || inputLower.includes("machine learning")) {
+    resolvedService = "AI & Generative AI Solutions";
+  } else if (inputLower.includes("sap")) {
+    resolvedService = "SAP Cloud Services";
+  } else if (inputLower.includes("cloud") || inputLower.includes("devops") || inputLower.includes("aws") || inputLower.includes("azure")) {
+    resolvedService = "Cloud & DevOps Engineering";
+  } else if (inputLower.includes("seo") || inputLower.includes("digital marketing") || inputLower.includes("ppc")) {
+    resolvedService = "Digital Marketing & SEO";
+  } else if (inputLower.includes("influencer")) {
+    resolvedService = "Influencer Marketing";
+  }
+
+  return {
+    service: resolvedService,
+    subject: subjectInput || serviceInput,
+  };
+}
+
+export function openContactModal(service?: string, subject?: string) {
   if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent("open-contact-modal", { detail: { service } }));
+    window.dispatchEvent(new CustomEvent("open-contact-modal", { detail: { service, subject } }));
   }
 }
 
@@ -27,28 +96,87 @@ interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultService?: string;
+  defaultSubject?: string;
 }
 
 export default function ContactModal({
   isOpen,
   onClose,
-  defaultService = "Web Development"
+  defaultService = "Web Development",
+  defaultSubject
 }: ContactModalProps) {
+  const initialResolved = resolveServiceAndSubject(defaultService, defaultSubject);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    service: defaultService,
+    service: initialResolved.service,
+    subject: initialResolved.subject,
     message: "",
   });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const email = "info@digitalraiz.com";
+    const subject = encodeURIComponent(form.subject || `Inquiry regarding ${form.service}`);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${email}&su=${subject}`;
+
+    // Open Gmail compose tab in new window
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+
+    // Also trigger mailto: as protocol fallback
+    window.location.href = `mailto:${email}?subject=${subject}`;
+
+    // Copy email to clipboard
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2200);
+    }
+  };
+
+  const handlePhoneClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const phone = "+919494613601";
+
+    // Trigger mobile tel: protocol
+    window.location.href = `tel:${phone}`;
+
+    // Copy phone number to clipboard
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText("+91 94946 13601");
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2200);
+    }
+  };
 
   useEffect(() => {
-    if (defaultService) {
-      setForm((prev) => ({ ...prev, service: defaultService }));
+    const resolved = resolveServiceAndSubject(defaultService, defaultSubject);
+    setForm((prev) => ({
+      ...prev,
+      service: resolved.service,
+      subject: resolved.subject,
+    }));
+  }, [defaultService, defaultSubject]);
+
+  // Reset errors and touched state when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setErrors({});
+      setTouched({});
+      setSubmitted(false);
     }
-  }, [defaultService]);
+  }, [isOpen]);
 
   // Lock scroll & handle Escape key
   useEffect(() => {
@@ -75,23 +203,105 @@ export default function ContactModal({
   const baseServiceOptions = [
     "Web Development",
     "Mobile App Development",
-    "Digital Marketing & SEO",
-    "Influencer Marketing",
     "AI & Generative AI Solutions",
-    "Machine Learning Studio",
+    "Data Analytics & BI",
+    "Cybersecurity Services",
     "SAP Cloud Services",
     "Cloud & DevOps Engineering",
     "Testing & Quality Assurance",
-    "Data Analytics & BI",
-    "Cybersecurity Services",
+    "Digital Marketing & SEO",
+    "Influencer Marketing",
     "Other Services"
   ];
-  
+
   // Ensure the dynamically passed service is in the dropdown list
   const serviceOptions = Array.from(new Set([...baseServiceOptions, form.service]));
 
+  const validate = (fieldValues = form) => {
+    const tempErrors: { [key: string]: string } = {};
+
+    if ("name" in fieldValues) {
+      if (!fieldValues.name.trim()) {
+        tempErrors.name = "Full name is required";
+      } else if (fieldValues.name.trim().length < 2) {
+        tempErrors.name = "Name must be at least 2 characters";
+      }
+    }
+
+    if ("email" in fieldValues) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!fieldValues.email.trim()) {
+        tempErrors.email = "Work email is required";
+      } else if (!emailRegex.test(fieldValues.email.trim())) {
+        tempErrors.email = "Please enter a valid work email address";
+      }
+    }
+
+    if ("phone" in fieldValues) {
+      const phoneDigits = fieldValues.phone.replace(/[^0-9]/g, "");
+      if (!fieldValues.phone.trim()) {
+        tempErrors.phone = "Phone or WhatsApp number is required";
+      } else if (phoneDigits.length !== 10) {
+        tempErrors.phone = "Must be a valid 10-digit mobile number";
+      } else if (!/^[6-9]\d{9}$/.test(phoneDigits)) {
+        tempErrors.phone = "Please enter a valid 10-digit mobile number";
+      }
+    }
+
+    if ("message" in fieldValues) {
+      if (!fieldValues.message.trim()) {
+        tempErrors.message = "Message or requirement details required";
+      } else if (fieldValues.message.trim().length < 10) {
+        tempErrors.message = "Message must be at least 10 characters";
+      }
+    }
+
+    return tempErrors;
+  };
+
+  const handleChange = (field: string, value: string) => {
+    let sanitizedValue = value;
+    if (field === "phone") {
+      // Allow numeric digits only and enforce max 10 digits
+      sanitizedValue = value.replace(/[^0-9]/g, "").slice(0, 10);
+    }
+
+    const updatedForm = { ...form, [field]: sanitizedValue };
+    setForm(updatedForm);
+
+    if (touched[field]) {
+      const fieldErrors = validate(updatedForm);
+      setErrors((prev) => ({
+        ...prev,
+        [field]: fieldErrors[field] || "",
+      }));
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const fieldErrors = validate(form);
+    setErrors((prev) => ({
+      ...prev,
+      [field]: fieldErrors[field] || "",
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const validationErrors = validate(form);
+    setErrors(validationErrors);
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      message: true,
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
@@ -101,8 +311,11 @@ export default function ContactModal({
         email: "",
         phone: "",
         service: defaultService,
+        subject: defaultSubject || `Inquiry regarding ${defaultService}`,
         message: "",
       });
+      setErrors({});
+      setTouched({});
     }, 1200);
   };
 
@@ -181,18 +394,20 @@ export default function ContactModal({
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              
+            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+
               {/* Step 1: Select Service */}
-              <div className="space-y-1.5">
-                <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
-                  Select Service
-                </label>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                    Select Main Service
+                  </label>
+                </div>
                 <div className="relative">
                   <select
                     value={form.service}
-                    onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-3 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs appearance-none cursor-pointer font-medium"
+                    onChange={(e) => handleChange("service", e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-3 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs appearance-none cursor-pointer font-semibold shadow-2xs"
                   >
                     {serviceOptions.map((svc) => (
                       <option key={svc} value={svc}>
@@ -206,56 +421,116 @@ export default function ContactModal({
                     </svg>
                   </div>
                 </div>
+
+                {/* Dynamic Purpose / Focus Badge */}
+                {form.subject && form.subject !== `Inquiry regarding ${form.service}` && (
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-pink-50/90 border border-pink-100 text-xs font-semibold text-slate-800 shadow-2xs animate-in fade-in">
+                    <span className="px-2 py-0.5 rounded-md bg-gradient-to-r from-pink-500 via-rose-500 to-violet-600 text-white font-mono text-[9px] font-extrabold uppercase tracking-wider shadow-2xs shrink-0">
+                      Inquiry Focus
+                    </span>
+                    <span className="text-pink-700 font-bold truncate">{form.subject}</span>
+                  </div>
+                )}
               </div>
 
               {/* Step 2: Form Inputs */}
               <div className="space-y-3 pt-1">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Name Input */}
                   <div className="space-y-1">
-                    <span className="text-[10px] font-medium text-slate-500">Your Full Name *</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-medium text-slate-500">Your Full Name *</span>
+                      {touched.name && errors.name && (
+                        <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                          <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                          {errors.name}
+                        </span>
+                      )}
+                    </div>
                     <input
                       type="text"
-                      required
                       value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs"
+                      onChange={(e) => handleChange("name", e.target.value)}
+                      onBlur={() => handleBlur("name")}
+                      className={`w-full bg-white border rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none transition-all text-xs ${touched.name && errors.name
+                        ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                        : "border-slate-200 focus:border-pink-500"
+                        }`}
                       placeholder="e.g. Rahul Sharma"
                     />
                   </div>
 
+                  {/* Email Input */}
                   <div className="space-y-1">
-                    <span className="text-[10px] font-medium text-slate-500">Work Email *</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-medium text-slate-500">Work Email *</span>
+                      {touched.email && errors.email && (
+                        <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                          <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                          {errors.email}
+                        </span>
+                      )}
+                    </div>
                     <input
                       type="email"
-                      required
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs"
+                      onChange={(e) => handleChange("email", e.target.value)}
+                      onBlur={() => handleBlur("email")}
+                      className={`w-full bg-white border rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none transition-all text-xs ${touched.email && errors.email
+                        ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                        : "border-slate-200 focus:border-pink-500"
+                        }`}
                       placeholder="rahul@company.com"
                     />
                   </div>
                 </div>
 
+                {/* Phone Input */}
                 <div className="space-y-1">
-                  <span className="text-[10px] font-medium text-slate-500">Phone / WhatsApp Number *</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-medium text-slate-500">Phone / WhatsApp Number *</span>
+                    {touched.phone && errors.phone && (
+                      <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                        {errors.phone}
+                      </span>
+                    )}
+                  </div>
                   <input
                     type="tel"
-                    required
+                    inputMode="numeric"
+                    maxLength={10}
                     value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs"
-                    placeholder="+91-9494613601"
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    onBlur={() => handleBlur("phone")}
+                    className={`w-full bg-white border rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none transition-all text-xs font-mono ${touched.phone && errors.phone
+                        ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                        : "border-slate-200 focus:border-pink-500"
+                      }`}
+                    placeholder="Enter 10-digit mobile number (e.g. 9494613601)"
                   />
                 </div>
 
+                {/* Message Textarea */}
                 <div className="space-y-1">
-                  <span className="text-[10px] font-medium text-slate-500">Brief Message or Requirements *</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-medium text-slate-500">Brief Message or Requirements *</span>
+                    {touched.message && errors.message && (
+                      <span className="text-[10px] text-rose-500 font-medium flex items-center gap-0.5 animate-in fade-in">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
+                        {errors.message}
+                      </span>
+                    )}
+                  </div>
                   <textarea
-                    required
                     rows={3}
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-pink-500 transition-all text-xs resize-none"
+                    onChange={(e) => handleChange("message", e.target.value)}
+                    onBlur={() => handleBlur("message")}
+                    className={`w-full bg-white border rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none transition-all text-xs resize-none ${touched.message && errors.message
+                      ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                      : "border-slate-200 focus:border-pink-500"
+                      }`}
                     placeholder="Tell us about your target goals, timeline, or current challenges..."
                   />
                 </div>
@@ -278,18 +553,31 @@ export default function ContactModal({
                   )}
                 </button>
 
-                <div className="flex items-center justify-between text-[9.5px] text-slate-400 font-mono">
-                  <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3 text-emerald-500" />
-                    100% Privacy &amp; NDA Assured
+                <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[10.5px]">
+                  <span className="flex items-center gap-1.5 text-slate-500 font-medium">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>100% Privacy &amp; NDA Assured</span>
                   </span>
-                  <div className="flex items-center gap-3">
-                    <a href="tel:+919494613601" className="hover:text-pink-600 flex items-center gap-1">
-                      <Phone className="w-2.5 h-2.5" /> Call
-                    </a>
-                    <a href="mailto:info@digitalraiz.com" className="hover:text-pink-600 flex items-center gap-1">
-                      <Mail className="w-2.5 h-2.5" /> Email
-                    </a>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      type="button"
+                      onClick={handlePhoneClick}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-700 hover:text-pink-600 border border-slate-200/80 hover:border-pink-200 font-bold transition-all cursor-pointer shadow-2xs active:scale-95"
+                      title="Click to Call or Copy Phone Number"
+                    >
+                      <Phone className="w-3 h-3 text-pink-500" />
+                      <span>{copiedPhone ? "Number Copied!" : "Call Us"}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleEmailClick}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-700 hover:text-pink-600 border border-slate-200/80 hover:border-pink-200 font-bold transition-all cursor-pointer shadow-2xs active:scale-95"
+                      title="Click to Compose Email or Copy Address"
+                    >
+                      <Mail className="w-3 h-3 text-pink-500" />
+                      <span>{copiedEmail ? "Email Copied!" : "Email Us"}</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -301,3 +589,4 @@ export default function ContactModal({
     </div>
   );
 }
+

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import ServiceCtaBanner from "@/components/ServiceCtaBanner";
 import ThreeDShowcase from "@/components/ThreeDShowcase";
 import ProjectModal from "@/components/ProjectModal";
 import Link from "next/link";
@@ -676,6 +677,13 @@ export default function PortfolioPage() {
 
           </div>
         </section>
+
+        {/* CALL TO ACTION BANNER */}
+        <ServiceCtaBanner
+          badge="Engineering & Digital Innovation"
+          title="Ready to Build Your Next Custom Application with Digital Raiz?"
+          description="Explore Our Case Studies • Custom Web & Mobile Apps • Scalable Enterprise Solutions in Hyderabad"
+        />
 
         {/* FULL PROJECT BLUEPRINT LIGHTBOX MODAL */}
         <ProjectModal

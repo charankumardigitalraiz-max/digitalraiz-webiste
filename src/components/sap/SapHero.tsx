@@ -18,8 +18,11 @@ export default function SapHero() {
             SAP Cloud Services
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-            SAP Cloud Services <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">for the Intelligent Enterprise</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+            SAP Cloud Services{" "}
+            <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+              for the Intelligent Enterprise
+            </span>
           </h1>
 
           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
@@ -28,8 +31,9 @@ export default function SapHero() {
 
           <div className="flex flex-wrap gap-4 pt-2">
             <button
+              type="button"
               onClick={() => openContactModal("SAP Cloud Services")}
-              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0"
+              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer"
             >
               <span>Consult SAP Team</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />

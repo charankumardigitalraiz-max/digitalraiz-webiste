@@ -14,43 +14,43 @@ import {
 
 export default function SapCloudIntelligenceSection() {
   const sapMatrix = [
-    { 
-      name: "SAP S/4HANA Cloud", 
+    {
+      name: "SAP S/4HANA Cloud",
       desc: "Next-Gen Enterprise ERP",
       icon: Cloud,
       gradient: "from-pink-500 via-violet-500 to-indigo-600",
       tags: ["ERP", "Finance", "Supply Chain", "S/4HANA"]
     },
-    { 
-      name: "SAP Integration Suite", 
+    {
+      name: "SAP Integration Suite",
       desc: "Multi-Cloud Integration & APIs",
       icon: GitMerge,
       gradient: "from-violet-500 via-indigo-600 to-purple-600",
       tags: ["API Management", "Cloud Integration", "Event Mesh"]
     },
-    { 
-      name: "SAP BTP Platform", 
+    {
+      name: "SAP BTP Platform",
       desc: "Business Technology Extension",
       icon: Settings,
       gradient: "from-indigo-500 via-violet-600 to-pink-500",
       tags: ["AppGyver", "Kyma", "CAP", "BTP"]
     },
-    { 
-      name: "ABAP Cloud Programming", 
+    {
+      name: "ABAP Cloud Programming",
       desc: "Custom Business Logic Modules",
       icon: Code,
       gradient: "from-purple-600 via-indigo-600 to-pink-500",
       tags: ["ABAP RESTful", "Cloud Native", "OData"]
     },
-    { 
-      name: "SAP Fiori / UI5", 
+    {
+      name: "SAP Fiori / UI5",
       desc: "Intuitive Modern UX Frameworks",
       icon: ShieldCheck,
       gradient: "from-pink-500 via-rose-500 to-violet-600",
       tags: ["Fiori Elements", "UI5", "Web Components"]
     },
-    { 
-      name: "HANA Data Warehouse", 
+    {
+      name: "HANA Data Warehouse",
       desc: "Real-Time Enterprise Analytics",
       icon: BarChart3,
       gradient: "from-violet-600 via-pink-600 to-indigo-600",
@@ -129,13 +129,13 @@ export default function SapCloudIntelligenceSection() {
                 </div>
 
                 {/* Footer Status Bar */}
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                {/* <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5 text-slate-700 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                     Enterprise Grade
                   </span>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-pink-600 group-hover:translate-x-1 transition-all" />
-                </div>
+                </div> */}
               </div>
             );
           })}

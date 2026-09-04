@@ -141,13 +141,13 @@ export default function ContinuousDeliverySection() {
                 </div>
 
                 {/* Footer Status Bar */}
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                {/* <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5 text-slate-700 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                     Production Ready
                   </span>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-pink-600 group-hover:translate-x-1 transition-all" />
-                </div>
+                </div> */}
               </div>
             );
           })}

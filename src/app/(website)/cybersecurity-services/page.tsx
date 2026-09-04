@@ -18,23 +18,21 @@ import {
   Server,
   Cloud,
   FileCheck,
-  Send,
-  X,
   Phone,
   Mail,
-  User,
-  Building,
-  MessageSquare,
   Users,
   Workflow,
   Cpu,
   Radar,
   Radio,
   Sliders,
-  Check
+  Check,
+  Globe
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServiceCtaBanner from "@/components/ServiceCtaBanner";
+import { openContactModal } from "@/components/ContactModal";
 
 // ScrollReveal Wrapper
 const ScrollReveal = ({
@@ -103,37 +101,7 @@ export default function CybersecurityServicesPage() {
   // Active Security Module Tab (Unique Interactive Feature)
   const [activeModuleIdx, setActiveModuleIdx] = useState(0);
 
-  // Contact Modal State
-  const [isContactOpen, setIsContactOpen] = useState(false);
-  const [modalService, setModalService] = useState("");
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: ""
-  });
 
-  const openContactModal = (serviceName: string) => {
-    setModalService(serviceName);
-    setIsContactOpen(true);
-    setFormSubmitted(false);
-  };
-
-  const closeContactModal = () => {
-    setIsContactOpen(false);
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setIsContactOpen(false);
-      setFormSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    }, 2500);
-  };
 
   // Continuous auto-scroll for security tech stack ticker
   useEffect(() => {
@@ -330,7 +298,7 @@ export default function CybersecurityServicesPage() {
               </ScrollReveal>
 
               {/* Action Buttons */}
-              <ScrollReveal direction="up" delay={200}>
+              {/* <ScrollReveal direction="up" delay={200}>
                 <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
                   <button
                     onClick={() => openContactModal("Cybersecurity Services")}
@@ -348,7 +316,7 @@ export default function CybersecurityServicesPage() {
                     <span>Schedule Pentest Call</span>
                   </button>
                 </div>
-              </ScrollReveal>
+              </ScrollReveal> */}
 
             </div>
 
@@ -613,7 +581,7 @@ export default function CybersecurityServicesPage() {
                         </div>
 
                         <button
-                          onClick={() => openContactModal(`Pillar: ${activePillar.title}`)}
+                          onClick={() => openContactModal("Cybersecurity Services", `Pillar: ${activePillar.title}`)}
                           className="py-3 px-6 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 text-white text-[11px] font-bold uppercase tracking-wider shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer border-0 flex items-center gap-2"
                         >
                           <span>Deploy Capability</span>
@@ -789,7 +757,7 @@ export default function CybersecurityServicesPage() {
                   {/* CTA Button */}
                   <div className="pt-4 border-t border-slate-100 relative z-10">
                     <button
-                      onClick={() => openContactModal("Hire Ethical Hackers")}
+                      onClick={() => openContactModal("Cybersecurity Services", "Hire Dedicated Ethical Hackers")}
                       className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[11px] font-black uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-0 flex items-center justify-center gap-2"
                     >
                       <span>Deploy Ethical Hacking Squad</span>
@@ -854,133 +822,16 @@ export default function CybersecurityServicesPage() {
 
           </div>
         </section>
+        {/* CALL TO ACTION BANNER */}
+        <ServiceCtaBanner
+          badge="Cybersecurity & Threat Defense"
+          title="Ready to Secure Your Enterprise Infrastructure with Digital Raiz?"
+          description="Zero-Trust Architecture • VAPT Pentesting • 24/7 SIEM SOC • ISO 27001 Compliance in Hyderabad"
+        />
 
       </main>
 
-      {/* CONTACT MODAL */}
-      {isContactOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 sm:p-8 space-y-6">
-            <button
-              onClick={closeContactModal}
-              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
 
-            <div className="space-y-2 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-                <ShieldCheck className="w-3.5 h-3.5 text-pink-500" />
-                Cybersecurity Audit Inquiry
-              </div>
-              <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">
-                {modalService ? `Request ${modalService}` : "Schedule Security Strategy Call"}
-              </h3>
-              <p className="text-xs text-slate-500 font-normal">
-                Fill out the form below to connect with our senior CISSP cybersecurity architects within 2 hours.
-              </p>
-            </div>
-
-            {formSubmitted ? (
-              <div className="py-8 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-7 h-7" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">Security Inquiry Received!</h4>
-                <p className="text-xs text-slate-500">
-                  Our Cybersecurity Lead will contact you shortly under strict NDA.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-pink-500" />
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-pink-500" />
-                      Business Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-pink-500" />
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                      <Building className="w-3.5 h-3.5 text-pink-500" />
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Acme Enterprise"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-                    <MessageSquare className="w-3.5 h-3.5 text-pink-500" />
-                    Security &amp; Pentesting Requirements
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your VAPT pentesting, SOC2 compliance, or zero-trust security needs..."
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-pink-500 focus:bg-white transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-0 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Security Audit Inquiry</span>
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>

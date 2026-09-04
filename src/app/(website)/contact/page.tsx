@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Contact from "@/components/home/Contact";
+import ContactPageContent from "@/components/contact/ContactPageContent";
 
 export const metadata = {
   title: "Contact Our Agency | Digital Raiz",
@@ -11,8 +11,8 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Header />
-      <main className="flex-grow pt-16 bg-white">
-        <Contact />
+      <main className="flex-grow bg-white">
+        <ContactPageContent />
       </main>
       <Footer />
     </div>

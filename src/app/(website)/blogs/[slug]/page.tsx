@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ArticleShareBookmarkBar from "@/components/blogs/ArticleShareBookmarkBar";
 import { blogPostsData, getBlogPostBySlug } from "@/data/blogsData";
 import {
   Sparkles,
@@ -90,7 +91,7 @@ export default async function SingleBlogPage({ params }: Props) {
         {/* ========================================================================= */}
         {/* 1. HERO HEADER SECTION — Elegant Editorial Title & Publication Metadata   */}
         {/* ========================================================================= */}
-        <section className="pt-12 pb-12 bg-gradient-to-b from-slate-50/80 via-white to-white border-b border-slate-100">
+        <section className="pt-12 pb-8 bg-gradient-to-b from-slate-50/80 via-white to-white border-b border-slate-100">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-8">
 
             {/* Top Navigation Row */}
@@ -152,7 +153,7 @@ export default async function SingleBlogPage({ params }: Props) {
             </div>
 
             {/* Full-Width Featured Cover Image */}
-            <div className="w-full h-72 sm:h-96 lg:h-[460px] rounded-3xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-lg relative">
+            <div className="w-full h-72 sm:h-96 lg:h-[460px] rounded-lg overflow-hidden bg-slate-100 border border-slate-200/80 relative">
               <img src={post.img} alt={post.title} className="w-full h-full object-cover" />
             </div>
 
@@ -162,7 +163,7 @@ export default async function SingleBlogPage({ params }: Props) {
         {/* ========================================================================= */}
         {/* 2. 2-COLUMN PUBLICATION LAYOUT (8 Cols Content / 4 Cols Sticky Sidebar)   */}
         {/* ========================================================================= */}
-        <section className="py-14 bg-white">
+        <section className="py-10 bg-white">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
@@ -316,19 +317,11 @@ export default async function SingleBlogPage({ params }: Props) {
                   </div>
 
                   {/* Bookmark & Share Bar */}
-                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between text-xs font-bold text-slate-600">
-                    <span className="flex items-center gap-1.5">
-                      <Bookmark className="w-4 h-4 text-pink-500" />
-                      <span>Bookmark Article</span>
-                    </span>
-                    <Link
-                      href="/blogs"
-                      className="text-pink-600 hover:underline flex items-center gap-1"
-                    >
-                      <span>Share</span>
-                      <Share2 className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
+                  <ArticleShareBookmarkBar
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    slug={post.slug}
+                  />
 
                 </div>
               </div>

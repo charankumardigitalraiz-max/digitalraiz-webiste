@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import ServiceCtaBanner from "@/components/ServiceCtaBanner";
 import { openContactModal } from "@/components/ContactModal";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
@@ -269,7 +270,7 @@ export default function TestingAndQAPage() {
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
                   <button
-                    onClick={() => openContactModal("Testing & Quality Assurance")}
+                    onClick={() => openContactModal("Testing & Quality Assurance", "Request Free QA Audit")}
                     className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer border-0"
                   >
                     <span>Request Free QA Audit</span>
@@ -412,7 +413,7 @@ export default function TestingAndQAPage() {
                 return (
                   <ScrollReveal key={idx} delay={(idx % 3) * 60} direction="up" className="h-full">
                     <div
-                      onClick={() => openContactModal(`QA: ${svc.title}`)}
+                      onClick={() => openContactModal("Testing & Quality Assurance", `QA: ${svc.title}`)}
                       className="group relative bg-white border border-slate-200/80 hover:border-pink-300/80 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1.5 h-full flex flex-col justify-between space-y-5 cursor-pointer overflow-hidden"
                     >
                       {/* Top Accent Line on Hover */}
@@ -633,7 +634,7 @@ export default function TestingAndQAPage() {
 
                     <div className="pt-2">
                       <button
-                        onClick={() => openContactModal("Hire QA Engineers")}
+                        onClick={() => openContactModal("Testing & Quality Assurance", "Hire Dedicated QA Engineers")}
                         className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-[10.5px] font-bold uppercase tracking-wider shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                       >
                         <span>Deploy Dedicated QA Engineers</span>
@@ -699,6 +700,12 @@ export default function TestingAndQAPage() {
             </ScrollReveal>
           </div>
         </section>
+        {/* CALL TO ACTION BANNER */}
+        <ServiceCtaBanner
+          badge="Software Testing & Quality Assurance"
+          title="Ready to Deliver Flawless Software with Digital Raiz?"
+          description="Automated CI/CD Regression • OWASP Security Audits • JMeter Load Profiling • 50+ Device Lab in Hyderabad"
+        />
 
       </main>
 

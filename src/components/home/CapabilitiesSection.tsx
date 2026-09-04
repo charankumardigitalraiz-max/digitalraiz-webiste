@@ -99,30 +99,30 @@ export default function CapabilitiesSection() {
 
           {/* LEFT COLUMN: Streamlined Compact Studio Card (lg:col-span-4) */}
           <ScrollReveal direction="left" className="lg:col-span-4 flex flex-col">
-            <div className="rounded-2xl bg-gradient-to-br from-slate-50/90 via-white to-pink-50/20 p-5 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
+            <div className="rounded-2xl bg-gradient-to-br from-slate-50/90 via-white to-pink-50/20 p-5 border border-slate-200/90 shadow-md shadow-slate-200/50 flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
               {/* Top Laser Accent */}
-              <div className="h-1 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-2xl -mt-5 -mx-5 mb-3" />
+              <div className="h-1.5 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-2xl -mt-5 -mx-5 mb-3" />
 
               <div className="space-y-3.5">
                 {/* Identifier Tag */}
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-pink-50 border border-pink-100 text-[9.5px] font-mono font-semibold text-pink-600">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-pink-50 border border-pink-100/90 text-[9.5px] font-mono font-bold text-pink-600 uppercase tracking-wider shadow-2xs">
                     <Cpu className="w-3 h-3 text-pink-500" />
                     {activeStudio === "web" ? "Studio 01 • Web" : "Studio 02 • Mobile"}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">
+                  <span className="text-[10px] font-mono font-bold text-slate-400">
                     Hyderabad Studio
                   </span>
                 </div>
 
                 {/* Studio Title & Subtitle */}
-                <div className="space-y-0.5">
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight leading-snug">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-black text-[#1e1b4b] tracking-tight leading-snug">
                     {activeStudio === "web"
                       ? "Website Development in Hyderabad"
                       : "Mobile App Development in Hyderabad"}
                   </h3>
-                  <p className="text-[11px] font-semibold text-pink-600 uppercase tracking-wider">
+                  <p className="text-[10.5px] font-mono font-bold text-pink-600 uppercase tracking-wider">
                     {activeStudio === "web" ? "Modern Digital Experiences" : "Scalable Applications"}
                   </p>
                 </div>
@@ -135,7 +135,7 @@ export default function CapabilitiesSection() {
                 </p>
 
                 {/* Guarantees 2x2 Grid */}
-                <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-slate-100 text-[11px] text-slate-700 font-medium">
+                <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-slate-100 text-[11px] text-slate-800 font-bold">
                   {(activeStudio === "web"
                     ? [
                       "SEO Architecture",
@@ -151,7 +151,9 @@ export default function CapabilitiesSection() {
                     ]
                   ).map((item, i) => (
                     <div key={i} className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3 h-3 text-pink-500 shrink-0" />
+                      <span className="w-4 h-4 rounded-full bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-3 h-3 text-pink-600" />
+                      </span>
                       <span className="truncate">{item}</span>
                     </div>
                   ))}
@@ -165,7 +167,7 @@ export default function CapabilitiesSection() {
                   ).map((tech, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-slate-50 text-slate-700 border border-slate-200/80 hover:border-pink-300 hover:text-pink-600 hover:bg-pink-50/50 transition-all duration-200 cursor-default"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[9.5px] font-mono font-bold bg-slate-100/80 text-slate-700 border border-slate-200/90 hover:border-pink-300 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200 cursor-default shadow-2xs"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0" />
                       <span>{tech}</span>
@@ -176,30 +178,30 @@ export default function CapabilitiesSection() {
 
               {/* Bottom Metrics & CTA */}
               <div className="space-y-2.5 pt-3 border-t border-slate-100">
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                <div className="flex items-center justify-between p-2 rounded-xl bg-gradient-to-r from-slate-50 via-white to-pink-50/20 border border-slate-200/80 text-center shadow-2xs">
                   <div className="flex-1">
-                    <div className="text-sm font-extrabold text-slate-900">
+                    <div className="text-sm font-black text-[#1e1b4b]">
                       {activeStudio === "web" ? "100+" : "50+"}
                     </div>
-                    <div className="text-[9.5px] text-slate-500 font-medium">
+                    <div className="text-[9px] text-slate-500 font-mono font-bold uppercase tracking-wider">
                       {activeStudio === "web" ? "Websites" : "Apps"}
                     </div>
                   </div>
                   <div className="h-6 w-px bg-slate-200/70" />
                   <div className="flex-1">
-                    <div className="text-sm font-extrabold text-pink-600">
+                    <div className="text-sm font-black text-pink-600">
                       {activeStudio === "web" ? "99.9%" : "4.9★"}
                     </div>
-                    <div className="text-[9.5px] text-slate-500 font-medium">
+                    <div className="text-[9px] text-slate-500 font-mono font-bold uppercase tracking-wider">
                       {activeStudio === "web" ? "Uptime SLA" : "Rating"}
                     </div>
                   </div>
                   <div className="h-6 w-px bg-slate-200/70" />
                   <div className="flex-1">
-                    <div className="text-sm font-extrabold text-slate-900">
+                    <div className="text-sm font-black text-[#1e1b4b]">
                       100%
                     </div>
-                    <div className="text-[9.5px] text-slate-500 font-medium">
+                    <div className="text-[9px] text-slate-500 font-mono font-bold uppercase tracking-wider">
                       Ownership
                     </div>
                   </div>
@@ -207,10 +209,10 @@ export default function CapabilitiesSection() {
 
                 <Link
                   href={activeStudio === "web" ? "/web-development" : "/mobile-application"}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-bold text-xs tracking-wide transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
                 >
                   <span>{activeStudio === "web" ? "Explore Web Studio" : "Explore Mobile Studio"}</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-pink-200" />
                 </Link>
               </div>
             </div>

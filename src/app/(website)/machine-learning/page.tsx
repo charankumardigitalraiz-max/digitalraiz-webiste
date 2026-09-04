@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import ServiceCtaBanner from "@/components/ServiceCtaBanner";
 import { ArrowRight, BrainCircuit, BarChart, Settings, Database, LineChart, Shield, CheckCircle2, Sparkles } from "lucide-react";
 
 export const metadata = {
@@ -137,21 +138,12 @@ export default function MlServicePage() {
           </div>
         </section>
 
-        {/* Call to Action Banner */}
-        <section className="py-12 bg-gradient-to-r from-orange-500 to-indigo-600 text-white relative overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6 w-full flex flex-col sm:flex-row gap-6 justify-between items-center relative z-10">
-            <div className="space-y-1">
-              <h3 className="text-lg sm:text-xl font-black uppercase tracking-tight">Need Predictive Data Models?</h3>
-              <p className="text-white/85 text-xs font-light max-w-lg">Get in touch with our machine learning engineers to review database schemas and plan predictive models.</p>
-            </div>
-            <Link 
-              href="/contact" 
-              className="py-3 px-6 rounded-xl bg-white text-slate-900 text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-slate-50 transition-transform active:scale-98"
-            >
-              Consult ML Specialists
-            </Link>
-          </div>
-        </section>
+        {/* CALL TO ACTION BANNER */}
+        <ServiceCtaBanner
+          badge="Machine Learning & Data Models"
+          title="Need Predictive Data Models & Neural Processing?"
+          description="TensorFlow • PyTorch • Predictive Analytics • Anomaly Detection Solutions in Hyderabad"
+        />
       </main>
 
       <Footer />

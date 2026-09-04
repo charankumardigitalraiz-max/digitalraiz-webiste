@@ -15,6 +15,7 @@ export default function Header() {
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [modalService, setModalService] = useState("Web Development");
+  const [modalSubject, setModalSubject] = useState("");
 
   // TanStack Query for Data Fetching & Caching
   const { data: contactData } = useContactDetails();
@@ -28,6 +29,11 @@ export default function Header() {
       if (customEvent.detail?.service) {
         setModalService(customEvent.detail.service);
       }
+      if (customEvent.detail?.subject) {
+        setModalSubject(customEvent.detail.subject);
+      } else if (customEvent.detail?.service) {
+        setModalSubject(`Inquiry regarding ${customEvent.detail.service}`);
+      }
       setContactModalOpen(true);
     };
 
@@ -38,13 +44,13 @@ export default function Header() {
   }, []);
 
   const services = [
-    { name: "SAP Cloud Services", href: "/sap-cloud-services" },
-    { name: "Cloud & DevOps Engineering", href: "/cloud-and-devops" },
+    { name: "Web Development", href: "/web-development" },
+    { name: "Mobile App Development", href: "/mobile-application" },
     { name: "AI & Generative AI Solutions", href: "/artificial-intelligence" },
     { name: "Data Analytics & BI", href: "/data-analytics-and-bi" },
     { name: "Cybersecurity Services", href: "/cybersecurity-services" },
-    { name: "Web Development", href: "/web-development" },
-    { name: "Mobile App Development", href: "/mobile-application" },
+    { name: "SAP Cloud Services", href: "/sap-cloud-services" },
+    { name: "Cloud & DevOps Engineering", href: "/cloud-and-devops" },
     { name: "Testing & Quality Assurance", href: "/testing-and-quality-assurance" },
     { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },
     { name: "Influencer Marketing", href: "/influencer-marketing" },
@@ -359,6 +365,8 @@ export default function Header() {
       <ContactModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
+        defaultService={modalService}
+        defaultSubject={modalSubject}
       />
     </>
   );

@@ -7,9 +7,7 @@ import {
   Cloud,
   GitMerge,
   Database,
-  FileCheck,
-  CheckCircle2,
-  ArrowRight
+  FileCheck
 } from "lucide-react";
 
 export default function SapConnectedEnterpriseSection() {
@@ -78,20 +76,18 @@ export default function SapConnectedEnterpriseSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Left Visual Image Stage (lg:col-span-5) */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="relative rounded-2xl bg-white p-3 sm:p-4 overflow-hidden group h-full flex flex-col justify-between">
-
-              <div className="relative rounded-xl overflow-hidden bg-slate-900/5 flex-grow flex items-center justify-center">
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="relative rounded-2xl bg-white p-3  overflow-hidden group h-full flex flex-col justify-between">
+              <div className="relative w-full h-full min-h-[280px] rounded-xl overflow-hidden bg-slate-900/5">
                 <Image
                   src="/sap/enterprise_server_square.png"
                   alt="SAP Cloud Infrastructure Architecture"
-                  width={650}
-                  height={450}
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-102 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
               </div>
-
             </div>
           </div>
 
@@ -103,9 +99,9 @@ export default function SapConnectedEnterpriseSection() {
               return (
                 <div
                   key={i}
-                  className={`group relative p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${pillar.accentBorder}`}
+                  className={`group relative p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${pillar.accentBorder}`}
                 >
-                  <div className="space-y-3">
+                  <div className="space-y-3.5">
                     {/* Top Bar: Icon Badge & Step Counter */}
                     <div className="flex items-center justify-between">
                       <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${pillar.gradient} flex items-center justify-center text-white shadow-md shadow-pink-500/15 group-hover:scale-105 transition-transform duration-300`}>
@@ -118,22 +114,13 @@ export default function SapConnectedEnterpriseSection() {
 
                     {/* Title & Description */}
                     <div className="space-y-1.5">
-                      <h3 className="text-sm font-bold text-slate-900 tracking-tight group-hover:text-pink-600 transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 tracking-tight group-hover:text-pink-600 transition-colors">
                         {pillar.title}
                       </h3>
-                      <p className="text-slate-600 text-xs leading-relaxed font-light">
+                      <p className="text-slate-600 text-xs leading-relaxed font-normal">
                         {pillar.desc}
                       </p>
                     </div>
-                  </div>
-
-                  {/* Bottom Line */}
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-700">
-                    <span className="flex items-center gap-1.5 text-indigo-950">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      Enterprise SAP Solutions
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-pink-600 group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               );

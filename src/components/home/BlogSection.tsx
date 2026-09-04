@@ -271,7 +271,7 @@ export default function BlogSection() {
         <ScrollReveal direction="up" delay={100}>
           <div className="bg-slate-50/80 border border-slate-200/90 rounded-lg p-4 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="space-y-1">
-              <h3 className="text-lg font-extrabold uppercase tracking-tight text-[#1e1b4b]">
+              <h3 className="text-lg font-extrabold  tracking-tight text-[#1e1b4b]">
                 Looking for All Industry Insights & Playbooks?
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm font-normal">
