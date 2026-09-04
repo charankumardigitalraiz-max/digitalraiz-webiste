@@ -29,8 +29,8 @@ export default function Footer() {
     { label: "Portfolio", href: "/portfolio", icon: Laptop },
     { label: "Blogs", href: "/blogs", icon: TrendingUp },
     { label: "Contact", href: "/contact", icon: Headphones },
-    { label: "Privacy Policy", href: "#", icon: CheckCircle2 },
-    { label: "Terms & Conditions", href: "#", icon: CheckCircle2 },
+    {label: "Privacy Policy", href: "/privacy-policy", icon: CheckCircle2 },
+    { label: "Terms & Conditions", href: "/terms-and-conditions", icon: CheckCircle2 },
     { label: "SiteMap", href: "#", icon: ExternalLink }
   ];
 
@@ -223,8 +223,8 @@ export default function Footer() {
         <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 relative z-20">
           <p>© {new Date().getFullYear()} Digital Raiz. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-pink-600 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-pink-600 transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="hover:text-pink-600 transition-colors">Privacy Policy</a>
+            <a href="/terms-and-conditions" className="hover:text-pink-600 transition-colors">Terms of Service</a>
             {/* <a
               href="https://digitalraiz.com/"
               target="_blank"
