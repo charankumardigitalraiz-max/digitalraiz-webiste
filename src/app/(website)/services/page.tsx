@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Code,
@@ -212,48 +213,92 @@ export default function ServicesPage() {
       <Header />
 
       <main className="flex-grow">
+        {/* HERO SECTION WITH FULL SCREEN HERO BANNER IMAGE */}
+        {/* <section className="relative w-full h-screen min-h-screen overflow-hidden bg-slate-950 border-b border-slate-800">
+          <Image
+            src="/services/hero-banner.jpg"
+            alt="Digital Raiz Services Hero Banner"
+            fill
+            className="object-cover object-center w-full h-full"
+            priority
+          />
+        </section> */}
 
-
-        <section className="relative py-8 lg:py-0 overflow-hidden bg-[#060914] text-white border-b border-slate-800/80 w-full h-auto lg:h-screen min-h-[640px] flex items-center justify-center">
+        {/* 360-DEGREE ENTERPRISE SERVICES CONSTELLATION HERO */}
+        <section className="relative overflow-hidden bg-[#060914] text-white border-b border-slate-800/80 w-full h-screen min-h-screen max-h-screen flex items-center justify-center select-none">
 
           {/* Multi-Layer Cosmic Ambient Glow Orbs */}
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[650px] bg-gradient-to-tr from-pink-600/20 via-violet-600/20 to-indigo-600/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[950px] h-[650px] bg-gradient-to-tr from-pink-600/20 via-violet-600/20 to-indigo-600/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
           <div className="absolute -bottom-40 -left-20 w-[600px] h-[600px] bg-cyan-500/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
           <div className="absolute -bottom-40 -right-20 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
           {/* Futuristic Cyber Constellation Grid Overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_75%,transparent_100%)]" />
 
-          {/* Concentric Cosmic Orbit Rings (Centering around DigitalRaiz Logo Core) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] xl:w-[580px] xl:h-[580px] rounded-full border border-pink-500/15 animate-spin-slow pointer-events-none hidden lg:block" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] xl:w-[390px] xl:h-[390px] rounded-full border border-indigo-500/20 pointer-events-none hidden lg:block" />
+          {/* Concentric Cosmic Orbit Rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] xl:w-[780px] xl:h-[780px] rounded-full border border-pink-500/15 animate-spin-slow pointer-events-none hidden lg:block" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] xl:w-[520px] xl:h-[520px] rounded-full border border-indigo-500/20 pointer-events-none hidden lg:block" />
 
-          {/* Floating Twinkling Star Particles */}
+          {/* RADIATING POWER ENERGY BEAMS CONNECTING DIGITAL RAIZ CORE TO EVERY SERVICE NODE */}
+          <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-15 overflow-visible">
+            <defs>
+              <linearGradient id="powerBeamLine" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ec4899" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#a855f7" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
+            {[
+              { x: "50%", y: "10%" },
+              { x: "85%", y: "18%" },
+              { x: "92%", y: "41%" },
+              { x: "92%", y: "61%" },
+              { x: "85%", y: "85%" },
+              { x: "50%", y: "92%" },
+              { x: "15%", y: "85%" },
+              { x: "8%",  y: "61%" },
+              { x: "8%",  y: "41%" },
+              { x: "15%", y: "18%" }
+            ].map((pt, i) => (
+              <g key={i}>
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2={pt.x}
+                  y2={pt.y}
+                  stroke="url(#powerBeamLine)"
+                  strokeWidth="1.5"
+                  strokeDasharray="6 6"
+                  className="animate-dash opacity-60"
+                />
+              </g>
+            ))}
+          </svg>
+
+          {/* Floating Particles */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-[14%] left-[16%] w-2.5 h-2.5 rounded-full bg-pink-400 animate-pulse shadow-lg shadow-pink-500" />
             <div className="absolute top-[22%] right-[20%] w-3 h-3 rounded-full bg-cyan-400 animate-pulse shadow-lg shadow-cyan-500" />
             <div className="absolute bottom-[24%] left-[22%] w-2 h-2 rounded-full bg-purple-400 animate-pulse shadow-lg shadow-purple-500" />
             <div className="absolute bottom-[16%] right-[18%] w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse shadow-lg shadow-indigo-500" />
-            <div className="absolute top-[50%] left-[8%] w-2 h-2 rounded-full bg-pink-400/70 animate-particle-4" />
-            <div className="absolute top-[48%] right-[10%] w-2 h-2 rounded-full bg-sky-400/70 animate-particle-1" />
           </div>
 
           {/* DESKTOP 360-DEGREE SYMMETRICAL SOLAR CONSTELLATION ORBIT POSITIONS */}
-          <div className="hidden lg:block absolute inset-0 max-w-7xl mx-auto pointer-events-none z-20">
+          <div className="hidden lg:block absolute inset-0 max-w-6xl mx-auto pointer-events-none z-20">
             {serviceCards.map((service, idx) => {
               const isSelected = activeCategory === "all" || service.category === activeCategory;
 
               const spaceOrbitPositions = [
-                "top-[3%] left-1/2 -translate-x-1/2",    // 0: SAP Cloud (Top Center: -90°)
-                "top-[13%] right-[7%]",                   // 1: Cloud & DevOps (Top Right: -54°)
-                "top-[36%] right-[1.5%]",                 // 2: AI & GenAI (Mid-Upper Right: -18°)
-                "top-[61%] right-[1.5%]",                 // 3: Data Analytics (Mid-Lower Right: +18°)
-                "bottom-[7%] right-[7%]",                 // 4: Cybersecurity (Bottom Right: +54°)
-                "bottom-[2%] left-1/2 -translate-x-1/2",  // 5: Web Dev (Bottom Center: +90°)
-                "bottom-[7%] left-[7%]",                  // 6: Mobile Apps (Bottom Left: +126°)
-                "top-[61%] left-[1.5%]",                  // 7: Testing & QA (Mid-Lower Left: +162°)
-                "top-[36%] left-[1.5%]",                  // 8: Digital Marketing (Mid-Upper Left: +198°)
-                "top-[13%] left-[7%]"                     // 9: Influencer Marketing (Top Left: +234°)
+                "top-[6%] left-1/2 -translate-x-1/2",     // 0: SAP Cloud (Top Center)
+                "top-[15%] right-[9%]",                   // 1: Cloud & DevOps (Top Right)
+                "top-[38%] right-[5%]",                   // 2: AI & GenAI (Mid-Upper Right)
+                "top-[58%] right-[5%]",                   // 3: Data Analytics (Mid-Lower Right)
+                "bottom-[11%] right-[9%]",                // 4: Cybersecurity (Bottom Right)
+                "bottom-[4%] left-1/2 -translate-x-1/2",  // 5: Web Dev (Bottom Center)
+                "bottom-[11%] left-[9%]",                 // 6: Mobile Apps (Bottom Left)
+                "top-[58%] left-[5%]",                    // 7: Testing & QA (Mid-Lower Left)
+                "top-[38%] left-[5%]",                    // 8: Digital Marketing (Mid-Upper Left)
+                "top-[15%] left-[9%]"                     // 9: Influencer Marketing (Top Left)
               ];
 
               const particleAnimClasses = [
@@ -270,21 +315,24 @@ export default function ServicesPage() {
                 <Link
                   key={idx}
                   href={service.href}
-                  className={`absolute pointer-events-auto group px-3.5 py-2.5 sm:px-4.5 sm:py-3 rounded-full transition-all duration-500 flex items-center gap-3 cursor-pointer backdrop-blur-2xl ${spaceOrbitPositions[idx]} ${particleAnimClasses[idx % 5]} hover:[animation-play-state:paused] hover:scale-105 hover:-translate-y-2 ${isSelected
-                    ? `bg-slate-900/95 border-2 text-white shadow-2xl ring-4 ring-pink-500/20 opacity-100 scale-105 z-30 ${service.colorClass}`
-                    : `bg-slate-900/90 border text-slate-200 opacity-75 hover:opacity-100 shadow-xl z-20 ${service.colorClass}`
+                  className={`absolute pointer-events-auto group px-4 py-2.5 rounded-full transition-all duration-300 flex items-center gap-3 cursor-pointer transform-gpu [will-change:transform] [backface-visibility:hidden] ${spaceOrbitPositions[idx]} ${particleAnimClasses[idx % 5]} hover:[animation-play-state:paused] hover:scale-108 hover:-translate-y-1 ${isSelected
+                    ? `bg-[#0c1226] border-2 text-white shadow-2xl ring-4 ring-pink-500/20 opacity-100 scale-100 z-30 ${service.colorClass}`
+                    : `bg-[#0b1021]/95 border border-slate-700/80 text-slate-200 opacity-85 hover:opacity-100 shadow-xl z-20 ${service.colorClass}`
                     }`}
                   style={{
                     animationDelay: floatDelays[idx],
                     animationTimingFunction: "ease-in-out"
                   }}
                 >
+                  {/* Glowing aura hover */}
                   <div className={`absolute -inset-1 rounded-full bg-gradient-to-r ${service.glowBg} opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500 -z-10`} />
 
-                  <div className={`w-8.5 h-8.5 sm:w-9.5 sm:h-9.5 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 shadow-inner ${service.iconBg}`}>
+                  {/* Icon Circle */}
+                  <div className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 shadow-inner ${service.iconBg}`}>
                     {service.icon}
                   </div>
 
+                  {/* Text Container */}
                   <div className="flex flex-col text-left">
                     <div className="flex items-center gap-1.5">
                       <span className="relative flex h-1.5 w-1.5">
@@ -292,17 +340,18 @@ export default function ServicesPage() {
                         <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${service.dotColor}`} />
                       </span>
 
-                      <span className={`text-[7.5px] sm:text-[8px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full border ${service.badgeColor}`}>
+                      <span className={`text-[7.5px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full border ${service.badgeColor}`}>
                         {service.tag}
                       </span>
                     </div>
 
-                    <span className="text-[11px] sm:text-xs font-black uppercase text-white group-hover:text-pink-300 transition-colors tracking-tight whitespace-nowrap pt-0.5">
+                    <span className="text-xs font-black uppercase text-white group-hover:text-pink-300 transition-colors tracking-tight whitespace-nowrap pt-0.5">
                       {service.title}
                     </span>
                   </div>
 
-                  <div className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 text-slate-300 ${service.btnHover} transition-all duration-300 shadow-md ml-0.5`}>
+                  {/* Arrow Action Badge */}
+                  <div className={`w-7 h-7 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 text-slate-300 ${service.btnHover} transition-all duration-300 shadow-md ml-0.5`}>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
@@ -310,58 +359,95 @@ export default function ServicesPage() {
             })}
           </div>
 
-          <div className="max-w-4xl mx-auto px-6 w-full relative z-10 text-center">
+          {/* CENTER HUB — LOGO & ENTERPRISE ECOSYSTEM HEADLINE & CATEGORY FILTER TABS */}
+          <div className="max-w-3xl mx-auto px-6 w-full relative z-30 text-center space-y-6">
 
-            <div className="relative group mx-auto flex flex-col items-center justify-center p-4 sm:p-6 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-2xl shadow-2xl shadow-pink-500/30 z-30 ring-2 ring-pink-500/40 hover:scale-105 transition-all duration-500 w-44 h-44 sm:w-56 sm:h-56 xl:w-64 xl:h-64">
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 opacity-35 blur-2xl group-hover:opacity-65 transition-opacity" />
+            {/* Central Power Core Circle with Brand Logo & Radiating Waves */}
+            <div className="relative group mx-auto flex flex-col items-center justify-center p-4 sm:p-5 rounded-full bg-slate-900/95 border border-slate-700/80 shadow-[0_0_60px_rgba(236,72,153,0.35)] ring-2 ring-pink-500/40 hover:scale-105 transition-all duration-500 w-44 h-44 sm:w-52 sm:h-52 xl:w-60 xl:h-60">
+              
+              {/* Radiating Power Source Waves */}
+              <div className="absolute -inset-4 rounded-full border-2 border-pink-500/40 animate-ping pointer-events-none opacity-30" />
+              <div className="absolute -inset-8 rounded-full border border-purple-500/30 animate-pulse pointer-events-none opacity-25" />
+              <div className="absolute -inset-12 rounded-full border border-cyan-500/20 animate-spin-slow pointer-events-none opacity-20" />
 
-              <div className="relative z-10 flex flex-col items-center justify-center text-center w-full px-3">
-                <img
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 opacity-40 blur-2xl group-hover:opacity-75 transition-opacity" />
+
+              <div className="relative z-10 flex flex-col items-center justify-center text-center w-full px-3 space-y-1">
+                <Image
                   src="/logo/logo-without-txt.webp"
-                  alt="DigitalRaiz Logo Core"
-                  className="h-20 sm:h-28 xl:h-32 w-auto max-w-full object-contain filter drop-shadow-[0_0_30px_rgba(236,72,153,0.95)]"
+                  alt="DigitalRaiz Core Logo"
+                  width={160}
+                  height={120}
+                  className="h-16 sm:h-22 xl:h-26 w-auto max-w-full object-contain filter drop-shadow-[0_0_25px_rgba(236,72,153,0.95)]"
+                  priority
                 />
               </div>
             </div>
 
-            <div className="block lg:hidden pt-6">
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                {serviceCards.map((service, idx) => {
-                  const isSelected = activeCategory === "all" || service.category === activeCategory;
-                  const particleAnimClasses = [
-                    "animate-particle-1",
-                    "animate-particle-2",
-                    "animate-particle-3",
-                    "animate-particle-4",
-                    "animate-particle-5"
-                  ];
+            {/* Central Headline & Category Filter Bar */}
+            {/* <div className="space-y-3 max-w-xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-[10px] font-mono font-bold uppercase tracking-widest backdrop-blur-md">
+                <Sparkles className="w-3 h-3 text-pink-400 animate-pulse" />
+                <span>Enterprise Service Constellation</span>
+              </div>
 
-                  return (
-                    <Link
-                      key={idx}
-                      href={service.href}
-                      className={`group relative px-4.5 py-3 rounded-full transition-all duration-500 flex items-center gap-3.5 cursor-pointer backdrop-blur-xl ${particleAnimClasses[idx % 5]} hover:[animation-play-state:paused] ${isSelected
-                        ? `bg-slate-900 border-2 text-white shadow-lg shadow-pink-500/20 opacity-100 scale-105 ${service.colorClass}`
-                        : `bg-slate-900/90 border text-slate-300 opacity-75 hover:opacity-100 ${service.colorClass}`
-                        }`}
-                    >
-                      <div className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 ${service.iconBg}`}>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                What We Do <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">For You</span>
+              </h1>
+
+              <p className="text-slate-400 text-xs sm:text-sm font-normal leading-relaxed max-w-md mx-auto">
+                Discover our 10 specialized studio capabilities built for enterprise technology, cloud modernization, AI automation, and high-growth marketing.
+              </p>
+            </div> */}
+
+            {/* Category Filter Pills (Interactive on Mobile & Desktop) */}
+            {/* <div className="flex flex-wrap items-center justify-center gap-2 pt-1 max-w-2xl mx-auto">
+              {categoryFilters.map((cat) => {
+                const Icon = cat.icon;
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${isActive
+                      ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white border-transparent shadow-md shadow-pink-500/20 scale-105"
+                      : "bg-slate-900/80 text-slate-300 border-slate-700/80 hover:border-pink-500/50 hover:text-white"
+                      }`}
+                  >
+                    <Icon className="w-3 h-3 text-pink-400" />
+                    <span>{cat.label}</span>
+                  </button>
+                );
+              })}
+            </div> */}
+
+            {/* MOBILE ONLY (< lg): Responsive Grid Matrix for Mobile */}
+            <div className="block lg:hidden pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                {filteredServices.map((service, idx) => (
+                  <Link
+                    key={idx}
+                    href={service.href}
+                    className={`group relative p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-white flex items-center justify-between gap-3 transition-all duration-300 hover:border-pink-500/50 ${service.colorClass}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 ${service.iconBg}`}>
                         {service.icon}
                       </div>
-                      <div className="flex flex-col text-left">
+                      <div className="flex flex-col">
                         <span className={`text-[8px] font-mono font-bold uppercase tracking-widest ${service.badgeColor}`}>
                           {service.tag}
                         </span>
-                        <span className="text-xs font-black uppercase text-white group-hover:text-pink-300 whitespace-nowrap">
+                        <span className="text-xs font-black uppercase text-white group-hover:text-pink-300 transition-colors">
                           {service.title}
                         </span>
                       </div>
-                      <div className={`w-7 h-7 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-300 ${service.btnHover} shrink-0 ml-1`}>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </div>
-                    </Link>
-                  );
-                })}
+                    </div>
+                    <div className={`w-7 h-7 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-300 ${service.btnHover} shrink-0`}>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -411,7 +497,7 @@ export default function ServicesPage() {
         </section> */}
 
         {/* 10 CORE SERVICES GRID WITH INTEGRATED VISUAL BANNERS */}
-        <section className="py-16 sm:py-24 bg-white text-slate-800 border-t border-slate-200/80">
+        <section id="services-catalog" className="py-16 sm:py-24 bg-white text-slate-800 border-t border-slate-200/80">
           <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto space-y-3">
