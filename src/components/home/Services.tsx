@@ -30,7 +30,7 @@ export default function Services() {
             </h2>
 
             <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
-              We blend intelligent creativity with powerful technology — building strong digital brands that connect minds to results.
+              We combine intelligent technology, creative thinking, and engineering expertise to build digital solutions that connect your business with better results.
             </p>
           </div>
         </ScrollReveal>

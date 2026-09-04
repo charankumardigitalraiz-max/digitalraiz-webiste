@@ -43,6 +43,12 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent("header-toggle", { detail: { open: menuOpen } })
+    );
+  }, [menuOpen]);
+
   const services = [
     { name: "Web Development", href: "/web-development" },
     { name: "Mobile App Development", href: "/mobile-application" },

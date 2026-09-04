@@ -9,6 +9,7 @@ import { useContactDetails } from "@/hooks/useContactDetails";
 export default function FloatingSocials() {
   const [isOpen, setIsOpen] = useState(true);
   const [isFooterInView, setIsFooterInView] = useState(false);
+  const [isHeaderOpen, setIsHeaderOpen] = useState(false);
 
   // TanStack Query for Data Fetching & Caching
   const { data: contactData } = useContactDetails();
@@ -31,7 +32,19 @@ export default function FloatingSocials() {
     return () => observer.disconnect();
   }, []);
 
-  if (isFooterInView) {
+  useEffect(() => {
+    const handleHeaderToggle = (e: Event) => {
+      const customEvent = e as CustomEvent<{ open: boolean }>;
+      if (typeof customEvent.detail?.open === "boolean") {
+        setIsHeaderOpen(customEvent.detail.open);
+      }
+    };
+
+    window.addEventListener("header-toggle", handleHeaderToggle);
+    return () => window.removeEventListener("header-toggle", handleHeaderToggle);
+  }, []);
+
+  if (isFooterInView || isHeaderOpen) {
     return null;
   }
 
@@ -118,7 +131,7 @@ export default function FloatingSocials() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[9999] bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:via-pink-600 hover:to-purple-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider px-4.5 py-1.5 rounded-full shadow-lg border border-white/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 cursor-pointer group select-none"
+        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-30 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:via-pink-600 hover:to-purple-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider px-4.5 py-1.5 rounded-full shadow-lg border border-white/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 cursor-pointer group select-none"
         aria-label="Open Social Links"
       >
         {/* Animated Chevron Badge */}
@@ -141,7 +154,7 @@ export default function FloatingSocials() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[9999] flex items-center gap-2 sm:gap-2.5 p-2 rounded-full bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_20px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] select-none pointer-events-auto transition-all duration-300">
+    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-30 flex items-center gap-2 sm:gap-2.5 p-2 rounded-full bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_20px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] select-none pointer-events-auto transition-all duration-300">
       {socials.map((item) => (
         <a
           key={item.name}

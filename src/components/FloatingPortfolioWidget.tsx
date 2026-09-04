@@ -6,6 +6,7 @@ import { ArrowRight, FolderKanban, Sparkles } from "lucide-react";
 
 export default function FloatingPortfolioWidget() {
   const [isFooterInView, setIsFooterInView] = useState(false);
+  const [isHeaderOpen, setIsHeaderOpen] = useState(false);
 
   useEffect(() => {
     const footerElement = document.querySelector("footer");
@@ -22,11 +23,23 @@ export default function FloatingPortfolioWidget() {
     return () => observer.disconnect();
   }, []);
 
-  if (isFooterInView) return null;
+  useEffect(() => {
+    const handleHeaderToggle = (e: Event) => {
+      const customEvent = e as CustomEvent<{ open: boolean }>;
+      if (typeof customEvent.detail?.open === "boolean") {
+        setIsHeaderOpen(customEvent.detail.open);
+      }
+    };
+
+    window.addEventListener("header-toggle", handleHeaderToggle);
+    return () => window.removeEventListener("header-toggle", handleHeaderToggle);
+  }, []);
+
+  if (isFooterInView || isHeaderOpen) return null;
 
   return (
     <div
-      className="fixed top-3.5 sm:top-4 z-[9990] pointer-events-auto select-none transition-all duration-300 animate-[float_3.5s_ease-in-out_infinite]"
+      className="fixed top-3.5 sm:top-4 z-30 pointer-events-auto select-none transition-all duration-300 animate-[float_3.5s_ease-in-out_infinite]"
       style={{ right: "7%" }}
     >
       <Link
