@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import ServiceCtaBanner from "@/components/ServiceCtaBanner";
+import { openContactModal } from "@/components/ContactModal";
 import {
   ArrowRight,
   Smartphone,
@@ -392,13 +393,13 @@ export default function MobileApplicationPage() {
 
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm"
+                  <button
+                    onClick={() => openContactModal("Mobile App Development", "Start Mobile Application Today")}
+                    className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm cursor-pointer border-0"
                   >
-                    <span>Hire Mobile App Developers</span>
+                    <span>Start Mobile Application Today</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-                  </Link>
+                  </button>
                   <button
                     onClick={() => {
                       const element = document.getElementById("mobile-services");
@@ -787,13 +788,13 @@ export default function MobileApplicationPage() {
                     </div>
 
                     <div className="pt-2">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2.5 py-4 px-8 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 text-white text-[10px] font-black uppercase tracking-wider shadow-[0_10px_25px_rgba(236,72,153,0.3)] hover:scale-105 active:scale-95 transition-all"
+                      <button
+                        onClick={() => openContactModal("Mobile App Development", "Start Mobile Application Today")}
+                        className="inline-flex items-center gap-2.5 py-4 px-8 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 text-white text-[10px] font-black uppercase tracking-wider shadow-[0_10px_25px_rgba(236,72,153,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                       >
-                        <span>Hire Dedicated App Developers</span>
+                        <span>Start Mobile Application Today</span>
                         <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
 

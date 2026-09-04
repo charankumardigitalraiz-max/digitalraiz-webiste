@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import ServiceCtaBanner from "@/components/ServiceCtaBanner";
+import { openContactModal } from "@/components/ContactModal";
 import {
   ArrowRight,
   Sparkles,
@@ -353,13 +354,13 @@ export default function InfluencerMarketingPage() {
 
                 {/* CTA Action Buttons */}
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm"
+                  <button
+                    onClick={() => openContactModal("Influencer Marketing", "Launch Influencer Campaign")}
+                    className="inline-flex items-center gap-2.5 py-3 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 group shadow-sm cursor-pointer border-0"
                   >
                     <span>Launch Influencer Campaign</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-                  </Link>
+                  </button>
                   <button
                     onClick={() => {
                       const element = document.getElementById("creator-services");
@@ -586,15 +587,15 @@ export default function InfluencerMarketingPage() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/contact"
-                      className={`w-full py-3 rounded-2xl text-xs font-bold uppercase tracking-wider text-center block transition-all duration-300 shadow-xs ${isFeatured
+                    <button
+                      onClick={() => openContactModal("Influencer Marketing", `Creator Tier: ${tier.tier}`)}
+                      className={`w-full py-3 rounded-2xl text-xs font-bold uppercase tracking-wider text-center block transition-all duration-300 shadow-xs cursor-pointer border-0 ${isFeatured
                         ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white shadow-pink-500/20 hover:scale-[1.02] active:scale-95"
                         : "bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-200 text-[#1e1b4b] hover:text-pink-600"
                         }`}
                     >
                       Select Creator Tier
-                    </Link>
+                    </button>
                   </div>
                 );
               })}

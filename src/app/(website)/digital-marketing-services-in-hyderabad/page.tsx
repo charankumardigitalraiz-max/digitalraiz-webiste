@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServiceCtaBanner from "@/components/ServiceCtaBanner";
+import { openContactModal } from "@/components/ContactModal";
 import {
   TrendingUp,
   Target,
@@ -564,7 +565,7 @@ export default function DigitalMarketingPage() {
         </section>
 
         {/* WHY CHOOSE DIGITAL RAIZ — Executive Split Advantage Showcase */}
-        <section className="py-16 sm:py-5 bg-white ">
+        <section className="py-10 sm:py-5 bg-white ">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-1">
             <ScrollReveal direction="up">
               <div className="bg-white  rounded-3xl p-6 sm:p-10 lg:p-4">
@@ -589,13 +590,13 @@ export default function DigitalMarketingPage() {
                     </p>
 
                     <div className="pt-2">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                      <button
+                        onClick={() => openContactModal("Digital Marketing & SEO", "Start Your Marketing Strategy")}
+                        className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer border-0"
                       >
                         <span>Start Your Marketing Strategy</span>
                         <ArrowRight className="w-4 h-4 text-white" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
 
