@@ -1,8 +1,12 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+<<<<<<< HEAD
 import Link from "next/link";
 import { FileText, ShieldCheck, CheckCircle2, AlertCircle, ArrowRight, Lock, ExternalLink, RefreshCw, AlertTriangle } from "lucide-react";
+=======
+import TermsAndConditionsView from "@/components/terms-and-conditions/TermsAndConditionsView";
+>>>>>>> 8f73f54 (privacy policies and terms and conditions pages updated)
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | Digital Raiz",
@@ -20,6 +24,7 @@ export default function TermsAndConditionsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans select-none text-slate-800 lg:pr-[80px]">
       <Header />
+<<<<<<< HEAD
 
       <main className="flex-grow">
         {/* HERO SECTION */}
@@ -295,6 +300,9 @@ export default function TermsAndConditionsPage() {
         </section>
       </main>
 
+=======
+      <TermsAndConditionsView />
+>>>>>>> 8f73f54 (privacy policies and terms and conditions pages updated)
       <Footer />
     </div>
   );

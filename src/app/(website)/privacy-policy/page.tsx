@@ -1,8 +1,12 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+<<<<<<< HEAD
 import Link from "next/link";
 import { ShieldCheck, Lock, CheckCircle2, Mail, FileText, ArrowRight, Eye, UserCheck, AlertCircle } from "lucide-react";
+=======
+import PrivacyPolicyView from "@/components/privacy-policy/PrivacyPolicyView";
+>>>>>>> 8f73f54 (privacy policies and terms and conditions pages updated)
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Digital Raiz",
@@ -20,6 +24,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans select-none text-slate-800 lg:pr-[80px]">
       <Header />
+<<<<<<< HEAD
 
       <main className="flex-grow">
         {/* HERO SECTION */}
@@ -260,6 +265,9 @@ export default function PrivacyPolicyPage() {
         </section>
       </main>
 
+=======
+      <PrivacyPolicyView />
+>>>>>>> 8f73f54 (privacy policies and terms and conditions pages updated)
       <Footer />
     </div>
   );
