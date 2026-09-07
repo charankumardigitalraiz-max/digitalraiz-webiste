@@ -24,6 +24,27 @@ export default function WebDevPortfolioShowcase({
   setIsPaused,
   activeWebProject
 }: WebDevPortfolioShowcaseProps) {
+  const tabContainerRef = React.useRef<HTMLDivElement>(null);
+
+  // Auto-scroll active tab into center view whenever activeIndex changes
+  useEffect(() => {
+    if (!tabContainerRef.current) return;
+    const activeTabElement = document.getElementById(`web-tab-${activeIndex}`);
+    if (activeTabElement && tabContainerRef.current) {
+      const container = tabContainerRef.current;
+      const containerWidth = container.clientWidth;
+      const tabOffsetLeft = activeTabElement.offsetLeft;
+      const tabWidth = activeTabElement.clientWidth;
+
+      const targetLeft = tabOffsetLeft - containerWidth / 2 + tabWidth / 2;
+
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
+
   return (
     <section id="web-showcase" className="py-10 sm:py-14 bg-white relative ">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-8">
@@ -96,7 +117,7 @@ export default function WebDevPortfolioShowcase({
 
                   {/* Tab Strip with Brand Logos */}
                   <div className="relative group">
-                    <div className="flex flex-row overflow-x-auto gap-2 p-1 no-scrollbar flex-nowrap scroll-smooth">
+                    <div ref={tabContainerRef} className="flex flex-row overflow-x-auto gap-2 p-1 no-scrollbar flex-nowrap scroll-smooth">
                       {webPortfolio.map((app, idx) => {
                         const isActive = activeIndex === idx;
                         return (

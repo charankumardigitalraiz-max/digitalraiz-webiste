@@ -88,10 +88,10 @@ export function getAllPortfolioProjects(): ProjectItem[] {
   return PORTFOLIO_PROJECTS;
 }
 
-export function getWebProjects(projects: ProjectItem[] = PORTFOLIO_PROJECTS, limit = 10): ProjectItem[] {
+export function getWebProjects(projects: ProjectItem[] = PORTFOLIO_PROJECTS, limit = 25): ProjectItem[] {
   return projects.filter((p) => p.type === "web").slice(0, limit);
 }
 
-export function getMobileProjects(projects: ProjectItem[] = PORTFOLIO_PROJECTS, limit = 10): ProjectItem[] {
+export function getMobileProjects(projects: ProjectItem[] = PORTFOLIO_PROJECTS, limit = 25): ProjectItem[] {
   return projects.filter((p) => p.type === "mobile").slice(0, limit);
 }

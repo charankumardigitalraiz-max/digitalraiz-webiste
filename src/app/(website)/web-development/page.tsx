@@ -18,7 +18,7 @@ export default function WebServicePage() {
   const { data: allProjects = storeProjects } = usePortfolioProjects();
 
   const webPortfolio = useMemo(() => {
-    return getWebProjects(allProjects, 10);
+    return getWebProjects(allProjects, 25);
   }, [allProjects]);
 
   const [activeIndex, setActiveIndex] = useState(0);

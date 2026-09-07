@@ -47,6 +47,25 @@ export default function PortfolioPage() {
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
   const [expandedCardIds, setExpandedCardIds] = useState<Record<string, boolean>>({});
 
+  const webPortfolio = useMemo(() => {
+    return PORTFOLIO_PROJECTS.filter((p) => p.type === "web");
+  }, []);
+
+  const [webActiveIndex, setWebActiveIndex] = useState<number>(0);
+  const [webIsPaused, setWebIsPaused] = useState<boolean>(false);
+
+  const activeWebProject = useMemo(() => {
+    return webPortfolio[webActiveIndex % webPortfolio.length] || webPortfolio[0];
+  }, [webPortfolio, webActiveIndex]);
+
+  useEffect(() => {
+    if (webIsPaused || !webPortfolio.length) return;
+    const timer = setInterval(() => {
+      setWebActiveIndex((prev) => (prev === webPortfolio.length - 1 ? 0 : prev + 1));
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [webPortfolio.length, webIsPaused]);
+
   const deviceViewportRef = useRef<HTMLDivElement>(null);
 
   const toggleCardExpanded = (id: string) => {
