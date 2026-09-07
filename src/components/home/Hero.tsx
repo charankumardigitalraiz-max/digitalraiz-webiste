@@ -16,7 +16,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover opacity-100"
         style={{ pointerEvents: "none" }}
       >
-        <source src="/video/no_i_want_another_video.mp4" type="video/mp4" />
+        <source src="/video/04226ca31444440c8af8d2debe1567f6.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

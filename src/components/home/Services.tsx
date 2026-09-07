@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-10 bg-white text-slate-800 font-sans overflow-hidden border-t border-slate-100 select-none"
+      className="py-10 bg-white text-slate-800 font-sans overflow-hidden border-t border-slate-100"
     >
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-10">
 

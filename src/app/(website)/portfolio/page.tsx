@@ -105,7 +105,7 @@ export default function PortfolioPage() {
   }, [simActiveIndex]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/40 text-slate-800 font-sans select-none lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-slate-50/40 text-slate-800 font-sans lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow pb-20">
@@ -145,10 +145,10 @@ export default function PortfolioPage() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4">
 
                 {/* Type Filters (All, Mobile Apps, Web Apps) */}
-                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80 w-full sm:w-auto">
+                <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-md border border-slate-200/80 w-full sm:w-auto">
                   <button
                     onClick={() => { setSelectedType("all"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
+                    className={`flex-1 sm:flex-initial px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "all"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -157,7 +157,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("mobile"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
+                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "mobile"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
                   </button>
                   <button
                     onClick={() => { setSelectedType("web"); setSimActiveIndex(0); }}
-                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
+                    className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${selectedType === "web"
                       ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                       }`}

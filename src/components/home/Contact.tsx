@@ -50,7 +50,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-6 sm:py-10 relative bg-slate-50/50 text-slate-800 font-sans overflow-hidden select-none">
+    <section id="contact" className="py-6 sm:py-10 relative bg-slate-50/50 text-slate-800 font-sans overflow-hidden">
       {/* Background Decorative Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />

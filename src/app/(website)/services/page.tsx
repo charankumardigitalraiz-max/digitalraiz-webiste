@@ -49,6 +49,22 @@ export default function ServicesPage() {
       highlights: ["SAP S/4HANA Migration", "ABAP Development", "BTP Cloud Integration"]
     },
     {
+      title: "Salesforce Services",
+      category: "cloud",
+      desc: "Tailored Salesforce strategy, Sales & Service Cloud implementation, custom LWC & Apex development, CPQ Revenue Cloud, and secure API integrations.",
+      href: "/salesforce-services",
+      icon: <Cloud className="w-5 h-5 text-blue-400" />,
+      tag: "Enterprise CRM",
+      bannerImg: "/services/banners/salesforce_cloud_solutions.png",
+      colorClass: "border-blue-500/40 hover:border-blue-400 hover:shadow-blue-500/25",
+      badgeColor: "bg-blue-500/10 border-blue-500/30 text-blue-400",
+      dotColor: "bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.9)]",
+      iconBg: "bg-blue-950/80 border-blue-500/40 text-blue-400 group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+      btnHover: "group-hover:bg-blue-500 group-hover:text-slate-950 group-hover:border-blue-400",
+      glowBg: "from-blue-500/50 via-sky-500/40 to-indigo-600/50",
+      highlights: ["Sales & Service Cloud", "LWC & Apex Development", "CPQ & Data Migration"]
+    },
+    {
       title: "Cloud & DevOps Engineering",
       category: "cloud",
       desc: "Automated CI/CD pipelines, Kubernetes container orchestration, Infrastructure as Code (IaC), AWS/Azure cloud architecture, and zero-downtime releases.",
@@ -197,7 +213,7 @@ export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const categoryFilters = [
-    { id: "all", label: "All 10 Services", icon: Sparkles },
+    { id: "all", label: "All 11 Services", icon: Sparkles },
     { id: "cloud", label: "Enterprise & Cloud", icon: Cloud },
     { id: "ai", label: "AI & Data Science", icon: Cpu },
     { id: "engineering", label: "Custom Software & QA", icon: Code },
@@ -209,7 +225,7 @@ export default function ServicesPage() {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans select-none text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow">
@@ -506,7 +522,7 @@ export default function ServicesPage() {
                 Service Catalog Overview
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                All 10 Digital &amp; Technology{" "}
+                All 11 Digital &amp; Technology{" "}
                 <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   Service Disciplines
                 </span>

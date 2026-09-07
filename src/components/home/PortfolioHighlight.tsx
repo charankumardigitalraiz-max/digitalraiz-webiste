@@ -34,7 +34,7 @@ export default function PortfolioHighlight() {
       : featuredProjects.filter((p) => p.category.toUpperCase() === activeFilter);
 
   return (
-    <section className="relative font-sans overflow-hidden select-none bg-slate-50/60 py-12 sm:py-16 border-y border-slate-200/60">
+    <section className="relative font-sans overflow-hidden bg-slate-50/60 py-12 sm:py-16 border-y border-slate-200/60">
       {/* Background Ambient Accents */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-pink-500/5 blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] rounded-full bg-indigo-500/5 blur-[140px] pointer-events-none -z-10" />

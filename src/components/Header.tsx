@@ -56,6 +56,7 @@ export default function Header() {
     { name: "Data Analytics & BI", href: "/data-analytics-and-bi" },
     { name: "Cybersecurity Services", href: "/cybersecurity-services" },
     { name: "SAP Cloud Services", href: "/sap-cloud-services" },
+    { name: "Salesforce Services", href: "/salesforce-services" },
     { name: "Cloud & DevOps Engineering", href: "/cloud-and-devops" },
     { name: "Testing & Quality Assurance", href: "/testing-and-quality-assurance" },
     { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },

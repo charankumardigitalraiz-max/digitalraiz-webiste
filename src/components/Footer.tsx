@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useContactStore } from "@/store";
 import { useContactDetails } from "@/hooks/useContactDetails";
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles, Megaphone } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles, Megaphone, Cloud } from "lucide-react";
 
 export default function Footer() {
   // TanStack Query for Data Fetching & Caching
@@ -40,12 +40,13 @@ export default function Footer() {
     { label: "Web Development", href: "/web-development", icon: Laptop },
     { label: "Influencer Marketing", href: "/influencer-marketing", icon: Share2 },
     { label: "SAP Cloud Services", href: "/sap-cloud-services", icon: TrendingUp },
+    { label: "Salesforce Services", href: "/salesforce-services", icon: Cloud },
     { label: "Machine Learning", href: "/machine-learning", icon: Search },
     { label: "AI Solutions", href: "/artificial-intelligence", icon: Sparkles }
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200 pt-0 pb-10 relative overflow-hidden font-sans select-none text-slate-800">
+    <footer className="bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200 pt-0 pb-10 relative overflow-hidden font-sans text-slate-800">
 
       {/* Strengths Marquee Band at the very top of Footer (Kept in Dark Indigo) */}
       <div className="w-full relative overflow-hidden bg-gradient-to-r from-indigo-950 via-indigo-900 to-indigo-950 py-4.5 mb-14 border-b border-indigo-800/30 shadow-md">

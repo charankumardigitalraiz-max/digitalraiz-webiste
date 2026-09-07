@@ -28,7 +28,7 @@ export default function WebDevHero() {
   }, [techPaused]);
 
   return (
-    <section className="relative overflow-hidden bg-white  py-10 sm:py-14">
+    <section className="relative overflow-hidden bg-white  py-10 sm:py-10">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
 

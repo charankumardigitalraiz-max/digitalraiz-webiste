@@ -350,7 +350,7 @@ export default function MobileApplicationPage() {
   }, [portfolioApps.length, isPaused]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans select-none text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-800 lg:pr-[80px]">
       <Header />
       <main className="flex-grow">
 

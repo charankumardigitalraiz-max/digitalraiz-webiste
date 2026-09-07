@@ -34,7 +34,7 @@ export default function SolutionsSection() {
   };
 
   return (
-    <section className="py-5 pb-10 relative bg-white text-slate-800 font-sans overflow-hidden  select-none">
+    <section className="py-5 pb-10 relative bg-white text-slate-800 font-sans overflow-hidden">
 
       {/* Faint background gradient mesh */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(79,70,229,0.03),transparent)] pointer-events-none" />

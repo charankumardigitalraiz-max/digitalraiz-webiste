@@ -29,7 +29,7 @@ export default function HomeBannerCarousel() {
   }, [banners.length]);
 
   return (
-    <section className="py-2 bg-white select-none w-full overflow-hidden">
+    <section className="py-2 bg-white w-full overflow-hidden">
       <div className="w-full">
         <div className="relative group w-full overflow-hidden bg-white">
 

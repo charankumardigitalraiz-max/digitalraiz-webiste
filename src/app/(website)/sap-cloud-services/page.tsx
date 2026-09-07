@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function SapCloudServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans select-none text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow">

@@ -161,6 +161,20 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
     statVal: "+124%",
     statLabel: "Brand Reach Surge",
   },
+  {
+    id: 11,
+    image: "/services/banners/salesforce_cloud_solutions.png",
+    badge: "Salesforce Services",
+    title: "Salesforce Cloud Solutions & CRM Modernization",
+    highlightText: "Sales, Service, Marketing Cloud & CPQ Integration",
+    desc: "Consulting, implementation, customization, Apex development, Lightning Web Components, and seamless integration for the Salesforce ecosystem.",
+    gradient: "from-blue-600 via-sky-500 to-indigo-600",
+    badgeBg: "bg-sky-500/20",
+    badgeText: "text-sky-200",
+    features: ["Sales & Service Cloud", "LWC & Apex Customization", "CPQ & Integration"],
+    statVal: "100%",
+    statLabel: "CRM Ecosystem Mastery",
+  },
 ];
 
 export const serviceCategories: ServiceCategory[] = [
@@ -427,5 +441,29 @@ export const serviceCategories: ServiceCategory[] = [
     ],
     techStack: ["Playwright", "Selenium", "JMeter", "Postman", "Cypress"],
     stats: { value: "0", label: "Critical Defects in Production" },
+  },
+  {
+    id: "salesforce-cloud",
+    image: "/services/cards/generated_salesforce_thumbnail.png",
+    category: "Enterprise CRM",
+    badge: "Salesforce Services",
+    title: "Salesforce Cloud Solutions & Enterprise CRM",
+    subtitle: "Sales Cloud, Service Cloud, Marketing Cloud, Experience Cloud & CPQ",
+    description:
+      "Empower your organization with innovative Salesforce solutions designed to streamline operations, improve customer engagement, and accelerate business growth through consulting, implementation, custom development, and seamless API integration.",
+    href: "/salesforce-services",
+    icon: Cloud,
+    gradient: "from-sky-500 via-blue-600 to-indigo-600",
+    accentBg: "bg-sky-50",
+    accentBorder: "border-sky-200/80",
+    accentText: "text-sky-600",
+    features: [
+      "Sales Cloud & Service Cloud",
+      "Marketing Cloud & Experience Cloud",
+      "LWC & Apex Custom Development",
+      "ERP Integration & CPQ Revenue Cloud",
+    ],
+    techStack: ["Salesforce", "Lightning Web Components", "Apex", "Sales Cloud", "Service Cloud", "CPQ"],
+    stats: { value: "Certified", label: "Salesforce Professionals" },
   },
 ];
