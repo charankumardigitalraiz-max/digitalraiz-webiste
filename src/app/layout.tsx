@@ -35,8 +35,24 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://digitalraiz.com"),
-  title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
-  description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+  title: "IT Solutions Company in Hyderabad | Digital Raiz",
+  description: "Digital solutions company in Hyderabad offering AI, cloud, software development, data analytics, SEO, digital marketing, and cybersecurity services to help businesses grow.",
+  keywords: [
+    "Web Development Services in Hyderabad",
+    "AI Solutions in Hyderabad",
+    "AI Development Services in Hyderabad",
+    "Software Solutions in Hyderabad",
+    "IT Solutions in Hyderabad",
+    "digital servies in hyderabad",
+    "digital services in hyderabad",
+    "AI Development Company in Hyderabad",
+    "IT Solutions Company in Hyderabad",
+    "Application Development Hyderabad",
+    "Business Software Solutions Hyderabad",
+    "Automation Testing Services Hyderabad",
+    "Enterprise Application Development Hyderabad",
+    "app development company in hyderabad",
+  ],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -49,8 +65,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
-    description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+    title: "IT Solutions Company in Hyderabad | Digital Raiz",
+    description: "Digital solutions company in Hyderabad offering AI, cloud, software development, data analytics, SEO, digital marketing, and cybersecurity services to help businesses grow.",
     url: "https://digitalraiz.com/",
     siteName: "Digital Raiz",
     images: [
@@ -66,8 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing, SEO & App Development Company in Hyderabad | Digital Raiz",
-    description: "Digital Raiz is a digital marketing, SEO, website development and mobile app development company in Hyderabad, helping businesses grow through strategic digital and technology solutions.",
+    title: "IT Solutions Company in Hyderabad | Digital Raiz",
+    description: "Digital solutions company in Hyderabad offering AI, cloud, software development, data analytics, SEO, digital marketing, and cybersecurity services to help businesses grow.",
     images: ["/logo/digital-raiz-logo.webp"],
   },
 };
