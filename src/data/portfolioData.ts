@@ -31,6 +31,20 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     url: "#",
     metrics: { val1: "100K+", label1: "Lab Searches", val2: "99.9%", label2: "Uptime SLA" }
   },
+  {
+    id: "medicompares-web",
+    name: "Medicompares Website",
+    type: "mobile",
+    category: "Healthcare",
+    tag: "Medical Portal Web",
+    desc: "Comprehensive healthcare and clinical comparison application. Empowers users to compare medical diagnostic tests, hospital ratings, specialist consult fees, and book instant clinical appointments.",
+    features: ["Real-time Test Price Matrix", "Clinic & Doctor Locator", "Encrypted Health Report Locker", "Instant Appointment Booking"],
+    tech: ["React REST API", "Node.js Microservices", "Tailwind Mobile UI", "Stripe Healthcare API"],
+    img: "/websites/medicompares.webp",
+    logo: "/project-logs/MediCompares_Logo.webp",
+    url: "#",
+    metrics: { val1: "100K+", label1: "Lab Searches", val2: "99.9%", label2: "Uptime SLA" }
+  },
   // {
   //   id: "manik-samsthan",
   //   name: "Shri Manik Prabhu Samsthan",

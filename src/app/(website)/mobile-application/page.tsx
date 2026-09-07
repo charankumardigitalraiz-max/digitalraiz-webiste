@@ -283,22 +283,22 @@ export default function MobileApplicationPage() {
       playStoreUrl: "#",
       img: "/portfolio/medicompares.jpg"
     },
-    {
-      name: "Shri Manik Prabhu Samsthan",
-      tag: "Devotional & Community",
-      desc: "Official mobile application for managing organization schedules, calendar updates, and daily resources.",
-      features: ["Custom calendar systems", "Push alerts & notifications", "Offline asset loading"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.maniksamstahnapp&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/d72a821a275279ea42bc5c58af0f6cc3.png"
-    },
-    {
-      name: "Waypartner",
-      tag: "Logistics & Transport",
-      desc: "High-performance logistics coordination app designed for driver tracking, dispatch logging, and route reports.",
-      features: ["Real-time GPS tracking", "In-app routing & map updates", "Automated trip log files"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.waypartner.waypartner&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/3d5cfa303ab218435bcd47544379e4c8.png"
-    },
+    // {
+    //   name: "Shri Manik Prabhu Samsthan",
+    //   tag: "Devotional & Community",
+    //   desc: "Official mobile application for managing organization schedules, calendar updates, and daily resources.",
+    //   features: ["Custom calendar systems", "Push alerts & notifications", "Offline asset loading"],
+    //   playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.maniksamstahnapp&hl=en",
+    //   img: "https://digitalraiz.com/uploads/portfolio/d72a821a275279ea42bc5c58af0f6cc3.png"
+    // },
+    // {
+    //   name: "Waypartner",
+    //   tag: "Logistics & Transport",
+    //   desc: "High-performance logistics coordination app designed for driver tracking, dispatch logging, and route reports.",
+    //   features: ["Real-time GPS tracking", "In-app routing & map updates", "Automated trip log files"],
+    //   playStoreUrl: "https://play.google.com/store/apps/details?id=com.waypartner.waypartner&hl=en",
+    //   img: "https://digitalraiz.com/uploads/portfolio/3d5cfa303ab218435bcd47544379e4c8.png"
+    // },
     {
       name: "JBFMS India",
       tag: "Enterprise Workflow",
@@ -307,22 +307,22 @@ export default function MobileApplicationPage() {
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
       img: "/portfolio/jgfms.webp"
     },
-    {
-      name: "Eaglemart",
-      tag: "E-Commerce",
-      desc: "Full-scale consumer shopping application featuring secure payment checkout gateways, catalogs, and tracking.",
-      features: ["Instant secure checkout", "Multi-payment support", "Real-time order tracking"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.eaglemartuser&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/c93157eeeedb156a1ef3fd23227f742d.png"
-    },
-    {
-      name: "Helomate",
-      tag: "Social Connection",
-      desc: "Interactive social networking client enabling location matches, real-time chats, and media uploads.",
-      features: ["Real-time socket chats", "Location matching engine", "Media sharing streams"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.helomate.meetpeoplevirtual&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/dd0bff5ed7e3698d06753f38a8c985c2.png"
-    },
+    // {
+    //   name: "Eaglemart",
+    //   tag: "E-Commerce",
+    //   desc: "Full-scale consumer shopping application featuring secure payment checkout gateways, catalogs, and tracking.",
+    //   features: ["Instant secure checkout", "Multi-payment support", "Real-time order tracking"],
+    //   playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.eaglemartuser&hl=en",
+    //   img: "https://digitalraiz.com/uploads/portfolio/c93157eeeedb156a1ef3fd23227f742d.png"
+    // },
+    // {
+    //   name: "Helomate",
+    //   tag: "Social Connection",
+    //   desc: "Interactive social networking client enabling location matches, real-time chats, and media uploads.",
+    //   features: ["Real-time socket chats", "Location matching engine", "Media sharing streams"],
+    //   playStoreUrl: "https://play.google.com/store/apps/details?id=com.helomate.meetpeoplevirtual&hl=en",
+    //   img: "https://digitalraiz.com/uploads/portfolio/dd0bff5ed7e3698d06753f38a8c985c2.png"
+    // },
     {
       name: "Gocut Beauty App",
       tag: "On-Demand Services",
@@ -332,13 +332,21 @@ export default function MobileApplicationPage() {
       img: "/portfolio/gocut-beauty.webp"
     },
     {
-      name: "Actin",
-      tag: "Activity Tracker",
-      desc: "Fitness and workflow check-in client logging user progress, session counts, and targets dynamically.",
-      features: ["User metrics tracking", "Goal setting widgets", "Detailed historical logs"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.actin.user&hl=en",
-      img: "https://digitalraiz.com/uploads/portfolio/2694ae7bddec4a4d521ea9e9870638db.png"
-    }
+      name: "Sherla Properties App",
+      tag: "Luxury Property Platform",
+      desc: "Premium real estate platform engineered for showcasing luxury listings. Features advanced search filters, fluid listing galleries, interactive agent contact forms, and rapid loading times.",
+      features: ["Node.js", "Flutter Web", "Google Maps Integration", "Real Estate Listing Management"],
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
+      img: "/mobile-application/sherla-properties.jpg"
+    },
+    // {
+    //   name: "Actin",
+    //   tag: "Activity Tracker",
+    //   desc: "Fitness and workflow check-in client logging user progress, session counts, and targets dynamically.",
+    //   features: ["User metrics tracking", "Goal setting widgets", "Detailed historical logs"],
+    //   playStoreUrl: "https://play.google.com/store/apps/details?id=com.actin.user&hl=en",
+    //   img: "https://digitalraiz.com/uploads/portfolio/2694ae7bddec4a4d521ea9e9870638db.png"
+    // }
   ];
 
   useEffect(() => {
