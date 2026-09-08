@@ -52,7 +52,7 @@ export default function TermsAndConditionsView() {
   return (
     <div className="flex-grow bg-slate-50/40 relative">
       {/* HERO SECTION */}
-      <section className="relative z-10 py-10 sm:py-14 bg-white border-b border-slate-200/80">
+      <section className="relative z-10 pt-28 pb-10 sm:py-14 bg-white border-b border-slate-200/80">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 w-full text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200/80 text-pink-600 text-xs font-mono font-bold uppercase tracking-widest">
             <FileText className="w-4 h-4 text-pink-500" />

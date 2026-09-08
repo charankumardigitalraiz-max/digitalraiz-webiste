@@ -13,7 +13,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function DataAnalyticsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900 selection:bg-pink-500 selection:text-white lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900 selection:bg-pink-500 selection:text-white lg:pr-[80px] overflow-x-hidden">
       <Header />
 
       <main className="flex-grow">

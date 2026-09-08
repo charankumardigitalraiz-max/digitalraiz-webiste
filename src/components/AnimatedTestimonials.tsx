@@ -57,6 +57,33 @@ export default function AnimatedTestimonials({
     changeSlide(index);
   };
 
+  const touchStartXRef = useRef<number | null>(null);
+  const touchEndXRef = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchEndXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartXRef.current === null || touchEndXRef.current === null) return;
+    const distance = touchStartXRef.current - touchEndXRef.current;
+    const minSwipeDistance = 35;
+
+    if (distance > minSwipeDistance) {
+      nextReview();
+    } else if (distance < -minSwipeDistance) {
+      prevReview();
+    }
+
+    touchStartXRef.current = null;
+    touchEndXRef.current = null;
+  };
+
   useEffect(() => {
     timerRef.current = setInterval(() => {
       nextReview();
@@ -76,10 +103,10 @@ export default function AnimatedTestimonials({
       <div className="absolute top-1/4 left-1/6 w-[450px] h-[450px] bg-gradient-to-r from-violet-200/30 via-pink-200/25 to-indigo-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] bg-gradient-to-r from-cyan-200/30 via-purple-200/25 to-pink-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" style={{ animationDelay: "3s" }} />
 
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 space-y-10">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 space-y-4 sm:space-y-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
+        <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-violet-50 border border-violet-200 text-[9px] font-mono font-bold uppercase tracking-widest text-violet-600 shadow-2xs">
             {variant === "web-studio" ? <Globe className="w-3.5 h-3.5 text-violet-600" /> : <Sparkles className="w-3.5 h-3.5 text-pink-500 animate-spin-slow" />}
             <span>{variant === "web-studio" ? "Web Engineering Reviews" : "Holographic Client Reviews"}</span>
@@ -97,8 +124,13 @@ export default function AnimatedTestimonials({
           </p>
         </div>
 
-        {/* SHOWCASE WRAPPER */}
-        <div className="testimonials-wrapper relative w-full px-2 py-4">
+        {/* SHOWCASE WRAPPER WITH TOUCH SWIPE HANDLERS */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="testimonials-wrapper relative w-full px-2 py-1 sm:py-4 touch-manipulation select-none"
+        >
 
           {variant === "web-studio" ? (
             /* 🔮 MAGIC BUBBLE CAROUSEL & SCROLL SPOTLIGHT STAGE (WEB STUDIO) */
@@ -635,21 +667,21 @@ export default function AnimatedTestimonials({
         </div>
 
         {/* Interactive Navigation Dots & Manual Arrow Controls */}
-        <div className="flex items-center justify-center gap-4 pt-2 z-20">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 pt-0 sm:pt-2 z-20">
           <button
             onClick={prevReview}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm hover:border-violet-400 hover:text-violet-600 flex items-center justify-center text-slate-600 transition-all active:scale-95 cursor-pointer"
+            className="hidden sm:flex w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm hover:border-violet-400 hover:text-violet-600 items-center justify-center text-slate-600 transition-all active:scale-95 cursor-pointer"
             aria-label="Previous Testimonial"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {reviews.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goToReview(idx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentIndex ? "w-7 bg-gradient-to-r from-violet-600 to-pink-500 shadow-2xs" : "w-2 bg-slate-200 hover:bg-slate-300"
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentIndex ? "w-5 sm:w-7 bg-gradient-to-r from-violet-600 to-pink-500 shadow-2xs" : "w-2 bg-slate-200 hover:bg-slate-300"
                   }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -658,7 +690,7 @@ export default function AnimatedTestimonials({
 
           <button
             onClick={nextReview}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm hover:border-violet-400 hover:text-violet-600 flex items-center justify-center text-slate-600 transition-all active:scale-95 cursor-pointer"
+            className="hidden sm:flex w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm hover:border-violet-400 hover:text-violet-600 items-center justify-center text-slate-600 transition-all active:scale-95 cursor-pointer"
             aria-label="Next Testimonial"
           >
             <ChevronRight className="w-4 h-4" />

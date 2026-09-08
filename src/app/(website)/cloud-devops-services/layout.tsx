@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Digital Raiz Cloud Services"
   ],
   alternates: {
-    canonical: "https://digitalraiz.com/cloud-and-devops"
+    canonical: "https://digitalraiz.com/cloud-devops-services"
   },
   robots: {
     index: true,

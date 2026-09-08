@@ -47,7 +47,7 @@ export default function MlServicePage() {
       <main className="flex-grow">
         {/* Hero Section */}
         <ScrollReveal direction="up">
-          <section className="relative py-20 bg-white border-b border-slate-100 overflow-hidden">
+          <section className="relative pt-28 pb-10 sm:py-20 bg-white border-b border-slate-100 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-orange-50/5 pointer-events-none" />
             <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
               

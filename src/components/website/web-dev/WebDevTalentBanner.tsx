@@ -43,7 +43,7 @@ export default function WebDevTalentBanner() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
               {/* Left Column (5 Cols): Title & Intro */}
-              <div className="lg:col-span-5 space-y-5">
+              <div className="lg:col-span-5 space-y-5 order-last lg:order-first">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
                   <Sparkles className="w-3.5 h-3.5 text-pink-500 animate-spin-slow" />
                   The Digital Raiz Advantage
@@ -76,7 +76,7 @@ export default function WebDevTalentBanner() {
               </div>
 
               {/* Right Column (7 Cols): Showcase Image & Scrolling Marquee Badges */}
-              <div className="lg:col-span-7 space-y-4">
+              <div className="lg:col-span-7 space-y-4 order-first lg:order-last">
                 {/* Standalone Showcase Image Container */}
                 <div className="relative group overflow-hidden bg-white transition-all duration-500 p-2 rounded-2xl">
                   <div className="relative w-full flex items-center justify-center bg-white min-h-[220px] sm:min-h-[280px]">

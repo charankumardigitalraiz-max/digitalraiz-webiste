@@ -53,7 +53,7 @@ export default function ArticleShareBookmarkBar({
     if (typeof window !== "undefined") {
       return window.location.href;
     }
-    return `https://digitalraiz.com/blogs/${slug}`;
+    return `https://digitalraiz.com/insights/blog/${slug}`;
   };
 
   const handleShareClick = () => {

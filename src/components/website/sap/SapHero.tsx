@@ -8,12 +8,12 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SapHero() {
   return (
-    <section className="relative py-10 sm:py-10 bg-white border-b border-slate-100 overflow-hidden">
+    <section className="relative pt-28 pb-10 sm:py-10 bg-white border-b border-slate-100 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-pink-50/20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
         {/* Left Content Column */}
-        <ScrollReveal direction="left" className="space-y-6 flex-grow max-w-2xl">
+        <ScrollReveal direction="left" className="space-y-6 flex-grow max-w-2xl order-last lg:order-first">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 shadow-2xs">
             <Building2 className="w-3.5 h-3.5" />
             SAP Cloud Services
@@ -34,7 +34,7 @@ export default function SapHero() {
             <button
               type="button"
               onClick={() => openContactModal("SAP Cloud Services")}
-              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer"
+              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer pointer-events-auto touch-manipulation min-h-[44px]"
             >
               <span>Consult SAP Team</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -43,7 +43,7 @@ export default function SapHero() {
         </ScrollReveal>
 
         {/* Right Hero Image Stage */}
-        <ScrollReveal direction="right" delay={150} className="w-full lg:w-[500px] shrink-0">
+        <ScrollReveal direction="right" delay={150} className="w-full lg:w-[500px] shrink-0 order-first lg:order-last">
           <Image
             src="/sap/sap-enterprise-cloud-architecture.png"
             alt="SAP Cloud Architecture"

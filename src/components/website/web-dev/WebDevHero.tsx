@@ -28,7 +28,7 @@ export default function WebDevHero() {
   }, [techPaused]);
 
   return (
-    <section className="relative overflow-hidden bg-white py-10 sm:py-14 border-b border-slate-100">
+    <section className="relative overflow-x-hidden bg-white pt-28 pb-10 sm:py-10 border-b border-slate-100">
       {/* Background Subtle Grid & Ambient Glow Orbs */}
       <div className="absolute inset-0 bg-grid-premium opacity-5 pointer-events-none" />
       <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-200/30 via-violet-200/25 to-indigo-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" />
@@ -38,7 +38,7 @@ export default function WebDevHero() {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
 
           {/* LEFT — Typography & Intro Copy */}
-          <ScrollReveal direction="left" className="flex-grow space-y-6 text-center lg:text-left max-w-2xl">
+          <ScrollReveal direction="left" className="flex-grow space-y-6 text-center lg:text-left max-w-2xl w-full order-last lg:order-first">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Website Development Company in Hyderabad for{" "}
               <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
@@ -92,8 +92,8 @@ export default function WebDevHero() {
             </div>
           </ScrollReveal>
 
-          {/* RIGHT — Showcase Showcase with Floating Badges */}
-          <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center">
+          {/* RIGHT — Showcase with Floating Badges */}
+          <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center order-first lg:order-last">
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group">
               <img
                 src="/services/digital-raiz-imac-showcase-vertical.webp"

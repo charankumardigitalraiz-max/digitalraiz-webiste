@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[56.25vw] max-h-[500px] min-h-[220px] md:min-h-screen overflow-hidden flex flex-col items-center justify-between bg-black text-white font-sans">
+    <section id="home-hero" className="relative w-full mt-[56px] lg:mt-0 h-[56.25vw] max-h-[500px] min-h-[220px] md:min-h-screen overflow-hidden flex flex-col items-center justify-between bg-black text-white font-sans">
       {/* Background Video (Scaled to 16:9 Aspect Ratio on Mobile) */}
       <video
         autoPlay

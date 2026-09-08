@@ -77,7 +77,7 @@ export default function BlogSection() {
         {/* DESKTOP FEATURED HERO ARTICLE CARD (Hidden on Mobile) */}
         <ScrollReveal direction="up" delay={50} className="hidden md:block">
           <Link
-            href={`/blogs/${featuredPost.slug}`}
+            href={`/insights/blog/${featuredPost.slug}`}
             className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer relative overflow-hidden"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -158,7 +158,7 @@ export default function BlogSection() {
           {blogPostsData.map((post, idx) => (
             <ScrollReveal key={post.id} delay={(idx % 3) * 60} direction="up" className="h-full flex flex-col w-[78vw] max-w-[300px] shrink-0 snap-center">
               <Link
-                href={`/blogs/${post.slug}`}
+                href={`/insights/blog/${post.slug}`}
                 className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-xl transition-all duration-300 shadow-xs h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
               >
                 <div>
@@ -213,7 +213,7 @@ export default function BlogSection() {
           {filteredPosts.map((post, idx) => (
             <ScrollReveal key={post.id} delay={(idx % 3) * 60} direction="up" className="h-full">
               <Link
-                href={`/blogs/${post.slug}`}
+                href={`/insights/blog/${post.slug}`}
                 className="group block bg-white border border-slate-200/90 hover:border-pink-300 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden"
               >
                 <div>
@@ -280,7 +280,7 @@ export default function BlogSection() {
             </div>
 
             <Link
-              href="/blogs"
+              href="/insights/blog"
               className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
             >
               <span>Explore All Articles</span>

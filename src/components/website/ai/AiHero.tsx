@@ -7,13 +7,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AiHero() {
   return (
-    <section className="relative py-10 sm:py-10 bg-white overflow-hidden">
+    <section className="relative pt-28 pb-10 sm:py-10 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-purple-50/20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-10 items-center">
 
         {/* Left Content Column */}
-        <ScrollReveal direction="left" className="space-y-5 flex-grow max-w-2xl">
+        <ScrollReveal direction="left" className="space-y-5 flex-grow max-w-2xl order-last lg:order-first">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-[10px] font-mono font-bold uppercase tracking-widest text-purple-600 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
             AI & Machine Learning
@@ -29,8 +29,9 @@ export default function AiHero() {
 
           <div className="flex flex-wrap gap-4 pt-1">
             <button
+              type="button"
               onClick={() => openContactModal("Artificial Intelligence")}
-              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer"
+              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer pointer-events-auto touch-manipulation min-h-[44px]"
             >
               <span>Build AI Solutions</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -39,7 +40,7 @@ export default function AiHero() {
         </ScrollReveal>
 
         {/* Right Visual AI Architecture Image Stage */}
-        <ScrollReveal direction="right" delay={150} className="w-full lg:w-[540px] shrink-0">
+        <ScrollReveal direction="right" delay={150} className="w-full lg:w-[540px] shrink-0 order-first lg:order-last">
           <img
             src="/cloud-and-devops/ai-ml-genai.png"
             alt="AI Machine Learning & Generative AI Architecture"

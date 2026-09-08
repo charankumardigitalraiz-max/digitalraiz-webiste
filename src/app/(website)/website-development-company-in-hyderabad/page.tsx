@@ -40,7 +40,7 @@ export default function WebServicePage() {
   }, [webPortfolio.length, isPaused]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px] overflow-x-hidden">
       <Header />
 
       <main className="flex-grow">
@@ -70,14 +70,14 @@ export default function WebServicePage() {
         </ScrollReveal>
 
         {/* ANIMATED CLIENT TESTIMONIALS */}
-        <ScrollReveal direction="up">
+        {/* <ScrollReveal direction="up">
           <AnimatedTestimonials
             items={webDevReviewsData}
             variant="web-studio"
             titleHighlight="Our Web Platforms"
             subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
           />
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         {/* WEB PORTFOLIO SHOWCASE SECTION */}
         <ScrollReveal direction="up">

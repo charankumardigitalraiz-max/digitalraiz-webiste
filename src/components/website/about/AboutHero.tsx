@@ -8,7 +8,7 @@ import { openContactModal } from "@/components/ContactModal";
 
 export default function AboutHero() {
   return (
-    <section className="relative py-10 sm:py-16 lg:py-20 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80">
+    <section className="relative pt-28 pb-10 sm:py-16 lg:py-20 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80">
       {/* Micro Grid Background */}
       <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
       {/* Ambient glow */}
@@ -19,7 +19,7 @@ export default function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
           {/* Left Column */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left order-last lg:order-first">
             <ScrollReveal direction="up" delay={50}>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200/80 text-pink-600 text-[10px] font-mono font-bold uppercase tracking-widest shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
@@ -67,7 +67,7 @@ export default function AboutHero() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last">
             <ScrollReveal direction="up" delay={200} className="w-full">
               <div className="relative w-full rounded-3xl overflow-hidden group ">
                 <Image

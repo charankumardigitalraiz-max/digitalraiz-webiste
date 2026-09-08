@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Digital Agency Principles Vision Mission"
   ],
   alternates: {
-    canonical: "https://digitalraiz.com/about"
+    canonical: "https://digitalraiz.com/about-us"
   },
   robots: {
     index: true,

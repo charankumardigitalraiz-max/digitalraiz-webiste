@@ -25,24 +25,24 @@ export default function Footer() {
 
   const quickLinks = [
     { label: "Home", href: "/", icon: Home },
-    { label: "About Us", href: "/about", icon: Users },
+    { label: "About Us", href: "/about-us", icon: Users },
     { label: "Portfolio", href: "/portfolio", icon: Laptop },
-    { label: "Blogs", href: "/blogs", icon: TrendingUp },
+    { label: "Blogs", href: "/insights/blog", icon: TrendingUp },
     { label: "Contact", href: "/contact", icon: Headphones },
-    {label: "Privacy Policy", href: "/privacy-policy", icon: CheckCircle2 },
+    { label: "Privacy Policy", href: "/privacy-policy", icon: CheckCircle2 },
     { label: "Terms & Conditions", href: "/terms-and-conditions", icon: CheckCircle2 },
     { label: "SiteMap", href: "#", icon: ExternalLink }
   ];
 
   const keySolutions = [
     { label: "Digital Marketing", href: "/digital-marketing-services-in-hyderabad", icon: Megaphone },
-    { label: "Mobile Application", href: "/mobile-application", icon: Smartphone },
-    { label: "Web Development", href: "/web-development", icon: Laptop },
+    { label: "Mobile Application", href: "/mobile-app-development-company-in-hyderabad", icon: Smartphone },
+    { label: "Web Development", href: "/website-development-company-in-hyderabad", icon: Laptop },
     { label: "Influencer Marketing", href: "/influencer-marketing", icon: Share2 },
     { label: "SAP Cloud Services", href: "/sap-cloud-services", icon: TrendingUp },
     { label: "Salesforce Services", href: "/salesforce-services", icon: Cloud },
-    { label: "Machine Learning", href: "/machine-learning", icon: Search },
-    { label: "AI Solutions", href: "/artificial-intelligence", icon: Sparkles }
+    { label: "Cloud & DevOps", href: "/cloud-devops-services", icon: Cloud },
+    { label: "AI Solutions", href: "/ai-ml-generative-ai-services", icon: Sparkles }
   ];
 
   return (

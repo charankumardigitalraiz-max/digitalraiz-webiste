@@ -14,13 +14,13 @@ import { openContactModal } from "@/components/ContactModal";
 
 export default function DataAnalyticsHero() {
   return (
-    <section className="relative overflow-hidden bg-white py-10 sm:py-10">
+    <section className="relative overflow-hidden bg-white pt-28 pb-10 sm:py-10">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
           {/* LEFT — Typography & Intro Copy */}
           <ScrollReveal
             direction="left"
-            className="flex-grow space-y-6 text-center lg:text-left max-w-2xl"
+            className="flex-grow space-y-6 text-center lg:text-left max-w-2xl order-last lg:order-first"
           >
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -91,7 +91,7 @@ export default function DataAnalyticsHero() {
                     "Build Data Infrastructure"
                   )
                 }
-                className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer border-0"
+                className="inline-flex items-center justify-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer border-0 pointer-events-auto touch-manipulation min-h-[44px]"
               >
                 <span>Build Data Infrastructure</span>
                 <ArrowRight className="w-3.5 h-3.5 text-white" />
@@ -105,7 +105,7 @@ export default function DataAnalyticsHero() {
                     "Book BI Strategy Audit"
                   )
                 }
-                className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 py-3.5 px-7 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer pointer-events-auto touch-manipulation min-h-[44px]"
               >
                 <PieChart className="w-3.5 h-3.5 text-pink-500" />
                 <span>Book BI Strategy Audit</span>
@@ -117,7 +117,7 @@ export default function DataAnalyticsHero() {
           <ScrollReveal
             direction="right"
             delay={150}
-            className="relative w-full lg:w-[500px] shrink-0 flex justify-center"
+            className="relative w-full lg:w-[500px] shrink-0 flex justify-center order-first lg:order-last"
           >
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group shadow-lg border border-slate-100">
               {/* Hero Image */}

@@ -74,7 +74,7 @@ export default function WebDevPortfolioShowcase({
                           <Globe className="w-4 h-4 text-pink-400" />
                         )}
                       </div>
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
                           <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest leading-none">
                             {activeWebProject?.category}
@@ -85,13 +85,13 @@ export default function WebDevPortfolioShowcase({
                             Live Website
                           </span>
                         </div>
-                        <div className="text-sm sm:text-base font-extrabold text-[#1e1b4b] uppercase tracking-tight truncate mt-0.5">
+                        <div className="text-sm sm:text-base font-extrabold text-[#1e1b4b] uppercase tracking-tight whitespace-normal sm:truncate mt-0.5">
                           {activeWebProject?.name}
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="hidden sm:flex items-center gap-2 shrink-0">
                       <button
                         onClick={() => setActiveIndex((prev) => (prev === 0 ? webPortfolio.length - 1 : prev - 1))}
                         className="w-8 h-8 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 flex items-center justify-center text-slate-600 hover:text-pink-600 transition-all active:scale-90 shadow-2xs cursor-pointer"
@@ -167,8 +167,8 @@ export default function WebDevPortfolioShowcase({
             {/* 3D Desktop Showcase & Project Details Grid */}
             <ScrollReveal direction="up" delay={150}>
               <div className="w-full pb-4">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                  <div className="lg:col-span-6 w-full h-[360px] sm:h-[400px]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+                  <div className="lg:col-span-6 w-full h-auto flex items-center justify-center">
                     <ThreeDShowcase
                       projects={webPortfolio}
                       activeIndex={activeIndex}

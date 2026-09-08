@@ -241,7 +241,7 @@ export default function ServicesPage() {
         </section> */}
 
         {/* 360-DEGREE ENTERPRISE SERVICES CONSTELLATION HERO */}
-        <section className="relative overflow-hidden bg-[#060914] text-white border-b border-slate-800/80 w-full h-screen min-h-screen max-h-screen flex items-center justify-center select-none">
+        <section className="relative overflow-hidden bg-[#060914] text-white border-b border-slate-800/80 w-full h-screen min-h-screen max-h-screen flex items-center justify-center select-none pt-20 sm:pt-0">
 
           {/* Multi-Layer Cosmic Ambient Glow Orbs */}
           <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[950px] h-[650px] bg-gradient-to-tr from-pink-600/20 via-violet-600/20 to-indigo-600/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />

@@ -168,7 +168,7 @@ export default function ContactPageContent() {
 
       {/* Top Hero Section (Edge-to-Edge full width background image with text overlay) */}
       <ScrollReveal direction="up" className="w-full">
-        <section className="relative w-full h-[350px] sm:h-[450px] overflow-hidden shadow-sm">
+        <section className="relative w-full h-[350px] sm:h-[450px] overflow-hidden shadow-sm mt-[56px] lg:mt-0">
           {/* Background Image */}
           <img
             src="/contact/contact-hero.webp"
@@ -179,7 +179,7 @@ export default function ContactPageContent() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/60 to-transparent" />
 
           {/* Content overlay */}
-          <div className="absolute inset-0 flex flex-col justify-center max-w-6xl 2xl:max-w-7xl mx-auto px-6 sm:px-12 md:px-16 space-y-4">
+          <div className="absolute inset-0 flex flex-col justify-center max-w-6xl 2xl:max-w-7xl mx-auto px-6 sm:px-12 md:px-16 space-y-4 pt-16 sm:pt-0">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-[9px] font-mono font-bold text-pink-400 uppercase tracking-widest w-fit">
               <Sparkles className="w-3.5 h-3.5 text-pink-400" />
               Strategic Growth Consultation

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Digital Raiz Data Services"
   ],
   alternates: {
-    canonical: "https://digitalraiz.com/data-analytics-and-bi"
+    canonical: "https://digitalraiz.com/data-analytics-business-intelligence"
   },
   robots: {
     index: true,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Data Analytics & Business Intelligence Services | Digital Raiz",
     description:
       "Digital Raiz provides data analytics and business intelligence services that turn complex data into actionable insights, intelligent dashboards and better business decisions.",
-    url: "https://digitalraiz.com/data-analytics-and-bi",
+    url: "https://digitalraiz.com/data-analytics-business-intelligence",
     siteName: "Digital Raiz",
     locale: "en_US",
     type: "website"

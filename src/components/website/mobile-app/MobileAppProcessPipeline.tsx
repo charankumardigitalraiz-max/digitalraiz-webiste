@@ -11,6 +11,7 @@ export default function MobileAppProcessPipeline() {
   const pdfProcessSteps = [
     {
       step: "01",
+      shortName: "Planning",
       name: "Product Planning & Technical Consultation",
       desc: "We map business objectives, define functional architecture, user personas, and select the optimal tech stack tailored to your target audience.",
       icon: <Workflow className="w-5 h-5 text-pink-500" />,
@@ -26,6 +27,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "02",
+      shortName: "UI/UX Design",
       name: "UI/UX Design & Prototyping",
       desc: "Designing intuitive, user-centric screen flows, wireframes, and pixel-perfect interactive prototypes for frictionless mobile interaction.",
       icon: <Layout className="w-5 h-5 text-violet-500" />,
@@ -41,6 +43,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "03",
+      shortName: "Development",
       name: "Mobile Application Development",
       desc: "Writing clean, modular code using native Swift/Kotlin or cross-platform Flutter/React Native frameworks optimized for high frame rates.",
       icon: <Code2 className="w-5 h-5 text-indigo-500" />,
@@ -56,6 +59,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "04",
+      shortName: "Backend & API",
       name: "API & Backend Integration",
       desc: "Connecting robust cloud databases, microservices, REST/GraphQL APIs, OAuth authentication, and third-party payment gateways.",
       icon: <Server className="w-5 h-5 text-emerald-500" />,
@@ -71,6 +75,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "05",
+      shortName: "QA & Testing",
       name: "Testing & Quality Assurance",
       desc: "Executing automated unit tests, security vulnerability scans, cross-device hardware compatibility checks, and battery performance tuning.",
       icon: <ShieldCheck className="w-5 h-5 text-amber-500" />,
@@ -86,6 +91,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "06",
+      shortName: "Deployment",
       name: "App Store & Play Store Deployment",
       desc: "Managing store publishing guidelines, cryptographic app signing, App Store Optimization (ASO), and smooth release approvals.",
       icon: <Zap className="w-5 h-5 text-rose-500" />,
@@ -101,6 +107,7 @@ export default function MobileAppProcessPipeline() {
     },
     {
       step: "07",
+      shortName: "SLA Support",
       name: "Maintenance & Ongoing SLA Support",
       desc: "Providing 24/7 server monitoring, regular iOS/Android OS compatibility updates, security patches, feature iterations, and SLA support.",
       icon: <Wrench className="w-5 h-5 text-sky-500" />,
@@ -134,16 +141,16 @@ export default function MobileAppProcessPipeline() {
               </span>
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-xl mx-auto">
-              From technical consultation to post-launch SLA support — click any phase to inspect phase deliverables and toolchains.
+              From technical consultation to post-launch SLA support — click any phase tab to inspect deliverables and toolchains.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* TOP: Horizontal Connected Stepper Ribbon Track */}
+        {/* TOP: Process Pipeline Navigation (Desktop Ribbon vs Mobile Grid Tabs) */}
         <ScrollReveal direction="up" delay={100}>
-          <div className="relative w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
+          {/* DESKTOP VIEW: Connected Stepper Ribbon Track */}
+          <div className="hidden md:block relative w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
             <div className="flex items-center justify-between min-w-[700px] relative px-4">
-
               {/* Connecting Line Track */}
               <div className="absolute top-6 left-10 right-10 h-0.5 bg-slate-200 -z-0" />
               <div
@@ -174,7 +181,35 @@ export default function MobileAppProcessPipeline() {
                   </button>
                 );
               })}
+            </div>
+          </div>
 
+          {/* MOBILE VIEW: Normal Grid Tabs */}
+          <div className="block md:hidden w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {pdfProcessSteps.map((step, idx) => {
+                const isActive = activeStep === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveStep(idx)}
+                    className={`flex flex-col items-center justify-center p-2.5 rounded-xl border text-center transition-all duration-300 cursor-pointer touch-manipulation ${
+                      isActive
+                        ? "bg-gradient-to-br from-pink-500 via-violet-600 to-indigo-600 text-white border-transparent shadow-md shadow-pink-500/20 scale-[1.02]"
+                        : "bg-white text-slate-700 border-slate-200/80 shadow-xs"
+                    }`}
+                  >
+                    <span className={`text-[9px] font-mono font-black uppercase tracking-widest mb-0.5 px-1.5 py-0.5 rounded ${
+                      isActive ? "bg-white/20 text-white" : "bg-pink-50 text-pink-600 border border-pink-100"
+                    }`}>
+                      Step {step.step}
+                    </span>
+                    <span className={`text-xs font-bold leading-tight truncate max-w-full ${isActive ? "text-white" : "text-slate-700"}`}>
+                      {step.shortName}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </ScrollReveal>

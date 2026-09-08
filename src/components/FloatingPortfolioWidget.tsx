@@ -7,6 +7,35 @@ import { ArrowRight, FolderKanban, Sparkles } from "lucide-react";
 export default function FloatingPortfolioWidget() {
   const [isFooterInView, setIsFooterInView] = useState(false);
   const [isHeaderOpen, setIsHeaderOpen] = useState(false);
+  const [isHomeHeroInView, setIsHomeHeroInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const heroElement = document.getElementById("home-hero");
+    if (!heroElement) {
+      setIsHomeHeroInView(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHomeHeroInView(entry.isIntersecting);
+      },
+      { root: null, threshold: 0.05 }
+    );
+
+    observer.observe(heroElement);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const footerElement = document.querySelector("footer");
@@ -35,12 +64,11 @@ export default function FloatingPortfolioWidget() {
     return () => window.removeEventListener("header-toggle", handleHeaderToggle);
   }, []);
 
-  if (isFooterInView || isHeaderOpen) return null;
+  if (isFooterInView || isHeaderOpen || isMobile) return null;
 
   return (
     <div
-      className="fixed top-3.5 sm:top-4 z-30 pointer-events-auto select-none transition-all duration-300 animate-[float_3.5s_ease-in-out_infinite]"
-      style={{ right: "7%" }}
+      className="hidden lg:block fixed top-5 right-24 z-30 pointer-events-auto select-none transition-all duration-300 animate-[float_3.5s_ease-in-out_infinite]"
     >
       <Link
         href="/portfolio"

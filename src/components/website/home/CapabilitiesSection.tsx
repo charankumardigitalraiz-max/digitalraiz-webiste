@@ -98,7 +98,7 @@ export default function CapabilitiesSection() {
         <div key={activeStudio} className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch animate-tab-swap">
 
           {/* LEFT COLUMN: Streamlined Compact Studio Card (lg:col-span-4) */}
-          <ScrollReveal direction="left" className="lg:col-span-4 flex flex-col">
+          <ScrollReveal direction="left" className="lg:col-span-4 flex flex-col order-last lg:order-first">
             <div className="rounded-2xl bg-gradient-to-br from-slate-50/90 via-white to-pink-50/20 p-5 border border-slate-200/90 shadow-md shadow-slate-200/50 flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
               {/* Top Laser Accent */}
               <div className="h-1.5 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-2xl -mt-5 -mx-5 mb-3" />
@@ -219,7 +219,7 @@ export default function CapabilitiesSection() {
           </ScrollReveal>
 
           {/* RIGHT COLUMN: Showcase Image + High-Visibility Scrolling Ticker Marquee (lg:col-span-8) */}
-          <ScrollReveal direction="right" className="lg:col-span-8 flex flex-col justify-between space-y-4">
+          <ScrollReveal direction="right" className="lg:col-span-8 flex flex-col justify-between space-y-4 order-first lg:order-last">
             {/* Top Showcase Image Frame */}
             <div className="relative group rounded-2xl overflow-hidden bg-white  transition-all duration-300">
               <div className="relative w-full flex items-center justify-center bg-white min-h-[220px] sm:min-h-[280px]">

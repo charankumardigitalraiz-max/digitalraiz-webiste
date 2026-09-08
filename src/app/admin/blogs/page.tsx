@@ -98,7 +98,7 @@ export default function AdminBlogsPage() {
                 <tr key={post.slug} className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-4 px-5">
                     <div className="font-bold text-white max-w-md">{post.title}</div>
-                    <div className="text-[10px] font-mono text-slate-500">/blogs/{post.slug}</div>
+                    <div className="text-[10px] font-mono text-slate-500">/insights/blog/{post.slug}</div>
                   </td>
                   <td className="py-4 px-5">
                     <span className="px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20 text-[9.5px] font-mono font-bold uppercase">
@@ -111,7 +111,7 @@ export default function AdminBlogsPage() {
                   <td className="py-4 px-5 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <Link
-                        href={`/blogs/${post.slug}`}
+                        href={`/insights/blog/${post.slug}`}
                         target="_blank"
                         className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors"
                         title="Preview Article"

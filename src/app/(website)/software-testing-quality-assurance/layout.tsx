@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Digital Raiz Software Testing"
   ],
   alternates: {
-    canonical: "https://digitalraiz.com/testing-and-quality-assurance"
+    canonical: "https://digitalraiz.com/software-testing-quality-assurance"
   },
   robots: {
     index: true,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Software Testing & QA Services in Hyderabad | Digital Raiz",
     description:
       "Digital Raiz provides software testing and quality assurance (QA) services in Hyderabad, including test automation, manual QA, performance load testing, OWASP security audits, and API testing.",
-    url: "https://digitalraiz.com/testing-and-quality-assurance",
+    url: "https://digitalraiz.com/software-testing-quality-assurance",
     siteName: "Digital Raiz",
     locale: "en_US",
     type: "website"

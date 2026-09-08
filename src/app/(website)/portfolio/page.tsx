@@ -129,7 +129,7 @@ export default function PortfolioPage() {
 
       <main className="flex-grow pb-20">
         {/* HERO SECTION — Clean Light Studio Showcase Header */}
-        <section className="relative overflow-hidden bg-white py-12 lg:py-10">
+        <section className="relative overflow-hidden bg-white pt-28 pb-12 sm:py-12 lg:py-10">
           {/* Ambient Glow Accents */}
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-pink-500/10 via-violet-500/10 to-indigo-500/10 blur-[130px] rounded-full pointer-events-none" />
 

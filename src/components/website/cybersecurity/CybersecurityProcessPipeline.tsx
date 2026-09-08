@@ -47,12 +47,12 @@ export default function CybersecurityProcessPipeline() {
           </div>
         </ScrollReveal>
 
-        {/* 6 Stage Compact Studio Stepper Deck */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* 6 Stage Compact Studio Stepper Deck (Horizontal Carousel on Mobile, Grid on Tablet/Desktop) */}
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar gap-4 md:gap-5 lg:gap-6 md:grid-cols-2 lg:grid-cols-3 pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
           {defensePipelineNodes.map((phase, pIdx) => {
             const PhaseIcon = phase.icon || ShieldCheck;
             return (
-              <ScrollReveal key={pIdx} direction="up" delay={pIdx * 60} className="h-full">
+              <ScrollReveal key={pIdx} direction="up" delay={pIdx * 60} className="h-full w-[280px] sm:w-[320px] md:w-auto shrink-0 md:shrink snap-center">
                 <div className="group relative bg-white border border-slate-200/90 hover:border-pink-300 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 flex flex-col justify-between space-y-4 h-full overflow-hidden text-left">
                   {/* Giant Watermark Step Number in Background */}
                   <span className="absolute -right-3 -bottom-5 text-8xl font-black font-mono text-slate-100 group-hover:text-pink-100/60 transition-colors pointer-events-none select-none">

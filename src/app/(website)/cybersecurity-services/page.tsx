@@ -14,7 +14,7 @@ import CybersecurityTalentBanner from "@/components/website/cybersecurity/Cybers
 
 export default function CybersecurityServicesPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-pink-500 selection:text-white lg:pr-[80px]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-pink-500 selection:text-white lg:pr-[80px] overflow-x-hidden">
       <Header />
 
       <main>

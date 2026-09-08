@@ -17,7 +17,7 @@ import MobileAppTalentBanner from "@/components/website/mobile-app/MobileAppTale
 
 export default function MobileApplicationPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-800 lg:pr-[80px] overflow-x-hidden">
       <Header />
       <main className="flex-grow">
         {/* HERO SECTION */}

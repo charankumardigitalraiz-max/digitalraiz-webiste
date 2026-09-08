@@ -10,7 +10,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AiServicePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px] overflow-x-hidden">
       <Header />
 
       <main className="flex-grow">

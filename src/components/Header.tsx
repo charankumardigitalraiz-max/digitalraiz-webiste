@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronDown, FolderKanban, Sparkles } from "lucide-react";
 import { useContactStore } from "@/store";
 import { useContactDetails } from "@/hooks/useContactDetails";
 import ContactModal from "@/components/ContactModal";
@@ -50,15 +50,15 @@ export default function Header() {
   }, [menuOpen]);
 
   const services = [
-    { name: "Web Development", href: "/web-development" },
-    { name: "Mobile App Development", href: "/mobile-application" },
-    { name: "AI & Generative AI Solutions", href: "/artificial-intelligence" },
-    { name: "Data Analytics & BI", href: "/data-analytics-and-bi" },
+    { name: "Web Development", href: "/website-development-company-in-hyderabad" },
+    { name: "Mobile App Development", href: "/mobile-app-development-company-in-hyderabad" },
+    { name: "AI & Generative AI Solutions", href: "/ai-ml-generative-ai-services" },
+    { name: "Data Analytics & BI", href: "/data-analytics-business-intelligence" },
     { name: "Cybersecurity Services", href: "/cybersecurity-services" },
     { name: "SAP Cloud Services", href: "/sap-cloud-services" },
     { name: "Salesforce Services", href: "/salesforce-services" },
-    { name: "Cloud & DevOps Engineering", href: "/cloud-and-devops" },
-    { name: "Testing & Quality Assurance", href: "/testing-and-quality-assurance" },
+    { name: "Cloud & DevOps Engineering", href: "/cloud-devops-services" },
+    { name: "Testing & Quality Assurance", href: "/software-testing-quality-assurance" },
     { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },
     { name: "Influencer Marketing", href: "/influencer-marketing" },
     // { name: "Machine Learning Studio", href: "/machine-learning" },
@@ -67,8 +67,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Fixed Top-Left Main Branding Header Logo Bar */}
-      <header className="flex fixed top-3 left-4 sm:top-5 sm:left-6 z-40 items-center pointer-events-auto">
+      {/* Desktop Main Branding Header Logo Bar (Desktop Only) */}
+      <header className="hidden lg:flex fixed top-5 left-6 z-40 items-center pointer-events-auto">
         <Link
           href="/"
           className="group inline-block transition-transform duration-300 hover:scale-105"
@@ -78,11 +78,69 @@ export default function Header() {
             alt="Digital Raiz Logo"
             width={180}
             height={60}
-            className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-sm"
+            className="h-14 w-auto object-contain drop-shadow-sm"
             priority
           />
         </Link>
       </header>
+
+      {/* Mobile Header Bar Attached to Top (Mobile Only - Logo Left, Portfolio Center, Menu Icon Right) */}
+      {!menuOpen && (
+        <header className="flex lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 p-2.5 px-4 items-center justify-between shadow-xs pointer-events-auto">
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logo/logo-without-txt.webp"
+              alt="Digital Raiz Logo"
+              width={130}
+              height={40}
+              className="h-8 sm:h-9 w-auto object-contain"
+              priority
+            />
+          </Link>
+
+          {/* Portfolio Pill Button in Mobile Header */}
+          <Link
+            href="/portfolio"
+            prefetch={true}
+            className="group relative inline-flex items-center gap-1.5 p-1 pl-2.5 pr-2.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:from-pink-600 hover:via-rose-600 hover:to-purple-700 border border-white/40 text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer overflow-hidden shadow-xs"
+            aria-label="Click to View Live Portfolio"
+          >
+            {/* Shimmer Light Reflection Sweep */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none" />
+
+            {/* Icon Badge */}
+            <div className="relative w-5.5 h-5.5 rounded-full bg-white/20 backdrop-blur-xs border border-white/30 flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform duration-300">
+              <FolderKanban className="w-2.5 h-2.5 text-white" />
+              <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 border border-slate-900" />
+              </span>
+            </div>
+
+            {/* Copy */}
+            <div className="flex items-center gap-1">
+              <span className="text-[9px] font-black uppercase tracking-wider text-white whitespace-nowrap flex items-center gap-1">
+                View Portfolio
+                <Sparkles className="w-2.5 h-2.5 text-amber-200 animate-pulse" />
+              </span>
+            </div>
+
+            {/* Interactive Arrow Button Circle */}
+            <div className="w-5 h-5 rounded-full bg-white text-pink-600 group-hover:bg-slate-900 group-hover:text-white flex items-center justify-center transition-all duration-300 ml-0.5 shrink-0 group-hover:scale-110 border border-white/40">
+              <ArrowRight className="w-2.5 h-2.5 transition-transform group-hover:translate-x-0.5" />
+            </div>
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="w-9 h-9 rounded-xl bg-slate-100/90 hover:bg-pink-50 text-slate-800 hover:text-pink-600 border border-slate-200/80 flex items-center justify-center transition-all cursor-pointer pointer-events-auto touch-manipulation active:scale-95 shadow-xs shrink-0"
+            aria-label="Open Navigation Menu"
+          >
+            <Menu className="w-5 h-5 text-slate-800" />
+          </button>
+        </header>
+      )}
 
       {/* Backdrop overlay (Only active when menu is fully opened) */}
       <div
@@ -142,14 +200,14 @@ export default function Header() {
                 Portfolio
               </Link>
               <Link
-                href="/about"
+                href="/about-us"
                 prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
                 About
               </Link>
               <Link
-                href="/blogs"
+                href="/insights/blog"
                 prefetch={true}
                 className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-mono font-black uppercase tracking-[0.25em] text-slate-700 hover:text-pink-600 transition-all duration-200 hover:scale-110 py-1"
               >
@@ -279,7 +337,7 @@ export default function Header() {
               {/* Blogs */}
               <div className="group flex items-start">
                 <Link
-                  href="/blogs"
+                  href="/insights/blog"
                   prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
@@ -344,29 +402,6 @@ export default function Header() {
           </div>
         )}
       </div>
-
-      {/* Floating Logo/Menu Trigger for Mobile (Visible when menu is closed) */}
-      {!menuOpen && (
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="fixed top-4 right-4 z-50 lg:hidden w-14 h-14 rounded-full border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-lg flex items-center justify-center group overflow-hidden transition-all duration-300 cursor-pointer active:scale-95 outline-none"
-          aria-label="Open Navigation"
-        >
-          {/* Logo Mark (Fades out / shrinks on hover) */}
-          <div className="absolute inset-0 flex items-center justify-center p-1 transition-all duration-300 transform scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 pointer-events-none">
-            <img
-              src="/logo/digital-raiz-logo.webp"
-              alt="Brand Logo"
-              className="w-full h-full object-contain"
-            />
-          </div>
-
-          {/* Menu Icon (Rotates in / expands on hover) */}
-          <div className="absolute inset-0 flex items-center justify-center text-slate-800 transition-all duration-300 transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:rotate-180 pointer-events-none">
-            <Menu className="w-5 h-5" />
-          </div>
-        </button>
-      )}
 
       {/* Global Contact Modal */}
       <ContactModal
