@@ -321,18 +321,21 @@ export default function ContactModal({
 
   return (
     <div
-      className="fixed inset-0 z-[110] bg-slate-950/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-[110] bg-slate-950/60 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"
     >
       <div
-        className="bg-white border border-slate-200/90 rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative text-slate-800 my-auto animate-in zoom-in-95 duration-200"
+        className="bg-white border-t sm:border border-slate-200/90 rounded-t-3xl rounded-b-none sm:rounded-3xl w-full max-w-full sm:max-w-xl max-h-[90vh] sm:max-h-[92vh] overflow-y-auto p-5 sm:p-8 shadow-2xl relative text-slate-800 my-0 sm:my-auto animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Grab Bar */}
+        <div className="w-12 h-1 bg-slate-300 rounded-full mx-auto -mt-2 mb-3 block sm:hidden" />
+
         {/* Top Accent Strip */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-3xl -mt-6 -mx-6 sm:-mt-8 sm:-mx-8 mb-6" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 rounded-t-3xl -mt-5 -mx-5 sm:-mt-8 sm:-mx-8 mb-5 sm:mb-6" />
 
         {/* Close Button */}
         <button
@@ -504,8 +507,8 @@ export default function ContactModal({
                     onChange={(e) => handleChange("phone", e.target.value)}
                     onBlur={() => handleBlur("phone")}
                     className={`w-full bg-white border rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none transition-all text-xs font-mono ${touched.phone && errors.phone
-                        ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-200 focus:border-pink-500"
+                      ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                      : "border-slate-200 focus:border-pink-500"
                       }`}
                     placeholder="Enter 10-digit mobile number (e.g. 9494613601)"
                   />

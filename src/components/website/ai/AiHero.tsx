@@ -7,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AiHero() {
   return (
-    <section className="relative pt-28 pb-10 sm:py-10 bg-white overflow-hidden">
+    <section className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-purple-50/20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-10 items-center">

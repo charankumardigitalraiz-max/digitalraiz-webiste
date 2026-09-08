@@ -6,7 +6,7 @@ import { CheckCircle2, TrendingUp, Zap } from "lucide-react";
 
 export default function DigitalMarketingHero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-10 sm:py-10 border-b border-slate-100">
+    <section className="relative overflow-hidden bg-white pt-14 pb-8 sm:pt-20 sm:pb-10 lg:py-10 border-b border-slate-100">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 items-center py-10 lg:py-14">
 

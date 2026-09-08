@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { PORTFOLIO_PROJECTS } from "@/data/portfolioData";
 
 export default function MobileAppShowcase() {
   const [activeIndex, setActiveIndex] = useState(2);
@@ -18,48 +19,7 @@ export default function MobileAppShowcase() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const portfolioApps = [
-    {
-      name: "Solo Hearts",
-      tag: "Social Connection",
-      desc: "Premium dating and matchmaking application configured for location checks, instant chats, and profiles.",
-      features: ["Premium matching algorithm", "Location verified check-ins", "Secure chat modules"],
-      playStoreUrl: "#",
-      img: "/portfolio/soloohearts.webp"
-    },
-    {
-      name: "Medicompares",
-      tag: "Medical & Health",
-      desc: "Comprehensive medical services comparison platform designed to compare clinical tests, reports, and prices.",
-      features: ["Medical comparison engine", "Clinical report details", "Instant pricing updates"],
-      playStoreUrl: "#",
-      img: "/portfolio/medicompares.jpg"
-    },
-    {
-      name: "JBFMS India",
-      tag: "Enterprise Workflow",
-      desc: "Corporate resource dashboard system configured for tracking field team tasks, attendance, and instant audits.",
-      features: ["Field staff check-ins", "Offline report syncing", "Live dashboard syncs"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.jbfms.jbfmsindia&hl=en",
-      img: "/portfolio/jgfms.webp"
-    },
-    {
-      name: "Gocut Beauty App",
-      tag: "On-Demand Services",
-      desc: "Booking and service scheduling interface with integrated maps, local search filters, and chats.",
-      features: ["Appointment scheduling", "Local provider searches", "In-app customer chats"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
-      img: "/portfolio/gocut-beauty.webp"
-    },
-    {
-      name: "Sherla Properties App",
-      tag: "Luxury Property Platform",
-      desc: "Premium real estate platform engineered for showcasing luxury listings. Features advanced search filters, fluid listing galleries, interactive agent contact forms, and rapid loading times.",
-      features: ["Node.js", "Flutter Web", "Google Maps Integration", "Real Estate Listing Management"],
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.digitalraiz.gouser&hl=en",
-      img: "/mobile-application/sherla-properties.jpg"
-    }
-  ];
+  const portfolioApps = PORTFOLIO_PROJECTS.filter((p) => p.type === "mobile");
 
   const startAutoScroll = (e: React.SyntheticEvent<HTMLDivElement>) => {
     if (isMobile) return;
@@ -279,11 +239,10 @@ export default function MobileAppShowcase() {
             <button
               key={idx}
               onClick={() => handleCardClick(idx)}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                idx === activeIndex
+              className={`transition-all duration-300 rounded-full cursor-pointer ${idx === activeIndex
                   ? "w-7 h-2.5 bg-gradient-to-r from-pink-500 to-violet-600"
                   : "w-2.5 h-2.5 bg-slate-200 hover:bg-slate-300"
-              }`}
+                }`}
               aria-label={`Go to ${app.name}`}
             />
           ))}

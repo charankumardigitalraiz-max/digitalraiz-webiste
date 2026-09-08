@@ -146,7 +146,7 @@ export default function PortfolioPage() {
                 </h1>
 
                 <p className="text-slate-600 text-xs sm:text-sm font-normal max-w-2xl mx-auto leading-relaxed">
-                  Explore our complete catalog of 25+ production mobile applications and enterprise web platforms — showcased in authentic mobile device frames and desktop iMac monitor stands.
+                  Explore our complete catalog of 15+ production mobile applications and enterprise web platforms — showcased in authentic mobile device frames and desktop iMac monitor stands.
                 </p>
               </div>
             </ScrollReveal>

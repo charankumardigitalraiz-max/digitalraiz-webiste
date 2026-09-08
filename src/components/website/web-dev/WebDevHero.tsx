@@ -28,14 +28,14 @@ export default function WebDevHero() {
   }, [techPaused]);
 
   return (
-    <section className="relative overflow-x-hidden bg-white pt-28 pb-10 sm:py-10 border-b border-slate-100">
+    <section className="relative overflow-x-hidden bg-white pt-14 pb-8 sm:pt-20 sm:pb-10 lg:py-10 border-b border-slate-100">
       {/* Background Subtle Grid & Ambient Glow Orbs */}
       <div className="absolute inset-0 bg-grid-premium opacity-5 pointer-events-none" />
       <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-200/30 via-violet-200/25 to-indigo-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-violet-200/30 via-cyan-200/25 to-pink-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" style={{ animationDelay: "3s" }} />
 
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center py-2 sm:py-6 lg:py-0">
 
           {/* LEFT — Typography & Intro Copy */}
           <ScrollReveal direction="left" className="flex-grow space-y-6 text-center lg:text-left max-w-2xl w-full order-last lg:order-first">

@@ -21,7 +21,7 @@ export default function PortfolioHighlight() {
 
   // Select top featured flagship projects
   const featuredProjects = PORTFOLIO_PROJECTS.filter((p) =>
-    ["solo-hearts", "sherla-properties", "medicompares-app", "skanda-hospital", "waypartner", "eaglemart"].includes(p.id)
+    ["solo-hearts", "sherla-properties", "medicompares-app", "skanda-hospital", "jbfms-india", "gocut-beauty"].includes(p.id)
   );
 
   const displayProjects =

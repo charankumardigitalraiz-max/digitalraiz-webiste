@@ -6,7 +6,7 @@ import { Key, Terminal, Activity, FileCheck, CheckCircle2 } from "lucide-react";
 
 export default function CybersecurityHero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-10 sm:py-10">
+    <section className="relative overflow-hidden bg-white pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 space-y-10">
 
         {/* Centered Top Content Header */}

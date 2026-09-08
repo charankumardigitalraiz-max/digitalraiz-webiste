@@ -15,7 +15,7 @@ export default function InfluencerMarketingHero() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-10 sm:py-10 border-b border-slate-100">
+    <section className="relative overflow-hidden bg-white pt-14 pb-8 sm:pt-20 sm:pb-10 lg:py-10 border-b border-slate-100">
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
 
         {/* Main Content Split */}

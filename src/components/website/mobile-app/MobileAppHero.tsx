@@ -14,11 +14,11 @@ export default function MobileAppHero() {
   ];
 
   return (
-    <section className="relative overflow-x-hidden bg-white pt-28 pb-10 sm:py-10 border-b border-slate-100">
+    <section className="relative overflow-x-hidden bg-white pt-14 pb-8 sm:pt-20 sm:pb-10 lg:py-10 border-b border-slate-100">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
 
         {/* Hero Main Grid */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 items-center py-10 lg:py-14">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center py-2 sm:py-6 lg:py-14">
 
           {/* LEFT — H1 & Intro Copy */}
           <ScrollReveal direction="left" className="flex-grow space-y-7 text-center lg:text-left max-w-[560px] w-full order-last lg:order-first">
@@ -73,7 +73,7 @@ export default function MobileAppHero() {
           </ScrollReveal>
 
           {/* RIGHT — Clean Realistic Smartphone Showcase */}
-          <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[480px] shrink-0 flex justify-center items-center py-6 order-first lg:order-last">
+          <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[480px] shrink-0 flex justify-center items-center py-2 sm:py-6 order-first lg:order-last">
 
             {/* Smartphone Device Frame */}
             <div className="relative w-[250px] sm:w-[270px] h-[500px] sm:h-[530px] rounded-[38px] border-[6px] border-slate-900 bg-slate-950 overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-pink-500/10 group">
