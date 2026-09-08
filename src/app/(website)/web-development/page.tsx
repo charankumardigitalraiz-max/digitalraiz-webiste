@@ -10,6 +10,8 @@ import WebDevCapabilitiesMatrix from "@/components/website/web-dev/WebDevCapabil
 import WebDevTalentBanner from "@/components/website/web-dev/WebDevTalentBanner";
 import WebDevPortfolioShowcase from "@/components/website/web-dev/WebDevPortfolioShowcase";
 import WebDevCtaSection from "@/components/website/web-dev/WebDevCtaSection";
+import AnimatedTestimonials from "@/components/AnimatedTestimonials";
+import { webDevReviewsData } from "@/data/testimonialsData";
 import { usePortfolioStore, getWebProjects } from "@/store";
 import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 
@@ -36,7 +38,7 @@ export default function WebServicePage() {
   }, [webPortfolio.length, isPaused]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">                           
+    <div className="flex flex-col min-h-screen bg-slate-50/20 font-sans text-slate-800 lg:pr-[80px]">
       <Header />
 
       <main className="flex-grow">
@@ -62,6 +64,13 @@ export default function WebServicePage() {
           setActiveIndex={setActiveIndex}
           setIsPaused={setIsPaused}
           activeWebProject={activeWebProject}
+        />
+
+        {/* ANIMATED CLIENT TESTIMONIALS */}
+        <AnimatedTestimonials
+          items={webDevReviewsData}
+          titleHighlight="Our Web Platforms"
+          subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
         />
 
         {/* SECTION 9: BUILD YOUR DIGITAL PRESENCE & FINAL CTA */}
