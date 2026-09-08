@@ -57,6 +57,18 @@ export default function WebServicePage() {
         {/* SECTION 7 & 8: HIRE DEVELOPERS & WHY CHOOSE DIGITAL RAIZ */}
         <WebDevTalentBanner />
 
+
+        {/* ANIMATED CLIENT TESTIMONIALS */}
+        <AnimatedTestimonials
+          items={webDevReviewsData}
+          variant="web-studio"
+          titleHighlight="Our Web Platforms"
+          subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
+        />
+
+
+
+
         {/* WEB PORTFOLIO SHOWCASE SECTION */}
         <WebDevPortfolioShowcase
           webPortfolio={webPortfolio}
@@ -66,12 +78,6 @@ export default function WebServicePage() {
           activeWebProject={activeWebProject}
         />
 
-        {/* ANIMATED CLIENT TESTIMONIALS */}
-        <AnimatedTestimonials
-          items={webDevReviewsData}
-          titleHighlight="Our Web Platforms"
-          subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
-        />
 
         {/* SECTION 9: BUILD YOUR DIGITAL PRESENCE & FINAL CTA */}
         <WebDevCtaSection />

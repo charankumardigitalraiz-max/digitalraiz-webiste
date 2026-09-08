@@ -730,11 +730,152 @@ body {
   overflow: visible;
 }
 
+/* Web Studio Unique 3D Perspective Morph & Flip Transitions */
+@keyframes webStudioMorphExit {
+  0% {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-12deg) scale(0.92) translateY(-25px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes webStudioMorphEnter {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(12deg) scale(0.92) translateY(25px);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-web-studio-exit {
+  animation: webStudioMorphExit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.animate-web-studio-enter {
+  animation: webStudioMorphEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Continuous Marquee Animation for Web Dev Testimonials Track */
+@keyframes continuousMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-smooth {
+  display: flex;
+  width: max-content;
+  animation: continuousMarquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-smooth:hover {
+  animation-play-state: paused;
+}
+
+/* Web Studio 3D Dynamic Card Transitions */
+@keyframes webStudioCardExit {
+  0% {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) scale(1) translateX(0);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-18deg) scale(0.9) translateX(-40px);
+    filter: blur(6px);
+  }
+}
+
+@keyframes webStudioCardEnter {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(18deg) scale(0.9) translateX(40px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) scale(1) translateX(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-web-card-exit {
+  animation: webStudioCardExit 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.animate-web-card-enter {
+  animation: webStudioCardEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Card Auto-Progress Timer Bar */
+@keyframes progressBarFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress-timer {
+  animation: progressBarFill 6s linear forwards;
+}
+
+/* Magic Bubble Floating Animations & Pulse Effects */
+@keyframes magicBubbleFloat1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes magicBubbleFloat2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-magic-bubble-left {
+  animation: magicBubbleFloat1 6s ease-in-out infinite;
+}
+
+.animate-magic-bubble-right {
+  animation: magicBubbleFloat2 6.5s ease-in-out infinite;
+}
+
+.magic-bubble-transition {
+  transition: all 0.65s cubic-bezier(0.34, 1.35, 0.64, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   .review-bubble,
   .review-bubble-alt1,
-  .review-bubble-alt2 {
+  .review-bubble-alt2,
+  .animate-marquee-smooth,
+  .animate-magic-bubble-left,
+  .animate-magic-bubble-right {
     animation: none !important;
     transform: none !important;
   }
