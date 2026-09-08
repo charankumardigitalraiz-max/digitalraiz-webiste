@@ -28,17 +28,17 @@ export default function WebDevHero() {
   }, [techPaused]);
 
   return (
-    <section className="relative overflow-hidden bg-white  py-10 sm:py-10">
+    <section className="relative overflow-hidden bg-white py-10 sm:py-14 border-b border-slate-100">
+      {/* Background Subtle Grid & Ambient Glow Orbs */}
+      <div className="absolute inset-0 bg-grid-premium opacity-5 pointer-events-none" />
+      <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-200/30 via-violet-200/25 to-indigo-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-violet-200/30 via-cyan-200/25 to-pink-200/30 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" style={{ animationDelay: "3s" }} />
+
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
 
           {/* LEFT — Typography & Intro Copy */}
           <ScrollReveal direction="left" className="flex-grow space-y-6 text-center lg:text-left max-w-2xl">
-            {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-                  <Sparkles className="w-3 h-3 text-pink-500" />
-                  Website Development Company in Hyderabad
-                </div> */}
-
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Website Development Company in Hyderabad for{" "}
               <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
@@ -57,12 +57,12 @@ export default function WebDevHero() {
             {/* Stat Badges */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-1">
               {[
-                { val: "99.9%", label: "Uptime SLA", bg: "bg-emerald-50 text-emerald-700 border-emerald-200/60", dot: "bg-emerald-500" },
-                { val: "0.2s", label: "Page Load Speed", bg: "bg-pink-50 text-pink-700 border-pink-200/60", dot: "bg-pink-500 animate-pulse" },
-                { val: "100", label: "Lighthouse Score", bg: "bg-violet-50 text-violet-700 border-violet-200/60", dot: "bg-violet-500" },
-                { val: "100%", label: "SEO Optimized", bg: "bg-indigo-50 text-indigo-700 border-indigo-200/60", dot: "bg-indigo-500" },
+                { val: "99.9%", label: "Uptime SLA", bg: "bg-emerald-50 text-emerald-700 border-emerald-200/60 hover:bg-emerald-100", dot: "bg-emerald-500" },
+                { val: "0.2s", label: "Page Load Speed", bg: "bg-pink-50 text-pink-700 border-pink-200/60 hover:bg-pink-100", dot: "bg-pink-500 animate-pulse" },
+                { val: "100", label: "Lighthouse Score", bg: "bg-violet-50 text-violet-700 border-violet-200/60 hover:bg-violet-100", dot: "bg-violet-500" },
+                { val: "100%", label: "SEO Optimized", bg: "bg-indigo-50 text-indigo-700 border-indigo-200/60 hover:bg-indigo-100", dot: "bg-indigo-500" },
               ].map((s) => (
-                <div key={s.label} className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-bold ${s.bg}`}>
+                <div key={s.label} className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-bold ${s.bg} transition-all duration-300 hover:scale-105 shadow-2xs cursor-default`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
                   <span>{s.val}</span>
                   <span className="text-[9px] font-mono text-slate-400 uppercase">{s.label}</span>
@@ -74,36 +74,36 @@ export default function WebDevHero() {
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
               <button
                 onClick={() => openContactModal("Web Development")}
-                className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer border-0"
+                className="relative overflow-hidden inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25 active:scale-95 cursor-pointer border-0 group"
               >
                 <span>Start Web Project</span>
-                <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={() => {
                   const element = document.getElementById("web-services-grid");
                   element?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/90 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xs cursor-pointer group"
               >
                 <span>Explore Services</span>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </ScrollReveal>
 
-          {/* RIGHT — Generated Desktop & Laptop iMac Showcase */}
+          {/* RIGHT — Showcase Showcase with Floating Badges */}
           <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center">
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group">
               <img
                 src="/services/digital-raiz-imac-showcase-vertical.webp"
                 alt="Website Development Company in Hyderabad - Digital Raiz Desktop & Laptop Studio"
-                className="w-full h-auto object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-700 ease-out"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
               />
 
               {/* Floating badge — top-left */}
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-2xl px-3 py-2 shadow-lg border border-slate-200/80 flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md rounded-2xl px-3 py-2 shadow-lg border border-slate-200/80 flex items-center gap-2 animate-float-slow">
                 <div className="w-7 h-7 rounded-xl bg-emerald-50 flex items-center justify-center">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 </div>
@@ -114,9 +114,9 @@ export default function WebDevHero() {
               </div>
 
               {/* Floating badge — bottom-right */}
-              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl px-3 py-2 shadow-lg border border-slate-200/80 flex items-center gap-2">
+              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl px-3 py-2 shadow-lg border border-slate-200/80 flex items-center gap-2 animate-float-slow" style={{ animationDelay: "2s" }}>
                 <div className="w-7 h-7 rounded-xl bg-pink-50 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-pink-500" />
+                  <Zap className="w-4 h-4 text-pink-500 animate-pulse" />
                 </div>
                 <div>
                   <div className="text-[8px] font-mono text-slate-400 uppercase">Performance</div>

@@ -1,21 +1,13 @@
+"use client";
+
+import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Cloud, CheckCircle2, Sparkles } from "lucide-react";
-import InfrastructureAdvantage from "@/components/cloud-devops/InfrastructureAdvantage";
-import ContinuousDeliverySection from "@/components/cloud-devops/ContinuousDeliverySection";
-import ContactModalTrigger from "@/components/ContactModalTrigger";
-import CloudDevopsHero from "@/components/cloud-devops/CloudDevopsHero";
-import CloudDevopsCtaBanner from "@/components/cloud-devops/CloudDevopsCtaBanner";
-
-export const metadata = {
-  title: "Cloud & DevOps Services for Modern Enterprises | Digital Raiz",
-  description: "Digital Raiz builds scalable cloud architecture and automated DevOps pipelines to help digital businesses achieve continuous evolution and reliable performance.",
-  alternates: {
-    canonical: "https://digitalraiz.com/cloud-and-devops",
-  },
-};
+import InfrastructureAdvantage from "@/components/website/cloud-devops/InfrastructureAdvantage";
+import ContinuousDeliverySection from "@/components/website/cloud-devops/ContinuousDeliverySection";
+import CloudDevopsHero from "@/components/website/cloud-devops/CloudDevopsHero";
+import CloudDevopsCtaBanner from "@/components/website/cloud-devops/CloudDevopsCtaBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function CloudDevOpsPage() {
   return (
@@ -27,13 +19,19 @@ export default function CloudDevOpsPage() {
         <CloudDevopsHero />
 
         {/* ── SECTION 1: Infrastructure Advantage ── */}
-        <InfrastructureAdvantage />
+        <ScrollReveal direction="up">
+          <InfrastructureAdvantage />
+        </ScrollReveal>
 
         {/* ── SECTION 2: Continuous Delivery & CI/CD Pipeline ── */}
-        <ContinuousDeliverySection />
+        <ScrollReveal direction="up" delay={100}>
+          <ContinuousDeliverySection />
+        </ScrollReveal>
 
         {/* ── CALL TO ACTION BANNER (SLEEK LIGHT BANNER) ── */}
-        <CloudDevopsCtaBanner />
+        <ScrollReveal direction="up">
+          <CloudDevopsCtaBanner />
+        </ScrollReveal>
       </main>
 
       <Footer />

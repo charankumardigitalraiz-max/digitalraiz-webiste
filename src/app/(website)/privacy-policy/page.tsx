@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PrivacyPolicyView from "@/components/privacy-policy/PrivacyPolicyView";
+import PrivacyPolicyView from "@/components/website/privacy-policy/PrivacyPolicyView";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Digital Raiz",

@@ -9,6 +9,7 @@ import {
   Layers,
   Terminal
 } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function InfrastructureAdvantage() {
   const corePillars = [
@@ -54,29 +55,31 @@ export default function InfrastructureAdvantage() {
       <div className="max-w-7xl mx-auto px-6 w-full space-y-8 relative z-10">
 
         {/* Compact Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-600 shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
-            Architecture Advantage
+        <ScrollReveal direction="up">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-600 shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
+              Architecture Advantage
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              Where Infrastructure Becomes an{" "}
+              <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">
+                Engineering Advantage
+              </span>
+            </h2>
+
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-2xl mx-auto">
+              A well-designed cloud environment should give technology teams freedom to build, scale and respond without constantly reworking the foundation underneath. Digital Raiz helps organizations architect, migrate and optimize cloud environments around their applications, workloads and operational priorities.
+            </p>
           </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Where Infrastructure Becomes an{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">
-              Engineering Advantage
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-2xl mx-auto">
-            A well-designed cloud environment should give technology teams freedom to build, scale and respond without constantly reworking the foundation underneath. Digital Raiz helps organizations architect, migrate and optimize cloud environments around their applications, workloads and operational priorities.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Compact 2-Column Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Left Visual Image Stage (lg:col-span-5) */}
-          <div className="lg:col-span-5 flex flex-col h-full">
+          <ScrollReveal direction="left" delay={100} className="lg:col-span-5 flex flex-col h-full">
             <div className="relative rounded-2xl bg-white border border-slate-200/90 shadow-xs p-3.5 sm:p-4 overflow-hidden group h-full flex flex-col">
               <div className="relative rounded-xl overflow-hidden bg-slate-900/5 w-full h-full flex-grow min-h-[280px]">
                 <Image
@@ -89,7 +92,7 @@ export default function InfrastructureAdvantage() {
                 />
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: 4 Compact Capability Cards Grid (lg:col-span-7) */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -97,32 +100,33 @@ export default function InfrastructureAdvantage() {
               const Icon = pillar.icon;
 
               return (
-                <div
-                  key={i}
-                  className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${pillar.accentBorder}`}
-                >
-                  <div className="space-y-3">
-                    {/* Top Bar: Icon Badge & Step Counter */}
-                    <div className="flex items-center justify-between">
-                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${pillar.gradient} flex items-center justify-center text-white shadow-md shadow-indigo-500/15 group-hover:scale-105 transition-transform duration-300`}>
-                        <Icon className="w-5 h-5" />
+                <ScrollReveal key={i} direction="up" delay={100 + i * 80}>
+                  <div
+                    className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full ${pillar.accentBorder}`}
+                  >
+                    <div className="space-y-3">
+                      {/* Top Bar: Icon Badge & Step Counter */}
+                      <div className="flex items-center justify-between">
+                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${pillar.gradient} flex items-center justify-center text-white shadow-md shadow-indigo-500/15 group-hover:scale-105 transition-transform duration-300`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <span className="text-xs font-mono font-extrabold text-slate-300 group-hover:text-indigo-600 transition-colors">
+                          {pillar.step}
+                        </span>
                       </div>
-                      <span className="text-xs font-mono font-extrabold text-slate-300 group-hover:text-indigo-600 transition-colors">
-                        {pillar.step}
-                      </span>
-                    </div>
 
-                    {/* Title & Description */}
-                    <div className="space-y-1.5">
-                      <h3 className="text-sm font-bold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-slate-600 text-xs leading-relaxed font-light">
-                        {pillar.desc}
-                      </p>
+                      {/* Title & Description */}
+                      <div className="space-y-1.5">
+                        <h3 className="text-sm font-bold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-slate-600 text-xs leading-relaxed font-light">
+                          {pillar.desc}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>

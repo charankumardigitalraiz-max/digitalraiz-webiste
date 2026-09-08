@@ -1,18 +1,13 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SalesforceHero from "@/components/salesforce/SalesforceHero";
-import SalesforceServicesGrid from "@/components/salesforce/SalesforceServicesGrid";
-import SalesforceWhyChooseUs from "@/components/salesforce/SalesforceWhyChooseUs";
-import SalesforceIndustriesSection from "@/components/salesforce/SalesforceIndustriesSection";
-import SalesforceCtaBanner from "@/components/salesforce/SalesforceCtaBanner";
-
-export const metadata = {
-  title: "Salesforce Services & Enterprise CRM Solutions | Digital Raiz",
-  description: "Digital Raiz provides end-to-end Salesforce services including consulting, implementation, custom LWC & Apex development, Sales Cloud, Service Cloud, Marketing Cloud, CPQ, and integration.",
-  alternates: {
-    canonical: "https://digitalraiz.com/salesforce-services",
-  },
-};
+import SalesforceHero from "@/components/website/salesforce/SalesforceHero";
+import SalesforceServicesGrid from "@/components/website/salesforce/SalesforceServicesGrid";
+import SalesforceWhyChooseUs from "@/components/website/salesforce/SalesforceWhyChooseUs";
+import SalesforceIndustriesSection from "@/components/website/salesforce/SalesforceIndustriesSection";
+import SalesforceCtaBanner from "@/components/website/salesforce/SalesforceCtaBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SalesforceServicesPage() {
   return (
@@ -21,22 +16,33 @@ export default function SalesforceServicesPage() {
 
       <main className="flex-grow">
         {/* ── HERO SECTION ── */}
-        <SalesforceHero />
+        <ScrollReveal direction="up">
+          <SalesforceHero />
+        </ScrollReveal>
 
         {/* ── SECTION 1: 11 CORE SALESFORCE SERVICES ── */}
-        <SalesforceServicesGrid />
+        <ScrollReveal direction="up">
+          <SalesforceServicesGrid />
+        </ScrollReveal>
 
         {/* ── SECTION 2: WHY CHOOSE US ── */}
-        <SalesforceWhyChooseUs />
+        <ScrollReveal direction="up">
+          <SalesforceWhyChooseUs />
+        </ScrollReveal>
 
         {/* ── SECTION 3: INDUSTRIES WE SERVE ── */}
-        <SalesforceIndustriesSection />
+        <ScrollReveal direction="up">
+          <SalesforceIndustriesSection />
+        </ScrollReveal>
 
         {/* ── CALL TO ACTION BANNER ── */}
-        <SalesforceCtaBanner />
+        <ScrollReveal direction="up">
+          <SalesforceCtaBanner />
+        </ScrollReveal>
       </main>
 
       <Footer />
     </div>
   );
 }
+

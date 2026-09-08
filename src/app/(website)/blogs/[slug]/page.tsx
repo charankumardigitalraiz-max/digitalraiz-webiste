@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import ArticleShareBookmarkBar from "@/components/blogs/ArticleShareBookmarkBar";
+import ArticleShareBookmarkBar from "@/components/website/blogs/ArticleShareBookmarkBar";
 import { blogPostsData, getBlogPostBySlug } from "@/data/blogsData";
 import {
   Sparkles,

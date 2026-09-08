@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TermsAndConditionsView from "@/components/terms-and-conditions/TermsAndConditionsView";
+import TermsAndConditionsView from "@/components/website/terms-and-conditions/TermsAndConditionsView";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | Digital Raiz",

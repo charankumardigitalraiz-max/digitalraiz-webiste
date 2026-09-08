@@ -272,8 +272,8 @@ export default function ServicesPage() {
               { x: "85%", y: "85%" },
               { x: "50%", y: "92%" },
               { x: "15%", y: "85%" },
-              { x: "8%",  y: "61%" },
-              { x: "8%",  y: "41%" },
+              { x: "8%", y: "61%" },
+              { x: "8%", y: "41%" },
               { x: "15%", y: "18%" }
             ].map((pt, i) => (
               <g key={i}>
@@ -380,7 +380,7 @@ export default function ServicesPage() {
 
             {/* Central Power Core Circle with Brand Logo & Radiating Waves */}
             <div className="relative group mx-auto flex flex-col items-center justify-center p-4 sm:p-5 rounded-full bg-slate-900/95 border border-slate-700/80 shadow-[0_0_60px_rgba(236,72,153,0.35)] ring-2 ring-pink-500/40 hover:scale-105 transition-all duration-500 w-44 h-44 sm:w-52 sm:h-52 xl:w-60 xl:h-60">
-              
+
               {/* Radiating Power Source Waves */}
               <div className="absolute -inset-4 rounded-full border-2 border-pink-500/40 animate-ping pointer-events-none opacity-30" />
               <div className="absolute -inset-8 rounded-full border border-purple-500/30 animate-pulse pointer-events-none opacity-25" />
@@ -505,105 +505,118 @@ export default function ServicesPage() {
                       <ItemIcon className="w-3.5 h-3.5" />
                     </div>
                     <span className="group-hover:text-pink-600 transition-colors tracking-tight">{item.title}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section> */}
+        {/* 11 CORE SERVICES — COMPACT CARD GRID */}
+        <section id="services-catalog" className="py-10 sm:py-10 bg-white text-slate-900 border-t border-slate-200 relative overflow-hidden">
 
-        {/* 10 CORE SERVICES GRID WITH INTEGRATED VISUAL BANNERS */}
-        <section id="services-catalog" className="py-16 sm:py-24 bg-white text-slate-800 border-t border-slate-200/80">
-          <div className="max-w-6xl mx-auto px-6 w-full space-y-12">
+          {/* Ambient background glows */}
+          <div className="absolute -top-40 left-1/4 w-[500px] h-[500px] bg-pink-400/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-40 right-1/4 w-[500px] h-[500px] bg-indigo-400/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000004_1px,transparent_1px),linear-gradient(to_bottom,#00000004_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 w-full space-y-12 relative z-10">
+
             {/* Section Header */}
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-                <Sparkles className="w-3 h-3 text-pink-500" />
-                Service Catalog Overview
+            <ScrollReveal direction="up">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
+                  <Sparkles className="w-3 h-3 text-pink-500 animate-pulse" />
+                  Service Catalog · 11 Disciplines
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
+                  Everything Your{" "}
+                  <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                    Enterprise Needs
+                  </span>
+                </h2>
+                <p className="text-slate-500 text-sm font-normal leading-relaxed max-w-xl mx-auto">
+                  Explore our full spectrum of enterprise-grade technology, cloud, AI, and growth disciplines — each engineered to deliver measurable outcomes.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                All 11 Digital &amp; Technology{" "}
-                <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                  Service Disciplines
-                </span>
-              </h2>
-              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
-                Click any service banner card below to explore architecture roadmaps, enterprise frameworks, and detailed solutions.
-              </p>
-            </div>
+            </ScrollReveal>
 
-            {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {serviceCards.map((service, i) => (
-                <ScrollReveal key={i} delay={i * 50} direction="up">
-                  <div
-                    className="group rounded-3xl border border-slate-200/90 p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 bg-white hover:border-pink-500/50 hover:shadow-xl shadow-sm relative overflow-hidden h-full text-slate-800"
-                  >
-                    {/* Top Hover Gradient Accent Line */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Compact Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+              {serviceCards.map((service, i) => {
+                const indexStr = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
+                return (
+                  <ScrollReveal key={i} delay={(i % 4) * 55} direction="up" className="h-full">
+                    <Link
+                      href={service.href}
+                      className={`group relative flex flex-col h-full rounded-xl overflow-hidden border border-slate-200 bg-white cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60 ${service.colorClass}`}
+                    >
+                      {/* Top accent glow bar */}
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.glowBg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
-                    <div className="space-y-4 relative z-10">
-                      {/* Integrated Service Banner Image Card */}
-                      <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[16/9] shadow-xs group-hover:shadow-md transition-all duration-500">
+                      {/* Thumbnail */}
+                      <div className="relative w-full h-40 overflow-hidden shrink-0">
                         <img
                           src={service.bannerImg}
-                          alt={`${service.title} Service Banner`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
+                        {/* Subtle dark overlay — no fade */}
+                        <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors duration-300" />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${service.glowBg} opacity-0 group-hover:opacity-20 transition-opacity duration-400`} />
 
-                        <div className="absolute top-3 right-3 z-10">
-                          <span className="text-[8.5px] font-mono font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full border bg-white/95 backdrop-blur-md border-slate-200 text-slate-800 shadow-sm">
-                            {service.tag}
-                          </span>
-                        </div>
+                        {/* Number badge */}
+                        <span className="absolute top-2 left-2.5 font-mono font-black text-[9px] text-white/70 bg-black/30 backdrop-blur-sm px-1.5 py-0.5 rounded leading-none select-none">
+                          {indexStr}
+                        </span>
+
+                        {/* Tag */}
+                        <span className={`absolute top-2 right-2 text-[7px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full border backdrop-blur-md ${service.badgeColor}`}>
+                          {service.tag}
+                        </span>
                       </div>
 
-                      {/* Content Header & Description */}
-                      <div className="space-y-2.5 pt-1">
-                        <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center shrink-0 transition-transform group-hover:scale-110 shadow-xs">
-                            {service.icon}
+                      {/* Body */}
+                      <div className="flex flex-col flex-1 px-4 pt-3.5 pb-4 gap-2.5">
+
+                        {/* Icon + Title */}
+                        <div className="flex items-center gap-2.5">
+                          <div className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${service.iconBg}`}>
+                            <span className="[&>svg]:w-3.5 [&>svg]:h-3.5">{service.icon}</span>
                           </div>
-                          <h3 className="text-base font-bold text-slate-900 group-hover:text-pink-600 transition-colors tracking-tight leading-snug">
+                          <h3 className="text-[14px] font-black text-slate-900 leading-tight tracking-tight group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-violet-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                             {service.title}
                           </h3>
                         </div>
 
-                        <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+                        {/* Desc */}
+                        <p className="text-slate-500 text-[10.5px] font-medium leading-relaxed line-clamp-2 group-hover:text-slate-700 transition-colors">
                           {service.desc}
                         </p>
-                      </div>
 
-                      {/* Mini Feature Badges */}
-                      <div className="pt-1 flex flex-wrap gap-1.5">
-                        {service.highlights.map((h, idx) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center gap-1.5 text-[9px] font-medium text-slate-600 bg-slate-50 border border-slate-200/80 px-2 py-0.5 rounded-md group-hover:border-pink-300/80 group-hover:text-slate-900 transition-all duration-300"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0 group-hover:scale-125 transition-transform" />
-                            <span>{h}</span>
+                        {/* Highlights */}
+                        {/* <div className="flex flex-wrap gap-1.5 pt-0.5">
+                          {service.highlights.map((h, idx) => (
+                            <span
+                              key={idx}
+                              className={`inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-1 rounded-full border ${service.badgeColor}`}
+                            >
+                              <CheckCircle2 className="w-3 h-3 shrink-0" />
+                              {h}
+                            </span>
+                          ))}
+                        </div> */}
+
+                        {/* Spacer */}
+                        <div className="flex-1" />
+
+                        {/* CTA */}
+                        <div className="flex items-center justify-between pt-2.5 border-t border-slate-100 mt-1">
+                          <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-500 group-hover:text-pink-600 transition-colors">
+                            View Service →
                           </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Full-Width Vibrant Gradient Colored Navigation CTA Button */}
-                    <div className="pt-4 border-t border-slate-100 mt-5 relative z-10">
-                      <Link
-                        href={service.href}
-                        className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-700 hover:via-purple-700 hover:to-indigo-700 text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md shadow-pink-500/20 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-[1.01] active:scale-95 transition-all duration-300 group/btn"
-                      >
-                        <span>Explore {service.title}</span>
-                        <div className="w-6 h-6 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-white group-hover/btn:bg-white group-hover/btn:text-pink-600 transition-all shadow-xs shrink-0">
-                          <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${service.btnHover} border-slate-200 bg-slate-50 text-slate-400`}>
+                            <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-px group-hover:text-white transition-transform" />
+                          </div>
                         </div>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                );
+              })}
             </div>
           </div>
         </section>

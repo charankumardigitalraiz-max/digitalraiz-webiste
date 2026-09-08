@@ -491,13 +491,11 @@ body {
   0% {
     opacity: 0;
     transform: translateY(8px) scale(0.98);
-    filter: blur(4px);
   }
 
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0px);
   }
 }
 
@@ -735,13 +733,11 @@ body {
   0% {
     opacity: 1;
     transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0);
-    filter: blur(0px);
   }
 
   100% {
     opacity: 0;
     transform: perspective(1000px) rotateX(-12deg) scale(0.92) translateY(-25px);
-    filter: blur(4px);
   }
 }
 
@@ -749,13 +745,11 @@ body {
   0% {
     opacity: 0;
     transform: perspective(1000px) rotateX(12deg) scale(0.92) translateY(25px);
-    filter: blur(4px);
   }
 
   100% {
     opacity: 1;
     transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0);
-    filter: blur(0px);
   }
 }
 
@@ -772,6 +766,7 @@ body {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }
@@ -793,12 +788,11 @@ body {
   0% {
     opacity: 1;
     transform: perspective(1000px) rotateY(0deg) scale(1) translateX(0);
-    filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     transform: perspective(1000px) rotateY(-18deg) scale(0.9) translateX(-40px);
-    filter: blur(6px);
   }
 }
 
@@ -806,12 +800,11 @@ body {
   0% {
     opacity: 0;
     transform: perspective(1000px) rotateY(18deg) scale(0.9) translateX(40px);
-    filter: blur(6px);
   }
+
   100% {
     opacity: 1;
     transform: perspective(1000px) rotateY(0deg) scale(1) translateX(0);
-    filter: blur(0px);
   }
 }
 
@@ -828,6 +821,7 @@ body {
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
@@ -839,18 +833,24 @@ body {
 
 /* Magic Bubble Floating Animations & Pulse Effects */
 @keyframes magicBubbleFloat1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(-3deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(-1deg);
   }
 }
 
 @keyframes magicBubbleFloat2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(3deg);
   }
+
   50% {
     transform: translateY(-10px) rotate(1deg);
   }

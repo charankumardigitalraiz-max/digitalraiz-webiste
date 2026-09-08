@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactPageContent from "@/components/contact/ContactPageContent";
+import ContactPageContent from "@/components/website/contact/ContactPageContent";
 
 export const metadata = {
   title: "Contact Our Agency | Digital Raiz",

@@ -1,17 +1,12 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SapHero from "@/components/sap/SapHero";
-import SapConnectedEnterpriseSection from "@/components/sap/SapConnectedEnterpriseSection";
-import SapCloudIntelligenceSection from "@/components/sap/SapCloudIntelligenceSection";
-import SapCtaBanner from "@/components/sap/SapCtaBanner";
-
-export const metadata = {
-  title: "SAP Cloud Services & Solutions for Enterprise | Digital Raiz",
-  description: "Digital Raiz provides SAP Cloud Services to help modern enterprises connect operations, modernize back-office workflows, and leverage SAP architecture.",
-  alternates: {
-    canonical: "https://digitalraiz.com/sap-cloud-services",
-  },
-};
+import SapHero from "@/components/website/sap/SapHero";
+import SapConnectedEnterpriseSection from "@/components/website/sap/SapConnectedEnterpriseSection";
+import SapCloudIntelligenceSection from "@/components/website/sap/SapCloudIntelligenceSection";
+import SapCtaBanner from "@/components/website/sap/SapCtaBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SapCloudServicesPage() {
   return (
@@ -23,13 +18,19 @@ export default function SapCloudServicesPage() {
         <SapHero />
 
         {/* ── SECTION 1: Connected Enterprise Framework ── */}
-        <SapConnectedEnterpriseSection />
+        <ScrollReveal direction="up">
+          <SapConnectedEnterpriseSection />
+        </ScrollReveal>
 
         {/* ── SECTION 2: Cloud Intelligence Matrix Grid ── */}
-        <SapCloudIntelligenceSection />
+        <ScrollReveal direction="up" delay={100}>
+          <SapCloudIntelligenceSection />
+        </ScrollReveal>
 
         {/* ── CALL TO ACTION BANNER (SLEEK LIGHT BANNER) ── */}
-        <SapCtaBanner />
+        <ScrollReveal direction="up">
+          <SapCtaBanner />
+        </ScrollReveal>
       </main>
 
       <Footer />

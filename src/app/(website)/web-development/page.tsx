@@ -15,6 +15,8 @@ import { webDevReviewsData } from "@/data/testimonialsData";
 import { usePortfolioStore, getWebProjects } from "@/store";
 import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 
+import ScrollReveal from "@/components/ScrollReveal";
+
 export default function WebServicePage() {
   const storeProjects = usePortfolioStore((state) => state.projects);
   const { data: allProjects = storeProjects } = usePortfolioProjects();
@@ -43,47 +45,59 @@ export default function WebServicePage() {
 
       <main className="flex-grow">
         {/* HERO SECTION — Modern Clean Studio Layout */}
-        <WebDevHero />
+        <ScrollReveal direction="up">
+          <WebDevHero />
+        </ScrollReveal>
 
         {/* SECTION 1: WEBSITE DEVELOPMENT SERVICES BUILT AROUND YOUR BUSINESS */}
-        <WebDevServicesGrid />
+        <ScrollReveal direction="up">
+          <WebDevServicesGrid />
+        </ScrollReveal>
 
         {/* SECTION 2 & 3: WEBSITE DESIGN & CUSTOM SOLUTIONS (2-COL SPLIT BLUEPRINT) */}
-        <WebDevDesignExperience />
+        <ScrollReveal direction="up">
+          <WebDevDesignExperience />
+        </ScrollReveal>
 
         {/* SECTION 4, 5, 6: WEB APPS, WORDPRESS, E-COMMERCE & SEO */}
-        <WebDevCapabilitiesMatrix />
+        <ScrollReveal direction="up">
+          <WebDevCapabilitiesMatrix />
+        </ScrollReveal>
 
         {/* SECTION 7 & 8: HIRE DEVELOPERS & WHY CHOOSE DIGITAL RAIZ */}
-        <WebDevTalentBanner />
-
+        <ScrollReveal direction="up">
+          <WebDevTalentBanner />
+        </ScrollReveal>
 
         {/* ANIMATED CLIENT TESTIMONIALS */}
-        <AnimatedTestimonials
-          items={webDevReviewsData}
-          variant="web-studio"
-          titleHighlight="Our Web Platforms"
-          subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
-        />
-
-
-
+        <ScrollReveal direction="up">
+          <AnimatedTestimonials
+            items={webDevReviewsData}
+            variant="web-studio"
+            titleHighlight="Our Web Platforms"
+            subtitle="Discover how Digital Raiz engineers modern, high-converting websites and scalable web applications for global enterprises."
+          />
+        </ScrollReveal>
 
         {/* WEB PORTFOLIO SHOWCASE SECTION */}
-        <WebDevPortfolioShowcase
-          webPortfolio={webPortfolio}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          setIsPaused={setIsPaused}
-          activeWebProject={activeWebProject}
-        />
-
+        <ScrollReveal direction="up">
+          <WebDevPortfolioShowcase
+            webPortfolio={webPortfolio}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            setIsPaused={setIsPaused}
+            activeWebProject={activeWebProject}
+          />
+        </ScrollReveal>
 
         {/* SECTION 9: BUILD YOUR DIGITAL PRESENCE & FINAL CTA */}
-        <WebDevCtaSection />
+        <ScrollReveal direction="up">
+          <WebDevCtaSection />
+        </ScrollReveal>
       </main>
 
       <Footer />
     </div>
   );
 }
+

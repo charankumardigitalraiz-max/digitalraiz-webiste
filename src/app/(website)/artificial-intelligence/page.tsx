@@ -1,22 +1,12 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
-import CoreAiEngineeringSection from "@/components/ai/CoreAiEngineeringSection";
-import GenerativeAiInnovationsSection from "@/components/ai/GenerativeAiInnovationsSection";
-import ContactModalTrigger from "@/components/ContactModalTrigger";
-
-import AiHero from "@/components/ai/AiHero";
-import AiCtaBanner from "@/components/ai/AiCtaBanner";
-
-export const metadata = {
-  title: "AI, ML & Generative AI Solutions | Digital Raiz",
-  description: "Digital Raiz delivers AI, Machine Learning and Generative AI solutions for businesses, including intelligent applications, automation and AI-powered experiences.",
-  alternates: {
-    canonical: "https://digitalraiz.com/ai-ml-generative-ai-services",
-  },
-};
+import CoreAiEngineeringSection from "@/components/website/ai/CoreAiEngineeringSection";
+import GenerativeAiInnovationsSection from "@/components/website/ai/GenerativeAiInnovationsSection";
+import AiHero from "@/components/website/ai/AiHero";
+import AiCtaBanner from "@/components/website/ai/AiCtaBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AiServicePage() {
   return (
@@ -28,14 +18,19 @@ export default function AiServicePage() {
         <AiHero />
 
         {/* ── SECTION 1: Engineering Intelligence with AI & Machine Learning ── */}
-        <CoreAiEngineeringSection />
+        <ScrollReveal direction="up">
+          <CoreAiEngineeringSection />
+        </ScrollReveal>
 
-        {/* ── SECTION 2: Generative AI for the Next Generation of Digital Experiences (NEW UNIQUE DESIGN) ── */}
-        <GenerativeAiInnovationsSection />
+        {/* ── SECTION 2: Generative AI for the Next Generation of Digital Experiences ── */}
+        <ScrollReveal direction="up" delay={100}>
+          <GenerativeAiInnovationsSection />
+        </ScrollReveal>
 
-        {/* ── CALL TO ACTION BANNER (SLEEK LIGHT BANNER MATCHING MOBILE APP PAGE) ── */}
-        <AiCtaBanner />
-
+        {/* ── CALL TO ACTION BANNER ── */}
+        <ScrollReveal direction="up">
+          <AiCtaBanner />
+        </ScrollReveal>
       </main>
 
       <Footer />

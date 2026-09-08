@@ -46,15 +46,18 @@ export default function WebDevPortfolioShowcase({
   }, [activeIndex]);
 
   return (
-    <section id="web-showcase" className="py-10 sm:py-14 bg-white relative ">
-          <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-8">
-            <ScrollReveal direction="up">
-              <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest block">Featured Works</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Production Web Applications</h2>
-                <p className="text-slate-600 text-xs font-normal">Explore real-world web implementations and corporate portals engineered by Digital Raiz.</p>
-              </div>
-            </ScrollReveal>
+    <section id="web-showcase" className="py-12 sm:py-16 bg-white relative border-b border-slate-100 overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-pink-100/20 via-violet-100/25 to-indigo-100/20 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-10 relative z-10">
+        <ScrollReveal direction="up">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest block">Featured Works</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Production Web Applications</h2>
+            <p className="text-slate-600 text-xs font-normal">Explore real-world web implementations and corporate portals engineered by Digital Raiz.</p>
+          </div>
+        </ScrollReveal>
 
             {/* Project Navigator Tabs with Logos */}
             <ScrollReveal direction="up" delay={100}>
