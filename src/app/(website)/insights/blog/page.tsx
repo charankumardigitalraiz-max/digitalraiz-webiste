@@ -53,7 +53,12 @@ export default function BlogsPage() {
                   </span>
                 </h1>
                 <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-                  Technical guides, search engine optimization tactics, conversion rate frameworks, and enterprise software insights directly from our Hyderabad studio.
+                  Welcome to the Digital Raiz Blog, where we share practical
+                  insights, ideas and perspectives on the technologies shaping
+                  modern businesses. We publish new content regularly covering
+                  digital marketing, SEO, social media, website development,
+                  mobile app development, artificial intelligence, software, emerging
+                  technologies and digital business trends.
                 </p>
               </div>
             </ScrollReveal>
@@ -77,11 +82,10 @@ export default function BlogsPage() {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`px-3 py-1 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
-                        selectedCategory === cat
+                      className={`px-3 py-1 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${selectedCategory === cat
                           ? "bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white shadow-sm shadow-pink-500/20 scale-105"
                           : "bg-white hover:bg-slate-100 text-slate-600 border border-slate-200/90"
-                      }`}
+                        }`}
                     >
                       {cat}
                     </button>
