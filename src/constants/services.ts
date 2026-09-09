@@ -14,6 +14,6 @@ export const services: ServiceItem[] = [
   { name: "Cloud & DevOps Engineering", href: "/cloud-devops-services" },
   { name: "Testing & Quality Assurance", href: "/software-testing-quality-assurance" },
   { name: "Digital Marketing & SEO", href: "/digital-marketing-services-in-hyderabad" },
-  { name: "Influencer Marketing", href: "/influencer-marketing" },
+  // { name: "Influencer Marketing", href: "/influencer-marketing" },
   // { name: "Machine Learning Studio", href: "/machine-learning" },
 ];

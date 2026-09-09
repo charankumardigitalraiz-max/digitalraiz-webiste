@@ -69,9 +69,14 @@ export default function SapConnectedEnterpriseSection() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-2xl mx-auto">
-              Digital Raiz helps organizations leverage SAP Cloud to bring greater cohesion to their technology landscape. We work across cloud environments, enterprise applications, system integration and business data to create more connected digital operations.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-3xl mx-auto">
+              <p>
+                Digital Raiz helps organizations leverage SAP Cloud to bring greater cohesion to their technology landscape. We work across cloud environments, enterprise applications, system integration and business data to create more connected digital operations.
+              </p>
+              <p>
+                A well-architected SAP Cloud environment can reduce fragmented systems, improve access to business information and establish stronger connections between critical functions. Our focus is on designing solutions around organizational requirements, existing technology ecosystems and long-term scalability.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 

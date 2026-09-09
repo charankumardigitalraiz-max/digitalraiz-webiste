@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "AI, ML & Generative AI Solutions | Digital Raiz",
     description:
       "Digital Raiz delivers AI, Machine Learning and Generative AI solutions for businesses, including intelligent applications, automation and AI-powered experiences.",
-    url: "https://digitalraiz.com/artificial-intelligence",
+    url: "https://digitalraiz.com/ai-ml-generative-ai-services",
     siteName: "Digital Raiz",
     locale: "en_US",
     type: "website"

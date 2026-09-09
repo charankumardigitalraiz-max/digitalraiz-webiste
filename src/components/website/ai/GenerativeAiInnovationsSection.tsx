@@ -29,9 +29,14 @@ export default function GenerativeAiInnovationsSection() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Generative AI is opening a new layer of interaction between businesses, people and information. Digital Raiz builds Generative AI solutions including intelligent assistants, AI-powered search, conversational experiences, document intelligence and automated content workflows. We also integrate AI capabilities into websites, web applications and mobile applications, creating digital experiences that can understand context, respond intelligently and deliver more relevant interactions.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              <p>
+                Generative AI is opening a new layer of interaction between businesses, people and information. Digital Raiz builds Generative AI solutions including intelligent assistants, AI-powered search, conversational experiences, document intelligence and automated content workflows.
+              </p>
+              <p>
+                We also integrate AI capabilities into websites, web applications and mobile applications, creating digital experiences that can understand context, respond intelligently and deliver more relevant interactions.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -80,6 +85,21 @@ export default function GenerativeAiInnovationsSection() {
             );
           })}
         </div>
+
+        {/* Core Principle Callout Banner */}
+        <ScrollReveal direction="up" delay={150}>
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 text-white shadow-xl relative overflow-hidden border border-purple-900/50">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 max-w-3xl space-y-2">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-400">
+                Core AI Principle
+              </span>
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-slate-200">
+                From AI development and Machine Learning to Generative AI integration, Digital Raiz focuses on one principle: <strong className="text-white font-bold">technology should serve a clear business purpose</strong>. We combine technical expertise with strategic thinking to build intelligent solutions that are practical today and ready for tomorrow.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

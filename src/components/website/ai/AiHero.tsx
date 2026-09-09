@@ -7,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AiHero() {
   return (
-    <section className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14 bg-white overflow-hidden">
+    <section className="relative pt-16 pb-8 sm:pt-18 sm:pb-10 lg:pt-8 lg:pb-10 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-purple-50/20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-10 items-center">
@@ -23,9 +23,14 @@ export default function AiHero() {
             AI, Machine Learning & Generative AI Solutions <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">for Intelligent Business</span>
           </h1>
 
-          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-            Artificial Intelligence is moving beyond experimentation and becoming part of how modern businesses operate, make decisions and create digital experiences. Digital Raiz develops practical AI, Machine Learning and Generative AI solutions that connect emerging technology with meaningful business opportunities.
-          </p>
+          <div className="space-y-3 text-slate-600 text-xs sm:text-sm font-normal leading-relaxed text-justify sm:text-left">
+            <p>
+              Artificial Intelligence is moving beyond experimentation and becoming part of how modern businesses operate, make decisions and create digital experiences. Digital Raiz develops practical AI, Machine Learning and Generative AI solutions that connect emerging technology with meaningful business opportunities.
+            </p>
+            <p>
+              Our approach is built around the problem first. We identify where intelligence, automation or data-driven decision-making can create genuine value, then design technology around that objective. The result is not AI for the sake of AI, but purposeful solutions designed to work within real business environments.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-4 pt-1">
             <button

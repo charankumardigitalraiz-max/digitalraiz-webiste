@@ -28,9 +28,14 @@ export default function CoreAiEngineeringSection() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Digital Raiz develops AI and Machine Learning solutions that help businesses make sense of data, automate processes and build smarter digital products. Our capabilities include predictive analytics, intelligent recommendations, forecasting, personalization, classification and decision-support systems. We integrate these capabilities into business applications and digital platforms, helping organizations move from conventional workflows toward more intelligent and responsive systems.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              <p>
+                Digital Raiz develops AI and Machine Learning solutions that help businesses make sense of data, automate processes and build smarter digital products. Our capabilities include predictive analytics, intelligent recommendations, forecasting, personalization, classification and decision-support systems.
+              </p>
+              <p>
+                We integrate these capabilities into business applications and digital platforms, helping organizations move from conventional workflows toward more intelligent and responsive systems.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 

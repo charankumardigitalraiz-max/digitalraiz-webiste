@@ -80,9 +80,14 @@ export default function SapCloudIntelligenceSection() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Cloud modernization is not simply about moving systems to the cloud. It is about creating an architecture capable of supporting better decisions, more responsive operations and continuous business evolution. Digital Raiz combines SAP Cloud capabilities with expertise across software development, digital platforms and emerging technologies to help organizations build connected enterprise ecosystems.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              <p>
+                Cloud modernization is not simply about moving systems to the cloud. It is about creating an architecture capable of supporting better decisions, more responsive operations and continuous business evolution.
+              </p>
+              <p>
+                Digital Raiz combines SAP Cloud capabilities with expertise across software development, digital platforms and emerging technologies to help organizations build connected enterprise ecosystems. Whether modernizing an existing environment, integrating applications or establishing a new cloud strategy, we focus on architecture, interoperability, scalability and business value.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -133,6 +138,21 @@ export default function SapCloudIntelligenceSection() {
             );
           })}
         </div>
+
+        {/* Feature Callout: Connected Digital Foundation */}
+        <ScrollReveal direction="up" delay={150}>
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-indigo-950 text-white shadow-xl relative overflow-hidden border border-pink-900/40">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 max-w-3xl space-y-2">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-400">
+                Future-Ready Foundation
+              </span>
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-slate-200">
+                Digital Raiz brings SAP Cloud and enterprise technology together to help organizations build a more connected, intelligent and future-ready digital foundation.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

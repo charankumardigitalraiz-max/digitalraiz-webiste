@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SapHero() {
   return (
-    <section className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14 bg-white border-b border-slate-100 overflow-hidden">
+    <section className="relative pt-16 pb-8 sm:pt-18 sm:pb-10 lg:pt-8 lg:pb-10 bg-white border-b border-slate-100 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-pink-50/20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
@@ -26,9 +26,14 @@ export default function SapHero() {
             </span>
           </h1>
 
-          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-            Enterprise technology should do more than support operations—it should create a connected foundation for how an organization grows, adapts and competes. Digital Raiz delivers SAP Cloud services that help businesses modernize enterprise environments, connect critical systems and create greater visibility across their operations.
-          </p>
+          <div className="space-y-3 text-slate-600 text-xs sm:text-sm font-normal leading-relaxed text-justify sm:text-left">
+            <p>
+              Enterprise technology should do more than support operations—it should create a connected foundation for how an organization grows, adapts and competes. Digital Raiz delivers SAP Cloud services that help businesses modernize enterprise environments, connect critical systems and create greater visibility across their operations.
+            </p>
+            <p>
+              We approach SAP Cloud with a business-first perspective, bringing together technology, integration and architecture to address the way organizations actually operate. From cloud adoption and application integration to connected data and evolving business processes, our focus is on building a foundation that remains reliable today and adaptable for tomorrow.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-4 pt-2">
             <button
