@@ -59,7 +59,7 @@ export default function CapabilitiesSection() {
                   }`}>
                   <Laptop className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-extrabold">Web Studio</span>
+                <span className="font-extrabold">Web<span className="hidden sm:inline"> Studio</span></span>
                 <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full transition-all ${activeStudio === "web"
                   ? "bg-white text-pink-600 font-extrabold shadow-2xs"
                   : "bg-slate-200 text-slate-600"
@@ -82,7 +82,7 @@ export default function CapabilitiesSection() {
                   }`}>
                   <Smartphone className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-extrabold">Mobile Studio</span>
+                <span className="font-extrabold">Mobile<span className="hidden sm:inline"> Studio</span></span>
                 <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full transition-all ${activeStudio === "mobile"
                   ? "bg-white text-indigo-600 font-extrabold shadow-2xs"
                   : "bg-slate-200 text-slate-600"

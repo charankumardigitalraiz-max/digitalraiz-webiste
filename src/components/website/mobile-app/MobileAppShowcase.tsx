@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
 import { PORTFOLIO_PROJECTS } from "@/data/portfolioData";
 
 export default function MobileAppShowcase() {
@@ -247,6 +248,21 @@ export default function MobileAppShowcase() {
             />
           ))}
         </div>
+
+        {/* Centered Highlighted View All Portfolio CTA */}
+        <ScrollReveal direction="up" delay={200}>
+          <div className="pt-4 flex flex-col items-center justify-center text-center">
+            <Link
+              href="/portfolio"
+              className="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/35 hover:scale-[1.03] active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden border border-white/20"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <Sparkles className="w-4 h-4 text-indigo-200 animate-pulse" />
+              <span>View All Mobile Portfolio</span>
+              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

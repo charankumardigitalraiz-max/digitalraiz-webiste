@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     follow: true
   },
   openGraph: {
-    title: "Software Testing & QA Services in Hyderabad | Digital Raiz",
+    title: "Software Testing & Quality Assurance Services | Digital Raiz",
     description:
       "Digital Raiz provides software testing and quality assurance (QA) services in Hyderabad, including test automation, manual QA, performance load testing, OWASP security audits, and API testing.",
     url: "https://digitalraiz.com/software-testing-quality-assurance",

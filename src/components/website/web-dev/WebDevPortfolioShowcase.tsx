@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { ChevronLeft, ChevronRight, Globe, ExternalLink, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, Globe, ExternalLink, Sparkles, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const ThreeDShowcase = dynamic(() => import("@/components/ThreeDShowcase"), {
@@ -52,10 +53,19 @@ export default function WebDevPortfolioShowcase({
 
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-10 relative z-10">
         <ScrollReveal direction="up">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest block">Featured Works</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Production Web Applications</h2>
-            <p className="text-slate-600 text-xs font-normal">Explore real-world web implementations and corporate portals engineered by Digital Raiz.</p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-100/80">
+            <div className="space-y-2 max-w-2xl">
+              <span className="text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest block">Featured Works</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Production Web Applications</h2>
+              <p className="text-slate-600 text-xs font-normal">Explore real-world web implementations and corporate portals engineered by Digital Raiz.</p>
+            </div>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl bg-slate-900 hover:bg-pink-600 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer shrink-0 self-start sm:self-auto group"
+            >
+              <span>View All</span>
+              <ArrowRight className="w-3.5 h-3.5 text-pink-400 group-hover:text-white transition-colors group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </ScrollReveal>
 
@@ -229,6 +239,21 @@ export default function WebDevPortfolioShowcase({
                 </div>
               </div>
             </ScrollReveal>
+
+        {/* Centered Highlighted View All Portfolio CTA */}
+        <ScrollReveal direction="up" delay={200}>
+          <div className="pt-6 flex flex-col items-center justify-center text-center">
+            <Link
+              href="/portfolio"
+              className="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/35 hover:scale-[1.03] active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden border border-white/20"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <Sparkles className="w-4 h-4 text-pink-200 animate-pulse" />
+              <span>View All Web Portfolio</span>
+              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </ScrollReveal>
           </div>
         </section>
   );
