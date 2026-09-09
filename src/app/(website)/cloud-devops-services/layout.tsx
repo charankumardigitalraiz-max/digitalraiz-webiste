@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cloud & DevOps Services for Modern Enterprises | Digital Raiz",
   description:
-    "Digital Raiz builds scalable cloud architecture and automated DevOps pipelines to help digital businesses achieve continuous evolution and reliable performance.",
+    "Digital Raiz provides Cloud and DevOps services focused on cloud architecture, automation, continuous delivery, scalability and reliable digital infrastructure.",
   keywords: [
     "Cloud & DevOps Services",
     "Cloud Architecture Migration",
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cloud & DevOps Services for Modern Enterprises | Digital Raiz",
     description:
-      "Digital Raiz builds scalable cloud architecture and automated DevOps pipelines to help digital businesses achieve continuous evolution and reliable performance.",
-    url: "https://digitalraiz.com/cloud-and-devops",
+      "Digital Raiz provides Cloud and DevOps services focused on cloud architecture, automation, continuous delivery, scalability and reliable digital infrastructure.",
+    url: "https://digitalraiz.com/cloud-devops-services",
     siteName: "Digital Raiz",
     locale: "en_US",
     type: "website"

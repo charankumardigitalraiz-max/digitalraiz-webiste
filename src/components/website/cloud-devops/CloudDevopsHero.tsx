@@ -8,24 +8,25 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function CloudDevopsHero() {
   return (
-    <section className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14 bg-white border-b border-slate-100 overflow-hidden">
+    <section className="relative pt-16 pb-8 sm:pt-18 sm:pb-10 lg:pt-8 lg:pb-10 bg-white border-b border-slate-100 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-indigo-50/15 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
         {/* Left Content Column */}
         <ScrollReveal direction="left" className="space-y-6 flex-grow max-w-2xl order-last lg:order-first">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-600">
-            <Cloud className="w-3.5 h-3.5" />
-            Cloud &amp; DevOps Services
-          </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Cloud &amp; DevOps Services Built for <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">Continuous Digital Evolution</span>
           </h1>
 
-          <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed text-justify sm:text-left">
-            Digital businesses cannot afford infrastructure that becomes a constraint as applications, users and workloads grow. Digital Raiz delivers Cloud and DevOps services focused on creating technology environments that are adaptable, automated and engineered for sustained performance.
-          </p>
+          <div className="space-y-3 text-slate-600 text-xs sm:text-sm font-normal leading-relaxed text-justify sm:text-left">
+            <p>
+              Digital businesses cannot afford infrastructure that becomes a constraint as applications, users and workloads grow. Digital Raiz delivers Cloud and DevOps services focused on creating technology environments that are adaptable, automated and engineered for sustained performance.
+            </p>
+            <p>
+              Our work brings together cloud architecture, infrastructure engineering and modern delivery practices to help businesses build a stronger foundation for digital operations. Rather than treating cloud and DevOps as separate technical functions, we look at the complete lifecycle—from how an application is deployed and scaled to how it is monitored, maintained and continuously improved.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-4 pt-2">
             <button

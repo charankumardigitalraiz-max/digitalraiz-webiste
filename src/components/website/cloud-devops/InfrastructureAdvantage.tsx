@@ -69,9 +69,14 @@ export default function InfrastructureAdvantage() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-2xl mx-auto">
-              A well-designed cloud environment should give technology teams freedom to build, scale and respond without constantly reworking the foundation underneath. Digital Raiz helps organizations architect, migrate and optimize cloud environments around their applications, workloads and operational priorities.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-3xl mx-auto">
+              <p>
+                A well-designed cloud environment should give technology teams freedom to build, scale and respond without constantly reworking the foundation underneath. Digital Raiz helps organizations architect, migrate and optimize cloud environments around their applications, workloads and operational priorities.
+              </p>
+              <p>
+                We work across cloud infrastructure, application environments, migration, resource optimization, scalability, availability and integration. The objective is not simply to move technology into the cloud, but to create an environment that can accommodate changing workloads and future architectural requirements with greater efficiency.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 

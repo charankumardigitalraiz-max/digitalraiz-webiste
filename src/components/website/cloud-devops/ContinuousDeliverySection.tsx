@@ -81,9 +81,14 @@ export default function ContinuousDeliverySection() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Modern software delivery demands more than development speed. It requires a dependable system for building, testing, deploying and observing applications throughout their lifecycle. Digital Raiz applies DevOps practices to create automated delivery pipelines, repeatable deployments, infrastructure workflows, monitoring processes and stronger collaboration between development and operations.
-            </p>
+            <div className="space-y-3 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              <p>
+                Modern software delivery demands more than development speed. It requires a dependable system for building, testing, deploying and observing applications throughout their lifecycle.
+              </p>
+              <p>
+                Digital Raiz applies DevOps practices to create automated delivery pipelines, repeatable deployments, infrastructure workflows, monitoring processes and stronger collaboration between development and operations. By reducing avoidable manual processes and improving visibility across environments, teams can release changes with greater consistency while maintaining operational stability.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -134,6 +139,21 @@ export default function ContinuousDeliverySection() {
             );
           })}
         </div>
+
+        {/* Paragraph 3 Callout: Engineering Discipline */}
+        <ScrollReveal direction="up" delay={150}>
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden border border-indigo-900/50">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 max-w-3xl space-y-2">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-400">
+                Engineering Discipline
+              </span>
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-slate-200">
+                From cloud architecture to continuous delivery, we build the underlying engineering discipline that allows digital products to evolve without compromising reliability.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>
