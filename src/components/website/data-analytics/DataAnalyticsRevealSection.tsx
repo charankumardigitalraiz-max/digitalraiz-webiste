@@ -80,8 +80,11 @@ export default function DataAnalyticsRevealSection() {
                 Business Cannot See
               </span>
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-              The most valuable insight is often hidden between datasets, trends, and seemingly unrelated signals. We turn raw information into a perspective the business can actually work with.
+            <p className="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed max-w-2xl mx-auto text-slate-800">
+              The most valuable insight is often hidden between datasets, trends and seemingly unrelated signals.
+            </p>
+            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-3xl mx-auto">
+              Our <strong className="text-slate-800 font-semibold">data analytics services</strong> help organizations examine information across customers, sales, operations, finance and digital platforms to uncover patterns, relationships and changes that deserve attention. We support descriptive, diagnostic and predictive analytics, helping businesses understand not only what has happened, but what the data may indicate next.
             </p>
           </div>
         </ScrollReveal>
@@ -167,7 +170,10 @@ export default function DataAnalyticsRevealSection() {
                 Translating Complex Data into Clear Intuitive Views
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
-                Through interactive dashboards and intelligent reporting, decision-makers gain instant access to relevant metrics without having to navigate fragmented reports or disconnected spreadsheets.
+                Through <strong className="text-slate-800 font-semibold">data visualization, interactive dashboards and intelligent reporting</strong>, complex information can be translated into a more intuitive view of business performance. Decision-makers gain access to relevant metrics without having to navigate fragmented reports or disconnected sources.
+              </p>
+              <p className="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed">
+                We turn raw information into a perspective the business can actually work with.
               </p>
               <div className="pt-2 flex items-center gap-4 flex-wrap">
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100">

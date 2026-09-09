@@ -16,31 +16,42 @@ export default function CybersecurityHero() {
           <ScrollReveal direction="down">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold text-pink-600 uppercase tracking-widest shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
-              Enterprise Cybersecurity &amp; Threat Intelligence
+              Cybersecurity Services &amp; Digital Security Solutions
             </div>
           </ScrollReveal>
 
           {/* Massive Main Headline */}
           <ScrollReveal direction="up" delay={100}>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
-              Zero-Trust Cyber Defense &amp;{" "}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              Cybersecurity Services Engineered for{" "}
               <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                Threat Remediation Engine
+                Trust, Resilience &amp; Digital Continuity
               </span>
             </h1>
           </ScrollReveal>
 
-          {/* Sub-headline Overview */}
+          {/* Sub-headline Overview - All PDF Intro Paragraphs */}
           <ScrollReveal direction="up" delay={150}>
-            <p className="text-slate-600 text-xs sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
-              Shield enterprise cloud infrastructure, web apps, and APIs with automated penetration testing (VAPT), 24/7 SIEM SOC threat monitoring, and ISO 27001 / SOC2 compliance automation.
-            </p>
+            <div className="space-y-4 max-w-3xl mx-auto text-slate-600 text-xs sm:text-base font-normal leading-relaxed text-left sm:text-center">
+              <p className="font-semibold text-slate-800 text-sm sm:text-lg leading-snug">
+                Security is no longer a technical consideration that sits behind the business. It is part of the experience a business creates, the systems it operates and the trust it earns.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                As applications become more connected and organizations increasingly depend on cloud infrastructure, APIs, data platforms and digital workflows, the security landscape becomes more complex. A single overlooked vulnerability can extend far beyond a technical issue—affecting operations, customer confidence, sensitive information and business continuity.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Digital Raiz provides <strong className="text-slate-800 font-semibold">cybersecurity services and digital security solutions</strong> designed to help organizations understand their exposure, strengthen their technology environments and build greater resilience against evolving cyber risks.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Our approach looks beyond isolated vulnerabilities. We consider how applications, infrastructure, data, identities and integrations interact to create a broader security environment.
+              </p>
+            </div>
           </ScrollReveal>
 
         </div>
 
         {/* 4 Interactive Security Command Metric Cards */}
-        <ScrollReveal direction="up" delay={250}>
+        {/* <ScrollReveal direction="up" delay={250}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
             <div className="group p-5 rounded-lg bg-white border border-slate-200/90 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden text-left space-y-3">
@@ -140,7 +151,7 @@ export default function CybersecurityHero() {
             </div>
 
           </div>
-        </ScrollReveal>
+        </ScrollReveal> */}
 
       </div>
     </section>

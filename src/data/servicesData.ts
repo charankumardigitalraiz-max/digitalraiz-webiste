@@ -187,7 +187,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "Next.js 16, React, TypeScript, Custom SaaS & Enterprise Portals",
     description:
       "We design and build fast, responsive, SEO-optimized websites and web applications. From corporate platforms to complex cloud portals, we focus on scalability, security, and exceptional user experience.",
-    href: "/web-development",
+    href: "/website-development-company-in-hyderabad",
     icon: Code2,
     gradient: "from-pink-500 via-rose-500 to-violet-600",
     accentBg: "bg-pink-50",
@@ -211,7 +211,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "Native iOS/Swift, Android/Kotlin, React Native & Flutter Cross-Platform",
     description:
       "Engineered mobile applications that deliver smooth touch experiences, offline data sync, real-time push notifications, and high-security payment integrations.",
-    href: "/mobile-application",
+    href: "/mobile-app-development-company-in-hyderabad",
     icon: Smartphone,
     gradient: "from-violet-500 via-purple-500 to-indigo-600",
     accentBg: "bg-violet-50",
@@ -235,7 +235,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "Custom AI Assistants, Neural Models, RAG Pipelines & Agentic Workflows",
     description:
       "Transforming business workflows by integrating cutting-edge Generative AI models, Retrieval-Augmented Generation (RAG), and autonomous AI agent architectures.",
-    href: "/artificial-intelligence",
+    href: "/ai-ml-generative-ai-services",
     icon: Sparkles,
     gradient: "from-indigo-500 via-blue-500 to-cyan-500",
     accentBg: "bg-indigo-50",
@@ -283,7 +283,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "ETL Pipelines, Warehousing, PowerBI, Tableau & Executive Dashboards",
     description:
       "Turn fragmented corporate data into real-time executive decision dashboards with scalable ETL data lakes, Snowflake/BigQuery warehousing, and BI reports.",
-    href: "/data-analytics-and-bi",
+    href: "/data-analytics-business-intelligence",
     icon: BarChart3,
     gradient: "from-emerald-500 via-teal-500 to-cyan-600",
     accentBg: "bg-emerald-50",
@@ -331,7 +331,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "Kubernetes Orchestration, Terraform IaC, Docker & Zero-Downtime CI/CD",
     description:
       "Modern cloud architecture planning, automated CI/CD deployment pipelines, containerization, and cost-optimized multi-cloud infrastructure management.",
-    href: "/cloud-and-devops",
+    href: "/cloud-devops-services",
     icon: Cloud,
     gradient: "from-sky-500 via-blue-600 to-indigo-600",
     accentBg: "bg-sky-50",
@@ -427,7 +427,7 @@ export const serviceCategories: ServiceCategory[] = [
     subtitle: "Playwright Automation, Performance Load Profiling & Security Audits",
     description:
       "Eliminate critical defects before release with automated regression test suites, cross-browser compatibility matrixes, and heavy load stress profiling.",
-    href: "/testing-and-quality-assurance",
+    href: "/software-testing-quality-assurance",
     icon: CheckCircle2,
     gradient: "from-emerald-500 via-green-500 to-teal-600",
     accentBg: "bg-emerald-50",

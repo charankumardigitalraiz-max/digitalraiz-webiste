@@ -12,6 +12,14 @@ import {
   Users,
   Layers,
   Zap,
+  Globe,
+  Smartphone,
+  Server,
+  Network,
+  Search,
+  FileText,
+  AlertTriangle,
+  Code
 } from "lucide-react";
 import {
   SecurityTechItem,
@@ -19,6 +27,124 @@ import {
   DefensePipelineNode,
   SecurityAssurancePillar,
 } from "@/interfaces/cybersecurity";
+
+export interface PDFCapabilityItem {
+  title: string;
+  category: string;
+  desc: string;
+  icon: any;
+}
+
+// 9 Core Capabilities from Official Landing Page PDF Document
+export const pdfCybersecurityCapabilities: PDFCapabilityItem[] = [
+  {
+    title: "Web Application Security",
+    category: "APPLICATION SECURITY",
+    desc: "Comprehensive protection for web platforms, addressing application behavior, authentication, authorization, APIs, and connected microservices.",
+    icon: Globe,
+  },
+  {
+    title: "Mobile Application Security",
+    category: "MOBILE DEFENSE",
+    desc: "Rigorous security evaluations across iOS & Android apps, securing local data storage, auth tokens, third-party SDKs, and mobile API communication.",
+    icon: Smartphone,
+  },
+  {
+    title: "Cloud Security",
+    category: "INFRASTRUCTURE GUARD",
+    desc: "Essential protection for workloads, containers, and data platforms across cloud environments to maintain control, visibility, and operational resilience.",
+    icon: Cloud,
+  },
+  {
+    title: "Network Security",
+    category: "PERIMETER & TRAFFIC",
+    desc: "Safeguarding corporate perimeters, internal segments, VPN gateways, and micro-segmentation architectures against unauthorized access and traffic spoofing.",
+    icon: Network,
+  },
+  {
+    title: "Vulnerability Assessment",
+    category: "EXPOSURE IDENTIFICATION",
+    desc: "Structured examination of technology landscapes, scanning applications, databases, and networks to discover security weaknesses before exploitation.",
+    icon: Search,
+  },
+  {
+    title: "Security Testing",
+    category: "OFFENSIVE SIMULATION",
+    desc: "Systematic automated and manual testing evaluating confidentiality, integrity, availability, and user trust across all digital environments.",
+    icon: Terminal,
+  },
+  {
+    title: "Information Security",
+    category: "DATA ASSET SHIELD",
+    desc: "Protecting sensitive enterprise data, customer PII, internal intellectual property, and critical databases from unauthorized access or exfiltration.",
+    icon: Lock,
+  },
+  {
+    title: "Risk Assessment",
+    category: "STRATEGIC GOVERNANCE",
+    desc: "Prioritizing remediation efforts based on exposure impact, business continuity requirements, and technology realities to make informed decisions.",
+    icon: AlertTriangle,
+  },
+  {
+    title: "Application Security",
+    category: "SECURE ARCHITECTURE",
+    desc: "Embedding security practices earlier in the development lifecycle to ensure applications are built securely from ground level to production deployment.",
+    icon: Code,
+  },
+];
+
+// Content Blocks from PDF Document
+export const pdfHeroContent = {
+  badge: "Cybersecurity & Digital Security Solutions",
+  title: "Cybersecurity Services Engineered for Trust, Resilience and Digital Continuity",
+  subtitle: "Security is no longer a technical consideration that sits behind the business. It is part of the experience a business creates, the systems it operates and the trust it earns.",
+  paragraphs: [
+    "As applications become more connected and organizations increasingly depend on cloud infrastructure, APIs, data platforms and digital workflows, the security landscape becomes more complex. A single overlooked vulnerability can extend far beyond a technical issue—affecting operations, customer confidence, sensitive information and business continuity.",
+    "Digital Raiz provides cybersecurity services and digital security solutions designed to help organizations understand their exposure, strengthen their technology environments and build greater resilience against evolving cyber risks.",
+    "Our approach looks beyond isolated vulnerabilities. We consider how applications, infrastructure, data, identities and integrations interact to create a broader security environment."
+  ]
+};
+
+export const pdfAttackSurfaceContent = {
+  title: "Turning the Attack Surface Into a Strategic Security Perspective",
+  paragraphs: [
+    "Every digital environment has an attack surface. The challenge is knowing where exposure exists before someone else discovers it.",
+    "Digital Raiz helps organizations examine their technology landscape through structured cybersecurity assessment, vulnerability assessment and security testing. We evaluate applications, systems and digital environments to identify weaknesses that could affect confidentiality, integrity, availability or user trust.",
+    "Our application security services cover modern web and mobile applications, helping identify security concerns across application behaviour, authentication, authorization, data handling, APIs and connected services. We also consider the relationships between applications and the infrastructure supporting them, because security rarely ends at the application layer."
+  ],
+  quote: {
+    headline: "The objective is not to create fear around technology. It is to create visibility around risk.",
+    subtext: "When organizations understand where weaknesses exist, they can prioritize remediation, make better technology decisions and build security into the products and systems they depend on."
+  }
+};
+
+export const pdfArchitectureContent = {
+  title: "Designing Digital Environments Where Security Is Part of the Architecture",
+  lead: "Strong cybersecurity is not defined by a single tool, assessment or security layer. It is created through a continuous understanding of technology, people, processes and potential threats.",
+  pillars: [
+    {
+      title: "Technology Lifecycle Protection",
+      desc: "Digital Raiz brings a security-first perspective to digital environments, helping businesses consider protection throughout the technology lifecycle—from development and deployment to infrastructure, integration and ongoing operation."
+    },
+    {
+      title: "Tailored Cybersecurity Consulting",
+      desc: "Our cybersecurity consulting services are designed around the realities of each organization rather than a one-size-fits-all checklist. We consider the technology landscape, business priorities and areas of exposure to establish practical security priorities."
+    },
+    {
+      title: "Early Product Security & Testing",
+      desc: "For businesses building digital products, security can be incorporated earlier through secure development practices and application-focused testing. For organizations operating established environments, security assessments can help uncover areas that require attention as systems, integrations and threats evolve."
+    },
+    {
+      title: "Resilient Cloud Security",
+      desc: "Cloud adoption introduces another dimension to this landscape. As workloads, applications and sensitive information move across cloud environments, cloud security becomes an essential part of maintaining control, visibility and resilience."
+    }
+  ],
+  closingGoal: "The goal is a digital environment that can continue operating with confidence—even as technology changes and the threat landscape evolves."
+};
+
+export const pdfClosingConclusion = {
+  statement: "Digital Raiz approaches cybersecurity as an architectural discipline, helping businesses protect what they build, understand what they expose and create digital environments founded on resilience, trust and long-term continuity."
+};
 
 export const securityTechStack: SecurityTechItem[] = [
   { name: "Cloudflare", icon: "https://cdn.simpleicons.org/cloudflare/F38020" },

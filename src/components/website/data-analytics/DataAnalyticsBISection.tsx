@@ -113,9 +113,20 @@ export default function DataAnalyticsBISection() {
                 Decisions That Matter
               </span>
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-              Business Intelligence is most powerful when it becomes part of how an organization thinks and operates. We connect business data with practical decision-making across executive scorecards, management reporting, and KPI monitoring.
+            <p className="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed max-w-2xl mx-auto">
+              Business Intelligence is most powerful when it becomes part of how an organization thinks and operates.
             </p>
+            <div className="space-y-2 text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-3xl mx-auto">
+              <p>
+                Digital Raiz develops <strong className="text-slate-800 font-semibold">Business Intelligence services and BI solutions</strong> that connect business data with practical decision-making. From performance dashboards and management reporting to trend analysis and KPI monitoring, we create analytical environments designed around the priorities of each organization.
+              </p>
+              <p>
+                Our data-driven solutions can help businesses understand customer behaviour, monitor operational performance, identify emerging opportunities and establish greater visibility across critical functions.
+              </p>
+              <p className="text-slate-800 font-medium pt-1">
+                The objective is not to overwhelm teams with more information. It is to give the right people a clearer view of what the information means—and what deserves attention next.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
       </div>

@@ -31,9 +31,9 @@ export default function DataAnalyticsPage() {
         </ScrollReveal>
 
         {/* SECTION 3: 6-STAGE ENGINEERING LIFECYCLE SECTION */}
-        <ScrollReveal direction="up" delay={100}>
+        {/* <ScrollReveal direction="up" delay={100}>
           <DataAnalyticsLifecycleSection />
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         {/* SECTION 4: STRATEGIC PILLARS & DATA SQUAD SECTION */}
         <ScrollReveal direction="up" delay={100}>

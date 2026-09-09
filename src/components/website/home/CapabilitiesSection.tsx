@@ -208,7 +208,7 @@ export default function CapabilitiesSection() {
                 </div>
 
                 <Link
-                  href={activeStudio === "web" ? "/web-development" : "/mobile-application"}
+                  href={activeStudio === "web" ? "/website-development-company-in-hyderabad" : "/mobile-app-development-company-in-hyderabad"}
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
                 >
                   <span>{activeStudio === "web" ? "Explore Web Studio" : "Explore Mobile Studio"}</span>

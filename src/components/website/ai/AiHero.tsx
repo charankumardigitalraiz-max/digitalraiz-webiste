@@ -19,7 +19,7 @@ export default function AiHero() {
             AI & Machine Learning
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
             AI, Machine Learning & Generative AI Solutions <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">for Intelligent Business</span>
           </h1>
 

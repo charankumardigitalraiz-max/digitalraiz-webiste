@@ -45,9 +45,9 @@ export default function Home() {
         </ScrollReveal>
 
         {/* Dynamic Studio Blog & Thought Leadership Section */}
-        <ScrollReveal direction="up">
+        {/* <ScrollReveal direction="up">
           <BlogSection />
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         {/* Interactive Inquiry Form */}
         {/* <Contact /> */}

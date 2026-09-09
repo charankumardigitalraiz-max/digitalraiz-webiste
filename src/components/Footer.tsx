@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useContactStore } from "@/store";
 import { useContactDetails } from "@/hooks/useContactDetails";
 import { Mail, Phone, MapPin, ExternalLink, ArrowRight, ChevronRight, Search, Share2, Laptop, Smartphone, Home, Users, Headphones, TrendingUp, CheckCircle2, Sparkles, Megaphone, Cloud } from "lucide-react";
+import { services } from "@/constants/services";
+
 
 export default function Footer() {
   // TanStack Query for Data Fetching & Caching
@@ -34,16 +36,6 @@ export default function Footer() {
     { label: "SiteMap", href: "#", icon: ExternalLink }
   ];
 
-  const keySolutions = [
-    { label: "Digital Marketing", href: "/digital-marketing-services-in-hyderabad", icon: Megaphone },
-    { label: "Mobile Application", href: "/mobile-app-development-company-in-hyderabad", icon: Smartphone },
-    { label: "Web Development", href: "/website-development-company-in-hyderabad", icon: Laptop },
-    { label: "Influencer Marketing", href: "/influencer-marketing", icon: Share2 },
-    { label: "SAP Cloud Services", href: "/sap-cloud-services", icon: TrendingUp },
-    { label: "Salesforce Services", href: "/salesforce-services", icon: Cloud },
-    { label: "Cloud & DevOps", href: "/cloud-devops-services", icon: Cloud },
-    { label: "AI Solutions", href: "/ai-ml-generative-ai-services", icon: Sparkles }
-  ];
 
   return (
     <footer className="bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200 pt-0 pb-10 relative overflow-hidden font-sans text-slate-800">
@@ -155,21 +147,18 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-pink-600 pb-1 border-b border-slate-200/80">
               Key Solutions
             </h4>
-            <ul className="space-y-2.5">
-              {keySolutions.map((item) => {
-                const IconComponent = item.icon;
-                return (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="group flex items-center gap-2.5 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs sm:text-sm font-medium"
-                    >
-                      <IconComponent className="w-3.5 h-3.5 text-pink-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-200 shrink-0" />
-                      <span>{item.label}</span>
-                    </a>
-                  </li>
-                );
-              })}
+            <ul className="space-y-2">
+              {services.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="group flex items-center gap-2 text-slate-700 hover:text-pink-600 transition-all duration-200 text-xs font-medium"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5 text-pink-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <span>{item.name}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
