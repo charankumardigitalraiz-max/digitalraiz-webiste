@@ -134,20 +134,20 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     url: "#",
     metrics: { val1: "10K+", label1: "Patients Served", val2: "4.9★", label2: "Rating" }
   },
-  {
-    id: "inflin-marketing",
-    name: "Inflin Marketing",
-    type: "web",
-    category: "Creative",
-    tag: "Influencer Marketing Platform",
-    desc: "Premier influencer marketing platform connecting global brands with top content creators, managing automated campaign analytics, creator discovery, and influencer ROI tracking.",
-    features: ["Creator Discovery & Analytics", "Campaign Performance Dashboard", "Automated Collab Tracking", "Influencer Rate Card Engine"],
-    tech: ["Next.js", "React.js", "Tailwind CSS", "Node.js REST", "PostgreSQL"],
-    img: "/websites/Inflin-Influencer-Marketing-Service.png",
-    logo: "/project-logs/infline.png",
-    url: "#",
-    metrics: { val1: "5K+", label1: "Creators", val2: "98%", label2: "Campaign ROI" }
-  },
+  // {
+  //   id: "inflin-marketing",
+  //   name: "Inflin Marketing",
+  //   type: "web",
+  //   category: "Creative",
+  //   tag: "Influencer Marketing Platform",
+  //   desc: "Premier influencer marketing platform connecting global brands with top content creators, managing automated campaign analytics, creator discovery, and influencer ROI tracking.",
+  //   features: ["Creator Discovery & Analytics", "Campaign Performance Dashboard", "Automated Collab Tracking", "Influencer Rate Card Engine"],
+  //   tech: ["Next.js", "React.js", "Tailwind CSS", "Node.js REST", "PostgreSQL"],
+  //   img: "/websites/Inflin-Influencer-Marketing-Service.png",
+  //   logo: "/project-logs/infline.png",
+  //   url: "#",
+  //   metrics: { val1: "5K+", label1: "Creators", val2: "98%", label2: "Campaign ROI" }
+  // },
   {
     id: "insaat-infra",
     name: "Insaat Infra",

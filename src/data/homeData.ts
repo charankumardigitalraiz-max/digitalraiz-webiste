@@ -74,7 +74,7 @@ export const homeServices: HomeServiceItem[] = [
     border: "border-amber-100",
     tag: "bg-amber-100/50 text-[#d97706]",
     desc: "Build stronger market visibility through search optimization, influencer partnerships, and targeted audience engagement that helps your brand connect with the right customers.",
-    items: ["SEO & Search Visibility", "Influencer Marketing", "Brand Engagement"],
+    items: ["SEO & Search Visibility", "Brand Engagement"],
     img: "/services/service_light_3d_marketing.webp",
     href: "/services#marketing",
   },

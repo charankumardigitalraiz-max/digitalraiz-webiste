@@ -192,22 +192,22 @@ export default function ServicesPage() {
       glowBg: "from-violet-500/50 via-purple-500/40 to-pink-600/50",
       highlights: ["High-Intent Organic SEO", "Google & Meta PPC", "Lead Funnel Optimization"]
     },
-    {
-      title: "Influencer Marketing",
-      category: "growth",
-      desc: "Creator matchmaking, UGC reels production, regional influencer networks, multi-platform publishing, and real-time ROAS attribution tracking.",
-      href: "/influencer-marketing",
-      icon: <Users className="w-5 h-5 text-fuchsia-400" />,
-      tag: "Creators & UGC",
-      bannerImg: "/services/banners/influencer_marketing_creators.png",
-      colorClass: "border-fuchsia-500/40 hover:border-fuchsia-400 hover:shadow-fuchsia-500/25",
-      badgeColor: "bg-fuchsia-500/10 border-fuchsia-500/30 text-fuchsia-400",
-      dotColor: "bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.9)]",
-      iconBg: "bg-fuchsia-950/80 border-fuchsia-500/40 text-fuchsia-400 group-hover:border-fuchsia-400 group-hover:shadow-[0_0_15px_rgba(232,121,249,0.5)]",
-      btnHover: "group-hover:bg-fuchsia-500 group-hover:text-slate-950 group-hover:border-fuchsia-400",
-      glowBg: "from-fuchsia-500/50 via-pink-500/40 to-rose-600/50",
-      highlights: ["1000+ Creator Roster", "UGC Video Reels", "Live ROAS Tracking"]
-    }
+    // {
+    //   title: "Influencer Marketing",
+    //   category: "growth",
+    //   desc: "Creator matchmaking, UGC reels production, regional influencer networks, multi-platform publishing, and real-time ROAS attribution tracking.",
+    //   href: "/influencer-marketing",
+    //   icon: <Users className="w-5 h-5 text-fuchsia-400" />,
+    //   tag: "Creators & UGC",
+    //   bannerImg: "/services/banners/influencer_marketing_creators.png",
+    //   colorClass: "border-fuchsia-500/40 hover:border-fuchsia-400 hover:shadow-fuchsia-500/25",
+    //   badgeColor: "bg-fuchsia-500/10 border-fuchsia-500/30 text-fuchsia-400",
+    //   dotColor: "bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.9)]",
+    //   iconBg: "bg-fuchsia-950/80 border-fuchsia-500/40 text-fuchsia-400 group-hover:border-fuchsia-400 group-hover:shadow-[0_0_15px_rgba(232,121,249,0.5)]",
+    //   btnHover: "group-hover:bg-fuchsia-500 group-hover:text-slate-950 group-hover:border-fuchsia-400",
+    //   glowBg: "from-fuchsia-500/50 via-pink-500/40 to-rose-600/50",
+    //   highlights: ["1000+ Creator Roster", "UGC Video Reels", "Live ROAS Tracking"]
+    // }
   ];
 
   const [activeCategory, setActiveCategory] = useState<string>("all");

@@ -32,7 +32,7 @@ export function resolveServiceAndSubject(serviceInput?: string, subjectInput?: s
     "Cloud & DevOps Engineering",
     "Testing & Quality Assurance",
     "Digital Marketing & SEO",
-    "Influencer Marketing",
+    // "Influencer Marketing",
     "Other Services"
   ];
 
@@ -210,7 +210,7 @@ export default function ContactModal({
     "Cloud & DevOps Engineering",
     "Testing & Quality Assurance",
     "Digital Marketing & SEO",
-    "Influencer Marketing",
+    // "Influencer Marketing",
     "Other Services"
   ];
 
