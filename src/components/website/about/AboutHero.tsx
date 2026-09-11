@@ -8,12 +8,12 @@ import { openContactModal } from "@/components/ContactModal";
 
 export default function AboutHero() {
   return (
-    <section className="relative pt-28 pb-10 sm:py-16 lg:py-20 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80">
+    <section className="relative pt-28 pb-10 sm:py-10 lg:py-10 bg-white text-slate-900 overflow-hidden ">
       {/* Micro Grid Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" /> */}
       {/* Ambient glow */}
       {/* <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-pink-400/10 rounded-full blur-3xl pointer-events-none" /> */}
-      <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+      {/* <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" /> */}
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">

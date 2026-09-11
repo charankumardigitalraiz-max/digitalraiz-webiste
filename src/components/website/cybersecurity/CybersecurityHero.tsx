@@ -17,10 +17,10 @@ export default function CybersecurityHero() {
         <ScrollReveal direction="left" className="space-y-6 flex-grow max-w-2xl order-last lg:order-first">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 shadow-2xs">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5 text-pink-600" />
             Cybersecurity Services &amp; Digital Security Solutions
-          </div>
+          </div> */}
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">

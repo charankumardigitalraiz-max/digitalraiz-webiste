@@ -254,7 +254,7 @@ export default function CybersecurityDefenseMatrix() {
                             <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
                             Pillar {activePillar.step} • {activePillar.badge}
                           </span>
-                          <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug pt-1">
+                          <h3 className="text-lg sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug pt-1">
                             {activePillar.title}
                           </h3>
                         </div>

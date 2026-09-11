@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AboutHyderabad() {
   return (
-    <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
+    <section className="py-10 sm:py-10 bg-white relative overflow-hidden">
       {/* subtle bg */}
       <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none" />
 

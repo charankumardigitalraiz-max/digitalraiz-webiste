@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AboutAI() {
   return (
-    <div className="pt-8 border-t border-slate-100">
+    <div className="pt-2">
       <ScrollReveal direction="up">
         <div className="rounded-2xl p-8 sm:p-10 bg-gradient-to-br from-pink-50/70 via-purple-50/40 to-indigo-50/60 border border-pink-200/80 shadow-md space-y-5 relative overflow-hidden group hover:shadow-xl transition-shadow duration-400">
           {/* Ambient glow */}

@@ -35,7 +35,7 @@ const phases = [
 
 export default function AboutApproach() {
   return (
-    <div className="space-y-8 pt-10 border-t border-slate-100">
+    <div className="space-y-8 pt-10 ">
       <ScrollReveal direction="up">
         <div className="space-y-2 text-center sm:text-left">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tight">

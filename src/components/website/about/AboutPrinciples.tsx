@@ -53,7 +53,7 @@ const principles = [
 
 export default function AboutPrinciples() {
   return (
-    <div className="space-y-8 pt-8 border-t border-slate-100">
+    <div className="space-y-8 pt-8 ">
       <ScrollReveal direction="up">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 border border-purple-100 text-[10px] font-mono font-bold text-purple-600 uppercase tracking-widest">

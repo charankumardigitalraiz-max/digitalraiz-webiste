@@ -10,7 +10,7 @@ export default function AiExplorerSection() {
   const currentPillar = aiPillars[activeTab];
 
   return (
-    <section className="py-10 bg-white border-y border-slate-100 relative overflow-hidden">
+    <section className="py-10 bg-white  relative overflow-hidden">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 w-full space-y-10 relative z-10">
 
         {/* Section Header */}
@@ -40,18 +40,16 @@ export default function AiExplorerSection() {
                   key={item.id}
                   type="button"
                   onClick={() => setActiveTab(idx)}
-                  className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-xs transition-colors duration-150 cursor-pointer text-left outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none ${
-                    isActive
+                  className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-xs transition-colors duration-150 cursor-pointer text-left outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none ${isActive
                       ? "bg-white text-slate-900 shadow-sm border border-slate-200/80 font-extrabold"
                       : "text-slate-600 hover:text-slate-900 font-semibold hover:bg-white/60"
-                  }`}
+                    }`}
                 >
                   <div
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-150 ${
-                      isActive
+                    className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-150 ${isActive
                         ? "bg-pink-50 text-pink-600 border border-pink-100"
                         : "bg-slate-200/60 text-slate-500"
-                    }`}
+                      }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                   </div>
