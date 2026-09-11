@@ -31,19 +31,19 @@ export default function CybersecurityTalentBanner() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-white relative border-t border-slate-100">
+    <section className="py-10 sm:py-10 bg-white relative border-t border-slate-100">
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-10 relative z-10">
 
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[9px] font-mono font-bold text-pink-600 uppercase tracking-widest">
-              <Sparkles className="w-3 h-3 text-pink-500" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-pink-600" />
               The Digital Raiz Advantage
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
               Why Global Enterprises Trust Digital Raiz for{" "}
-              <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-indigo-600 bg-clip-text text-transparent">
                 Cybersecurity &amp; VAPT
               </span>
             </h2>

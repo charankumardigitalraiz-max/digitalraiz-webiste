@@ -1,159 +1,80 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { openContactModal } from "@/components/ContactModal";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Key, Terminal, Activity, FileCheck, CheckCircle2 } from "lucide-react";
 
 export default function CybersecurityHero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-24 lg:pb-14">
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 space-y-10">
+    <section className="relative pt-16 pb-8 sm:pt-18 sm:pb-10 lg:pt-8 lg:pb-10 bg-white  overflow-hidden">
+      {/* Background Subtle Gradient */}
+      {/* <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-pink-50/20 pointer-events-none" /> */}
 
-        {/* Centered Top Content Header */}
-        <div className="text-center max-w-4xl mx-auto space-y-5">
+      <div className="max-w-6xl mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+        {/* Left Content Column */}
+        <ScrollReveal direction="left" className="space-y-6 flex-grow max-w-2xl order-last lg:order-first">
 
-          {/* Pulsing Status Pill */}
-          <ScrollReveal direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold text-pink-600 uppercase tracking-widest shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
-              Cybersecurity Services &amp; Digital Security Solutions
-            </div>
-          </ScrollReveal>
-
-          {/* Massive Main Headline */}
-          <ScrollReveal direction="up" delay={100}>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Cybersecurity Services Engineered for{" "}
-              <span className="bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                Trust, Resilience &amp; Digital Continuity
-              </span>
-            </h1>
-          </ScrollReveal>
-
-          {/* Sub-headline Overview - All PDF Intro Paragraphs */}
-          <ScrollReveal direction="up" delay={150}>
-            <div className="space-y-4 max-w-3xl mx-auto text-slate-600 text-xs sm:text-base font-normal leading-relaxed text-left sm:text-center">
-              <p className="font-semibold text-slate-800 text-sm sm:text-lg leading-snug">
-                Security is no longer a technical consideration that sits behind the business. It is part of the experience a business creates, the systems it operates and the trust it earns.
-              </p>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                As applications become more connected and organizations increasingly depend on cloud infrastructure, APIs, data platforms and digital workflows, the security landscape becomes more complex. A single overlooked vulnerability can extend far beyond a technical issue—affecting operations, customer confidence, sensitive information and business continuity.
-              </p>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Digital Raiz provides <strong className="text-slate-800 font-semibold">cybersecurity services and digital security solutions</strong> designed to help organizations understand their exposure, strengthen their technology environments and build greater resilience against evolving cyber risks.
-              </p>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Our approach looks beyond isolated vulnerabilities. We consider how applications, infrastructure, data, identities and integrations interact to create a broader security environment.
-              </p>
-            </div>
-          </ScrollReveal>
-
-        </div>
-
-        {/* 4 Interactive Security Command Metric Cards */}
-        {/* <ScrollReveal direction="up" delay={250}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-            <div className="group p-5 rounded-lg bg-white border border-slate-200/90 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden text-left space-y-3">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold">
-                  <Key className="w-5 h-5" />
-                </div>
-                <span className="text-[9px] font-mono font-bold text-pink-600 uppercase bg-pink-50 px-2.5 py-0.5 rounded-full">
-                  Zero-Trust
-                </span>
-              </div>
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-pink-600 transition-colors">
-                  Identity &amp; IAM Access
-                </h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-1">
-                  Multi-factor auth, Okta SSO &amp; HashiCorp Vault secret rotation.
-                </p>
-              </div>
-              <div className="text-[10px] font-mono font-bold text-emerald-600 flex items-center gap-1 pt-1 border-t border-slate-100">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>100% Identity Hardened</span>
-              </div>
-            </div>
-
-            <div className="group p-5 rounded-lg bg-white border border-slate-200/90 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden text-left space-y-3">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center font-bold">
-                  <Terminal className="w-5 h-5" />
-                </div>
-                <span className="text-[9px] font-mono font-bold text-violet-600 uppercase bg-violet-50 px-2.5 py-0.5 rounded-full">
-                  VAPT Scans
-                </span>
-              </div>
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-pink-600 transition-colors">
-                  Pentesting &amp; Exploits
-                </h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-1">
-                  OWASP Top 10 automated pentests &amp; zero-day vulnerability checks.
-                </p>
-              </div>
-              <div className="text-[10px] font-mono font-bold text-emerald-600 flex items-center gap-1 pt-1 border-t border-slate-100">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>0 Open Vulnerabilities</span>
-              </div>
-            </div>
-
-            <div className="group p-5 rounded-lg bg-white border border-slate-200/90 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden text-left space-y-3">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold">
-                  <Activity className="w-5 h-5" />
-                </div>
-                <span className="text-[9px] font-mono font-bold text-pink-600 uppercase bg-pink-50 px-2.5 py-0.5 rounded-full">
-                  24/7 SOC
-                </span>
-              </div>
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-pink-600 transition-colors">
-                  Managed SIEM SOC
-                </h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-1">
-                  Splunk AI anomaly log telemetry &amp; 15-minute emergency SLA.
-                </p>
-              </div>
-              <div className="text-[10px] font-mono font-bold text-pink-600 flex items-center gap-1 pt-1 border-t border-slate-100">
-                <CheckCircle2 className="w-3.5 h-3.5 text-pink-500" />
-                <span>&lt; 15-Min Response SLA</span>
-              </div>
-            </div>
-
-            <div className="group p-5 rounded-lg bg-white border border-slate-200/90 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden text-left space-y-3">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
-                  <FileCheck className="w-5 h-5" />
-                </div>
-                <span className="text-[9px] font-mono font-bold text-emerald-600 uppercase bg-emerald-50 px-2.5 py-0.5 rounded-full">
-                  Compliance
-                </span>
-              </div>
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-pink-600 transition-colors">
-                  ISO 27001 &amp; SOC2
-                </h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-1">
-                  Automated evidence tracking for GDPR, HIPAA &amp; SOC2 audits.
-                </p>
-              </div>
-              <div className="text-[10px] font-mono font-bold text-emerald-600 flex items-center gap-1 pt-1 border-t border-slate-100">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>100% Audit Ready</span>
-              </div>
-            </div>
-
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-pink-600" />
+            Cybersecurity Services &amp; Digital Security Solutions
           </div>
-        </ScrollReveal> */}
 
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Cybersecurity Services Engineered for{" "}
+            <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-indigo-600 bg-clip-text text-transparent">
+              Trust, Resilience &amp; Digital Continuity
+            </span>
+          </h1>
+
+          {/* Intro Paragraphs */}
+          <div className="space-y-3 text-slate-600 text-xs sm:text-sm font-normal leading-relaxed text-justify sm:text-left">
+            <p className="font-semibold text-slate-800 text-sm sm:text-base leading-snug">
+              Security is no longer a technical consideration that sits behind the business. It is part of the experience a business creates, the systems it operates and the trust it earns.
+            </p>
+            <p>
+              As applications become more connected and organizations increasingly depend on cloud infrastructure, APIs, data platforms and digital workflows, the security landscape becomes more complex. A single overlooked vulnerability can extend far beyond a technical issue—affecting operations, customer confidence, sensitive information and business continuity.
+            </p>
+            <p>
+              Digital Raiz provides <strong className="text-slate-800 font-semibold">cybersecurity services and digital security solutions</strong> designed to help organizations understand their exposure, strengthen their technology environments and build greater resilience against evolving cyber risks.
+            </p>
+            <p>
+              Our approach looks beyond isolated vulnerabilities. We consider how applications, infrastructure, data, identities and integrations interact to create a broader security environment.
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex flex-wrap gap-4 pt-2">
+            <button
+              type="button"
+              onClick={() => openContactModal("Cybersecurity Services")}
+              className="inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-[10px] font-black uppercase tracking-widest shadow-md hover:scale-[1.02] transition-all duration-300 active:scale-95 group border-0 cursor-pointer pointer-events-auto touch-manipulation min-h-[44px]"
+            >
+              <span>Consult Security Team</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+            </button>
+          </div>
+        </ScrollReveal>
+
+        {/* Right Hero Image Stage */}
+        <ScrollReveal direction="right" delay={150} className="w-full lg:w-[520px] shrink-0 order-first lg:order-last">
+          <div className="relative rounded-2xl overflow-hidden  bg-white">
+            <Image
+              src="/cyber-security/cybersecurity_zero_trust_isometric_3x4_v1.png"
+              alt="Cybersecurity & Zero Trust Security Architecture"
+              width={1200}
+              height={1600}
+              className="w-full h-auto object-contain select-none pointer-events-none"
+              priority
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
 }
+
+
