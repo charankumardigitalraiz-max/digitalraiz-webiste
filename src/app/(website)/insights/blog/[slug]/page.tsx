@@ -91,7 +91,7 @@ export default async function SingleBlogPage({ params }: Props) {
         {/* ========================================================================= */}
         {/* 1. HERO HEADER SECTION — Elegant Editorial Title & Publication Metadata   */}
         {/* ========================================================================= */}
-        <section className="pt-28 pb-8 bg-gradient-to-b from-slate-50/80 via-white to-white border-b border-slate-100">
+        <section className="pt-20 lg:pt-10 pb-8 bg-white border-b border-slate-100">
           <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 space-y-8">
 
             {/* Top Navigation Row */}
@@ -113,12 +113,12 @@ export default async function SingleBlogPage({ params }: Props) {
 
             {/* Article Main Headline */}
             <div className="space-y-4 max-w-4xl">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1e1b4b] tracking-tight leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl lg:text-4xl font-black text-[#1e1b4b] tracking-tight leading-[1.15]">
                 {post.title}
               </h1>
 
               {post.subtitle && (
-                <p className="text-slate-600 text-base sm:text-xl font-medium leading-relaxed max-w-3xl">
+                <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed max-w-3xl">
                   {post.subtitle}
                 </p>
               )}
