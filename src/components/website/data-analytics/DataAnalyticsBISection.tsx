@@ -27,7 +27,7 @@ export default function DataAnalyticsBISection() {
       overview:
         "Transform fragmented corporate data into interactive executive dashboards, automated daily KPI audits, and responsive mobile BI scorecards.",
       tools: ["PowerBI", "Tableau", "DAX", "SQL", "Looker"],
-      image: "/data-analytics-and-bi/powerbi-isometric-dashboard.png",
+      image: "/data-analytics-and-bi/powerbi-isometric-dashboard.webp",
     },
     {
       step: "02",
@@ -36,7 +36,7 @@ export default function DataAnalyticsBISection() {
       overview:
         "Architect zero-latency cloud data warehouses with star-schema dimensional modeling, dbt transformations, and automated cost controls.",
       tools: ["Snowflake", "Google BigQuery", "AWS Redshift", "dbt"],
-      image: "/data-analytics-and-bi/cloud-warehouse-snowflake-hub.png",
+      image: "/data-analytics-and-bi/cloud-warehouse-snowflake-hub.webp",
     },
     {
       step: "03",
@@ -45,7 +45,7 @@ export default function DataAnalyticsBISection() {
       overview:
         "Deploy fault-tolerant streaming pipelines to capture live transactional events, website clicks, and IoT telemetry data with zero data loss.",
       tools: ["Apache Kafka", "Apache Spark", "Airflow", "Python"],
-      image: "/data-analytics-and-bi/high-speed-data-pipeline-stream.png",
+      image: "/data-analytics-and-bi/high-speed-data-pipeline-stream.webp",
     },
     {
       step: "04",
@@ -54,7 +54,7 @@ export default function DataAnalyticsBISection() {
       overview:
         "Convert historical data into predictions. Build custom ML models deployed on Databricks to forecast customer churn, demand, and revenue.",
       tools: ["Python", "Databricks", "Scikit-Learn", "Pandas"],
-      image: "/data-analytics-and-bi/ai-predictive-analytics-brain-core.png",
+      image: "/data-analytics-and-bi/ai-predictive-analytics-brain-core.webp",
     },
     {
       step: "05",
@@ -63,7 +63,7 @@ export default function DataAnalyticsBISection() {
       overview:
         "Consolidate fragmented customer touchpoints from web, mobile apps, and CRM into single customer view (SCV) profiles for targeted retention.",
       tools: ["PostgreSQL", "Mixpanel", "Segment", "Python"],
-      image: "/data-analytics-and-bi/customer-360-identity-hub.png",
+      image: "/data-analytics-and-bi/customer-360-identity-hub.webp",
     },
     {
       step: "06",
@@ -73,7 +73,7 @@ export default function DataAnalyticsBISection() {
         "Implement role-based access control (RBAC), automated PII data masking, and end-to-end data lineage tracking for SOC2 and GDPR compliance.",
       tools: ["Great Expectations", "dbt Lineage", "Grafana", "Slack API"],
       image:
-        "/data-analytics-and-bi/csuite-white-square-completely-different.png",
+        "/data-analytics-and-bi/csuite-white-square-completely-different.webp",
     },
   ];
 

@@ -83,7 +83,7 @@ export default function Contact() {
             <div className="lg:col-span-5 relative text-white p-5 sm:p-7 flex flex-col justify-between overflow-hidden">
               {/* Background Generated Banner Image */}
               <img
-                src="/home/contact-executive-banner.png"
+                src="/home/contact-executive-banner.webp"
                 alt="Digital Raiz Executive Engineering Hub"
                 className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
               />

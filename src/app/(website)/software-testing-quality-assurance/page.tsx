@@ -294,7 +294,7 @@ export default function TestingAndQAPage() {
                 <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group  bg-white p-2">
                   <div className="relative w-full overflow-hidden rounded-2xl bg-slate-50">
                     <img
-                      src="/testing-and-quality-assurance/digital-raiz-qa-studio-square-canvas.png"
+                      src="/testing-and-quality-assurance/digital-raiz-qa-studio-square-canvas.webp"
                       alt="Software Testing & Quality Assurance Services Showcase"
                       className="w-full h-auto object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
                     />

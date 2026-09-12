@@ -88,7 +88,7 @@ export default function SapConnectedEnterpriseSection() {
             <div className="relative rounded-2xl bg-white p-3 overflow-hidden group h-full flex flex-col justify-between">
               <div className="relative w-full h-full min-h-[280px] rounded-xl overflow-hidden bg-slate-900/5">
                 <Image
-                  src="/sap/enterprise_server_square.png"
+                  src="/sap/enterprise_server_square.webp"
                   alt="SAP Cloud Infrastructure Architecture"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"

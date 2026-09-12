@@ -42,7 +42,7 @@ export default function CloudDevopsHero() {
         {/* Right Hero Image Stage */}
         <ScrollReveal direction="right" delay={150} className="w-full lg:w-[500px] shrink-0 order-first lg:order-last">
           <Image
-            src="/cloud-and-devops/isometric-server-cluster-cloud-network.png"
+            src="/cloud-and-devops/isometric-server-cluster-cloud-network.webp"
             alt="Isometric Server Cluster & Cloud DevOps Network Architecture"
             width={900}
             height={600}

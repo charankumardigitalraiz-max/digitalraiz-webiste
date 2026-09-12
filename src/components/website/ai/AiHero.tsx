@@ -47,7 +47,7 @@ export default function AiHero() {
         {/* Right Visual AI Architecture Image Stage */}
         <ScrollReveal direction="right" delay={150} className="w-full lg:w-[540px] shrink-0 order-first lg:order-last">
           <img
-            src="/cloud-and-devops/ai-ml-genai.png"
+            src="/cloud-and-devops/ai-ml-genai.webp"
             alt="AI Machine Learning & Generative AI Architecture"
             className="w-full h-auto object-contain select-none pointer-events-none"
             style={{ imageRendering: '-webkit-optimize-contrast' }}

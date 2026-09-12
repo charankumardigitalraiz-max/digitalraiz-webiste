@@ -71,7 +71,7 @@ export default function AboutHero() {
             <ScrollReveal direction="up" delay={200} className="w-full">
               <div className="relative w-full rounded-3xl overflow-hidden group ">
                 <Image
-                  src="/about/digital-raiz-technologies-showcase-1200x900-source.png"
+                  src="/about/digital-raiz-technologies-showcase-1200x900-source.webp"
                   alt="Digital Raiz Technologies Showcase"
                   width={1200}
                   height={900}

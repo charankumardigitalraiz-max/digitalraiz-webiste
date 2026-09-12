@@ -78,14 +78,14 @@ export default function InfluencerMarketingHero() {
           <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center order-first lg:order-last">
             <div className="relative w-full max-w-[480px] h-[400px] sm:h-[440px] lg:h-[450px] rounded-3xl overflow-hidden bg-white group">
               <img
-                src="/influencer-marketing/digitalraiz_branded_creator_portrait.png"
+                src="/influencer-marketing/digitalraiz_branded_creator_portrait.webp"
                 alt="DigitalRaiz Influencer & Creator Showcase"
                 className="w-full h-full object-cover object-top select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
                 onError={(e) => {
                   const img = e.currentTarget;
-                  if (img.src.includes('digitalraiz_branded_creator_portrait.png')) {
-                    img.src = '/influencer-marketing/digitalraiz_campaign_dashboard.png';
+                  if (img.src.includes('digitalraiz_branded_creator_portrait.webp')) {
+                    img.src = '/influencer-marketing/digitalraiz_campaign_dashboard.webp';
                   }
                 }}
               />

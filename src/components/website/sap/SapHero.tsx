@@ -50,7 +50,7 @@ export default function SapHero() {
         {/* Right Hero Image Stage */}
         <ScrollReveal direction="right" delay={150} className="w-full lg:w-[500px] shrink-0 order-first lg:order-last">
           <Image
-            src="/sap/sap-enterprise-cloud-architecture.png"
+            src="/sap/sap-enterprise-cloud-architecture.webp"
             alt="SAP Cloud Architecture"
             width={900}
             height={600}

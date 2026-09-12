@@ -108,7 +108,7 @@ export default function SalesforceHero() {
           <ScrollReveal direction="right" delay={150} className="relative w-full lg:w-[500px] shrink-0 flex justify-center order-first lg:order-last">
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden group bg-white">
               <img
-                src="/sales-force/salesforce_web_desktop_development_showcase.png"
+                src="/sales-force/salesforce_web_desktop_development_showcase.webp"
                 alt="Salesforce Cloud Solutions & Enterprise CRM Modernization"
                 className="w-full h-auto object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
                 style={{ imageRendering: "-webkit-optimize-contrast" }}

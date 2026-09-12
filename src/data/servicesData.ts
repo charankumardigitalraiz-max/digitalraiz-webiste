@@ -23,7 +23,7 @@ export const servicesStatBadges: ServicesStatBadge[] = [
 export const servicesHeroBanners: ServiceHeroBanner[] = [
   {
     id: 1,
-    image: "/services/banners/sap_cloud_services_enterprise_btp.png",
+    image: "/services/banners/sap_cloud_services_enterprise_btp.webp",
     badge: "SAP Cloud Services",
     title: "SAP S/4HANA Cloud & BTP Integration Advisory",
     highlightText: "Enterprise ERP Cloud Migration & SAP Fiori",
@@ -37,7 +37,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 2,
-    image: "/services/banners/cloud_devops_engineering.png",
+    image: "/services/banners/cloud_devops_engineering.webp",
     badge: "Cloud & DevOps Engineering",
     title: "AWS, Azure & GCP Cloud Infrastructure & DevOps",
     highlightText: "Kubernetes, Docker & Zero-Downtime CI/CD",
@@ -51,7 +51,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 3,
-    image: "/services/banners/ai_generative_ai_solutions.png",
+    image: "/services/banners/ai_generative_ai_solutions.webp",
     badge: "AI & Generative AI Solutions",
     title: "Generative AI, RAG & Autonomous Agent Workflows",
     highlightText: "Custom AI Assistants, Neural Models & Prompting",
@@ -65,7 +65,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 4,
-    image: "/services/banners/data_analytics_executive_bi.png",
+    image: "/services/banners/data_analytics_executive_bi.webp",
     badge: "Data Analytics & BI",
     title: "Enterprise Data Analytics & Executive BI Dashboards",
     highlightText: "Real-Time PowerBI, Tableau & Snowflake Warehousing",
@@ -79,7 +79,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 5,
-    image: "/services/banners/zero_trust_cybersecurity_services.png",
+    image: "/services/banners/zero_trust_cybersecurity_services.webp",
     badge: "Cybersecurity Services",
     title: "Zero-Trust Cybersecurity, VAPT Audits & Defense",
     highlightText: "Application Penetration Testing & 24/7 SOC",
@@ -93,7 +93,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 6,
-    image: "/services/banners/modern_web_development_saas.png",
+    image: "/services/banners/modern_web_development_saas.webp",
     badge: "Web Development",
     title: "Modern Website & Custom Web Application Engineering",
     highlightText: "Next.js 16, React & Enterprise Portals",
@@ -107,7 +107,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 7,
-    image: "/services/banners/mobile_app_development.png",
+    image: "/services/banners/mobile_app_development.webp",
     badge: "Mobile App Development",
     title: "iOS & Android Mobile Application Development",
     highlightText: "Native iOS/Android & Cross-Platform Flutter",
@@ -121,7 +121,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 8,
-    image: "/services/banners/testing_quality_assurance.png",
+    image: "/services/banners/testing_quality_assurance.webp",
     badge: "Testing & Quality Assurance",
     title: "Automated Software Testing & Quality Assurance",
     highlightText: "Playwright Automation & Load Performance Audits",
@@ -135,7 +135,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   },
   {
     id: 9,
-    image: "/services/banners/digital_marketing_seo_growth.png",
+    image: "/services/banners/digital_marketing_seo_growth.webp",
     badge: "Digital Marketing & SEO",
     title: "Result-Driven Digital Marketing & SEO Growth",
     highlightText: "Google Ads PPC, SEO & High-Converting Funnels",
@@ -163,7 +163,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
   // },
   {
     id: 11,
-    image: "/services/banners/salesforce_cloud_solutions.png",
+    image: "/services/banners/salesforce_cloud_solutions.webp",
     badge: "Salesforce Services",
     title: "Salesforce Cloud Solutions & CRM Modernization",
     highlightText: "Sales, Service, Marketing Cloud & CPQ Integration",
@@ -180,7 +180,7 @@ export const servicesHeroBanners: ServiceHeroBanner[] = [
 export const serviceCategories: ServiceCategory[] = [
   {
     id: "web-dev",
-    image: "/services/cards/generated_corporate_web_thumbnail.png",
+    image: "/services/cards/generated_corporate_web_thumbnail.webp",
     category: "Software & Web Engineering",
     badge: "Web Development",
     title: "Modern Website & Web Application Engineering",
@@ -204,7 +204,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "mobile-app",
-    image: "/services/cards/generated_mobile_app_thumbnail.png",
+    image: "/services/cards/generated_mobile_app_thumbnail.webp",
     category: "Mobile Solutions",
     badge: "Mobile Apps",
     title: "iOS & Android Mobile Application Development",
@@ -228,7 +228,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "artificial-intelligence",
-    image: "/services/cards/generated_ai_tech_thumbnail.png",
+    image: "/services/cards/generated_ai_tech_thumbnail.webp",
     category: "AI & Innovation",
     badge: "Artificial Intelligence",
     title: "Generative AI, RAG & LLM Integration",
@@ -252,7 +252,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "machine-learning",
-    image: "/services/cards/generated_machine_learning_thumbnail.png",
+    image: "/services/cards/generated_machine_learning_thumbnail.webp",
     category: "Predictive Intelligence",
     badge: "Machine Learning",
     title: "Bespoke Machine Learning & Predictive Pipelines",
@@ -276,7 +276,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "data-analytics",
-    image: "/services/cards/generated_data_analytics_thumbnail.png",
+    image: "/services/cards/generated_data_analytics_thumbnail.webp",
     category: "Data Engineering",
     badge: "Data & BI",
     title: "Enterprise Data Analytics & Business Intelligence",
@@ -300,7 +300,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "cybersecurity",
-    image: "/services/cards/generated_cybersecurity_thumbnail.png",
+    image: "/services/cards/generated_cybersecurity_thumbnail.webp",
     category: "Security & VAPT",
     badge: "Cybersecurity & VAPT",
     title: "Zero-Trust Cybersecurity, VAPT & Ethical Hacking",
@@ -324,7 +324,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "cloud-devops",
-    image: "/services/cards/generated_cloud_infrastructure_thumbnail.png",
+    image: "/services/cards/generated_cloud_infrastructure_thumbnail.webp",
     category: "Cloud Engineering",
     badge: "Cloud & DevOps",
     title: "AWS, Azure & GCP Cloud Infrastructure & DevOps",
@@ -348,7 +348,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "sap-cloud",
-    image: "/services/cards/generated_sap_cloud_thumbnail.png",
+    image: "/services/cards/generated_sap_cloud_thumbnail.webp",
     category: "Enterprise Solutions",
     badge: "SAP Cloud Services",
     title: "SAP S/4HANA Cloud, BTP Integration & Advisory",
@@ -372,7 +372,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "digital-marketing",
-    image: "/services/cards/generated_digital_marketing_thumbnail.png",
+    image: "/services/cards/generated_digital_marketing_thumbnail.webp",
     category: "Digital Growth",
     badge: "Digital Marketing",
     title: "Result-Driven Digital Marketing & SEO Services",
@@ -420,7 +420,7 @@ export const serviceCategories: ServiceCategory[] = [
   // },
   {
     id: "qa-testing",
-    image: "/services/cards/generated_qa_testing_thumbnail.png",
+    image: "/services/cards/generated_qa_testing_thumbnail.webp",
     category: "Quality Assurance",
     badge: "Testing & QA",
     title: "Automated Software Testing & Quality Assurance",
@@ -444,7 +444,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "salesforce-cloud",
-    image: "/services/cards/generated_salesforce_thumbnail.png",
+    image: "/services/cards/generated_salesforce_thumbnail.webp",
     category: "Enterprise CRM",
     badge: "Salesforce Services",
     title: "Salesforce Cloud Solutions & Enterprise CRM",

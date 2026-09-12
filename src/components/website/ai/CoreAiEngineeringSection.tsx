@@ -47,7 +47,7 @@ export default function CoreAiEngineeringSection() {
             <div className="relative w-full max-w-[480px] rounded-2xl bg-white p-2 group hover:shadow-xl transition-all duration-300">
               <div className="relative w-full rounded-xl overflow-hidden flex items-center justify-center">
                 <img
-                  src="/artificial-intelligence/ai_llm_processing_core_pure_white_square.png"
+                  src="/artificial-intelligence/ai_llm_processing_core_pure_white_square.webp"
                   alt="LLM RAG Vector Database & AI Engineering Architecture"
                   className="w-full h-auto object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 select-none pointer-events-none"
                   style={{ imageRendering: '-webkit-optimize-contrast' }}

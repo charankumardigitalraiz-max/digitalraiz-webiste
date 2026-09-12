@@ -63,7 +63,7 @@ export default function CybersecurityHero() {
         <ScrollReveal direction="right" delay={150} className="w-full lg:w-[520px] shrink-0 order-first lg:order-last">
           <div className="relative rounded-2xl overflow-hidden  bg-white">
             <Image
-              src="/cyber-security/cybersecurity_zero_trust_isometric_3x4_v1.png"
+              src="/cyber-security/cybersecurity_zero_trust_isometric_3x4_v1.webp"
               alt="Cybersecurity & Zero Trust Security Architecture"
               width={1200}
               height={1600}

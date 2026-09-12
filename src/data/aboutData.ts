@@ -10,7 +10,7 @@ export const aiPillars: AiPillarItem[] = [
     desc: "We integrate intelligent automation engines into enterprise business systems, reducing operational overhead, eliminating manual data entry bottlenecks, and optimizing resource allocation.",
     icon: Bot,
     deliverable: "Custom NLP Workflows & Automated Task Triage Systems",
-    img: "/about/digital-process-automation-white.png",
+    img: "/about/digital-process-automation-white.webp",
   },
   {
     id: "apps",
@@ -20,7 +20,7 @@ export const aiPillars: AiPillarItem[] = [
     desc: "From smart conversational assistants to generative content recommenders, we build web and mobile applications powered by custom fine-tuned AI models and secure API pipelines.",
     icon: Cpu,
     deliverable: "LLM Integration Pipelines, Vector Search & Neural APIs",
-    img: "/about/futuristic-web-architecture-white.png",
+    img: "/about/futuristic-web-architecture-white.webp",
   },
   {
     id: "analytics",
@@ -30,7 +30,7 @@ export const aiPillars: AiPillarItem[] = [
     desc: "We implement machine learning algorithms that analyze user behavior, forecast demand trends, detect anomalies, and uncover actionable business intelligence.",
     icon: BarChart3,
     deliverable: "Behavioral Analytics & Predictive Forecasting Engines",
-    img: "/about/data-visualization-dashboard-white.png",
+    img: "/about/data-visualization-dashboard-white.webp",
   },
   {
     id: "ux",
@@ -40,6 +40,6 @@ export const aiPillars: AiPillarItem[] = [
     desc: "Delivering adaptive user interfaces that react dynamically to user intent, personalizing content, recommendations, and assistance across every digital touchpoint.",
     icon: BrainCircuit,
     deliverable: "Intent-Based Personalization & Smart Context Engine",
-    img: "/about/neural-brain-mesh-white.png",
+    img: "/about/neural-brain-mesh-white.webp",
   },
 ];

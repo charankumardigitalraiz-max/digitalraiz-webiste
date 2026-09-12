@@ -114,7 +114,7 @@ export const blogPostsData: BlogPost[] = [
     author: {
       name: "Vikram Malhotra",
       role: "VP of Web Engineering",
-      avatar: "/project-logs/skanda.png",
+      avatar: "/project-logs/skanda.webp",
       bio: "Vikram Malhotra specializes in Next.js architecture, React Server Components, and enterprise web performance engineering."
     },
     img: "/blogs/web-engineering-nextjs.webp",
@@ -157,7 +157,7 @@ export const blogPostsData: BlogPost[] = [
     author: {
       name: "Ananya Reddy",
       role: "Lead Technical SEO Architect",
-      avatar: "/project-logs/livewell.png",
+      avatar: "/project-logs/livewell.webp",
       bio: "Ananya Reddy leads search technical strategies, entity building, and generative AI search authority at Digital Raiz."
     },
     img: "/blogs/ai-seo-ranking.webp",

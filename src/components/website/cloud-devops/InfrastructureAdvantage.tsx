@@ -88,7 +88,7 @@ export default function InfrastructureAdvantage() {
             <div className="relative rounded-2xl bg-white border border-slate-200/90 shadow-xs p-3.5 sm:p-4 overflow-hidden group h-full flex flex-col">
               <div className="relative rounded-xl overflow-hidden bg-slate-900/5 w-full h-full flex-grow min-h-[280px]">
                 <Image
-                  src="/cloud-and-devops/square-realistic-cloud-devops-infrastructure.png"
+                  src="/cloud-and-devops/square-realistic-cloud-devops-infrastructure.webp"
                   alt="Futuristic Cloud & DevOps Infrastructure Architecture"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"

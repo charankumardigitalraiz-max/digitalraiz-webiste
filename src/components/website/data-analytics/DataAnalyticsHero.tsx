@@ -125,7 +125,7 @@ export default function DataAnalyticsHero() {
           >
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 group bg-slate-900">
               <img
-                src="/data-analytics-and-bi/csuite-white-square-completely-different.png"
+                src="/data-analytics-and-bi/csuite-white-square-completely-different.webp"
                 alt="Digital Raiz Data Analytics & Business Intelligence Dashboard"
                 className="w-full h-auto object-cover select-none group-hover:scale-105 transition-transform duration-500"
               />

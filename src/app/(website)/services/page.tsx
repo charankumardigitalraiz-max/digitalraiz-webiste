@@ -39,7 +39,7 @@ export default function ServicesPage() {
       href: "/sap-cloud-services",
       icon: <Cloud className="w-5 h-5 text-cyan-400" />,
       tag: "Enterprise ERP",
-      bannerImg: "/services/banners/sap_cloud_services_enterprise_btp.png",
+      bannerImg: "/services/banners/sap_cloud_services_enterprise_btp.webp",
       colorClass: "border-cyan-500/40 hover:border-cyan-400 hover:shadow-cyan-500/25",
       badgeColor: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
       dotColor: "bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.9)]",
@@ -55,7 +55,7 @@ export default function ServicesPage() {
       href: "/salesforce-services",
       icon: <Cloud className="w-5 h-5 text-blue-400" />,
       tag: "Enterprise CRM",
-      bannerImg: "/services/banners/salesforce_cloud_solutions.png",
+      bannerImg: "/services/banners/salesforce_cloud_solutions.webp",
       colorClass: "border-blue-500/40 hover:border-blue-400 hover:shadow-blue-500/25",
       badgeColor: "bg-blue-500/10 border-blue-500/30 text-blue-400",
       dotColor: "bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.9)]",
@@ -71,7 +71,7 @@ export default function ServicesPage() {
       href: "/cloud-devops-services",
       icon: <Server className="w-5 h-5 text-sky-400" />,
       tag: "Cloud Infrastructure",
-      bannerImg: "/services/banners/cloud_devops_engineering.png",
+      bannerImg: "/services/banners/cloud_devops_engineering.webp",
       colorClass: "border-sky-500/40 hover:border-sky-400 hover:shadow-sky-500/25",
       badgeColor: "bg-sky-500/10 border-sky-500/30 text-sky-400",
       dotColor: "bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.9)]",
@@ -87,7 +87,7 @@ export default function ServicesPage() {
       href: "/ai-ml-generative-ai-services",
       icon: <Cpu className="w-5 h-5 text-purple-400" />,
       tag: "Generative AI",
-      bannerImg: "/services/banners/ai_generative_ai_solutions.png",
+      bannerImg: "/services/banners/ai_generative_ai_solutions.webp",
       colorClass: "border-purple-500/40 hover:border-purple-400 hover:shadow-purple-500/25",
       badgeColor: "bg-purple-500/10 border-purple-500/30 text-purple-400",
       dotColor: "bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.9)]",
@@ -103,7 +103,7 @@ export default function ServicesPage() {
       href: "/data-analytics-business-intelligence",
       icon: <BarChart3 className="w-5 h-5 text-amber-400" />,
       tag: "Business Intelligence",
-      bannerImg: "/services/banners/data_analytics_executive_bi.png",
+      bannerImg: "/services/banners/data_analytics_executive_bi.webp",
       colorClass: "border-amber-500/40 hover:border-amber-400 hover:shadow-amber-500/25",
       badgeColor: "bg-amber-500/10 border-amber-500/30 text-amber-400",
       dotColor: "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.9)]",
@@ -119,7 +119,7 @@ export default function ServicesPage() {
       href: "/cybersecurity-services",
       icon: <ShieldCheck className="w-5 h-5 text-rose-400" />,
       tag: "Zero-Trust Security",
-      bannerImg: "/services/banners/zero_trust_cybersecurity_services.png",
+      bannerImg: "/services/banners/zero_trust_cybersecurity_services.webp",
       colorClass: "border-rose-500/40 hover:border-rose-400 hover:shadow-rose-500/25",
       badgeColor: "bg-rose-500/10 border-rose-500/30 text-rose-400",
       dotColor: "bg-rose-400 shadow-[0_0_8px_rgba(251,113,133,0.9)]",
@@ -135,7 +135,7 @@ export default function ServicesPage() {
       href: "/website-development-company-in-hyderabad",
       icon: <Code className="w-5 h-5 text-pink-400" />,
       tag: "Custom Web & SaaS",
-      bannerImg: "/services/banners/modern_web_development_saas.png",
+      bannerImg: "/services/banners/modern_web_development_saas.webp",
       colorClass: "border-pink-500/40 hover:border-pink-400 hover:shadow-pink-500/25",
       badgeColor: "bg-pink-500/10 border-pink-500/30 text-pink-400",
       dotColor: "bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.9)]",
@@ -151,7 +151,7 @@ export default function ServicesPage() {
       href: "/mobile-app-development-company-in-hyderabad",
       icon: <Smartphone className="w-5 h-5 text-indigo-400" />,
       tag: "iOS & Android",
-      bannerImg: "/services/banners/mobile_app_development.png",
+      bannerImg: "/services/banners/mobile_app_development.webp",
       colorClass: "border-indigo-500/40 hover:border-indigo-400 hover:shadow-indigo-500/25",
       badgeColor: "bg-indigo-500/10 border-indigo-500/30 text-indigo-400",
       dotColor: "bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.9)]",
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       href: "/software-testing-quality-assurance",
       icon: <CheckCircle2 className="w-5 h-5 text-emerald-400" />,
       tag: "Quality & QA",
-      bannerImg: "/services/banners/testing_quality_assurance.png",
+      bannerImg: "/services/banners/testing_quality_assurance.webp",
       colorClass: "border-emerald-500/40 hover:border-emerald-400 hover:shadow-emerald-500/25",
       badgeColor: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
       dotColor: "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]",
@@ -183,7 +183,7 @@ export default function ServicesPage() {
       href: "/digital-marketing-services-in-hyderabad",
       icon: <Megaphone className="w-5 h-5 text-violet-400" />,
       tag: "SEO & Growth",
-      bannerImg: "/services/banners/digital_marketing_seo_growth.png",
+      bannerImg: "/services/banners/digital_marketing_seo_growth.webp",
       colorClass: "border-violet-500/40 hover:border-violet-400 hover:shadow-violet-500/25",
       badgeColor: "bg-violet-500/10 border-violet-500/30 text-violet-400",
       dotColor: "bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.9)]",
@@ -232,7 +232,7 @@ export default function ServicesPage() {
         {/* HERO SECTION WITH FULL SCREEN HERO BANNER IMAGE */}
         {/* <section className="relative w-full h-screen min-h-screen overflow-hidden bg-slate-950 border-b border-slate-800">
           <Image
-            src="/services/hero-banner.jpg"
+            src="/services/hero-banner.webp"
             alt="Digital Raiz Services Hero Banner"
             fill
             className="object-cover object-center w-full h-full"

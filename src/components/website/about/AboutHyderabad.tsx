@@ -66,7 +66,7 @@ export default function AboutHyderabad() {
             <ScrollReveal direction="right" delay={200} className="w-full">
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
                 <img
-                  src="/about/hyderabad-it-hub-network-white.png"
+                  src="/about/hyderabad-it-hub-network-white.webp"
                   alt="Digital Raiz Hyderabad HQ & Global Reach"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />

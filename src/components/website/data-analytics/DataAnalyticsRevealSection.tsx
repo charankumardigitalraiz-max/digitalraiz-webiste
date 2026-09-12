@@ -189,7 +189,7 @@ export default function DataAnalyticsRevealSection() {
 
             <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden">
               <Image
-                src="/data-analytics-and-bi/ai-predictive-analytics-brain-core.png"
+                src="/data-analytics-and-bi/ai-predictive-analytics-brain-core.webp"
                 alt="AI Predictive Analytics & Data Visualization"
                 fill
                 className="object-cover"
