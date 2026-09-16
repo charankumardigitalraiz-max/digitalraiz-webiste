@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.0.115", "192.168.0.*", "192.168.1.*", "localhost:3000"],
+  allowedDevOrigins: ["192.168.0.115", "192.168.0.*", "192.168.1.*", "localhost:3001"],
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
@@ -19,6 +19,18 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "*.digitalraiz.com",
+      },
+      {
+        protocol: "https",
+        hostname: "digitalraiz.co.in",
+      },
+      {
+        protocol: "http",
+        hostname: "digitalraiz.co.in",
+      },
+      {
+        protocol: "https",
+        hostname: "*.digitalraiz.co.in",
       },
     ],
   },
