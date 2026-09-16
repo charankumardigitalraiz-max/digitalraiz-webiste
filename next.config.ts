@@ -20,6 +20,18 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.digitalraiz.com",
       },
+      {
+        protocol: "https",
+        hostname: "digitalraiz.co.in",
+      },
+      {
+        protocol: "http",
+        hostname: "digitalraiz.co.in",
+      },
+      {
+        protocol: "https",
+        hostname: "*.digitalraiz.co.in",
+      },
     ],
   },
 };

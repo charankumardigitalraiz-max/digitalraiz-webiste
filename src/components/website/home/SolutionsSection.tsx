@@ -37,7 +37,7 @@ export default function SolutionsSection() {
     <section className="py-5 pb-10 relative bg-white text-slate-800 font-sans overflow-hidden">
 
       {/* Faint background gradient mesh */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(79,70,229,0.03),transparent)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-white pointer-events-none" />
 
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 relative z-10 space-y-10">
 
@@ -174,75 +174,75 @@ export default function SolutionsSection() {
               ref={statsScrollRef}
               className="flex sm:grid sm:grid-cols-2 gap-4 items-stretch overflow-x-auto pb-4 sm:pb-0 snap-x snap-mandatory no-scrollbar -mx-6 px-6 sm:mx-0 sm:px-0 scroll-smooth"
             >
-                {/* Stat Card 1: Happy Clients */}
-                <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#0f0c1b] via-[#17122e] to-[#0a0714] border border-pink-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-colors" />
-                  <div className="relative z-10 space-y-3">
-                    <div className="w-10 h-10 rounded-2xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-300">
-                      <Users className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent tracking-tight">200+</p>
-                      <p className="text-[9px] font-mono text-pink-300 uppercase tracking-widest mt-0.5">Happy Clients</p>
-                    </div>
-                    <p className="text-[11px] text-slate-300 font-light leading-relaxed">
-                      Delivering proven marketing and software results.
-                    </p>
+              {/* Stat Card 1: Happy Clients */}
+              <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#0f0c1b] via-[#17122e] to-[#0a0714] border border-pink-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-300">
+                    <Users className="w-5 h-5" />
                   </div>
-                </div>
-
-                {/* Stat Card 2: Years Active */}
-                <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#0a0f24] via-[#121b3d] to-[#070b1a] border border-indigo-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors" />
-                  <div className="relative z-10 space-y-3">
-                    <div className="w-10 h-10 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
-                      <TrendingUp className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-indigo-200 to-indigo-400 bg-clip-text text-transparent tracking-tight">8+</p>
-                      <p className="text-[9px] font-mono text-indigo-300 uppercase tracking-widest mt-0.5">Years Leadership</p>
-                    </div>
-                    <p className="text-[11px] text-slate-300 font-light leading-relaxed">
-                      Continuous technology innovation in Hyderabad.
-                    </p>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent tracking-tight">200+</p>
+                    <p className="text-[9px] font-mono text-pink-300 uppercase tracking-widest mt-0.5">Happy Clients</p>
                   </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Delivering proven marketing and software results.
+                  </p>
                 </div>
-
-                {/* Stat Card 3: SLA Uptime */}
-                <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#061814] via-[#0d2a23] to-[#04120e] border border-emerald-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-colors" />
-                  <div className="relative z-10 space-y-3">
-                    <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
-                      <Zap className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-emerald-200 to-emerald-400 bg-clip-text text-transparent tracking-tight">99.9%</p>
-                      <p className="text-[9px] font-mono text-emerald-300 uppercase tracking-widest mt-0.5">SLA Uptime</p>
-                    </div>
-                    <p className="text-[11px] text-slate-300 font-light leading-relaxed">
-                      Sub-second response times &amp; 24/7 server monitoring.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Stat Card 4: Projects Completed */}
-                <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#180924] via-[#28113b] to-[#12051c] border border-purple-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-colors" />
-                  <div className="relative z-10 space-y-3">
-                    <div className="w-10 h-10 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-300">
-                      <Globe className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-purple-200 to-purple-400 bg-clip-text text-transparent tracking-tight">500+</p>
-                      <p className="text-[9px] font-mono text-purple-300 uppercase tracking-widest mt-0.5">Projects Delivered</p>
-                    </div>
-                    <p className="text-[11px] text-slate-300 font-light leading-relaxed">
-                      High-conversion web apps &amp; mobile products.
-                    </p>
-                  </div>
-                </div>
-
               </div>
+
+              {/* Stat Card 2: Years Active */}
+              <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#0a0f24] via-[#121b3d] to-[#070b1a] border border-indigo-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-indigo-200 to-indigo-400 bg-clip-text text-transparent tracking-tight">8+</p>
+                    <p className="text-[9px] font-mono text-indigo-300 uppercase tracking-widest mt-0.5">Years Leadership</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Continuous technology innovation in Hyderabad.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat Card 3: SLA Uptime */}
+              <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#061814] via-[#0d2a23] to-[#04120e] border border-emerald-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-emerald-200 to-emerald-400 bg-clip-text text-transparent tracking-tight">99.9%</p>
+                    <p className="text-[9px] font-mono text-emerald-300 uppercase tracking-widest mt-0.5">SLA Uptime</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    Sub-second response times &amp; 24/7 server monitoring.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat Card 4: Projects Completed */}
+              <div className="w-[84vw] max-w-[320px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center group relative bg-gradient-to-br from-[#180924] via-[#28113b] to-[#12051c] border border-purple-500/30 rounded-3xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 overflow-hidden text-white flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-colors" />
+                <div className="relative z-10 space-y-3">
+                  <div className="w-10 h-10 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-300">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r from-purple-200 to-purple-400 bg-clip-text text-transparent tracking-tight">500+</p>
+                    <p className="text-[9px] font-mono text-purple-300 uppercase tracking-widest mt-0.5">Projects Delivered</p>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                    High-conversion web apps &amp; mobile products.
+                  </p>
+                </div>
+              </div>
+
+            </div>
           </ScrollReveal>
 
         </div>
