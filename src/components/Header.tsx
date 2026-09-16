@@ -319,7 +319,7 @@ export default function Header() {
               {/* About */}
               <div className="group flex items-start">
                 <Link
-                  href="/about"
+                  href="/about-us"
                   prefetch={true}
                   onClick={() => setMenuOpen(false)}
                   className="text-xl font-bold uppercase tracking-tight text-slate-800 hover:text-pink-600 group-hover:translate-x-1.5 transition-all duration-300"
