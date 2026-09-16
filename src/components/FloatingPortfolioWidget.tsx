@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, FolderKanban, Sparkles } from "lucide-react";
 
 export default function FloatingPortfolioWidget() {
+  const pathname = usePathname();
   const [isFooterInView, setIsFooterInView] = useState(false);
   const [isHeaderOpen, setIsHeaderOpen] = useState(false);
   const [isHomeHeroInView, setIsHomeHeroInView] = useState(false);
@@ -64,7 +66,7 @@ export default function FloatingPortfolioWidget() {
     return () => window.removeEventListener("header-toggle", handleHeaderToggle);
   }, []);
 
-  if (isFooterInView || isHeaderOpen || isMobile) return null;
+  if (pathname?.startsWith("/admin") || isFooterInView || isHeaderOpen || isMobile) return null;
 
   return (
     <div

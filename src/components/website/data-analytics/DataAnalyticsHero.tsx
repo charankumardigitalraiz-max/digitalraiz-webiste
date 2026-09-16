@@ -48,11 +48,11 @@ export default function DataAnalyticsHero() {
                 Every business has data. Not every business has the clarity to use it.
               </div>
 
-              <p>
+              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
                 Digital Raiz delivers <strong className="text-slate-900 font-semibold">Data Analytics and Business Intelligence solutions</strong> that help organizations move from scattered information to meaningful understanding. We bring data sources, analytical models, visualization and business context together to create a clearer view of what is happening across an organization—and where the next opportunity may be.
               </p>
 
-              <p>
+              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
                 Our approach begins with the decisions behind the data. Rather than producing dashboards simply because information is available, we identify the questions that matter, the metrics that carry significance and the insights that can influence action.
               </p>
 
@@ -123,7 +123,7 @@ export default function DataAnalyticsHero() {
             delay={150}
             className="lg:col-span-5 relative w-full flex justify-center order-first lg:order-last"
           >
-            <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 group bg-slate-900">
+            <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden  group bg-slate-900">
               <img
                 src="/data-analytics-and-bi/csuite-white-square-completely-different.webp"
                 alt="Digital Raiz Data Analytics & Business Intelligence Dashboard"

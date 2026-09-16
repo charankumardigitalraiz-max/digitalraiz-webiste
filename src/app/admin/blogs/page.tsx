@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FileText, Plus, Search, Calendar, Eye, Edit3, Trash2, ExternalLink } from "lucide-react";
+import AdminTable from "@/components/admin/AdminTable";
+import { FileText, Plus, Search, Edit3, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminBlogsPage() {
@@ -55,10 +56,10 @@ export default function AdminBlogsPage() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-white flex items-center gap-2.5">
-            <FileText className="w-6 h-6 text-violet-400" /> Blog Content Management
+          <h1 className="text-2xl font-extrabold text-slate-900 flex items-center gap-2.5">
+            <FileText className="w-6 h-6 text-violet-600" /> Blog Content Management
           </h1>
-          <p className="text-slate-400 text-xs font-light">
+          <p className="text-slate-600 text-xs font-normal">
             Create, edit, and optimize blog articles for search rankings and audience engagement
           </p>
         </div>
@@ -69,66 +70,61 @@ export default function AdminBlogsPage() {
         </button>
       </div>
 
-      <div className="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 flex items-center gap-2 bg-slate-950 border-slate-800 max-w-md text-xs">
-        <Search className="w-4 h-4 text-slate-500 shrink-0" />
+      <div className="bg-white p-4 rounded-2xl border border-slate-200 flex items-center gap-2 max-w-md text-xs shadow-sm">
+        <Search className="w-4 h-4 text-slate-400 shrink-0" />
         <input
           type="text"
           placeholder="Filter blog titles or categories..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="bg-transparent border-none outline-none text-slate-200 placeholder:text-slate-600 w-full"
+          className="bg-transparent border-none outline-none text-slate-900 placeholder:text-slate-400 w-full"
         />
       </div>
 
-      <div className="bg-slate-900/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-slate-800 text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-slate-950/60">
-                <th className="py-3.5 px-5">Article Title</th>
-                <th className="py-3.5 px-5">Category</th>
-                <th className="py-3.5 px-5">Author</th>
-                <th className="py-3.5 px-5">Date</th>
-                <th className="py-3.5 px-5">Views</th>
-                <th className="py-3.5 px-5 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-800/60 text-xs">
-              {filteredPosts.map((post) => (
-                <tr key={post.slug} className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-4 px-5">
-                    <div className="font-bold text-white max-w-md">{post.title}</div>
-                    <div className="text-[10px] font-mono text-slate-500">/insights/blog/{post.slug}</div>
-                  </td>
-                  <td className="py-4 px-5">
-                    <span className="px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20 text-[9.5px] font-mono font-bold uppercase">
-                      {post.category}
-                    </span>
-                  </td>
-                  <td className="py-4 px-5 text-slate-300 font-medium">{post.author}</td>
-                  <td className="py-4 px-5 font-mono text-[10px] text-slate-400">{post.date}</td>
-                  <td className="py-4 px-5 font-mono text-slate-300 font-bold">{post.views}</td>
-                  <td className="py-4 px-5 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link
-                        href={`/insights/blog/${post.slug}`}
-                        target="_blank"
-                        className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors"
-                        title="Preview Article"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </Link>
-                      <button className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer border-0">
-                        <Edit3 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <AdminTable
+        columns={[
+          { header: "Article Title", className: "py-3.5 px-5" },
+          { header: "Category", className: "py-3.5 px-5" },
+          { header: "Author", className: "py-3.5 px-5" },
+          { header: "Date", className: "py-3.5 px-5" },
+          { header: "Views", className: "py-3.5 px-5" },
+          { header: "Actions", className: "py-3.5 px-5 text-right" },
+        ]}
+        empty={filteredPosts.length === 0}
+        emptyMessage="No blog posts found matching search."
+      >
+        {filteredPosts.map((post) => (
+          <tr key={post.slug}>
+            <td className="py-4 px-5">
+              <div className="font-bold text-slate-900 max-w-md">{post.title}</div>
+              <div className="text-[10px] font-mono text-slate-400">/insights/blog/{post.slug}</div>
+            </td>
+            <td className="py-4 px-5">
+              <span className="px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-200 text-[9.5px] font-mono font-bold uppercase">
+                {post.category}
+              </span>
+            </td>
+            <td className="py-4 px-5 text-slate-700 font-medium">{post.author}</td>
+            <td className="py-4 px-5 font-mono text-[10px] text-slate-500">{post.date}</td>
+            <td className="py-4 px-5 font-mono text-slate-900 font-bold">{post.views}</td>
+            <td className="py-4 px-5 text-right">
+              <div className="flex items-center justify-end gap-2">
+                <Link
+                  href={`/insights/blog/${post.slug}`}
+                  target="_blank"
+                  className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
+                  title="Preview Article"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </Link>
+                <button className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer border-0">
+                  <Edit3 className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </AdminTable>
     </div>
   );
 }

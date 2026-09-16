@@ -24,7 +24,7 @@ const initialFormState: ContactFormData = {
   email: "",
   phone: "",
   subject: "",
-  service: "Web Development",
+  service: "General Inquiry",
   message: "",
 };
 
@@ -57,13 +57,33 @@ export const useContactStore = create<ContactStoreState>((set, get) => ({
     if (e) e.preventDefault();
     set({ submitting: true });
 
-    // Simulate async submission
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(get().formData),
+      });
 
-    set({
-      submitting: false,
-      submitted: true,
-      formData: initialFormState,
-    });
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        set({
+          submitting: false,
+          submitted: true,
+          formData: initialFormState,
+        });
+      } else {
+        throw new Error(data.error || "Submission failed");
+      }
+    } catch (err: any) {
+      console.error("Contact Form Submission Error:", err);
+      set({
+        submitting: false,
+        submitted: false,
+      });
+      alert(err.message || "Failed to submit lead inquiry. Please try again.");
+    }
   },
 }));

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle, Phone, ChevronDown, ChevronUp } from "lucide-react";
 
 import { useContactStore } from "@/store";
 import { useContactDetails } from "@/hooks/useContactDetails";
 
 export default function FloatingSocials() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(true);
   const [isFooterInView, setIsFooterInView] = useState(false);
   const [isHeaderOpen, setIsHeaderOpen] = useState(false);
@@ -16,6 +18,11 @@ export default function FloatingSocials() {
   // Zustand Store Fallback
   const storeOfficeDetails = useContactStore((state) => state.officeDetails);
   const officeDetails = contactData?.officeDetails || storeOfficeDetails;
+
+  // Do not display floating socials widget on admin panel routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   useEffect(() => {
     // Start minimized on mobile (<640px) to prevent covering page content

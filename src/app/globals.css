@@ -880,3 +880,49 @@ body {
     transform: none !important;
   }
 }
+
+/* Global Admin Dashboard Pure White Table Styles */
+.admin-table-container {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 1.5rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.admin-table {
+  width: 100% !important;
+  text-align: left !important;
+  border-collapse: collapse !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.admin-table thead tr {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+  font-family: var(--font-mono), monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.admin-table th {
+  padding: 0.875rem 1.25rem !important;
+}
+
+.admin-table td {
+  padding: 1rem 1.25rem !important;
+}
+
+.admin-table tbody tr {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: background-color 0.15s ease-in-out !important;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f8fafc !important;
+}

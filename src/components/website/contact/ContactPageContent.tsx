@@ -422,9 +422,34 @@ export default function ContactPageContent() {
                             ? "border-rose-400 bg-rose-50/20 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
                             : "border-slate-200/80 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-500/10"
                             }`}
-                          placeholder="Subject"
+                          placeholder="e.g. Project Inquiry"
                         />
                       </div>
+                    </div>
+
+                    {/* Service Selection */}
+                    <div className="space-y-1">
+                      <label htmlFor="service" className="block text-[10px] font-bold uppercase tracking-wider text-[#1e1b4b]/80">
+                        Service Category
+                      </label>
+                      <select
+                        id="service"
+                        value={formData.service || "General Inquiry"}
+                        onChange={(e) => handleFieldChange("service", e.target.value)}
+                        className="w-full bg-slate-50/50 border border-slate-200/80 text-slate-800 rounded-xl px-3.5 py-2.5 text-xs transition-all font-medium focus:outline-none focus:border-pink-500 focus:bg-white cursor-pointer"
+                      >
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="AI & Generative AI Solutions">AI &amp; Generative AI Solutions</option>
+                        <option value="Data Analytics & BI">Data Analytics &amp; BI</option>
+                        <option value="Cybersecurity Services">Cybersecurity Services</option>
+                        <option value="SAP Cloud Services">SAP Cloud Services</option>
+                        <option value="Cloud & DevOps Engineering">Cloud &amp; DevOps Engineering</option>
+                        <option value="Testing & Quality Assurance">Testing &amp; Quality Assurance</option>
+                        <option value="Digital Marketing & SEO">Digital Marketing &amp; SEO</option>
+                        <option value="Other Services">Other Services</option>
+                      </select>
                     </div>
 
                     {/* Message */}

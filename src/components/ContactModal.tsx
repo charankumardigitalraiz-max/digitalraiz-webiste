@@ -287,7 +287,7 @@ export default function ContactModal({
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validate(form);
     setErrors(validationErrors);
@@ -303,20 +303,45 @@ export default function ContactModal({
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        service: defaultService,
-        subject: defaultSubject || `Inquiry regarding ${defaultService}`,
-        message: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          subject: form.subject,
+          message: form.message,
+        }),
       });
-      setErrors({});
-      setTouched({});
-    }, 1200);
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitting(false);
+        setSubmitted(true);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          service: defaultService,
+          subject: defaultSubject || `Inquiry regarding ${defaultService}`,
+          message: "",
+        });
+        setErrors({});
+        setTouched({});
+      } else {
+        throw new Error(data.error || "Failed to submit request.");
+      }
+    } catch (err: any) {
+      console.error("ContactModal submit error:", err);
+      setSubmitting(false);
+      alert(err.message || "Failed to submit inquiry. Please try again.");
+    }
   };
 
   return (
@@ -347,32 +372,72 @@ export default function ContactModal({
         </button>
 
         {submitted ? (
-          <div className="flex flex-col items-center justify-center text-center py-12 space-y-4 my-auto">
-            <div className="w-16 h-16 bg-emerald-50 rounded-2xl border border-emerald-100 flex items-center justify-center shadow-sm">
-              <CheckCircle className="w-8 h-8 text-emerald-600 animate-bounce" />
+          <div className="flex flex-col items-center justify-center text-center py-8 sm:py-10 space-y-6 my-auto animate-in zoom-in-95 fade-in duration-300">
+            {/* Animated Glowing Icon Badge */}
+            <div className="relative">
+              <div className="absolute -inset-3 bg-gradient-to-tr from-emerald-500/30 via-teal-500/20 to-pink-500/10 rounded-full blur-xl animate-pulse" />
+              <div className="relative w-20 h-20 rounded-3xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-emerald-400 p-0.5 shadow-xl shadow-emerald-500/25 flex items-center justify-center">
+                <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center">
+                  <CheckCircle className="w-10 h-10 text-emerald-500 stroke-[2.5]" />
+                </div>
+              </div>
             </div>
-            <div className="space-y-1">
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight">Consultation Request Received!</h3>
-              <p className="text-slate-600 text-xs max-w-sm font-normal leading-relaxed">
-                Thank you for contacting Digital Raiz. Our engineering and strategy team will connect with you within 4 business hours.
+
+            {/* SLA Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-[10px] font-mono font-bold text-emerald-700 uppercase tracking-wider shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+              <span>SLA Response Guaranteed • Under 4 Hours</span>
+            </div>
+
+            {/* Title & Body */}
+            <div className="space-y-2 max-w-md mx-auto">
+              <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                Consultation Proposal Received!
+              </h3>
+              <p className="text-slate-600 text-xs leading-relaxed font-normal">
+                Thank you for choosing Digital Raiz. Your project requirements have been safely dispatched to our senior engineering &amp; strategy leads.
               </p>
             </div>
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="https://wa.me/919494613601"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Chat on WhatsApp Instantly</span>
-              </a>
+
+            {/* Key Confirmation Cards */}
+            <div className="w-full max-w-md bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 text-left space-y-2 text-xs font-medium text-slate-700 shadow-2xs">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                <span>Inquiry saved &amp; logged in Digital Raiz Lead Portal</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                <span>Instant email notification sent to engineering team</span>
+              </div>
+            </div>
+
+            {/* Interactive Action Buttons */}
+            <div className="w-full max-w-md pt-2 space-y-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href="https://wa.me/919494613601"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-600 text-white text-xs font-extrabold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-emerald-500/25 active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4 shrink-0" />
+                  <span>Chat on WhatsApp Instantly</span>
+                </a>
+                <a
+                  href="tel:+919494613601"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all active:scale-95"
+                >
+                  <Phone className="w-3.5 h-3.5 text-pink-500 shrink-0" />
+                  <span>Call Us</span>
+                </a>
+              </div>
+
               <button
                 onClick={() => {
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-4 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-slate-900 text-xs font-bold transition-colors cursor-pointer"
+                className="w-full px-5 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 text-xs font-bold transition-colors cursor-pointer"
               >
                 Close Window
               </button>
