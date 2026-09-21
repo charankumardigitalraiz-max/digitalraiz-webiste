@@ -54,19 +54,17 @@ export const metadata: Metadata = {
     "app development company in hyderabad",
   ],
   icons: {
-    // DO NOT REMOVE: Old icon configuration kept for reference
-    // icon: [
-    //   { url: "/favicon.ico", sizes: "any" },
-    //   { url: "/icon.webp", type: "image/png", sizes: "32x32" },
-    //   { url: "/icon-192.webp", type: "image/png", sizes: "192x192" },
-    // ],
-    // shortcut: "/favicon.ico",
-    // apple: [
-    //   { url: "/apple-touch-icon.webp", sizes: "180x180", type: "image/png" },
-    // ],
-    icon: "/icon.png",
-    shortcut: "/favicon.ico",
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.webp", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.webp", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/favicon.png",
+    apple: [
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.webp", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "IT Solutions Company in Hyderabad | Digital Raiz",

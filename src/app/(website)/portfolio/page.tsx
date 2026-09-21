@@ -34,7 +34,9 @@ import {
   LayoutGrid,
   ArrowUpRight,
   Code2,
-  Laptop
+  Laptop,
+  FileText,
+  Download
 } from "lucide-react";
 
 export default function PortfolioPage() {
@@ -74,6 +76,31 @@ export default function PortfolioPage() {
 
   // Categories list
   const categories = ["ALL", "Social", "Healthcare", "Logistics", "E-Commerce", "Real Estate", "Enterprise", "On-Demand", "Fitness", "Creative", "Entertainment"];
+
+  // Downloadable Portfolio Brochures
+  const brochures = [
+    {
+      title: "Company Portfolio 2026",
+      subtitle: "Overview & Corporate Deck",
+      file: "/portfolio-docs/Company Porfolio 2026 (1).pdf",
+      badge: "Corporate PDF",
+      size: "4.9 MB"
+    },
+    // {
+    //   title: "Digital Marketing Portfolio",
+    //   subtitle: "SEO & Growth Case Studies",
+    //   file: "/portfolio-docs/DM-portifolio-2026 (1).pdf",
+    //   badge: "Marketing PDF",
+    //   size: "7.4 MB"
+    // },
+    {
+      title: "Mobile App Portfolio",
+      subtitle: "iOS & Android Showcase",
+      file: "/portfolio-docs/MobileApp-portfolio2026.pdf",
+      badge: "Mobile Apps PDF",
+      size: "20.4 MB"
+    }
+  ];
 
   // Filtered projects list
   const filteredProjects = useMemo(() => {
@@ -127,7 +154,7 @@ export default function PortfolioPage() {
     <div className="flex flex-col min-h-screen bg-slate-50/40 text-slate-800 font-sans lg:pr-[80px]">
       <Header />
 
-      <main className="flex-grow pb-20">
+      <main className="flex-grow">
         {/* HERO SECTION — Clean Light Studio Showcase Header */}
         <section className="relative overflow-hidden bg-white pt-28 pb-12 sm:py-12 lg:py-10">
           {/* Ambient Glow Accents */}
@@ -263,6 +290,49 @@ export default function PortfolioPage() {
                     {cat}
                   </button>
                 ))}
+              </div>
+
+              {/* Row 3: Official Portfolio Brochure Options */}
+              <div className="pt-4 border-t border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-slate-50/50 p-4 rounded-2xl border border-slate-100">
+                <div className="flex items-center gap-3 shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-violet-600 text-white flex items-center justify-center shadow-xs">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-tight text-[#1e1b4b]">
+                      Official Portfolio Brochures
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-medium">
+                      Download or view offline PDF presentations & case studies
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+                  {brochures.map((b, idx) => (
+                    <a
+                      key={idx}
+                      href={b.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex-1 sm:flex-initial flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-violet-600 to-indigo-600 hover:from-pink-600 hover:via-violet-700 hover:to-indigo-700 text-white border border-pink-400/30 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95 cursor-pointer min-w-[220px]"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="text-[8.5px] font-mono font-bold text-pink-700 uppercase tracking-wider bg-white px-2 py-0.5 rounded-full shadow-2xs">
+                            {b.badge}
+                          </span>
+                        </div>
+                        <div className="text-xs font-bold text-white group-hover:text-pink-100 transition-colors truncate">
+                          {b.title}
+                        </div>
+                      </div>
+                      <div className="w-8 h-8 rounded-lg bg-white/20 group-hover:bg-white text-white group-hover:text-pink-600 flex items-center justify-center shrink-0 transition-all backdrop-blur-xs shadow-3xs">
+                        <Download className="w-4 h-4" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
               </div>
 
             </div>
