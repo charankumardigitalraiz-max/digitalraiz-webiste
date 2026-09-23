@@ -14,7 +14,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["Flutter / React Native", "Node.js WebSockets", "Redis Caching", "Firebase Auth", "PostgreSQL"],
     img: "/portfolio/soloohearts.webp",
     logo: "/project-logs/sherla-properties.webp",
-    url: "#",
+    url: "https://play.google.com/store/apps/details?id=com.talkraiz.app&pcampaignid=web_share",
     metrics: { val1: "50K+", label1: "Active Users", val2: "4.9★", label2: "User Rating" }
   },
   {
@@ -28,7 +28,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["React Native", "Next.js REST API", "Node.js Microservices", "Tailwind Mobile UI", "Stripe Healthcare API"],
     img: "/portfolio/medicompares.jpg",
     logo: "/project-logs/MediCompares_Logo.webp",
-    url: "#",
+    url: "https://play.google.com/store/apps/details?id=com.medicompares.medicompares&pcampaignid=web_share",
     metrics: { val1: "100K+", label1: "Lab Searches", val2: "99.9%", label2: "Uptime SLA" }
   },
   {
@@ -103,7 +103,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["React.js", "Next.js Static Pages", "Tailwind CSS", "Medical Directory API", "Vercel"],
     img: "/websites/India-s-Healthcare-Comparison-Platform-MediCompares.webp",
     logo: "/project-logs/MediCompares_Logo.webp",
-    url: "#",
+    url: "https://medicompares.com/",
     metrics: { val1: "150K+", label1: "Searches", val2: "A+", label2: "SSL Grade" }
   },
   {
@@ -117,7 +117,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["React.js", "Next.js SSG", "Tailwind CSS", "Clinic Locator API", "Node.js REST"],
     img: "/websites/skanda-life-line-hospital.webp",
     logo: "/project-logs/skanda.webp",
-    url: "#",
+    url: "https://www.skandalifelinehospitals.com/",
     metrics: { val1: "50+", label1: "Specialists", val2: "99.9%", label2: "Uptime" }
   },
   {
@@ -131,7 +131,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["React.js", "Tailwind CSS", "Next.js Pre-rendering", "Booking Scheduler API"],
     img: "/websites/Live-Well-Rehabilitation-Network-Child-Therapy-Center.webp",
     logo: "/project-logs/livewell.webp",
-    url: "#",
+    url: "https://www.livewellrehabilitationnetwork.com/",
     metrics: { val1: "10K+", label1: "Patients Served", val2: "4.9★", label2: "Rating" }
   },
   // {
@@ -159,7 +159,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["Next.js", "Tailwind CSS", "React Dynamic Search", "Framer Motion", "Vercel"],
     img: "/websites/Real-estate-company-projects-in-sangareddy-Insaat-infra-Insaat-Infra.webp",
     logo: "/project-logs/insaatinfra.webp",
-    url: "#",
+    url: "https://www.insaatinfra.in/",
     metrics: { val1: "50+", label1: "Projects", val2: "100%", label2: "HMDA Verified" }
   },
   {
@@ -173,7 +173,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["Next.js", "Tailwind CSS", "React Dynamic Filters", "Node.js REST", "Vercel"],
     img: "/websites/GreenCo-Estate-Luxury-Apartments-Plots.webp",
     logo: "/project-logs/greenco-logo.webp",
-    url: "#",
+    url: "https://greencoestates.com/",
     metrics: { val1: "100+", label1: "Verified Plots", val2: "100%", label2: "RERA Approved" }
   },
   {
@@ -201,7 +201,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["Next.js", "React.js", "Tailwind CSS", "Node.js API", "PostgreSQL"],
     img: "/websites/Top-Entrepreneurship-Business-Management-Institute-in-Hyderabad-IEBM.webp",
     logo: "/project-logs/iebm.webp",
-    url: "#",
+    url: "https://iebm.in/",
     metrics: { val1: "5K+", label1: "Graduates", val2: "100+", label2: "Startups Incubated" }
   },
   {
@@ -215,7 +215,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     tech: ["React.js", "Next.js", "Tailwind CSS", "Node.js REST", "MongoDB"],
     img: "/websites/All-home-need-services-in-nellore-JBFMS-Your-One-Stop-Solution-for-for-your-home-services.webp",
     logo: "/project-logs/jbfms.webp",
-    url: "#",
+    url: "https://jbfmsindia.com/",
     metrics: { val1: "25K+", label1: "Jobs Completed", val2: "4.8★", label2: "Service Rating" }
   },
   // {
